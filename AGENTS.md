@@ -75,20 +75,21 @@ Badges, pills, status tags, chips: **sentence case** only.
 
 ---
 
-## 6. aero-ds npm package
+## 6. Design constants (in-repo)
 
-`@balajik-cmyk/aero-ds` is the published package — import from it, don't duplicate constants.
+Shell, floating panel, modal overlay, slide motion, and L1 icon tokens live in this repo — **not** an npm design-system package.
 
 | Import | Provides |
 |---|---|
-| `import { cn } from "@balajik-cmyk/aero-ds"` | Tailwind merge utility |
-| `import { DESIGN_VERSION } from "@balajik-cmyk/aero-ds"` | Design version token |
-| `import { APP_SHELL_BELOW_TOPBAR_CARD_CLASS, APP_SHELL_GUTTER_SURFACE_CLASS, APP_MAIN_CONTENT_SHELL_CLASS } from "@balajik-cmyk/aero-ds"` | Shell layout |
-| `import { FLOATING_PANEL_SURFACE_CLASSNAME, FLOATING_PANEL_LIST_PADDING_CLASSNAME } from "@balajik-cmyk/aero-ds"` | Floating panel |
-| `import { SLIDE_MS, SLIDE_EASING } from "@balajik-cmyk/aero-ds"` | Motion constants |
-| `import "@balajik-cmyk/aero-ds/theme.css"` | Canonical token CSS |
+| `import { cn } from "@/app/components/ui/utils"` | Tailwind merge utility |
+| `import { … } from "@/app/components/layout/appShellClasses"` | App shell layout |
+| `import { FLOATING_PANEL_* } from "@/app/components/ui/floatingPanelSurface"` | Floating panel |
+| `import { SLIDE_MS, SLIDE_EASING } from "@/app/components/layout/slidePanelConstants"` | Motion constants |
+| `import { MODAL_OVERLAY_VISUAL_CLASS } from "@/app/components/ui/modalOverlayClasses"` | Modal scrim |
+| `import { L1_STRIP_ICON_* } from "@/app/components/l1StripIconTokens"` | L1 icon size/stroke |
+| `src/styles/theme.css` | Colour and app-shell CSS variables |
 
-Do **not** modify `aero-ds/` directly — it is a separate repo. Open a PR at `github.com/balajik-cmyk/aero-ds`, publish a new version, then update the version pin in `package.json`.
+Elemental (`packages/elemental`) is the component/token catalog for production alignment; prototype shell constants stay in `src/app/components/` until explicitly migrated.
 
 ---
 
