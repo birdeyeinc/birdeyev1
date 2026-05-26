@@ -1,8 +1,0 @@
-@mixin center-inline-all() {
-    display: -webkit-inline-flex; /* For older WebKit browsers (Safari, older Chrome) */
-    display: -moz-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}

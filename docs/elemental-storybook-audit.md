@@ -2,7 +2,7 @@
 
 **Source:** birdeyev2 `main` (~137 `src/stories` files) vs Elemental `BK-BIRD-00000-learning` (~101 catalog stories + Styles/).
 
-**Policy:** Elemental Storybook (`packages/elemental`, port 3000) is the only design catalog. Root app Storybook removed.
+**Policy:** Elemental Storybook (external `elemental` repo, port 3000 via `npm run storybook:elemental`) is the only design catalog. Root app Storybook removed. App consumes `@birdeye/elemental` from npm — not a vendored `packages/elemental` copy.
 
 ## Legend
 

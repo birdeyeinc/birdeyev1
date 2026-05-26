@@ -89,7 +89,7 @@ Shell, floating panel, modal overlay, slide motion, and L1 icon tokens live in t
 | `import { L1_STRIP_ICON_* } from "@/app/components/l1StripIconTokens"` | L1 icon size/stroke |
 | `src/styles/theme.css` | Colour and app-shell CSS variables |
 
-Elemental (`packages/elemental`) is the component/token catalog for production alignment; prototype shell constants stay in `src/app/components/` until explicitly migrated.
+Elemental is consumed via npm (`@birdeye/elemental`). Build with `npm run build:elemental`; Storybook with `npm run storybook:elemental` (uses `../Source/elemental` or `ELEMENTAL_ROOT`). Prototype shell constants stay in `src/app/components/` until explicitly migrated.
 
 ---
 

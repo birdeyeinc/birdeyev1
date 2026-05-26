@@ -9,6 +9,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "build:elemental": "node scripts/elemental-build.mjs",
+    "storybook:elemental": "node scripts/elemental-storybook.mjs",
     "dev": "vite",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
@@ -18,6 +20,7 @@
     "test:e2e:report": "playwright show-report"
   },
   "dependencies": {
+    "@birdeye/elemental": "1.2.5",
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
