@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { Button } from '@/app/components/ui/button';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 const LINE_HEIGHT = 20;
 const MAX_LINES = 6;
 const MAX_TEXTAREA_HEIGHT = MAX_LINES * LINE_HEIGHT + 8 + 8;

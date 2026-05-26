@@ -220,7 +220,7 @@ function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => voi
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-2 text-center")}>
           Meet your AI agents
         </h1>
-        <p className="text-[15px] text-[#888] dark:text-muted-foreground text-center mb-8 mx-auto max-w-[366px]" style={{ fontWeight: 300 }}>
+        <p className="text-[15px] text-[#888] dark:text-muted-foreground text-center mb-8 mx-auto max-w-[366px] font-regular">
           Tell us what you'd like help with, and we'll set up the right agents for you.
         </p>
 
@@ -238,7 +238,7 @@ function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => voi
                     <path d="M4.5 6L5.5 7L7.5 5" stroke="#2552ED" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" />
                   </svg>
                 </div>
-                <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 300 }}>
+                <span className="text-[13px] text-[#212121] dark:text-foreground font-regular">
                   {cap}
                 </span>
               </div>
@@ -262,7 +262,7 @@ function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => voi
             variant="ghost"
             onClick={onSkip}
             className="text-[13px] text-[#999] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#8b92a5] hover:bg-transparent"
-            style={{ fontWeight: 300 }}
+
           >
             Skip for now
           </Button>
@@ -292,7 +292,7 @@ function ChooseStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-1")}>
           What would you like AI to help with?
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6" style={{ fontWeight: 300 }}>
+        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6 font-regular">
           Select the areas where you'd like to deploy agents. You can change this later.
         </p>
 
@@ -322,7 +322,7 @@ function ChooseStep({
                   <p className={`text-[14px] tracking-[-0.28px] ${isSelected ? "text-[#2552ED] dark:text-[#6b9bff]" : "text-[#212121] dark:text-foreground"}`} style={{ fontWeight: 400 }}>
                     {p.label}
                   </p>
-                  <p className="text-[12px] text-[#888] dark:text-muted-foreground mt-0.5" style={{ fontWeight: 300 }}>
+                  <p className="text-[12px] text-[#888] dark:text-muted-foreground mt-0.5 font-regular">
                     {p.description}
                   </p>
                 </div>
@@ -392,7 +392,7 @@ function ContextStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-1")}>
           A few quick questions
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6" style={{ fontWeight: 300 }}>
+        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6 font-regular">
           Help us configure the right settings for your agents.
         </p>
 
@@ -435,7 +435,7 @@ function ContextStep({
                         </div>
                         <span
                           className={`text-[13px] ${isSelected ? "text-[#212121] dark:text-foreground" : "text-[#555] dark:text-muted-foreground"}`}
-                          style={{ fontWeight: 300 }}
+
                         >
                           {opt.label}
                         </span>
@@ -497,7 +497,7 @@ function RecommendStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-1")}>
           We've prepared these agents for you
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6" style={{ fontWeight: 300 }}>
+        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6 font-regular">
           Review your configured agents and enable the ones you'd like to activate.
         </p>
 
@@ -539,7 +539,7 @@ function RecommendStep({
                       {agent.enabled ? "Enabled" : "Enable"}
                     </Button>
                   </div>
-                  <p className="text-[12px] text-[#888] dark:text-muted-foreground mb-2.5" style={{ fontWeight: 300 }}>
+                  <p className="text-[12px] text-[#888] dark:text-muted-foreground mb-2.5 font-regular">
                     {agent.description}
                   </p>
                   {agent.settings.length > 0 && (
@@ -548,7 +548,7 @@ function RecommendStep({
                         <span
                           key={i}
                           className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] bg-[#f5f5f5] dark:bg-muted text-[#555] dark:text-muted-foreground border border-[#e5e9f0] dark:border-border"
-                          style={{ fontWeight: 300 }}
+
                         >
                           <Zap className="w-2.5 h-2.5" />
                           {s}
@@ -574,7 +574,7 @@ function RecommendStep({
             Back
           </Button>
           <div className="flex items-center gap-3">
-            <span className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+            <span className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">
               {enabledCount} of {agents.length} enabled
             </span>
             <Button
@@ -625,7 +625,7 @@ function TestStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-1")}>
           Test your agents
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6" style={{ fontWeight: 300 }}>
+        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6 font-regular">
           See how your agents respond in real scenarios before going live.
         </p>
 
@@ -653,11 +653,11 @@ function TestStep({
                     />
                   ))}
                 </div>
-                <span className="text-[11px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+                <span className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">
                   — {sampleReview.author}
                 </span>
               </div>
-              <p className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 300 }}>
+              <p className="text-[13px] text-[#212121] dark:text-foreground font-regular">
                 "{sampleReview.text}"
               </p>
             </div>
@@ -682,7 +682,7 @@ function TestStep({
                   <div className="w-1.5 h-1.5 rounded-full bg-[#2552ED] animate-bounce" style={{ animationDelay: "150ms" }} />
                   <div className="w-1.5 h-1.5 rounded-full bg-[#2552ED] animate-bounce" style={{ animationDelay: "300ms" }} />
                 </div>
-                <span className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+                <span className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">
                   Generating response...
                 </span>
               </div>
@@ -696,7 +696,7 @@ function TestStep({
                     AI-generated response
                   </span>
                 </div>
-                <p className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 300 }}>
+                <p className="text-[13px] text-[#212121] dark:text-foreground font-regular">
                   {sampleReview.aiResponse}
                 </p>
               </div>
@@ -708,7 +708,7 @@ function TestStep({
             <p className="text-[14px] text-[#555] dark:text-muted-foreground mb-1" style={{ fontWeight: 400 }}>
               Agent testing available after deployment
             </p>
-            <p className="text-[12px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+            <p className="text-[12px] text-[#999] dark:text-muted-foreground font-regular">
               Your enabled agents will begin processing tasks as soon as they're activated.
             </p>
           </div>
@@ -727,7 +727,7 @@ function TestStep({
                     <div className="w-6 h-6 rounded-[6px] bg-[#f0f1f5] dark:bg-muted flex items-center justify-center">
                       <a.icon className="w-3 h-3 text-[#2552ED]" />
                     </div>
-                    <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 300 }}>
+                    <span className="text-[13px] text-[#212121] dark:text-foreground font-regular">
                       {a.name}
                     </span>
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#4caf50] ml-auto" />
@@ -785,7 +785,7 @@ function DoneStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-2 text-center")}>
           Your AI team is ready
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-8" style={{ fontWeight: 300 }}>
+        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-8 font-regular">
           {enabledAgents.length} agent{enabledAgents.length !== 1 ? "s" : ""} activated and running. You'll see activity in the monitor shortly.
         </p>
 
@@ -797,7 +797,7 @@ function DoneStep({
                 <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>
                   {a.name}
                 </span>
-                <span className="text-[11px] text-[#4caf50] ml-auto" style={{ fontWeight: 300 }}>
+                <span className="text-[11px] text-[#4caf50] ml-auto font-regular">
                   Enabled
                 </span>
               </div>

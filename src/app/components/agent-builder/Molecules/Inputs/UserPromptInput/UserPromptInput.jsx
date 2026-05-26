@@ -5,7 +5,7 @@ import BuildIcon from '../icons/build.svg';
 import EditNoteIcon from '../icons/edit_note.svg';
 import './UserPromptInput.css';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const CHIP_CFG = {
   variable: { border: '#d1e5f9', iconBg: '#ecf5fd', iconColor: '#1976d2', icon: 'data_object' },

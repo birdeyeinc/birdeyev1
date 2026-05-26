@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/app/components/ui/button';
 
-const font = '"Roboto", sans-serif';
+const font = 'Inter, arial, sans-serif';
 
 const SearchIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -960 960 960" fill="#616161">

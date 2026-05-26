@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
 import AdvancedConfigDrawer from '../Start/AdvancedConfigDrawer';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const CHANNEL_OPTIONS = [
   { value: 'Text', label: 'Text' },

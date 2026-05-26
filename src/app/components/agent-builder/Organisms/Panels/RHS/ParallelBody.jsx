@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Input } from '@/app/components/ui/input';
 import { Textarea } from '@/app/components/ui/textarea';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 function FieldLabel({ label, required }) {
   return (

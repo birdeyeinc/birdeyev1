@@ -178,11 +178,11 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
           <p className="text-[14px] text-[#212121] dark:text-foreground tracking-[-0.28px]" style={{ fontWeight: 400 }}>
             {activity.agentName}
           </p>
-          <p className="text-[13px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+          <p className="text-[13px] text-[#555] dark:text-muted-foreground font-regular">
             {activity.action}
           </p>
           {activity.detail && (
-            <p className="text-[11px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>{activity.detail}</p>
+            <p className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">{activity.detail}</p>
           )}
         </div>
 
@@ -203,10 +203,10 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
                         : "border-[#E5E7EB] dark:border-[#4d5568] bg-white dark:bg-background"
                     }`} />
                     <div>
-                      <span className="text-[10px] text-[#999] dark:text-muted-foreground tabular-nums" style={{ fontWeight: 300 }}>{step.time}</span>
+                      <span className="text-[10px] text-[#999] dark:text-muted-foreground tabular-nums font-regular">{step.time}</span>
                       <p className="text-[12px] text-[#212121] dark:text-foreground mt-0.5" style={{ fontWeight: 400 }}>{step.label}</p>
                       {step.detail && (
-                        <p className="text-[11px] text-[#777] dark:text-muted-foreground mt-0.5 italic" style={{ fontWeight: 300 }}>{step.detail}</p>
+                        <p className="text-[11px] text-[#777] dark:text-muted-foreground mt-0.5 italic font-regular">{step.detail}</p>
                       )}
                     </div>
                   </div>
@@ -252,7 +252,7 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
           <div>
             <h4 className="text-[12px] text-[#888] dark:text-muted-foreground mb-2 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Response draft</h4>
             <div className="bg-[#fffbf0] dark:bg-[#2a2618] border border-[#f0e6c8] dark:border-[#4a3f20] rounded-[8px] px-4 py-3">
-              <p className="text-[12px] text-[#555] dark:text-muted-foreground italic" style={{ fontWeight: 300 }}>
+              <p className="text-[12px] text-[#555] dark:text-muted-foreground italic font-regular">
                 "{activity.draftText}"
               </p>
             </div>
@@ -274,7 +274,7 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
                   </span>
                   <StarRating rating={activity.reviewLink.rating} />
                 </div>
-                <p className="text-[11px] text-[#555] dark:text-muted-foreground italic" style={{ fontWeight: 300 }}>
+                <p className="text-[11px] text-[#555] dark:text-muted-foreground italic font-regular">
                   "{activity.reviewLink.reviewText}"
                 </p>
               </div>
@@ -283,7 +283,7 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
                 <p className="text-[10px] text-[#888] dark:text-muted-foreground uppercase tracking-wide" style={{ fontWeight: 400 }}>
                   {activity.status === "warning" ? "Drafted response" : "Response sent"}
                 </p>
-                <p className="text-[11px] text-[#212121] dark:text-foreground" style={{ fontWeight: 300 }}>
+                <p className="text-[11px] text-[#212121] dark:text-foreground font-regular">
                   "{activity.reviewLink.generatedResponse}"
                 </p>
               </div>
@@ -317,8 +317,8 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
             <div className="mt-2 bg-[#f0f4ff] dark:bg-[#1a2040] border border-[#d0dbf8] dark:border-[#2e3a5e] rounded-[8px] px-4 py-3 space-y-1">
               {activity.status === "success" && activity.reasoning && activity.reasoning.confidence >= 0.85 && (
                 <>
-                  <p className="text-[11px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300 }}>This action was auto-approved because:</p>
-                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5" style={{ fontWeight: 300 }}>
+                  <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular">This action was auto-approved because:</p>
+                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
                     {activity.reasoning.sentiment && <li>Sentiment was {activity.reasoning.sentiment.toLowerCase()}</li>}
                     <li>Response confidence {">"} 0.85 ({Math.round(activity.reasoning.confidence * 100)}%)</li>
                     <li>Auto-reply policy enabled for this agent</li>
@@ -327,8 +327,8 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
               )}
               {activity.status === "warning" && (
                 <>
-                  <p className="text-[11px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300 }}>This action was flagged for review because:</p>
-                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5" style={{ fontWeight: 300 }}>
+                  <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular">This action was flagged for review because:</p>
+                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
                     <li>Confidence score below auto-approval threshold</li>
                     {activity.reasoning && <li>Current confidence: {Math.round(activity.reasoning.confidence * 100)}%</li>}
                     <li>Human review required per policy</li>
@@ -337,8 +337,8 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
               )}
               {activity.status === "error" && (
                 <>
-                  <p className="text-[11px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300 }}>This action failed because:</p>
-                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5" style={{ fontWeight: 300 }}>
+                  <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular">This action failed because:</p>
+                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
                     <li>External API returned an authentication error</li>
                     <li>Retry attempts exhausted</li>
                     <li>Manual intervention is required to resolve</li>
@@ -346,7 +346,7 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
                 </>
               )}
               {activity.status === "success" && activity.reasoning && activity.reasoning.confidence < 0.85 && (
-                <p className="text-[11px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+                <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular">
                   This action completed successfully. The agent processed the task according to its configured workflow rules.
                 </p>
               )}
@@ -584,7 +584,7 @@ export function AgentsMonitorView({
         <div className={cn("rounded-xl p-6", L2_CONTENT_MUTED_BAND)}>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
             <div className="min-w-0 max-w-md shrink-0 space-y-2">
-              <p className="text-base text-foreground/80" style={{ fontWeight: 300 }}>
+              <p className="text-base text-foreground/80 font-regular">
                 Hi, {userDisplayName}!
               </p>
               <p className="text-sm text-muted-foreground" style={{ fontWeight: 400 }}>
@@ -645,7 +645,7 @@ export function AgentsMonitorView({
                   >
                     <span
                       className="text-[11px] text-[#999] dark:text-muted-foreground whitespace-nowrap mt-0.5 w-[65px] shrink-0 tabular-nums"
-                      style={{ fontWeight: 300 }}
+
                     >
                       {item.time}
                     </span>
@@ -665,11 +665,11 @@ export function AgentsMonitorView({
                         <ActivityCategoryBadge category={item.category} />
                         <ActivityStatusBadge status={item.status} />
                       </div>
-                      <span className="text-[13px] text-[#555] dark:text-muted-foreground block" style={{ fontWeight: 300 }}>
+                      <span className="text-[13px] text-[#555] dark:text-muted-foreground block font-regular">
                         {item.action}
                       </span>
                       {item.detail && (
-                        <p className="text-[11px] text-[#999] dark:text-muted-foreground mt-0.5" style={{ fontWeight: 300 }}>
+                        <p className="text-[11px] text-[#999] dark:text-muted-foreground mt-0.5 font-regular">
                           {item.detail}
                         </p>
                       )}
@@ -678,7 +678,7 @@ export function AgentsMonitorView({
                 );
               })}
               {filteredActivities.length === 0 && (
-                <div className="text-center py-12 text-[13px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>No activities match your filters</div>
+                <div className="text-center py-12 text-[13px] text-[#999] dark:text-muted-foreground font-regular">No activities match your filters</div>
               )}
             </div>
           </div>

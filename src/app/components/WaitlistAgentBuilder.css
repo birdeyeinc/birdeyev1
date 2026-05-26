@@ -12,7 +12,7 @@
 /* ─── Root ─── */
 .wab {
   display: flex; flex-direction: column; height: 100%;
-  font-family: 'Roboto', sans-serif; color: #212121;
+  font-family: var(--font-family-brand), Inter, arial, sans-serif; color: #212121;
   background: #fff; overflow: hidden;
   --text: #555; --text-h: #212121; --bg: #fff; --border: #e5e9f0;
 }
@@ -39,7 +39,7 @@
 .wab__icon-btn:hover { background: rgba(0,0,0,.06); color: #212121; }
 .wab__publish-btn {
   height: 32px; padding: 0 16px; background: #1976d2; color: #fff; border: none;
-  border-radius: 4px; font-size: 14px; font-family: 'Roboto', sans-serif;
+  border-radius: 4px; font-size: 14px; font-family: var(--font-family-brand), Inter, arial, sans-serif;
   cursor: pointer; font-weight: 400; letter-spacing: -0.28px;
 }
 .wab__publish-btn:hover { background: #1565c0; }
@@ -58,7 +58,7 @@
 .lhs-drawer__tab {
   flex: 1; display: flex; flex-direction: column; align-items: center;
   gap: 4px; padding: 8px; background: transparent; border: none; cursor: pointer;
-  font-size: 14px; font-family: 'Roboto', sans-serif; line-height: 20px;
+  font-size: 14px; font-family: var(--font-family-brand), Inter, arial, sans-serif; line-height: 20px;
   letter-spacing: -0.28px; color: #555;
 }
 .lhs-drawer__tab--active { color: #212121; }
@@ -72,7 +72,7 @@
 }
 .lhs-drawer__search-icon { color: #9e9e9e; flex-shrink: 0; }
 .lhs-drawer__search-input {
-  flex: 1; border: none; outline: none; font-size: 14px; font-family: 'Roboto', sans-serif;
+  flex: 1; border: none; outline: none; font-size: 14px; font-family: var(--font-family-brand), Inter, arial, sans-serif;
   color: #212121; background: transparent;
 }
 .lhs-drawer__search-input::placeholder { color: #9e9e9e; }
@@ -114,7 +114,7 @@
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 32px; background: #fff; border: 1px solid #e5e9f0;
   border-radius: 200px; box-shadow: 0px 4px 8px rgba(33,33,33,.18);
-  font-family: 'Roboto', sans-serif; cursor: pointer;
+  font-family: var(--font-family-brand), Inter, arial, sans-serif; cursor: pointer;
 }
 .start-node__icon { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: #6834b7; }
 .start-node__icon .material-symbols-outlined { font-size: 24px !important; width: 24px; height: 24px; }
@@ -140,7 +140,7 @@
   width: 400px; padding: 20px; background: #fff; border-radius: 8px;
   border: 1.5px solid transparent; box-shadow: 0px 2px 12px rgba(33,33,33,.06);
   display: flex; flex-direction: column; gap: 20px;
-  font-family: 'Roboto', sans-serif; cursor: pointer;
+  font-family: var(--font-family-brand), Inter, arial, sans-serif; cursor: pointer;
   transition: border-color .15s, box-shadow .15s;
 }
 .canvas-node:hover { border-color: #ccd5e4; box-shadow: 0px 4px 16px rgba(33,33,33,.12); }
@@ -192,14 +192,14 @@
 .end-node {
   background: #eaeaea; border-radius: 4px; padding: 2px 8px;
   font-size: 12px; font-weight: 400; line-height: 18px; letter-spacing: -0.24px;
-  color: #555; white-space: nowrap; font-family: 'Roboto', sans-serif;
+  color: #555; white-space: nowrap; font-family: var(--font-family-brand), Inter, arial, sans-serif;
 }
 
 /* ─── RHS panel ─── */
 .wab__rhs { padding: 8px; flex-shrink: 0; height: 100%; display: flex; flex-direction: column; }
 .rhs-drawer {
   width: 360px; height: 100%; background: #fff; border: 1px solid #e5e9f0;
-  border-radius: 8px; display: flex; flex-direction: column; font-family: 'Roboto', sans-serif;
+  border-radius: 8px; display: flex; flex-direction: column; font-family: var(--font-family-brand), Inter, arial, sans-serif;
   color: #212121; overflow: hidden;
 }
 .rhs-drawer__header {
@@ -222,13 +222,13 @@
 }
 .rhs-drawer__input {
   width: 100%; height: 36px; border: 1px solid #ccc; border-radius: 4px;
-  padding: 0 12px; font-size: 14px; font-family: 'Roboto', sans-serif;
+  padding: 0 12px; font-size: 14px; font-family: var(--font-family-brand), Inter, arial, sans-serif;
   color: #212121; outline: none; letter-spacing: -0.28px;
 }
 .rhs-drawer__input:focus { border-color: #1976d2; }
 .rhs-drawer__textarea {
   width: 100%; min-height: 80px; border: 1px solid #ccc; border-radius: 4px;
-  padding: 8px 12px; font-size: 14px; font-family: 'Roboto', sans-serif;
+  padding: 8px 12px; font-size: 14px; font-family: var(--font-family-brand), Inter, arial, sans-serif;
   color: #212121; outline: none; resize: vertical; line-height: 20px;
   letter-spacing: -0.28px;
 }
@@ -238,7 +238,7 @@
 }
 .rhs-drawer__save-btn {
   width: 100%; height: 36px; background: #1976d2; color: #fff; border: none;
-  border-radius: 4px; font-size: 14px; font-family: 'Roboto', sans-serif;
+  border-radius: 4px; font-size: 14px; font-family: var(--font-family-brand), Inter, arial, sans-serif;
   cursor: pointer; font-weight: 400; letter-spacing: -0.28px;
 }
 .rhs-drawer__save-btn:hover { background: #1565c0; }

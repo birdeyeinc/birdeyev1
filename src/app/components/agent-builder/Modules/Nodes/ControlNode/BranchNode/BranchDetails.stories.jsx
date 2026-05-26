@@ -38,7 +38,7 @@ export const CanvasPreview = {
       fontSize: 13,
       color: '#1a2b4a',
       whiteSpace: 'nowrap',
-      fontFamily: '"Roboto", arial, sans-serif',
+      fontFamily: '"Inter", arial, sans-serif',
     }}>
       <span style={{ flex: 1 }}>Positive Reviews</span>
       <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8d9dca' }}>info</span>

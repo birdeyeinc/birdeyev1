@@ -11,7 +11,7 @@ import BuildIcon from '../../../Molecules/Inputs/icons/build.svg';
 import EditNoteIcon from '../../../Molecules/Inputs/icons/edit_note.svg';
 import AiWandIcon from './icons/ai_text_grammar_wand.svg';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 function fieldsToText(fields) {
   if (!fields) return '';

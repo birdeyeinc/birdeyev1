@@ -679,7 +679,7 @@ export function IconStrip({
                           />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[13px] text-foreground truncate" style={{ fontWeight: 400 }}>John Doe</p>
+                          <p className="text-[13px] font-regular text-foreground truncate">John Doe</p>
                           <p className="text-[11px] text-muted-foreground truncate">john.doe@acmecorp.com</p>
                         </div>
                       </div>
@@ -795,7 +795,7 @@ export function IconStrip({
                           aria-hidden
                         />
                       </Button>
-                      <span className="flex-1 text-[14px] text-foreground" style={{ fontWeight: 400 }}>
+                      <span className="flex-1 text-[14px] font-regular text-foreground">
                         Switch appearance
                       </span>
                     </div>
@@ -996,8 +996,7 @@ export function L2NavPanel({ currentView: _currentView, onViewChange }: L2NavPan
         <button
           type="button"
           onClick={() => toggleDashboard(section.label)}
-          className={SECTION_HEADER}
-          style={{ fontWeight: 400 }}
+          className={`${SECTION_HEADER} font-regular`}
         >
           <span>{section.label}</span>
           {isExp
@@ -1013,8 +1012,7 @@ export function L2NavPanel({ currentView: _currentView, onViewChange }: L2NavPan
               type="button"
               key={key}
               onClick={() => activate(key)}
-              className={isActive ? CHILD_ACTIVE : CHILD_INACTIVE}
-              style={{ fontWeight: isActive ? 400 : 300 }}
+              className={`${isActive ? CHILD_ACTIVE : CHILD_INACTIVE} ${isActive ? "font-medium" : "font-regular"}`}
             >
               {child}
             </button>
@@ -1031,8 +1029,7 @@ export function L2NavPanel({ currentView: _currentView, onViewChange }: L2NavPan
         <button
           type="button"
           onClick={() => toggleReport(section.label)}
-          className={SECTION_HEADER}
-          style={{ fontWeight: 400 }}
+          className={`${SECTION_HEADER} font-regular`}
         >
           <span>{section.label}</span>
           {isExp
@@ -1048,8 +1045,7 @@ export function L2NavPanel({ currentView: _currentView, onViewChange }: L2NavPan
               type="button"
               key={key}
               onClick={() => activate(key)}
-              className={isActive ? CHILD_ACTIVE : CHILD_INACTIVE}
-              style={{ fontWeight: isActive ? 400 : 300 }}
+              className={`${isActive ? CHILD_ACTIVE : CHILD_INACTIVE} ${isActive ? "font-medium" : "font-regular"}`}
             >
               {child}
             </button>
@@ -1279,8 +1275,7 @@ function SocialL2NavPlaceholder() {
         {SOCIAL_PLACEHOLDER_ROWS.map((label, index) => (
           <div
             key={label}
-            className={`${ROW} text-left ${index === 2 ? `text-foreground ${L2_ROW_SELECTED_BG}` : "text-muted-foreground"}`}
-            style={{ fontWeight: index === 2 ? 400 : 300 }}
+            className={`${ROW} text-left ${index === 2 ? `text-foreground font-medium ${L2_ROW_SELECTED_BG}` : "font-regular text-muted-foreground"}`}
             aria-current={index === 2 ? "page" : undefined}
           >
             {label}

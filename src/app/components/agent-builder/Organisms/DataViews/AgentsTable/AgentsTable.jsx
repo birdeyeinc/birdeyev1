@@ -156,7 +156,7 @@ const COLUMNS = [
 export default function AgentsTable({ agents = DEFAULT_AGENTS, onRowClick, onAction }) {
   return (
     <div style={{ background: '#fff', overflowX: 'auto' }} className="agents-table">
-      <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: '"Roboto", arial, sans-serif', fontSize: 13 }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: '"Inter", arial, sans-serif', fontSize: 13 }}>
         <thead>
           <tr style={{ borderBottom: '1px solid #e5e9f0' }}>
             {COLUMNS.map((col) => (

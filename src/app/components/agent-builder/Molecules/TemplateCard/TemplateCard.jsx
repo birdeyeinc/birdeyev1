@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/app/components/ui/button';
 
-const font = '"Roboto", sans-serif';
+const font = 'Inter, arial, sans-serif';
 
 export default function TemplateCard({ title, description, onUse, onTitleClick }) {
   const [hovered, setHovered] = useState(false);

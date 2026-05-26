@@ -4,7 +4,7 @@ import { Textarea } from '@/app/components/ui/textarea';
 import { Button } from '@/app/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/app/components/ui/dialog';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const CHANNEL_TRIGGER_OPTIONS = {
   Voice: [{ value: 'Call received', label: 'Call received' }],

@@ -251,7 +251,7 @@ function InsightBlock({ text }: { text: string }) {
       </div>
       <div>
         <p className="text-[13px] text-[#9970D7] dark:text-[#b89ce6] mb-1 tracking-[-0.26px]" style={{ fontWeight: 400 }}>BirdAI insight</p>
-        <p className="text-[13px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300 }}>{text}</p>
+        <p className="text-[13px] text-[#555] dark:text-muted-foreground font-regular">{text}</p>
       </div>
     </div>
   );
@@ -274,7 +274,7 @@ function CustomTooltip({ active, payload, label }: any) {
     <div className="bg-white dark:bg-muted border border-[#E5E7EB] dark:border-border rounded-[8px] px-3 py-2 text-[12px]">
       <p className="text-[#212121] dark:text-foreground mb-1" style={{ fontWeight: 400 }}>{label}</p>
       {payload.map((p: any, i: number) => (
-        <p key={i} style={{ color: p.color, fontWeight: 300 }}>{p.name}: {p.value}</p>
+        <p key={i} style={{ color: p.color}}>{p.name}: {p.value}</p>
       ))}
     </div>
   );
@@ -345,7 +345,7 @@ function ExecutiveImpactPage() {
                 verticalAlign="bottom"
                 iconType="circle"
                 iconSize={8}
-                formatter={(v: string) => <span className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 300 }}>{v}</span>}
+                formatter={(v: string) => <span className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">{v}</span>}
               />
             </PieChart>
           </ResponsiveContainer>
@@ -367,7 +367,7 @@ function ExecutiveImpactPage() {
             {topAgents.map(a => (
               <tr key={a.name} className="border-b border-[#f8f9fa] dark:border-[#262b35] last:border-0">
                 <td className="py-2.5 text-[length:var(--font-size)] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{a.name}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums" style={{ fontWeight: 300 }}>{a.tasks}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums font-regular">{a.tasks}</td>
                 <td className="py-2.5 text-[length:var(--font-size)] text-[#4caf50] text-left tabular-nums" style={{ fontWeight: 400 }}>{a.rate}</td>
               </tr>
             ))}
@@ -415,9 +415,9 @@ function AgentPerformancePage() {
               <tr key={row.agent} className="border-b border-[#f8f9fa] dark:border-[#262b35] last:border-0">
                 <td className="py-2.5 text-[length:var(--font-size)] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{row.agent}</td>
                 <td className="py-2.5 text-[length:var(--font-size)] text-[#4caf50] text-left tabular-nums" style={{ fontWeight: 400 }}>{row.success}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums" style={{ fontWeight: 300 }}>{row.volume}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#ef5350] text-left tabular-nums" style={{ fontWeight: 300 }}>{row.failures}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums" style={{ fontWeight: 300 }}>{row.avgTime}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums font-regular">{row.volume}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-[#ef5350] text-left tabular-nums font-regular">{row.failures}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums font-regular">{row.avgTime}</td>
               </tr>
             ))}
           </tbody>
@@ -485,7 +485,7 @@ function AttentionRiskPage() {
               )}
               <div className="flex-1 min-w-0">
                 <p className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{item.agent}</p>
-                <p className="text-[12px] text-[#888] dark:text-muted-foreground mt-0.5" style={{ fontWeight: 300 }}>{item.issue}</p>
+                <p className="text-[12px] text-[#888] dark:text-muted-foreground mt-0.5 font-regular">{item.issue}</p>
               </div>
               <button className="text-[12px] text-[#2552ED] dark:text-[#6b9bff] hover:underline shrink-0" style={{ fontWeight: 400 }}>
                 View in monitor

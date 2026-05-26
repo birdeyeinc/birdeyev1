@@ -75,8 +75,8 @@ const DEFAULT_STEPS: Step[] = [
 function Avatar({ initials, color, size = 24 }: { initials: string; color: string; size?: number }) {
   return (
     <div
-      style={{ width: size, height: size, backgroundColor: color, borderRadius: '50%', flexShrink: 0, fontSize: size * 0.38, fontWeight: 600, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-      className="font-['Roboto:Medium',sans-serif]"
+      style={{ width: size, height: size, backgroundColor: color, borderRadius: '50%', flexShrink: 0, fontSize: size * 0.38, fontWeight: 500, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      className="font-medium "
     >
       {initials}
     </div>
@@ -87,9 +87,9 @@ function Avatar({ initials, color, size = 24 }: { initials: string; color: strin
 
 function LocationLabel({ approver }: { approver: Approver }) {
   if (approver.locationType === 'all') {
-    return <span className="text-[12px] text-[#1976d2] dark:text-[#5b9cf6] font-['Roboto:Regular',sans-serif]">All locations</span>;
+    return <span className="text-[12px] text-[#1976d2] dark:text-[#5b9cf6] ">All locations</span>;
   }
-  return <span className="text-[12px] text-[#555] dark:text-[#9ba2b0] font-['Roboto:Regular',sans-serif]">{approver.locations.length} location{approver.locations.length !== 1 ? 's' : ''}</span>;
+  return <span className="text-[12px] text-[#555] dark:text-[#9ba2b0] ">{approver.locations.length} location{approver.locations.length !== 1 ? 's' : ''}</span>;
 }
 
 // ─── Approver Chip (inline in the input box) ────────────────────────────────────
@@ -98,7 +98,7 @@ function ApproverChip({ approver, onRemove }: { approver: Approver; onRemove: ()
   return (
     <div className="inline-flex items-center gap-[6px] h-[28px] pl-[4px] pr-[6px] rounded-[4px] border border-[#e5e9f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] shrink-0">
       <Avatar initials={approver.initials} color={approver.color} size={20} />
-      <span className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0] whitespace-nowrap">{approver.name}</span>
+      <span className="text-[13px] text-[#212121] dark:text-[#e4e8f0] whitespace-nowrap">{approver.name}</span>
       <button className="text-[#aaa] dark:text-[#6b7a94] hover:text-[#555] dark:hover:text-[#9ba2b0] flex items-center" onClick={e => { e.stopPropagation(); }}>
         <Info size={14} />
       </button>
@@ -115,10 +115,10 @@ function LocationPopover({ locations }: { locations: string[] }) {
   return (
     <div className="absolute left-full top-0 ml-[4px] z-30 bg-white dark:bg-[#1e2229] border border-[#e5e9f0] dark:border-[#2e3340] rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.4)] w-[200px] py-[8px]">
       <div className="px-[16px] pb-[6px]">
-        <span className="font-['Roboto:Medium',sans-serif] text-[12px] text-[#757575] dark:text-[#6b7a94] uppercase tracking-[0.5px]">Locations</span>
+        <span className="font-medium text-[12px] text-[#757575] dark:text-[#6b7a94] uppercase tracking-[0.5px]">Locations</span>
       </div>
       {locations.slice(0, 6).map(loc => (
-        <div key={loc} className="px-[16px] py-[5px] font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0] hover:bg-[#f5f7ff] dark:hover:bg-[#252a35] cursor-default">{loc}</div>
+        <div key={loc} className="px-[16px] py-[5px] text-[13px] text-[#212121] dark:text-[#e4e8f0] hover:bg-[#f5f7ff] dark:hover:bg-[#252a35] cursor-default">{loc}</div>
       ))}
     </div>
   );
@@ -156,9 +156,9 @@ function ApproverDropdown({
     <div ref={ref} className="absolute top-full left-0 mt-[4px] z-20 bg-white dark:bg-[#1e2229] border border-[#e5e9f0] dark:border-[#2e3340] rounded-[8px] shadow-[0_4px_20px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]" style={{ width: 460 }}>
       {/* Filter header */}
       <div className="flex items-center gap-[4px] px-[16px] pt-[12px] pb-[8px]">
-        <span className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#555] dark:text-[#9ba2b0]">Filter users</span>
+        <span className="text-[13px] text-[#555] dark:text-[#9ba2b0]">Filter users</span>
         <button
-          className="inline-flex items-center gap-[2px] font-['Roboto:Regular',sans-serif] text-[13px] text-[#1976d2] dark:text-[#5b9cf6]"
+          className="inline-flex items-center gap-[2px] text-[13px] text-[#1976d2] dark:text-[#5b9cf6]"
           onClick={() => setLocationFilter(locationFilter === 'all' ? 'partial' : 'all')}
         >
           {locationFilter === 'all' ? 'All locations' : 'Specific locations'}
@@ -175,14 +175,14 @@ function ApproverDropdown({
           placeholder="Search"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="w-full h-[36px] pl-[34px] pr-[12px] border border-[#e5e9f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] rounded-[6px] font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0] outline-none focus:border-[#1976d2] dark:focus:border-[#5b9cf6] placeholder-[#aaa] dark:placeholder:text-[#6b7a94]"
+          className="w-full h-[36px] pl-[34px] pr-[12px] border border-[#e5e9f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] rounded-[6px] text-[13px] text-[#212121] dark:text-[#e4e8f0] outline-none focus:border-[#1976d2] dark:focus:border-[#5b9cf6] placeholder-[#aaa] dark:placeholder:text-[#6b7a94]"
         />
       </div>
 
       {/* User list */}
       <div className="max-h-[240px] overflow-y-auto">
         {filtered.length === 0 ? (
-          <div className="px-[16px] py-[12px] font-['Roboto:Regular',sans-serif] text-[13px] text-[#aaa] dark:text-[#6b7a94]">No users found</div>
+          <div className="px-[16px] py-[12px] text-[13px] text-[#aaa] dark:text-[#6b7a94]">No users found</div>
         ) : (() => {
           const allLoc   = filtered.filter(a => a.locationType === 'all');
           const partial  = filtered.filter(a => a.locationType === 'partial');
@@ -196,13 +196,13 @@ function ApproverDropdown({
             >
               <Avatar initials={approver.initials} color={approver.color} size={28} />
               <div className="flex flex-col flex-1 min-w-0">
-                <span className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0]">{approver.name}</span>
+                <span className="text-[13px] text-[#212121] dark:text-[#e4e8f0]">{approver.name}</span>
                 <div className="flex items-center gap-[4px]">
                   {approver.locationType === 'all' ? (
-                    <span className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#1976d2] dark:text-[#5b9cf6]">All locations</span>
+                    <span className="text-[12px] text-[#1976d2] dark:text-[#5b9cf6]">All locations</span>
                   ) : (
                     <>
-                      <span className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#555] dark:text-[#9ba2b0]">
+                      <span className="text-[12px] text-[#555] dark:text-[#9ba2b0]">
                         {approver.locations.length} location{approver.locations.length !== 1 ? 's' : ''}
                       </span>
                       <ChevronDown size={13} className="text-[#555] dark:text-[#9ba2b0]" />
@@ -221,8 +221,8 @@ function ApproverDropdown({
                 <>
                   {/* Recommended section label — subtle */}
                   <div className="px-[12px] pt-[6px] pb-[2px] flex items-center gap-[4px]">
-                    <span className="font-['Roboto:Medium',sans-serif] text-[11px] text-[#1976d2] dark:text-[#5b9cf6] uppercase tracking-[0.5px]">Recommended</span>
-                    <span className="font-['Roboto:Regular',sans-serif] text-[11px] text-[#aaa] dark:text-[#6b7a94]">· covers all locations</span>
+                    <span className="font-medium text-[11px] text-[#1976d2] dark:text-[#5b9cf6] uppercase tracking-[0.5px]">Recommended</span>
+                    <span className="text-[11px] text-[#aaa] dark:text-[#6b7a94]">· covers all locations</span>
                   </div>
                   {allLoc.map(renderRow)}
                   {partial.length > 0 && <div className="mx-[12px] my-[4px] border-t border-[#f0f0f0] dark:border-[#2e3340]" />}
@@ -295,11 +295,11 @@ function StepCard({
             onChange={e => setNameValue(e.target.value)}
             onBlur={finishEditName}
             onKeyDown={e => { if (e.key === 'Enter') finishEditName(); }}
-            className="font-['Roboto:Medium',sans-serif] text-[16px] text-[#212121] dark:text-[#e4e8f0] border-b border-[#1976d2] dark:border-[#5b9cf6] outline-none bg-transparent"
+            className="font-medium text-[16px] text-[#212121] dark:text-[#e4e8f0] border-b border-[#1976d2] dark:border-[#5b9cf6] outline-none bg-transparent"
             style={{ fontVariationSettings: "'wdth' 100" }}
           />
         ) : (
-          <span className="font-['Roboto:Medium',sans-serif] text-[16px] text-[#212121] dark:text-[#e4e8f0]" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <span className="font-medium text-[16px] text-[#212121] dark:text-[#e4e8f0]" style={{ fontVariationSettings: "'wdth' 100" }}>
             {step.name}
           </span>
         )}
@@ -320,18 +320,18 @@ function StepCard({
 
       {/* Require mode row */}
       <div className="px-[20px] pb-[12px] flex items-center gap-[6px]">
-        <span className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#555] dark:text-[#9ba2b0]">Require approval from</span>
-        <button className="inline-flex items-center gap-[2px] font-['Roboto:Regular',sans-serif] text-[13px] text-[#1976d2] dark:text-[#5b9cf6]">
+        <span className="text-[13px] text-[#555] dark:text-[#9ba2b0]">Require approval from</span>
+        <button className="inline-flex items-center gap-[2px] text-[13px] text-[#1976d2] dark:text-[#5b9cf6]">
           {step.requireMode === 'any' ? 'any' : 'all'}
           <ChevronDown size={14} />
         </button>
-        <span className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#555] dark:text-[#9ba2b0]">of these approvers</span>
+        <span className="text-[13px] text-[#555] dark:text-[#9ba2b0]">of these approvers</span>
       </div>
 
       {/* Approvers label + chip input box */}
       <div className="px-[20px] pb-[20px]">
         <div className="mb-[6px]">
-          <span className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#757575] dark:text-[#6b7a94]">Approvers<span className="text-[#de1b0c]">*</span></span>
+          <span className="text-[12px] text-[#757575] dark:text-[#6b7a94]">Approvers<span className="text-[#de1b0c]">*</span></span>
         </div>
 
         {/* Chip input area */}
@@ -347,7 +347,7 @@ function StepCard({
             {/* Blinking cursor input */}
             <input
               type="text"
-              className="outline-none border-none bg-transparent font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0] placeholder-[#bbb] dark:placeholder:text-[#6b7a94] min-w-[40px] flex-1"
+              className="outline-none border-none bg-transparent text-[13px] text-[#212121] dark:text-[#e4e8f0] placeholder-[#bbb] dark:placeholder:text-[#6b7a94] min-w-[40px] flex-1"
               placeholder={step.approvers.length === 0 ? 'Aa' : ''}
               onFocus={() => { if (available.length > 0) setShowDropdown(true); }}
               readOnly
@@ -366,11 +366,11 @@ function StepCard({
 
         {/* Approvers left + subtle coverage hint */}
         <div className="mt-[6px] flex items-center justify-between">
-          <span className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#aaa] dark:text-[#6b7a94]">
+          <span className="text-[12px] text-[#aaa] dark:text-[#6b7a94]">
             {approversLeft} approver{approversLeft !== 1 ? 's' : ''} left
           </span>
           {!covered && step.approvers.length > 0 && (
-            <span className="flex items-center gap-[4px] font-['Roboto:Regular',sans-serif] text-[12px] text-[#f59e0b]">
+            <span className="flex items-center gap-[4px] text-[12px] text-[#f59e0b]">
               <AlertTriangle size={12} />
               Add an all-locations approver to avoid unattended posts
             </span>
@@ -426,12 +426,12 @@ function WorkflowEditor({ workflow, onBack }: { workflow: Workflow; onBack: () =
         <div className="flex items-center gap-[6px] pt-[12px] pb-[4px]">
           <button
             onClick={onBack}
-            className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#1976d2] dark:text-[#5b9cf6] hover:underline"
+            className="text-[13px] text-[#1976d2] dark:text-[#5b9cf6] hover:underline"
           >
             Approvals
           </button>
           <ChevronDown size={13} className="text-[#aaa] dark:text-[#6b7a94] -rotate-90" />
-          <span className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#1976d2] dark:text-[#5b9cf6]">{name}</span>
+          <span className="text-[13px] text-[#1976d2] dark:text-[#5b9cf6]">{name}</span>
         </div>
 
         {/* Title + actions */}
@@ -445,12 +445,12 @@ function WorkflowEditor({ workflow, onBack }: { workflow: Workflow; onBack: () =
                 onChange={e => setName(e.target.value)}
                 onBlur={() => setEditingName(false)}
                 onKeyDown={e => { if (e.key === 'Enter') setEditingName(false); }}
-                className="font-['Roboto:Regular',sans-serif] font-normal text-[22px] text-[#212121] dark:text-[#e4e8f0] border-b-2 border-[#1976d2] dark:border-[#5b9cf6] outline-none bg-transparent"
+                className="font-normal text-[22px] text-[#212121] dark:text-[#e4e8f0] border-b-2 border-[#1976d2] dark:border-[#5b9cf6] outline-none bg-transparent"
                 style={{ fontVariationSettings: "'wdth' 100" }}
               />
             ) : (
               <h1
-                className="font-['Roboto:Regular',sans-serif] font-normal text-[22px] text-[#212121] dark:text-[#e4e8f0] tracking-[-0.44px]"
+                className="font-normal text-[22px] text-[#212121] dark:text-[#e4e8f0] tracking-[-0.44px]"
                 style={{ fontVariationSettings: "'wdth' 100" }}
               >
                 {name}
@@ -466,20 +466,20 @@ function WorkflowEditor({ workflow, onBack }: { workflow: Workflow; onBack: () =
 
           <div className="flex items-center gap-[8px]">
             {saved && (
-              <span className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#34a853] flex items-center gap-[4px]">
+              <span className="text-[13px] text-[#34a853] flex items-center gap-[4px]">
                 <Check size={14} /> Saved
               </span>
             )}
             {/* Subtle coverage warning — only shown on first save attempt if gaps exist */}
             {showCoverageWarning && !saved && (
-              <span className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#f59e0b] flex items-center gap-[4px]">
+              <span className="text-[12px] text-[#f59e0b] flex items-center gap-[4px]">
                 <AlertTriangle size={13} />
                 Some steps may leave posts unattended. Save anyway?
               </span>
             )}
             <button
               onClick={handleSave}
-              className="h-[36px] px-[20px] rounded-[4px] bg-[#1976d2] font-['Roboto:Regular',sans-serif] text-[14px] text-white hover:bg-[#1565c0] transition-colors"
+              className="h-[36px] px-[20px] rounded-[4px] bg-[#1976d2] text-[14px] text-white hover:bg-[#1565c0] transition-colors"
             >
               {showCoverageWarning ? 'Save anyway' : 'Save'}
             </button>
@@ -513,7 +513,7 @@ function WorkflowEditor({ workflow, onBack }: { workflow: Workflow; onBack: () =
               <div className="w-[22px] h-[22px] rounded-full border-2 border-[#1976d2] dark:border-[#5b9cf6] flex items-center justify-center shrink-0">
                 <Plus size={13} strokeWidth={2.5} />
               </div>
-              <span className="font-['Roboto:Regular',sans-serif] text-[14px]">Add step</span>
+              <span className="text-[14px]">Add step</span>
             </button>
           )}
         </div>

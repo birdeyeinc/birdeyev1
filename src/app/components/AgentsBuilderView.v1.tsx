@@ -174,7 +174,7 @@ function ToolboxPanel({ mode, onModeChange }: { mode: BuilderMode; onModeChange:
             {tasksExpanded ? <ChevronUp className="w-3.5 h-3.5 text-[#888]" /> : <ChevronDown className="w-3.5 h-3.5 text-[#888]" />}
           </button>
           {tasksExpanded && (
-            <p className="text-[11px] text-[#999] dark:text-muted-foreground px-2 pb-2" style={{ fontWeight: 300 }}>
+            <p className="text-[11px] text-[#999] dark:text-muted-foreground px-2 pb-2 font-regular">
               Drag task nodes onto the canvas to build your workflow.
             </p>
           )}
@@ -191,7 +191,7 @@ function ToolboxPanel({ mode, onModeChange }: { mode: BuilderMode; onModeChange:
             {controlsExpanded ? <ChevronUp className="w-3.5 h-3.5 text-[#888]" /> : <ChevronDown className="w-3.5 h-3.5 text-[#888]" />}
           </button>
           {controlsExpanded && (
-            <p className="text-[11px] text-[#999] dark:text-muted-foreground px-2 pb-2" style={{ fontWeight: 300 }}>
+            <p className="text-[11px] text-[#999] dark:text-muted-foreground px-2 pb-2 font-regular">
               Add conditional logic, loops, and branching to your flow.
             </p>
           )}
@@ -227,7 +227,7 @@ function CanvasPanel({
             <p className="text-[12px] text-white" style={{ fontWeight: 400 }}>
               Review response agent replying autonomously
             </p>
-            <p className="text-[10px] text-[#9ba2b0]" style={{ fontWeight: 300 }}>
+            <p className="text-[10px] text-[#9ba2b0] font-regular">
               All locations
             </p>
           </div>
@@ -314,7 +314,7 @@ function CanvasPanel({
                   <p className="text-[13px] text-[#212121] dark:text-foreground mb-1" style={{ fontWeight: 400 }}>
                     {node.stepNumber}. {node.label}
                   </p>
-                  <p className="text-[11px] text-[#888] dark:text-muted-foreground leading-[1.5]" style={{ fontWeight: 300 }}>
+                  <p className="text-[11px] text-[#888] dark:text-muted-foreground leading-[1.5] font-regular">
                     {node.description}
                   </p>
                 </div>

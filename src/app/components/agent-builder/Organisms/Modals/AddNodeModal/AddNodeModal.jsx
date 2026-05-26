@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const cardStyle = {
   background: '#fff',

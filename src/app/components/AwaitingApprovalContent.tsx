@@ -39,7 +39,7 @@ function Avatar({ name, size = 38 }: { name: string; size?: number }) {
         fontSize: size * 0.34,
         backgroundImage: "linear-gradient(135deg, rgb(211,220,255) 0%, rgb(236,227,252) 100%)",
         color: "#4a3f8a",
-        fontFamily: "'Roboto:Medium', sans-serif",
+        fontWeight: 500,
         ...RV,
       }}
     >
@@ -469,14 +469,14 @@ export function AwaitingApprovalContent({ postId, onClose }: AwaitingApprovalCon
               <div className="mt-5 rounded-[8px] border border-[#e7edf5] bg-[#fbfcfe] p-5">
                 <p
                   className="whitespace-pre-wrap text-[15px] leading-[24px] text-[#202939]"
-                  style={{ fontFamily: "'Roboto:Regular', sans-serif", ...RV }}
+                  style={{ ...RV }}
                 >
                   {post.caption}
                 </p>
                 {post.hashtags && (
                   <p
                     className="mt-4 text-[15px] leading-[24px] text-[#1f78d1]"
-                    style={{ fontFamily: "'Roboto:Regular', sans-serif", ...RV }}
+                    style={{ ...RV }}
                   >
                     {post.hashtags}
                   </p>

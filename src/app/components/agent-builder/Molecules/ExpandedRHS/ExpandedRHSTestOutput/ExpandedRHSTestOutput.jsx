@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DataType from '../../DataType/DataType';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const colHeaderStyle = {
   display: 'flex',

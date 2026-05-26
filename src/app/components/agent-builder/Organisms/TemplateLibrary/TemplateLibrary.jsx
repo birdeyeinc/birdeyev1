@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/app/components/ui/button';
 import TemplateCard from '../../Molecules/TemplateCard/TemplateCard';
 
-const font = '"Roboto", sans-serif';
+const font = 'Inter, arial, sans-serif';
 
 const DEFAULT_TEMPLATES = [
   { id: '1', title: 'Review response agent replying using templates', description: 'Uses pre-defined templates and responds to reviews automatically.' },

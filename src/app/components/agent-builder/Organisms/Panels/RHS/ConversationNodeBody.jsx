@@ -9,7 +9,7 @@ import ExpandAllBtnIcon from '../../../Molecules/Inputs/icons/expand_all.svg';
 import BuildIcon from '../../../Molecules/Inputs/icons/build.svg';
 import EditNoteIcon from '../../../Molecules/Inputs/icons/edit_note.svg';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 export const LLM_MODEL_OPTIONS = [
   { value: 'Fast', label: 'Fast' },

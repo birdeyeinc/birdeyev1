@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TemplateLibrary from '../../../Organisms/TemplateLibrary/TemplateLibrary';
 
-const font = '"Roboto", sans-serif';
+const font = 'Inter, arial, sans-serif';
 
 function WorkspaceIllustration() {
   return (

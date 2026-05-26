@@ -19,11 +19,14 @@
   --token-l2-border: #e5e9f0;
   --token-l2-width: 220px;
 
-  /* Typography (repeating arbitrary sizes in components) */
+  /* Typography — aligned with Elemental fs scale (BK-BIRD-00000-learning) */
   --token-font-size-xs: 12px;
-  --token-font-size-sm: 13px;
+  --token-font-size-sm: 14px;
   --token-font-size-md: 14px;
-  --token-font-size-heading: 15px;
+  --token-font-size-heading: 16px;
+  --token-font-weight-regular: 400;
+  --token-font-weight-medium: 500;
+  --token-font-family: "Inter", arial, sans-serif;
 
   /* Radius (modals / controls beyond --radius in theme.css) */
   --token-radius-control: 8px;

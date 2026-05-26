@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const CHIP_VARIANTS = {
   variable: { icon: 'data_object', borderColor: '#d1e5f9', iconBg: '#ecf5fd', iconColor: '#1976d2' },

@@ -3,7 +3,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/app/components/ui/textarea';
 import ToolSelectionDrawer from '../../Drawers/ToolSelectionDrawer/ToolSelectionDrawer.jsx';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const toOptions = (items) => items.map((item) => ({ value: item, label: item }));
 
@@ -48,7 +48,7 @@ function ExternalToolIcon({ color, initials }) {
         textAnchor="middle"
         fill="#fff"
         fontSize={initials.length > 1 ? '9' : '12'}
-        fontFamily="Roboto, Arial, sans-serif"
+        fontFamily="Inter, Arial, sans-serif"
         fontWeight="600"
       >
         {initials}

@@ -3,7 +3,7 @@ import AiWandIcon from '../../../Organisms/Panels/RHS/icons/ai_text_grammar_wand
 import CloseIcon from '../../RHS/RHSHeader/icons/close.svg';
 import DotsIcon from '../../../Organisms/Panels/RHS/icons/dots.svg';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const MOCK_GENERATED_FIELDS = [
   'sentiment_score',

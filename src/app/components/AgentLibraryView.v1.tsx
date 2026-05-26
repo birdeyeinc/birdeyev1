@@ -39,7 +39,7 @@ function AgentCardItem({ agent, onClick }: { agent: AgentCard; onClick?: () => v
       </p>
 
       {/* Description */}
-      <p className="text-xs text-muted-foreground leading-relaxed" style={{ fontWeight: 300 }}>
+      <p className="text-xs text-muted-foreground leading-relaxed font-regular">
         {agent.description}
       </p>
 
@@ -55,7 +55,7 @@ function AgentCardItem({ agent, onClick }: { agent: AgentCard; onClick?: () => v
 
       {/* Social proof */}
       {agent.usedBy && (
-        <p className="text-[11px] text-muted-foreground" style={{ fontWeight: 300 }}>
+        <p className="text-[11px] text-muted-foreground font-regular">
           Used by {agent.usedBy} businesses
         </p>
       )}
@@ -80,7 +80,7 @@ function ThemeHero({ theme }: { theme: AgentTheme }) {
       </h2>
       <p
         className="text-xs relative z-[1] mt-1 opacity-80"
-        style={{ fontWeight: 300, color: theme.heroText }}
+        style={{ color: theme.heroText }}
       >
         {theme.subtitle}
       </p>
@@ -129,7 +129,7 @@ export function AgentLibraryView({ activeTheme, onAgentClick }: AgentLibraryView
                 </h2>
                 <p
                   className="text-xs relative mt-1 opacity-80"
-                  style={{ fontWeight: 300, color: theme.heroText }}
+                  style={{ color: theme.heroText }}
                 >
                   {theme.subtitle}
                 </p>

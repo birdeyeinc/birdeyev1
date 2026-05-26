@@ -23,7 +23,7 @@ const DEFAULT_ROWS = [
 export default function PerformanceTable({ rows = DEFAULT_ROWS }) {
   return (
     <div style={{ background: '#fff', overflowX: 'auto' }} className="performance-table">
-      <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: '"Roboto", arial, sans-serif', fontSize: 13 }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: '"Inter", arial, sans-serif', fontSize: 13 }}>
         <thead>
           <tr style={{ borderBottom: '1px solid #e5e9f0' }}>
             {COLUMNS.map((col) => (

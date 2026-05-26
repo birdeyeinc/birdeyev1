@@ -147,7 +147,7 @@ const timezones = [
 
 const themes = ["Executive", "Modern", "Minimal", "Dark analytics", "Corporate", "Clean"];
 const layouts = ["Standard", "Compact", "Presentation", "Dashboard"];
-const fonts = ["Inter", "Roboto", "Helvetica", "Georgia", "Merriweather"];
+const fonts = ["Inter", "Helvetica", "Georgia", "Merriweather"];
 const spacings = ["Comfortable", "Compact", "Spacious"];
 
 /* ═══════════════════════════════════════════
@@ -201,7 +201,7 @@ function AiChatPanel({ onApply }: { onApply: (text: string) => void }) {
                   ? "bg-[#2552ED] text-white rounded-br-[3px]"
                   : "bg-[#f0f1f5] dark:bg-muted text-[#212121] dark:text-foreground rounded-bl-[3px]"
               }`}
-              style={{ fontWeight: 300, lineHeight: "18px", whiteSpace: "pre-wrap" }}
+              style={{ lineHeight: "18px", whiteSpace: "pre-wrap" }}
               dangerouslySetInnerHTML={{ __html: msg.text.replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight:400">$1</strong>').replace(/\n/g, '<br/>') }}
             />
           </div>
@@ -227,7 +227,7 @@ function AiChatPanel({ onApply }: { onApply: (text: string) => void }) {
             onKeyDown={e => e.key === "Enter" && handleSend()}
             placeholder="Describe your schedule..."
             className="flex-1 bg-transparent text-[12px] text-[#212121] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground outline-none"
-            style={{ fontWeight: 300 }}
+
           />
           <button
             onClick={handleSend}
@@ -400,7 +400,7 @@ function WorkflowCanvas({
                     <p className="text-[13px] text-[#212121] dark:text-foreground mt-1" style={{ fontWeight: 400 }}>
                       {step.label}
                     </p>
-                    <p className="text-[11px] text-[#888] dark:text-muted-foreground mt-0.5" style={{ fontWeight: 300 }}>
+                    <p className="text-[11px] text-[#888] dark:text-muted-foreground mt-0.5 font-regular">
                       {step.description}
                     </p>
                   </div>
@@ -581,7 +581,7 @@ function SummaryConfig() {
           <Sparkles className="w-3 h-3 text-[#9970D7]" />
           <span className="text-[11px] text-[#9970D7]" style={{ fontWeight: 400 }}>AI-generated preview</span>
         </div>
-        <p className="text-[11px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300, lineHeight: "16px" }}>
+        <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular" style={{ lineHeight: "16px" }}>
           This week's performance overview highlights a 12% increase in review volume, with an average rating of 4.3 stars across all locations. Social engagement rose 8%, driven by Instagram stories. Ticket resolution maintained a 95% SLA compliance rate.
         </p>
       </div>
@@ -628,7 +628,7 @@ function DeliveryConfig({ config, onChange }: { config: DeliveryConfig; onChange
         <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Recipients</label>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {config.recipients.map(r => (
-            <span key={r} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[11px] bg-[#f0f1f5] dark:bg-muted text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border" style={{ fontWeight: 300 }}>
+            <span key={r} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[11px] bg-[#f0f1f5] dark:bg-muted text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border font-regular">
               {r}
               <button onClick={() => removeRecipient(r)} className="text-[#888] dark:text-muted-foreground hover:text-[#c62828]">
                 <X className="w-2.5 h-2.5" />
@@ -643,7 +643,7 @@ function DeliveryConfig({ config, onChange }: { config: DeliveryConfig; onChange
             onKeyDown={e => e.key === "Enter" && addRecipient()}
             placeholder="Add email address"
             className="flex-1 px-3 py-2 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground outline-none focus:border-[#2552ED]"
-            style={{ fontWeight: 300 }}
+
           />
           <button onClick={addRecipient} className="px-2.5 py-2 bg-[#f0f1f5] dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors">
             <Plus className="w-3.5 h-3.5 text-[#555] dark:text-muted-foreground" />
@@ -666,7 +666,7 @@ function DeliveryConfig({ config, onChange }: { config: DeliveryConfig; onChange
           onChange={e => onChange({ ...config, body: e.target.value })}
           rows={4}
           className="w-full px-3 py-2 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground outline-none focus:border-[#2552ED] resize-none"
-          style={{ fontWeight: 300 }}
+
         />
       </div>
     </div>

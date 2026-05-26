@@ -5,7 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import RHSPanelHeader from '../../RHSHeader/RHSHeader';
 import RHSPanelFooter from '../../RHSFooter/RHSFooter';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const DEFAULT_FREQUENCY_OPTIONS = ['Daily', 'Weekly', 'Monthly'];
 const DEFAULT_DAY_OPTIONS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];

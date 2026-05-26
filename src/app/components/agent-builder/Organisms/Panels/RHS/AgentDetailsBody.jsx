@@ -3,7 +3,7 @@ import { Input } from '@/app/components/ui/input';
 import { Textarea } from '@/app/components/ui/textarea';
 import LocationsDrawer from '../../../RHSDrawer/LocationsDrawer.jsx';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 function FieldLabel({ label, required }) {
   return (

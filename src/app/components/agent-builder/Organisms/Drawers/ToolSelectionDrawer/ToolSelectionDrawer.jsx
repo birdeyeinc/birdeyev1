@@ -56,7 +56,7 @@ function ExternalLogo({ color, initials }) {
         textAnchor="middle"
         fill="#fff"
         fontSize={initials.length > 1 ? '11' : '14'}
-        fontFamily="Roboto, Arial, sans-serif"
+        fontFamily="Inter, Arial, sans-serif"
         fontWeight="600"
       >
         {initials}

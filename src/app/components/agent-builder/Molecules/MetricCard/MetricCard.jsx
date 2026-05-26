@@ -1,6 +1,6 @@
 import React from 'react';
 
-const font = '"Roboto", sans-serif';
+const font = 'Inter, arial, sans-serif';
 
 export default function MetricCard({
   value,

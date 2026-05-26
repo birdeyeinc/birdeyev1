@@ -25,8 +25,7 @@ export interface ReportPageProps {
 }
 
 const fontFamilies: Record<string, string> = {
-  "Roboto": "'Roboto', sans-serif",
-  "Inter": "'Inter', sans-serif",
+  "Inter": "var(--font-family-brand)",
   "Georgia": "Georgia, serif",
   "Playfair Display": "'Playfair Display', serif",
   "Montserrat": "'Montserrat', sans-serif",

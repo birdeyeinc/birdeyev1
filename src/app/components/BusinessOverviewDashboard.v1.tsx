@@ -49,7 +49,7 @@ function SectionHeader({ title, right }: SectionHeaderProps) {
 function StatItem({ value, label }: { value: React.ReactNode; label: string }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <div className="text-2xl text-foreground tabular-nums" style={{ fontWeight: 300 }}>{value}</div>
+      <div className="text-2xl text-foreground tabular-nums font-regular">{value}</div>
       <div className="text-xs text-muted-foreground uppercase tracking-wide" style={{ fontWeight: 400 }}>{label}</div>
     </div>
   );
@@ -129,7 +129,7 @@ function PlatformChip({ name, rating, count, color }: { name: string; rating: st
       <div className="w-3 h-3 rounded-sm shrink-0" style={{ backgroundColor: color }} />
       <span className="text-xs text-foreground" style={{ fontWeight: 400 }}>{name}</span>
       <span className="text-xs text-foreground" style={{ fontWeight: 400 }}>{rating}</span>
-      <span className="text-xs text-muted-foreground" style={{ fontWeight: 300 }}>{count}</span>
+      <span className="text-xs text-muted-foreground font-regular">{count}</span>
     </div>
   );
 }
@@ -196,11 +196,11 @@ export default function BusinessOverviewDashboard() {
             <div className="text-xs text-muted-foreground uppercase tracking-wide mb-3" style={{ fontWeight: 400 }}>Inbox</div>
             <div className="flex gap-8">
               <div>
-                <div className="text-3xl text-foreground tabular-nums" style={{ fontWeight: 300 }}>499</div>
+                <div className="text-3xl text-foreground tabular-nums font-regular">499</div>
                 <div className="text-xs text-muted-foreground uppercase tracking-wide mt-0.5" style={{ fontWeight: 400 }}>Unread Messages</div>
               </div>
               <div>
-                <div className="text-3xl text-foreground tabular-nums" style={{ fontWeight: 300 }}>538</div>
+                <div className="text-3xl text-foreground tabular-nums font-regular">538</div>
                 <div className="text-xs text-muted-foreground uppercase tracking-wide mt-0.5" style={{ fontWeight: 400 }}>Open Leads</div>
               </div>
             </div>
@@ -209,7 +209,7 @@ export default function BusinessOverviewDashboard() {
           <div className="p-5 bg-card">
             <div className="text-xs text-muted-foreground uppercase tracking-wide mb-3" style={{ fontWeight: 400 }}>Ticketing</div>
             <div>
-              <div className="text-3xl text-foreground tabular-nums" style={{ fontWeight: 300 }}>1</div>
+              <div className="text-3xl text-foreground tabular-nums font-regular">1</div>
               <div className="text-xs text-muted-foreground uppercase tracking-wide mt-0.5" style={{ fontWeight: 400 }}>Assigned To Me</div>
             </div>
           </div>
@@ -242,7 +242,7 @@ export default function BusinessOverviewDashboard() {
             {/* Left: rating + bars */}
             <div className="flex flex-col gap-3 min-w-[180px]">
               <div className="flex items-end gap-2">
-                <span className="text-3xl text-foreground" style={{ fontWeight: 300 }}>4.40</span>
+                <span className="text-3xl text-foreground font-regular">4.40</span>
                 <StarRating rating={4.4} />
               </div>
               <div className="flex flex-col gap-1.5">
@@ -466,24 +466,24 @@ export default function BusinessOverviewDashboard() {
                 <span className="text-xs text-muted-foreground uppercase tracking-wide" style={{ fontWeight: 400 }}>BirdEye Score</span>
                 <Info className="w-3 h-3 text-muted-foreground" />
               </div>
-              <div className="text-3xl text-foreground tabular-nums" style={{ fontWeight: 300 }}>59.7</div>
+              <div className="text-3xl text-foreground tabular-nums font-regular">59.7</div>
             </div>
             {/* Understanding */}
             <div className="flex flex-col gap-2">
               <span className="text-xs text-muted-foreground" style={{ fontWeight: 400 }}>Understanding the BirdEye Score</span>
-              <div className="text-2xl text-foreground tabular-nums" style={{ fontWeight: 300 }}>79.2</div>
+              <div className="text-2xl text-foreground tabular-nums font-regular">79.2</div>
               <GradientBar score={79.2} />
             </div>
             {/* Sentiment Score */}
             <div className="flex flex-col gap-2">
               <span className="text-xs text-muted-foreground uppercase tracking-wide" style={{ fontWeight: 400 }}>Sentiment Score</span>
-              <div className="text-2xl text-foreground tabular-nums" style={{ fontWeight: 300 }}>58</div>
+              <div className="text-2xl text-foreground tabular-nums font-regular">58</div>
               <GradientBar score={58} />
             </div>
             {/* 4th score */}
             <div className="flex flex-col gap-2">
               <span className="text-xs text-muted-foreground uppercase tracking-wide" style={{ fontWeight: 400 }}>Reputation Score</span>
-              <div className="text-2xl text-foreground tabular-nums" style={{ fontWeight: 300 }}>34.7</div>
+              <div className="text-2xl text-foreground tabular-nums font-regular">34.7</div>
               <GradientBar score={34.7} />
             </div>
           </div>
@@ -512,10 +512,10 @@ export default function BusinessOverviewDashboard() {
                   {insightRows.map((row) => (
                     <tr key={row.location} className="border-b border-border last:border-0">
                       <td className="py-2.5 pr-4 text-sm text-foreground" style={{ fontWeight: 400 }}>{row.location}</td>
-                      <td className="py-2.5 pr-4 text-sm text-foreground tabular-nums" style={{ fontWeight: 300 }}>{row.birdeye}</td>
-                      <td className="py-2.5 pr-4 text-sm text-foreground tabular-nums" style={{ fontWeight: 300 }}>{row.sentiment}</td>
-                      <td className="py-2.5 pr-4 text-sm text-foreground tabular-nums" style={{ fontWeight: 300 }}>{row.reputation}</td>
-                      <td className="py-2.5 pr-4 text-sm text-foreground tabular-nums" style={{ fontWeight: 300 }}>{row.listing}</td>
+                      <td className="py-2.5 pr-4 text-sm text-foreground tabular-nums font-regular">{row.birdeye}</td>
+                      <td className="py-2.5 pr-4 text-sm text-foreground tabular-nums font-regular">{row.sentiment}</td>
+                      <td className="py-2.5 pr-4 text-sm text-foreground tabular-nums font-regular">{row.reputation}</td>
+                      <td className="py-2.5 pr-4 text-sm text-foreground tabular-nums font-regular">{row.listing}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -8,7 +8,7 @@ import LocationsDrawer from '../../../RHSDrawer/LocationsDrawer';
 import ChannelConfig from '../../ChannelConfig/ChannelConfig';
 import AdvancedConfigDrawer from './AdvancedConfigDrawer';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 
 export function RHSStartBody({ initialValues = {}, onValuesChange }) {

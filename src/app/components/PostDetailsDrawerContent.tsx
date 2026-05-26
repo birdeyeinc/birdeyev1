@@ -110,7 +110,7 @@ function Avatar({ name, size = 40 }: { name: string; size?: number }) {
         fontSize: size * 0.34,
         backgroundImage: "linear-gradient(135deg, rgb(211,220,255) 0%, rgb(236,227,252) 100%)",
         color: "#4a3f8a",
-        fontFamily: "'Roboto:Medium', sans-serif",
+        fontWeight: 500,
         ...RV,
       }}
     >
@@ -458,7 +458,7 @@ export function PostDetailsDrawerContent({
   if (!post) {
     return (
       <div className="flex h-full items-center justify-center bg-white">
-        <p className="text-[#555]" style={{ fontFamily: "'Roboto:Regular',sans-serif" }}>Post not found</p>
+        <p className="text-[#555]" >Post not found</p>
       </div>
     );
   }
@@ -1006,14 +1006,14 @@ export function PostDetailsDrawerContent({
                 <div>
                   <p
                     className="whitespace-pre-wrap text-[14px] leading-[22px] text-[#1e2530] dark:text-[#e4e8f0]"
-                    style={{ fontFamily: "'Roboto:Regular', sans-serif", ...RV }}
+                    style={{ ...RV }}
                   >
                     {post.caption}
                   </p>
                   {post.hashtags ? (
                     <p
                       className="mt-3 text-[14px] leading-[22px] text-[#1f78d1] dark:text-[#5b9cf6]"
-                      style={{ fontFamily: "'Roboto:Regular', sans-serif", ...RV }}
+                      style={{ ...RV }}
                     >
                       {post.hashtags}
                     </p>

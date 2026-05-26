@@ -137,13 +137,13 @@ export function ComponentShowcase() {
               <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>Body text &mdash; 13px / 400</span>
             </div>
             <div>
-              <span className="text-[12px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Secondary text &mdash; 12px / 300</span>
+              <span className="text-[12px] text-[#555] dark:text-muted-foreground font-regular">Secondary text &mdash; 12px / 400</span>
             </div>
             <div>
-              <span className="text-[11px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Caption / label &mdash; 11px / 300</span>
+              <span className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">Caption / label &mdash; 11px / 400</span>
             </div>
             <div>
-              <span className="text-[10px] text-[#bbb] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Micro &mdash; 10px / 300</span>
+              <span className="text-[10px] text-[#bbb] dark:text-muted-foreground font-regular">Micro &mdash; 10px / 400</span>
             </div>
           </div>
         </Section>
@@ -367,17 +367,17 @@ export function ComponentShowcase() {
             {/* Default card */}
             <div className="bg-white dark:bg-background border border-[#e5e9f0] dark:border-border rounded-xl p-4 transition-colors">
               <p className="text-[12px] text-[#212121] dark:text-foreground mb-1" style={{ fontWeight: 400 }}>Default card</p>
-              <p className="text-[11px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Standard surface with subtle border</p>
+              <p className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">Standard surface with subtle border</p>
             </div>
             {/* Elevated card */}
             <div className="bg-white dark:bg-background rounded-xl p-4 shadow-[0_2px_12px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.3)] transition-colors">
               <p className="text-[12px] text-[#212121] dark:text-foreground mb-1" style={{ fontWeight: 400 }}>Elevated card</p>
-              <p className="text-[11px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Shadow elevation, no border</p>
+              <p className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">Shadow elevation, no border</p>
             </div>
             {/* Interactive card */}
             <div className="bg-white dark:bg-background border border-[#e5e9f0] dark:border-border rounded-xl p-4 hover:border-[#2552ED]/40 dark:hover:border-[#2552ED]/40 hover:shadow-[0_2px_8px_rgba(37,82,237,0.08)] transition-all cursor-pointer">
               <p className="text-[12px] text-[#212121] dark:text-foreground mb-1" style={{ fontWeight: 400 }}>Interactive card</p>
-              <p className="text-[11px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Hover to see accent border</p>
+              <p className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">Hover to see accent border</p>
             </div>
           </div>
         </Section>
@@ -510,7 +510,7 @@ function AlertBox({ icon, variant, message }: { icon: React.ReactNode; variant: 
   return (
     <div className={`flex items-start gap-2.5 px-3 py-2.5 rounded-lg border ${styles[variant]} transition-colors`}>
       <span className="shrink-0 mt-0.5">{icon}</span>
-      <span className="text-[12px]" style={{ fontWeight: 300 }}>{message}</span>
+      <span className="text-[12px] font-regular">{message}</span>
     </div>
   );
 }

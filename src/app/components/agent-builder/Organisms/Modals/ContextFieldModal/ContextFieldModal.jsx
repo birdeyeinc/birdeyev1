@@ -4,7 +4,7 @@ import { Button } from '@/app/components/ui/button';
 import { Switch } from '@/app/components/ui/switch';
 import './ContextFieldModal.css';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const TABS = ['Fields', 'Knowledge', 'Brand', 'Industry'];
 

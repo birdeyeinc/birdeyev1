@@ -80,7 +80,7 @@ export function MonitorNotificationsTrigger() {
             {unresolvedCount > 0 && (
               <span
                 className="text-[11px] text-muted-foreground px-2 py-0.5 bg-muted rounded-full"
-                style={{ fontWeight: 300 }}
+
               >
                 {unresolvedCount} unresolved
               </span>
@@ -121,10 +121,10 @@ export function MonitorNotificationsTrigger() {
                       <p className="text-[13px] text-foreground truncate" style={{ fontWeight: 400 }}>
                         {n.agentName}
                       </p>
-                      <p className="text-[12px] text-muted-foreground mt-0.5" style={{ fontWeight: 300 }}>
+                      <p className="text-[12px] text-muted-foreground mt-0.5 font-regular">
                         {n.summary}
                       </p>
-                      <span className="text-[10px] text-muted-foreground tabular-nums" style={{ fontWeight: 300 }}>
+                      <span className="text-[10px] text-muted-foreground tabular-nums font-regular">
                         {n.time}
                       </span>
                     </div>
@@ -169,10 +169,10 @@ export function MonitorNotificationsTrigger() {
                       <p className="text-[13px] text-foreground truncate" style={{ fontWeight: 400 }}>
                         {n.agentName}
                       </p>
-                      <p className="text-[12px] text-muted-foreground mt-0.5" style={{ fontWeight: 300 }}>
+                      <p className="text-[12px] text-muted-foreground mt-0.5 font-regular">
                         {n.summary}
                       </p>
-                      <span className="text-[10px] text-muted-foreground tabular-nums" style={{ fontWeight: 300 }}>
+                      <span className="text-[10px] text-muted-foreground tabular-nums font-regular">
                         {n.time}
                       </span>
                     </div>
@@ -213,11 +213,11 @@ export function MonitorNotificationsTrigger() {
                       Done
                     </span>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[12px] text-muted-foreground truncate" style={{ fontWeight: 300 }}>
+                      <p className="text-[12px] text-muted-foreground truncate font-regular">
                         {n.agentName} — {n.summary}
                       </p>
                     </div>
-                    <span className="text-[10px] text-muted-foreground tabular-nums shrink-0" style={{ fontWeight: 300 }}>
+                    <span className="text-[10px] text-muted-foreground tabular-nums shrink-0 font-regular">
                       {n.time}
                     </span>
                   </div>
@@ -227,7 +227,7 @@ export function MonitorNotificationsTrigger() {
 
           {unresolvedCount === 0 && notificationItems.filter(n => resolvedNotifs.has(n.id)).length === 0 && (
             <div className="py-8 px-4 text-center">
-              <p className="text-[13px] text-muted-foreground" style={{ fontWeight: 300 }}>
+              <p className="text-[13px] text-muted-foreground font-regular">
                 No notifications
               </p>
             </div>

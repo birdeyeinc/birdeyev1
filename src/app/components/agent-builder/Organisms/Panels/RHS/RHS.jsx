@@ -138,7 +138,7 @@ export default function RHS({ variant = 'agentDetails', title, bodyProps, onClos
         height: '100%',
         background: '#ffffff',
         borderLeft: '1px solid #e5e9f0',
-        fontFamily: '"Roboto", arial, sans-serif',
+        fontFamily: '"Inter", arial, sans-serif',
       }}>
         <RHSSidePanelHeader
           title={title || 'Title'}

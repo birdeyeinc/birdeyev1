@@ -141,8 +141,8 @@
 }
 
 :root {
-  /* ─── Base scale ─── */
-  --font-size: 13px;
+  /* ─── Base scale (Elemental BK-BIRD-00000-learning: 14px base) ─── */
+  --font-size: var(--font-size-base);
   /** Column headers / table label row (`TableHead`, `AppDataTable` headers, raw `<th>` labels). */
   --table-label-size: 12px;
   --button-height-xs: 24px;
@@ -150,7 +150,7 @@
   --button-height: 34px;
   --button-height-lg: 44px;
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-family-brand), ui-sans-serif, system-ui, sans-serif;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
@@ -173,8 +173,7 @@
   /** Form control fill — white in light mode (product standard for settings/forms). */
   --input-background: #ffffff;
   --switch-background: #cbced4;
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
+  --font-weight-normal: var(--font-weight-regular);
   --ring: #1E44CC;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -216,16 +215,14 @@
   /** Main-column muted band aligned with L2 greys (`L2_CONTENT_MUTED_BAND`). */
   --app-shell-l2-content-muted: #f2f3f6;
 
-  /* Override Tailwind font-weight utilities to only use regular (400) and light (300) */
-  --font-weight-thin: 400;
-  --font-weight-extralight: 400;
-  --font-weight-light: 400;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 400;
-  --font-weight-bold: 400;
-  --font-weight-extrabold: 400;
-  --font-weight-black: 400;
+  /* Elemental: only regular (400) + medium (500); clamp lighter/heavier utilities to these */
+  --font-weight-thin: var(--font-weight-regular);
+  --font-weight-extralight: var(--font-weight-regular);
+  --font-weight-light: var(--font-weight-regular);
+  --font-weight-semibold: var(--font-weight-medium);
+  --font-weight-bold: var(--font-weight-medium);
+  --font-weight-extrabold: var(--font-weight-medium);
+  --font-weight-black: var(--font-weight-medium);
 
   /* Social components */
   --s-bg-primary: #ffffff;
@@ -269,8 +266,7 @@
   /** Explicit dark fill so light `:root` values do not leak (checkboxes, popover search, etc.). */
   --input-background: #262b35;
   --ring: #2952E3;
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
+  --font-weight-normal: var(--font-weight-regular);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -369,7 +365,7 @@
 
   /**
    * Type scale — rem units so `text-*` utilities scale with `:root` / `html`
-   * `--font-size` (13px). Table column labels use fixed `--table-label-size` (12px).
+   * `--font-size` (14px). Table column labels use fixed `--table-label-size` (12px).
    * Matches Tailwind defaults; declared here so Vite + Storybook share one contract
    * (see Design System → Tokens → Base font size).
    */
@@ -395,7 +391,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     font-size: var(--font-size);
   }
 
@@ -465,7 +461,7 @@
   font-weight: var(--font-weight-medium);
 }
 :root :is(.font-thin, .font-extralight, .font-light) {
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-regular);
 }
 
 /* ─── Print Styles ─── */

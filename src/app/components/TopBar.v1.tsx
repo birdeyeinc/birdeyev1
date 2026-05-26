@@ -36,7 +36,7 @@ export function TopBar({ currentView, onViewChange, onToggleMynaChat, titleOverr
       data-no-print
     >
       {/* Left: current area (aligned with L1 rail / route) */}
-      <p className="text-[16px] text-[#212121] dark:text-foreground tracking-[-0.31px]" style={{ fontWeight: 400 }}>
+      <p className="text-[16px] font-regular text-[#212121] dark:text-foreground tracking-[-0.31px]">
         {titleOverride ?? getAppViewTitle(currentView)}
       </p>
 

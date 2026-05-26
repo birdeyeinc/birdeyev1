@@ -11,7 +11,7 @@ import EditNoteIcon from '../../../Molecules/Inputs/icons/edit_note.svg';
 import VariableRichInput from '../../../Molecules/Inputs/VariableRichInput/VariableRichInput';
 import AiWandIcon from './icons/ai_text_grammar_wand.svg';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 function FieldLabel({ label, required, showInfo }) {
   return (

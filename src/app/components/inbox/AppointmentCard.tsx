@@ -72,7 +72,7 @@ export function AppointmentCard({
             {data.patientInitials}
           </div>
           <div className="flex flex-col">
-            <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 600 }}>
+            <span className="text-[13px] font-medium text-[#212121] dark:text-foreground">
               {data.patientName}
             </span>
             <span className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>

@@ -562,7 +562,7 @@ function AgentConfigModal({ agent, onClose }: AgentConfigModalProps) {
             <div className="flex items-center gap-2">
               <StatusBadge status={status} />
             </div>
-            <span className="text-[12px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+            <span className="text-[12px] text-[#999] dark:text-muted-foreground font-regular">
               Created {agent.createdAt}
             </span>
           </div>
@@ -591,7 +591,7 @@ function AgentConfigModal({ agent, onClose }: AgentConfigModalProps) {
               onChange={e => setDescription(e.target.value)}
               rows={3}
               className="w-full px-3 py-2.5 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[13px] text-[#212121] dark:text-foreground outline-none focus:border-[#2552ED] dark:focus:border-[#2552ED] transition-colors resize-none"
-              style={{ fontWeight: 300 }}
+
             />
           </div>
 
@@ -653,7 +653,7 @@ function AgentConfigModal({ agent, onClose }: AgentConfigModalProps) {
             </label>
             <div className="flex items-center gap-2 bg-[#fafbfc] dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] px-3 py-2.5">
               <Calendar className="w-4 h-4 text-[#888] dark:text-muted-foreground" />
-              <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 300 }}>
+              <span className="text-[13px] text-[#212121] dark:text-foreground font-regular">
                 Runs continuously (event-triggered)
               </span>
             </div>
@@ -690,7 +690,7 @@ function AgentConfigModal({ agent, onClose }: AgentConfigModalProps) {
                   <div className="flex-1 min-w-0">
                     <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{a.action}</span>
                   </div>
-                  <span className="text-[11px] text-[#999] dark:text-muted-foreground shrink-0" style={{ fontWeight: 300 }}>{a.time}</span>
+                  <span className="text-[11px] text-[#999] dark:text-muted-foreground shrink-0 font-regular">{a.time}</span>
                   {a.ok ? (
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#4caf50] shrink-0" />
                   ) : (
@@ -772,7 +772,7 @@ function AgentCard({ agent, onConfigure }: { agent: AgentInstance; onConfigure: 
         </h3>
         <StatusBadge status={agent.status} />
       </div>
-      <p className="text-[13px] text-[#555] dark:text-muted-foreground mb-4 line-clamp-2" style={{ fontWeight: 300 }}>
+      <p className="text-[13px] text-[#555] dark:text-muted-foreground mb-4 line-clamp-2 font-regular">
         {agent.description}
       </p>
 
@@ -780,13 +780,13 @@ function AgentCard({ agent, onConfigure }: { agent: AgentInstance; onConfigure: 
       <div className="flex items-center gap-4 mb-3">
         <div className="flex items-center gap-1.5">
           <Zap className="w-3 h-3 text-[#2552ED]" />
-          <span className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+          <span className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">
             {agent.tasksToday} today
           </span>
         </div>
         <div className="flex items-center gap-1.5">
           <TrendingUp className="w-3 h-3 text-[#4caf50]" />
-          <span className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+          <span className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">
             {agent.successRate}%
           </span>
         </div>
@@ -794,7 +794,7 @@ function AgentCard({ agent, onConfigure }: { agent: AgentInstance; onConfigure: 
 
       {/* Footer */}
       <div className="flex items-center justify-between pt-3 border-t border-[#f0f1f5] dark:border-border">
-        <span className="text-[11px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+        <span className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">
           Last run {agent.lastRun}
         </span>
         <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -841,22 +841,22 @@ function AgentRow({ agent, onConfigure }: { agent: AgentInstance; onConfigure: (
           </h3>
           <StatusBadge status={agent.status} />
         </div>
-        <p className="text-[12px] text-[#555] dark:text-muted-foreground truncate" style={{ fontWeight: 300 }}>
+        <p className="text-[12px] text-[#555] dark:text-muted-foreground truncate font-regular">
           {agent.description}
         </p>
       </div>
       <div className="flex items-center gap-6 shrink-0">
         <div className="text-center">
           <p className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{agent.tasksToday}</p>
-          <p className="text-[10px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Tasks today</p>
+          <p className="text-[10px] text-[#999] dark:text-muted-foreground font-regular">Tasks today</p>
         </div>
         <div className="text-center">
           <p className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{agent.successRate}%</p>
-          <p className="text-[10px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Success</p>
+          <p className="text-[10px] text-[#999] dark:text-muted-foreground font-regular">Success</p>
         </div>
         <div className="text-center min-w-[70px]">
-          <p className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 300 }}>{agent.lastRun}</p>
-          <p className="text-[10px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Last run</p>
+          <p className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">{agent.lastRun}</p>
+          <p className="text-[10px] text-[#999] dark:text-muted-foreground font-regular">Last run</p>
         </div>
         <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
           {agent.status === "active" ? (
@@ -887,12 +887,12 @@ function TemplateCard({ template, onUseTemplate }: { template: LibraryTemplate; 
         <h3 className="text-[15px] text-[#212121] dark:text-foreground tracking-[-0.3px]" style={{ fontWeight: 400 }}>
           {template.name}
         </h3>
-        <p className="text-[13px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+        <p className="text-[13px] text-[#555] dark:text-muted-foreground font-regular">
           {template.description}
         </p>
       </div>
       <div className="flex items-center justify-between mt-5 pt-4 border-t border-[#f0f1f5] dark:border-border">
-        <span className="text-[11px] text-[#999] dark:text-muted-foreground px-2 py-0.5 bg-[#f5f5f5] dark:bg-muted rounded-full" style={{ fontWeight: 300 }}>
+        <span className="text-[11px] text-[#999] dark:text-muted-foreground px-2 py-0.5 bg-[#f5f5f5] dark:bg-muted rounded-full font-regular">
           {template.category}
         </span>
         <button
@@ -923,7 +923,7 @@ function EmptyState({ type }: { type: "agents" | "library" }) {
       <p className="text-[14px] text-[#555] dark:text-muted-foreground mb-1" style={{ fontWeight: 400 }}>
         {type === "agents" ? "No agents configured yet" : "No templates available"}
       </p>
-      <p className="text-[12px] text-[#999] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+      <p className="text-[12px] text-[#999] dark:text-muted-foreground font-regular">
         {type === "agents"
           ? "Create a new agent or choose a template from the library"
           : "Templates will appear here when available"}
@@ -965,7 +965,7 @@ export function AgentDetailView({ agentSlug, onOpenBuilder }: AgentDetailViewPro
   if (!config) {
     return (
       <div className="flex-1 flex items-center justify-center bg-white dark:bg-app-shell-gutter">
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 300 }}>
+        <p className="text-[14px] text-[#888] dark:text-muted-foreground font-regular">
           Agent type not found
         </p>
       </div>
@@ -1021,7 +1021,7 @@ export function AgentDetailView({ agentSlug, onOpenBuilder }: AgentDetailViewPro
                   onBlur={() => { if (!searchQuery) setSearchOpen(false); }}
                   placeholder="Search..."
                   className="h-[36px] w-[200px] pl-8 pr-3 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[13px] text-[#212121] dark:text-foreground placeholder-[#999] dark:placeholder-[#6b7280] outline-none focus:border-[#2552ED] dark:focus:border-[#2552ED] transition-colors"
-                  style={{ fontWeight: 300 }}
+
                 />
               </div>
             ) : (

@@ -6,7 +6,7 @@ import { Button } from '@/app/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/app/components/ui/dialog';
 import { Tabs, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const INBOX_EVENT_GROUPS = [
   { group: 'Text', events: [{ value: 'Text:Message received', label: 'Message received' }] },

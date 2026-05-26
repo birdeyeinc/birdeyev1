@@ -6,7 +6,7 @@ import OptionPickerDrawer from '../RHS/Start/OptionPickerDrawer';
 import VoicePickerDrawer from '../RHS/Start/VoicePickerDrawer';
 import { LLM_MODEL_OPTIONS, LANGUAGE_OPTIONS } from '../RHS/Start/advancedConfigUtils';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 export const CHANNEL_OPTIONS = [
   { value: 'Text', label: 'Text' },

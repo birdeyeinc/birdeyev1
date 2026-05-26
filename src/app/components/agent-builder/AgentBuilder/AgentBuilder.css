@@ -51,7 +51,7 @@
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family-brand), Inter, arial, sans-serif;
   box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
   transition: background 0.15s, box-shadow 0.15s;
 }
@@ -84,7 +84,7 @@
   border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
   font-weight: 500;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family-brand), Inter, arial, sans-serif;
   color: #212121;
   flex-shrink: 0;
 }
@@ -124,7 +124,7 @@
 
 .agent-builder__empty-text {
   font-size: 14px;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family-brand), Inter, arial, sans-serif;
   color: #555;
   line-height: 20px;
   letter-spacing: -0.28px;

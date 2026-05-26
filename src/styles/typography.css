@@ -1,0 +1,46 @@
+/**
+ * Elemental typography primitives (BK-BIRD-00000-learning).
+ * Source: birdeyeinc/elemental — fontFamilyStyle, fontSizeStyle, fontWeightStyle, lineHeightStyle.
+ */
+
+:root {
+  --font-family-brand: "Inter", arial, sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --font-size-base: 14px;
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-28: 28px;
+  --font-size-32: 32px;
+
+  --line-height-10: 15px;
+  --line-height-12: 18px;
+  --line-height-14: 21px;
+  --line-height-16: 24px;
+  --line-height-18: 27px;
+  --line-height-20: 30px;
+  --line-height-24: 36px;
+  --line-height-28: 42px;
+  --line-height-32: 48px;
+}
+
+/* Parity with Elemental .ds-font-weight-* utilities */
+.font-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-brand {
+  font-family: var(--font-family-brand);
+}

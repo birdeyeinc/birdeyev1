@@ -37,7 +37,7 @@ const makeCondition = (id) => ({
   valueValue: '',
 });
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 const helpTextStyle = { fontSize: 11, lineHeight: '16px', color: '#8f8f8f', fontFamily: font };
 
 function FieldLabel({ label, required }) {

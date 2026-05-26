@@ -23,7 +23,7 @@
   gap: 16px;
   width: 260px;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family-brand), Inter, arial, sans-serif;
 }
 
 .lhs-two-level-group__title {

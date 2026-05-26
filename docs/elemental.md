@@ -37,3 +37,18 @@ import { Button } from "@birdeye/elemental/core/...";
 ```
 
 Until migration, the prototype keeps birdeyev2 Tailwind shell in `src/app/`.
+
+## Typography (BK-BIRD-00000-learning)
+
+Typography is aligned with Elemental on branch **`BK-BIRD-00000-learning`**:
+
+| Token | Value |
+|-------|--------|
+| Font | Inter (`--font-family-brand`) |
+| Weights | 400 regular, 500 medium only |
+| Base size | 14px (`--font-size-base`) |
+| Scale | fs10–fs32, lh10–lh32 in `src/styles/typography.css` |
+
+See **[typography-audit.md](./typography-audit.md)** for mapping rules and deferred debt (`src/imports/*` Figma paste).
+
+**Note:** `npm run dev` uses tokens in `src/styles/`; Elemental package version in `node_modules` is independent unless you link a local `file:../Source/elemental` build.

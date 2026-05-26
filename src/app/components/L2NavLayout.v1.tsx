@@ -245,7 +245,7 @@ export function L2NavLayout({
 
   const titleBlock =
     panelTitle != null ? (
-      <div className="mb-2 text-left text-[14px] font-semibold tracking-[-0.26px] text-foreground">
+      <div className="mb-2 text-left text-[14px] font-medium tracking-[-0.26px] text-foreground">
         {panelTitle}
       </div>
     ) : null;
@@ -280,8 +280,7 @@ export function L2NavLayout({
           <button
             key={label}
             onClick={() => activate(key)}
-            className={isActive ? CHILD_ACTIVE : CHILD_INACTIVE}
-            style={{ fontWeight: isActive ? 400 : 300 }}
+            className={`${isActive ? CHILD_ACTIVE : CHILD_INACTIVE} ${isActive ? "font-medium" : "font-regular"}`}
           >
             {label}
           </button>
@@ -297,8 +296,7 @@ export function L2NavLayout({
             key={itemKey}
             type="button"
             onClick={() => activate(compoundKey)}
-            className={useAccent ? CHILD_FLAT_ACCENT_ACTIVE : isActive ? CHILD_ACTIVE : CHILD_INACTIVE}
-            style={{ fontWeight: isActive ? 400 : 300 }}
+            className={`${useAccent ? CHILD_FLAT_ACCENT_ACTIVE : isActive ? CHILD_ACTIVE : CHILD_INACTIVE} ${isActive ? "font-medium" : "font-regular"}`}
           >
             {rowLabel}
           </button>
@@ -310,8 +308,7 @@ export function L2NavLayout({
         <div key={section.label}>
           <button
             onClick={() => toggle(section.label)}
-            className={SECTION_HEADER}
-            style={{ fontWeight: 400 }}
+            className={`${SECTION_HEADER} font-regular`}
           >
             <span>{section.label}</span>
             {expanded[section.label]
@@ -328,8 +325,7 @@ export function L2NavLayout({
               <button
                 key={`${section.label}/${childKey}`}
                 onClick={() => activate(compoundKey)}
-                className={isActive ? CHILD_ACTIVE : CHILD_INACTIVE}
-                style={{ fontWeight: isActive ? 400 : 300 }}
+                className={`${isActive ? CHILD_ACTIVE : CHILD_INACTIVE} ${isActive ? "font-medium" : "font-regular"}`}
               >
                 <span>{childLabel}</span>
                 {external && (
@@ -344,8 +340,8 @@ export function L2NavLayout({
       {/* Footer link */}
       {footerLink && (
         <button
-          className={`${FOOTER_ROW_CLS} mt-[2px]`}
-          style={{ fontWeight: 400, opacity: footerLink.disabled ? 0.5 : 1 }}
+          className={`${FOOTER_ROW_CLS} mt-[2px] font-regular`}
+          style={{ opacity: footerLink.disabled ? 0.5 : 1 }}
           onClick={footerLink.onClick}
           disabled={footerLink.disabled}
         >

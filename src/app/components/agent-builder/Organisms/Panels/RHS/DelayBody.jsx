@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Input } from '@/app/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 
 const UNIT_OPTIONS = [
   { value: 'minutes', label: 'Minutes' },

@@ -81,7 +81,7 @@ export function ShareReportModal({ open, onClose, context }: ShareReportModalPro
         <div className="px-5 py-4 space-y-4">
           {/* Report name */}
           <div className="flex items-center gap-2 bg-[#f8f9fa] dark:bg-muted rounded-[8px] px-3 py-2.5">
-            <span className="text-[13px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 300 }}>Report:</span>
+            <span className="text-[13px] text-[#888] dark:text-muted-foreground font-regular">Report:</span>
             <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{context.reportName}</span>
           </div>
 

@@ -3,7 +3,7 @@ import { Switch } from '@/app/components/ui/switch';
 import { Button } from '@/app/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/app/components/ui/tooltip';
 
-export const font = '"Roboto", arial, sans-serif';
+export const font = '"Inter", arial, sans-serif';
 
 export const LLM_MODEL_OPTIONS = [
   { value: 'Fast', label: 'Fast' },

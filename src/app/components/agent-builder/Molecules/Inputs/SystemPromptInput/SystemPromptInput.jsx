@@ -4,7 +4,7 @@ import ExpandAllBtnIcon from '../icons/expand_all.svg';
 import EditNoteIcon from '../icons/edit_note.svg';
 import VariableRichInput from '../VariableRichInput/VariableRichInput';
 
-const font = '"Roboto", arial, sans-serif';
+const font = '"Inter", arial, sans-serif';
 const MAX_HEIGHT = 8 * 20 + 16;
 
 const SystemPromptInput = forwardRef(function SystemPromptInput({ value, onChange, onFieldIconClick, required }, ref) {
