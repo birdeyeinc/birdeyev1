@@ -37,10 +37,10 @@ function ConfBar({ value }: { value: number }) {
     value >= 0.70 ? "bg-amber-400"   : "bg-red-400";
   return (
     <div className="flex items-center gap-2">
-      <div className="relative h-1.5 w-16 overflow-hidden rounded-full bg-[#eaeaea] dark:bg-muted">
+      <div className="relative h-1.5 w-16 overflow-hidden rounded-full bg-comparison-0-star dark:bg-muted">
         <div className={cn("absolute inset-y-0 left-0 rounded-full transition-all", color)} style={{ width: `${pct}%` }} />
       </div>
-      <span className={cn("text-[11px] tabular-nums font-medium", value === 0 ? "text-[#999]" : value >= 0.85 ? "text-emerald-600 dark:text-emerald-400" : value >= 0.70 ? "text-amber-600 dark:text-amber-400" : "text-red-600 dark:text-red-400")}>
+      <span className={cn("text-[11px] tabular-nums font-medium", value === 0 ? "text-gray-90" : value >= 0.85 ? "text-emerald-600 dark:text-emerald-400" : value >= 0.70 ? "text-amber-600 dark:text-amber-400" : "text-red-600 dark:text-red-400")}>
         {value === 0 ? "—" : value.toFixed(2)}
       </span>
     </div>
@@ -52,7 +52,7 @@ function Stars({ rating }: { rating: number }) {
   return (
     <span className="text-[12px] tracking-[-1px]">
       {Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className={i < rating ? "text-amber-400" : "text-[#ddd] dark:text-[#444]"}>★</span>
+        <span key={i} className={i < rating ? "text-amber-400" : "text-gray-50 dark:text-gray-400"}>★</span>
       ))}
     </span>
   );
@@ -108,21 +108,21 @@ export function AgentActivityTable({
   return (
     <div className="flex flex-col min-h-0 overflow-hidden">
       {/* Toolbar */}
-      <div className="flex shrink-0 items-center gap-2 border-b border-[#eaeaea] dark:border-border px-5 py-2.5">
+      <div className="flex shrink-0 items-center gap-2 border-b border-comparison-0-star dark:border-border px-5 py-2.5">
         {showSearch ? (
-          <div className="flex flex-1 items-center gap-2 rounded-md border border-[#e0e4ea] dark:border-border bg-white dark:bg-background px-3 py-1.5">
-            <Search className="size-3.5 shrink-0 text-[#999]" />
+          <div className="flex flex-1 items-center gap-2 rounded-md border border-gray-40 dark:border-border bg-white dark:bg-background px-3 py-1.5">
+            <Search className="size-3.5 shrink-0 text-gray-90" />
             <input
               autoFocus
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by customer, ID, location…"
-              className="flex-1 bg-transparent text-[13px] text-[#212121] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-[#555] outline-none"
+              className="flex-1 bg-transparent text-[13px] text-gray-900 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-gray-300 outline-none"
             />
             <button
               type="button"
               onClick={() => { setSearch(""); setShowSearch(false); }}
-              className="cursor-pointer text-[#999] hover:text-[#555] dark:hover:text-[#ccc]"
+              className="cursor-pointer text-gray-90 hover:text-gray-300 dark:hover:text-gray-60"
             >
               ×
             </button>
@@ -138,8 +138,8 @@ export function AgentActivityTable({
                   className={cn(
                     "cursor-pointer rounded-md px-2.5 py-1 text-[12px] font-medium transition-colors",
                     filter === f.value
-                      ? "bg-[#2552ED] text-white"
-                      : "text-[#555] dark:text-muted-foreground hover:bg-[#f0f1f5] dark:hover:bg-muted",
+                      ? "bg-brand-color text-white"
+                      : "text-gray-300 dark:text-muted-foreground hover:bg-light-grayish-blue dark:hover:bg-muted",
                   )}
                 >
                   {f.label}
@@ -162,15 +162,15 @@ export function AgentActivityTable({
             </div>
           </>
         )}
-        <span className="shrink-0 text-[11px] text-[#999] dark:text-muted-foreground tabular-nums">
+        <span className="shrink-0 text-[11px] text-gray-90 dark:text-muted-foreground tabular-nums">
           {filtered.length.toLocaleString()} actions
         </span>
       </div>
 
       {/* Table header */}
-      <div className="grid shrink-0 grid-cols-[120px_1fr_110px_1fr_90px_110px_28px] gap-2 border-b border-[#eaeaea] dark:border-border bg-[#fafafa] dark:bg-app-shell-rail px-5 py-2">
+      <div className="grid shrink-0 grid-cols-[120px_1fr_110px_1fr_90px_110px_28px] gap-2 border-b border-comparison-0-star dark:border-border bg-gray-10 dark:bg-app-shell-rail px-5 py-2">
         {["WHEN", "CUSTOMER", "SOURCE", "DRAFT", "CONF.", "STATUS", ""].map((h) => (
-          <span key={h} className="text-[length:var(--table-label-size)] font-semibold uppercase tracking-wide text-[#999] dark:text-muted-foreground">
+          <span key={h} className="text-[length:var(--table-label-size)] font-semibold uppercase tracking-wide text-gray-90 dark:text-muted-foreground">
             {h}
           </span>
         ))}
@@ -179,7 +179,7 @@ export function AgentActivityTable({
       {/* Rows */}
       <div className="min-h-0 flex-1 overflow-y-auto">
         {filtered.length === 0 ? (
-          <div className="flex flex-col items-center justify-center gap-2 py-16 text-[#999] dark:text-muted-foreground">
+          <div className="flex flex-col items-center justify-center gap-2 py-16 text-gray-90 dark:text-muted-foreground">
             <Search className="size-8 opacity-30" />
             <span className="text-[13px]">No actions match this filter</span>
           </div>
@@ -191,42 +191,42 @@ export function AgentActivityTable({
               onClick={() => onRowClick?.(row)}
               className={cn(
                 "grid w-full grid-cols-[120px_1fr_110px_1fr_90px_110px_28px] gap-2 px-5 py-3 text-left transition-colors duration-100",
-                "border-b border-[#f0f1f5] dark:border-[#1e2229]",
+                "border-b border-light-grayish-blue dark:border-gray-700",
                 selectedId === row.id
-                  ? "bg-[#f0f4ff] dark:bg-[#1e2a4a]"
-                  : "hover:bg-[#fafafa] dark:hover:bg-[#1a1d23]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2552ED]/40 focus-visible:ring-inset",
+                  ? "bg-blue-10 dark:bg-blue-400"
+                  : "hover:bg-gray-10 dark:hover:bg-gray-900",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-color/40 focus-visible:ring-inset",
               )}
             >
               {/* When + ID */}
               <div className="flex flex-col justify-center gap-0.5 min-w-0">
-                <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{row.when}</span>
-                <span className="font-mono text-[10px] text-[#999] dark:text-muted-foreground">#{row.id}</span>
+                <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{row.when}</span>
+                <span className="font-mono text-[10px] text-gray-90 dark:text-muted-foreground">#{row.id}</span>
               </div>
 
               {/* Customer */}
               <div className="flex min-w-0 items-center gap-2">
                 <Avatar initials={row.initials} hue={row.hue} />
                 <div className="min-w-0">
-                  <p className="truncate text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{row.name}</p>
-                  <p className="truncate text-[11px] text-[#999] dark:text-muted-foreground">{row.location}</p>
+                  <p className="truncate text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{row.name}</p>
+                  <p className="truncate text-[11px] text-gray-90 dark:text-muted-foreground">{row.location}</p>
                 </div>
               </div>
 
               {/* Source + rating */}
               <div className="flex flex-col justify-center gap-0.5">
-                <span className="text-[12px] text-[#555] dark:text-muted-foreground">{row.source}</span>
+                <span className="text-[12px] text-gray-300 dark:text-muted-foreground">{row.source}</span>
                 <Stars rating={row.rating} />
               </div>
 
               {/* Draft */}
               <div className="flex min-w-0 items-center">
                 {row.draft ? (
-                  <p className="line-clamp-2 text-[12px] leading-snug text-[#666] dark:text-muted-foreground">
+                  <p className="line-clamp-2 text-[12px] leading-snug text-gray-200 dark:text-muted-foreground">
                     "{row.draft}"
                   </p>
                 ) : (
-                  <span className="text-[12px] italic text-[#bbb] dark:text-[#555]">No draft — escalated</span>
+                  <span className="text-[12px] italic text-gray-70 dark:text-gray-300">No draft — escalated</span>
                 )}
               </div>
 
@@ -242,7 +242,7 @@ export function AgentActivityTable({
 
               {/* Chevron */}
               <div className="flex items-center justify-center">
-                <ChevronRight className="size-3.5 text-[#ccc] dark:text-[#444]" />
+                <ChevronRight className="size-3.5 text-gray-60 dark:text-gray-400" />
               </div>
             </button>
           ))

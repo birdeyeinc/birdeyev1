@@ -38,10 +38,10 @@ function formatAccountId(sourceId: string): string {
 }
 
 const STATUS_BADGE_CLASS: Record<SettingsBusinessRow["status"], string> = {
-  Active: "border-transparent bg-[#E6F4EA] text-[#2E7D32]",
-  Demo: "border-transparent bg-[#FDF3DA] text-[#B7791F]",
-  Inactive: "border-transparent bg-[#E5E7EB] text-[#5F6368]",
-  "Needs setup": "border-transparent bg-[#E8EEF9] text-[#3F5FA8]",
+  Active: "border-transparent bg-green-20 text-green-200",
+  Demo: "border-transparent bg-yellow-30 text-yellow-200",
+  Inactive: "border-transparent bg-gray-50 text-gray-100",
+  "Needs setup": "border-transparent bg-blue-10 text-blue-200",
 };
 
 const SETTINGS_BUSINESS_FILTER_ITEMS: FilterItem[] = [

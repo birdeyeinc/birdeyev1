@@ -154,7 +154,7 @@ function ToolboxPanel({
   })).filter((g) => g.items.length > 0);
 
   return (
-    <div className="w-[280px] shrink-0 border-r border-[#e5e9f0] bg-white dark:border-border dark:bg-background flex flex-col overflow-hidden">
+    <div className="w-[280px] shrink-0 border-r border-new-selected-color bg-white dark:border-border dark:bg-background flex flex-col overflow-hidden">
       {/* Mode toggle */}
       <div className="px-4 pt-4 pb-3 shrink-0">
         <SegmentedToggle<BuilderMode>
@@ -162,7 +162,7 @@ function ToolboxPanel({
           value={mode}
           onChange={onModeChange}
           items={[
-            { value: "ai",     label: "AI",     icon: <Sparkles className="w-3 h-3 text-[#6834B7]" aria-hidden /> },
+            { value: "ai",     label: "AI",     icon: <Sparkles className="w-3 h-3 text-purple-100" aria-hidden /> },
             { value: "manual", label: "Manual" },
           ]}
         />
@@ -171,13 +171,13 @@ function ToolboxPanel({
       {/* Search */}
       <div className="px-4 pb-3 shrink-0">
         <div className="relative">
-          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-[13px] h-[13px] text-[#888] dark:text-muted-foreground" aria-hidden />
+          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-[13px] h-[13px] text-gray-80 dark:text-muted-foreground" aria-hidden />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search fields"
-            className="w-full h-[32px] pl-8 pr-3 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground placeholder-[#999] outline-none focus:border-[#2552ED] transition-colors"
+            className="w-full h-[32px] pl-8 pr-3 bg-white dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] text-[12px] text-gray-900 dark:text-foreground placeholder-gray-90 outline-none focus:border-brand-color transition-colors"
           />
         </div>
       </div>
@@ -185,15 +185,15 @@ function ToolboxPanel({
       {/* Accordion groups */}
       <div className="flex-1 overflow-y-auto px-4 pb-4">
         {filteredGroups.map((group, gi) => (
-          <div key={group.id} className={gi > 0 ? "border-t border-[#f0f1f5] dark:border-border pt-1 mb-1" : "mb-1"}>
+          <div key={group.id} className={gi > 0 ? "border-t border-light-grayish-blue dark:border-border pt-1 mb-1" : "mb-1"}>
             <button
               onClick={() => setExpanded((prev) => ({ ...prev, [group.id]: !prev[group.id] }))}
-              className="flex items-center justify-between w-full py-2.5 text-[13px] text-[#212121] dark:text-foreground"
+              className="flex items-center justify-between w-full py-2.5 text-[13px] text-gray-900 dark:text-foreground"
             >
               {group.label}
               {expanded[group.id]
-                ? <ChevronUp className="w-3.5 h-3.5 text-[#888]" aria-hidden />
-                : <ChevronDown className="w-3.5 h-3.5 text-[#888]" aria-hidden />}
+                ? <ChevronUp className="w-3.5 h-3.5 text-gray-80" aria-hidden />
+                : <ChevronDown className="w-3.5 h-3.5 text-gray-80" aria-hidden />}
             </button>
             {expanded[group.id] && (
               <div className="flex flex-col gap-0.5">
@@ -202,13 +202,13 @@ function ToolboxPanel({
                     key={type}
                     type="button"
                     onClick={() => onAdd(type)}
-                    className="flex items-center justify-between w-full px-2 py-2 text-[12px] text-[#555] dark:text-muted-foreground hover:bg-[#f5f5f5] dark:hover:bg-muted rounded-[6px] transition-colors group"
+                    className="flex items-center justify-between w-full px-2 py-2 text-[12px] text-gray-300 dark:text-muted-foreground hover:bg-gray-20 dark:hover:bg-muted rounded-[6px] transition-colors group"
                   >
                     <div className="flex items-center gap-2.5">
-                      <Icon className="w-[15px] h-[15px] text-[#888] dark:text-muted-foreground" aria-hidden />
+                      <Icon className="w-[15px] h-[15px] text-gray-80 dark:text-muted-foreground" aria-hidden />
                       <span>{label}</span>
                     </div>
-                    <ChevronRight className="w-3.5 h-3.5 text-[#ccc] dark:text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden />
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-60 dark:text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden />
                   </button>
                 ))}
               </div>
@@ -246,35 +246,35 @@ function CanvasPanel({
   onAddStep: () => void;
 }) {
   return (
-    <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#f8f9fb] dark:bg-app-shell-gutter">
+    <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-gray-10 dark:bg-app-shell-gutter">
 
       {/* Form title pill */}
       <div className="flex justify-center pt-6 pb-2 shrink-0">
-        <div className="flex items-center gap-2.5 px-5 py-2.5 bg-[#3b4455] dark:bg-muted rounded-[10px]">
-          <div className="w-2 h-2 rounded-full bg-[#2552ED]" />
+        <div className="flex items-center gap-2.5 px-5 py-2.5 bg-gray-500 dark:bg-muted rounded-[10px]">
+          <div className="w-2 h-2 rounded-full bg-brand-color" />
           <div>
             <p className="text-[12px] text-white">{form.name}</p>
-            <p className="text-[10px] text-[#9ba2b0]">{form.location}</p>
+            <p className="text-[10px] text-gray-90">{form.location}</p>
           </div>
         </div>
       </div>
 
       {/* Step navigation toolbar */}
       <div className="flex justify-center py-2 shrink-0">
-        <div className="flex items-center gap-1 bg-white dark:bg-background border border-[#e5e9f0] dark:border-border rounded-[8px] px-1.5 py-1">
-          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-[#555] dark:text-muted-foreground"
+        <div className="flex items-center gap-1 bg-white dark:bg-background border border-new-selected-color dark:border-border rounded-[8px] px-1.5 py-1">
+          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-gray-300 dark:text-muted-foreground"
             onClick={onPrevStep} disabled={stepIdx === 0}>
             <ChevLeft className="w-4 h-4" aria-hidden />
           </Button>
-          <span className="text-[12px] text-[#555] dark:text-muted-foreground px-2">
+          <span className="text-[12px] text-gray-300 dark:text-muted-foreground px-2">
             Step {stepIdx + 1} of {totalSteps}
           </span>
-          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-[#555] dark:text-muted-foreground"
+          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-gray-300 dark:text-muted-foreground"
             onClick={onNextStep} disabled={stepIdx === totalSteps - 1}>
             <ChevronRight className="w-4 h-4" aria-hidden />
           </Button>
-          <div className="w-px h-5 bg-[#e5e9f0] dark:bg-border mx-1" />
-          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-[#555] dark:text-muted-foreground"
+          <div className="w-px h-5 bg-new-selected-color dark:bg-border mx-1" />
+          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-gray-300 dark:text-muted-foreground"
             onClick={onAddStep} title="Add step">
             <Plus className="w-4 h-4" aria-hidden />
           </Button>
@@ -288,8 +288,8 @@ function CanvasPanel({
           {/* AI shimmer */}
           {generating && (
             <div className="flex flex-col items-center gap-3 w-[340px]">
-              <div className="flex items-center gap-2 text-[12px] text-[#555] dark:text-muted-foreground">
-                <Sparkles className="w-3.5 h-3.5 text-[#6834B7] animate-pulse" aria-hidden />
+              <div className="flex items-center gap-2 text-[12px] text-gray-300 dark:text-muted-foreground">
+                <Sparkles className="w-3.5 h-3.5 text-purple-100 animate-pulse" aria-hidden />
                 Generating your form…
               </div>
               {[...Array(3)].map((_, i) => <Skeleton key={i} className="h-[88px] w-full rounded-[10px]" />)}
@@ -299,8 +299,8 @@ function CanvasPanel({
           {/* Empty state */}
           {!generating && fields.length === 0 && (
             <div className="flex flex-col items-center gap-2 py-16 text-center">
-              <LayoutTemplate className="w-8 h-8 text-[#ccc] dark:text-muted-foreground" aria-hidden />
-              <p className="text-[13px] text-[#888] dark:text-muted-foreground">
+              <LayoutTemplate className="w-8 h-8 text-gray-60 dark:text-muted-foreground" aria-hidden />
+              <p className="text-[13px] text-gray-80 dark:text-muted-foreground">
                 Click a field on the left to add it here
               </p>
             </div>
@@ -317,9 +317,9 @@ function CanvasPanel({
                 {/* Connector line before (except first) */}
                 {idx > 0 && (
                   <div className="flex flex-col items-center">
-                    <div className="w-[1px] h-[28px] bg-[#ccc] dark:bg-app-shell-l2-row-active" />
-                    <div className="w-[9px] h-[9px] border border-[#ccc] dark:border-[#4d5568] rounded-full bg-[#f8f9fb] dark:bg-app-shell-gutter -my-[4px] z-10" />
-                    <div className="w-[1px] h-[28px] bg-[#ccc] dark:bg-app-shell-l2-row-active" />
+                    <div className="w-[1px] h-[28px] bg-gray-60 dark:bg-app-shell-l2-row-active" />
+                    <div className="w-[9px] h-[9px] border border-gray-60 dark:border-gray-400 rounded-full bg-gray-10 dark:bg-app-shell-gutter -my-[4px] z-10" />
+                    <div className="w-[1px] h-[28px] bg-gray-60 dark:bg-app-shell-l2-row-active" />
                   </div>
                 )}
 
@@ -329,41 +329,41 @@ function CanvasPanel({
                   onClick={() => onSelectField(field.id)}
                   className={`relative w-[340px] rounded-[10px] border-2 transition-all text-left ${
                     selected
-                      ? "border-[#2552ED] bg-white dark:bg-background shadow-[0_0_0_3px_rgba(37,82,237,0.12)]"
-                      : "border-[#e5e9f0] dark:border-border bg-white dark:bg-background hover:border-[#c0c6d4] dark:hover:border-[#4d5568]"
+                      ? "border-brand-color bg-white dark:bg-background shadow-[0_0_0_3px_rgba(37,82,237,0.12)]"
+                      : "border-new-selected-color dark:border-border bg-white dark:bg-background hover:border-gray-70 dark:hover:border-gray-400"
                   }`}
                 >
                   {/* Card header */}
-                  <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#f0f1f5] dark:border-border">
+                  <div className="flex items-center justify-between px-4 py-2.5 border-b border-light-grayish-blue dark:border-border">
                     <div className="flex items-center gap-2">
-                      <Icon className="w-3.5 h-3.5 text-[#888] dark:text-muted-foreground" aria-hidden />
-                      <span className="text-[12px] text-[#888] dark:text-muted-foreground">
+                      <Icon className="w-3.5 h-3.5 text-gray-80 dark:text-muted-foreground" aria-hidden />
+                      <span className="text-[12px] text-gray-80 dark:text-muted-foreground">
                         {item?.label ?? field.type}
                       </span>
                       {field.required && (
-                        <span className="text-[10px] text-[#de1b0c] font-medium">Required</span>
+                        <span className="text-[10px] text-red-100 font-medium">Required</span>
                       )}
                     </div>
                     <div className="flex items-center gap-1">
                       <button type="button" onClick={(e) => { e.stopPropagation(); onMoveUp(field.id); }}
                         disabled={idx === 0}
-                        className="p-0.5 text-[#ccc] dark:text-muted-foreground hover:text-[#555] disabled:opacity-30 transition-colors"
+                        className="p-0.5 text-gray-60 dark:text-muted-foreground hover:text-gray-300 disabled:opacity-30 transition-colors"
                         aria-label="Move up">
                         <ChevronUp className="w-3.5 h-3.5" aria-hidden />
                       </button>
                       <button type="button" onClick={(e) => { e.stopPropagation(); onMoveDown(field.id); }}
                         disabled={idx === fields.length - 1}
-                        className="p-0.5 text-[#ccc] dark:text-muted-foreground hover:text-[#555] disabled:opacity-30 transition-colors"
+                        className="p-0.5 text-gray-60 dark:text-muted-foreground hover:text-gray-300 disabled:opacity-30 transition-colors"
                         aria-label="Move down">
                         <ChevronDown className="w-3.5 h-3.5" aria-hidden />
                       </button>
                       <button type="button" onClick={(e) => { e.stopPropagation(); onDuplicateField(field.id); }}
-                        className="p-0.5 text-[#ccc] dark:text-muted-foreground hover:text-[#555] transition-colors"
+                        className="p-0.5 text-gray-60 dark:text-muted-foreground hover:text-gray-300 transition-colors"
                         aria-label="Duplicate field">
                         <Copy className="w-3.5 h-3.5" aria-hidden />
                       </button>
                       <button type="button" onClick={(e) => { e.stopPropagation(); onDeleteField(field.id); }}
-                        className="p-0.5 text-[#ccc] dark:text-muted-foreground hover:text-[#de1b0c] transition-colors"
+                        className="p-0.5 text-gray-60 dark:text-muted-foreground hover:text-red-100 transition-colors"
                         aria-label="Delete field">
                         <X className="w-3.5 h-3.5" aria-hidden />
                       </button>
@@ -372,11 +372,11 @@ function CanvasPanel({
 
                   {/* Card body */}
                   <div className="px-4 py-3">
-                    <p className="text-[13px] text-[#212121] dark:text-foreground">
-                      {field.label || <span className="italic text-[#aaa]">Untitled field</span>}
+                    <p className="text-[13px] text-gray-900 dark:text-foreground">
+                      {field.label || <span className="italic text-gray-80">Untitled field</span>}
                     </p>
                     {field.helpText && (
-                      <p className="text-[11px] text-[#888] dark:text-muted-foreground mt-0.5 leading-[1.5]">
+                      <p className="text-[11px] text-gray-80 dark:text-muted-foreground mt-0.5 leading-[1.5]">
                         {field.helpText}
                       </p>
                     )}
@@ -390,12 +390,12 @@ function CanvasPanel({
           {!generating && (
             <>
               <div className="flex flex-col items-center mt-0">
-                <div className="w-[1px] h-[28px] bg-[#ccc] dark:bg-app-shell-l2-row-active" />
-                <div className="w-[9px] h-[9px] border border-[#ccc] dark:border-[#4d5568] rounded-full bg-[#f8f9fb] dark:bg-app-shell-gutter" />
+                <div className="w-[1px] h-[28px] bg-gray-60 dark:bg-app-shell-l2-row-active" />
+                <div className="w-[9px] h-[9px] border border-gray-60 dark:border-gray-400 rounded-full bg-gray-10 dark:bg-app-shell-gutter" />
               </div>
               <button
                 type="button"
-                className="mt-3 flex items-center gap-1.5 text-[12px] text-[#2552ED] hover:text-[#1E44CC] transition-colors"
+                className="mt-3 flex items-center gap-1.5 text-[12px] text-brand-color hover:text-brand-color transition-colors"
               >
                 <PlusCircle className="w-4 h-4" aria-hidden />
                 Add field from palette
@@ -422,10 +422,10 @@ function PropertiesPanel({
   onClose: () => void;
 }) {
   if (!field) return (
-    <div className="w-[340px] shrink-0 border-l border-[#e5e9f0] dark:border-border bg-white dark:bg-background flex items-center justify-center text-center p-6">
+    <div className="w-[340px] shrink-0 border-l border-new-selected-color dark:border-border bg-white dark:bg-background flex items-center justify-center text-center p-6">
       <div>
-        <MoreVertical className="w-6 h-6 text-[#ccc] dark:text-muted-foreground mx-auto mb-2" aria-hidden />
-        <p className="text-[12px] text-[#888] dark:text-muted-foreground">Select a field to edit its properties</p>
+        <MoreVertical className="w-6 h-6 text-gray-60 dark:text-muted-foreground mx-auto mb-2" aria-hidden />
+        <p className="text-[12px] text-gray-80 dark:text-muted-foreground">Select a field to edit its properties</p>
       </div>
     </div>
   );
@@ -433,12 +433,12 @@ function PropertiesPanel({
   const item = paletteItem(field.type);
 
   return (
-    <div className="w-[340px] shrink-0 border-l border-[#e5e9f0] dark:border-border bg-white dark:bg-background flex flex-col overflow-hidden">
+    <div className="w-[340px] shrink-0 border-l border-new-selected-color dark:border-border bg-white dark:bg-background flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#e5e9f0] dark:border-border shrink-0">
-        <span className="text-[13px] text-[#555] dark:text-muted-foreground">{item?.label ?? field.type}</span>
+      <div className="flex items-center justify-between px-4 py-3 border-b border-new-selected-color dark:border-border shrink-0">
+        <span className="text-[13px] text-gray-300 dark:text-muted-foreground">{item?.label ?? field.type}</span>
         <Button type="button" variant="ghost" size="icon" onClick={onClose}
-          className="rounded-[6px] text-[#555] dark:text-muted-foreground">
+          className="rounded-[6px] text-gray-300 dark:text-muted-foreground">
           <X className="w-4 h-4" aria-hidden />
         </Button>
       </div>
@@ -449,14 +449,14 @@ function PropertiesPanel({
         {/* Label */}
         {field.type !== "divider" && (
           <div>
-            <label className="flex items-center gap-0.5 text-[12px] text-[#212121] dark:text-foreground mb-1.5">
-              Label {field.type !== "section_header" && <span className="text-[#de1b0c]">*</span>}
+            <label className="flex items-center gap-0.5 text-[12px] text-gray-900 dark:text-foreground mb-1.5">
+              Label {field.type !== "section_header" && <span className="text-red-100">*</span>}
             </label>
             <input
               type="text"
               value={field.label}
               onChange={(e) => onChange({ label: e.target.value })}
-              className="w-full h-[36px] px-3 bg-[#f5f5f5] dark:bg-muted border border-[#ccc] dark:border-border rounded-[8px] text-[12px] text-[#555] dark:text-muted-foreground outline-none focus:border-[#2552ED] transition-colors"
+              className="w-full h-[36px] px-3 bg-gray-20 dark:bg-muted border border-gray-60 dark:border-border rounded-[8px] text-[12px] text-gray-300 dark:text-muted-foreground outline-none focus:border-brand-color transition-colors"
             />
           </div>
         )}
@@ -464,13 +464,13 @@ function PropertiesPanel({
         {/* Placeholder */}
         {["short_text","long_text","email","phone"].includes(field.type) && (
           <div>
-            <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Placeholder</label>
+            <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Placeholder</label>
             <input
               type="text"
               value={field.placeholder ?? ""}
               onChange={(e) => onChange({ placeholder: e.target.value })}
               placeholder="Hint text shown in field"
-              className="w-full h-[36px] px-3 bg-[#f5f5f5] dark:bg-muted border border-[#ccc] dark:border-border rounded-[8px] text-[12px] text-[#555] dark:text-muted-foreground outline-none focus:border-[#2552ED] transition-colors"
+              className="w-full h-[36px] px-3 bg-gray-20 dark:bg-muted border border-gray-60 dark:border-border rounded-[8px] text-[12px] text-gray-300 dark:text-muted-foreground outline-none focus:border-brand-color transition-colors"
             />
           </div>
         )}
@@ -478,7 +478,7 @@ function PropertiesPanel({
         {/* Required */}
         {!["section_header","divider"].includes(field.type) && (
           <div className="flex items-center justify-between">
-            <label className="text-[12px] text-[#212121] dark:text-foreground">Required</label>
+            <label className="text-[12px] text-gray-900 dark:text-foreground">Required</label>
             <Switch checked={field.required} onCheckedChange={(v) => onChange({ required: v })} />
           </div>
         )}
@@ -486,13 +486,13 @@ function PropertiesPanel({
         {/* Help text */}
         {!["section_header","divider","signature"].includes(field.type) && (
           <div>
-            <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Help text (optional)</label>
+            <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Help text (optional)</label>
             <input
               type="text"
               value={field.helpText ?? ""}
               onChange={(e) => onChange({ helpText: e.target.value })}
               placeholder="Additional guidance"
-              className="w-full h-[36px] px-3 bg-[#f5f5f5] dark:bg-muted border border-[#ccc] dark:border-border rounded-[8px] text-[12px] text-[#555] dark:text-muted-foreground outline-none focus:border-[#2552ED] transition-colors"
+              className="w-full h-[36px] px-3 bg-gray-20 dark:bg-muted border border-gray-60 dark:border-border rounded-[8px] text-[12px] text-gray-300 dark:text-muted-foreground outline-none focus:border-brand-color transition-colors"
             />
           </div>
         )}
@@ -500,8 +500,8 @@ function PropertiesPanel({
         {/* Options */}
         {["dropdown","radio","checkbox"].includes(field.type) && (
           <div>
-            <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Options</label>
-            <div className="bg-[#f2f4f7] dark:bg-[#1a1e25] rounded-[8px] p-3 space-y-2">
+            <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Options</label>
+            <div className="bg-new-hover-color dark:bg-gray-800 rounded-[8px] p-3 space-y-2">
               {(field.options ?? []).map((opt, idx) => (
                 <div key={idx} className="flex items-center gap-2">
                   <input
@@ -512,18 +512,18 @@ function PropertiesPanel({
                       next[idx] = e.target.value;
                       onChange({ options: next });
                     }}
-                    className="flex-1 h-[32px] px-2.5 bg-white dark:bg-muted border border-[#ccc] dark:border-border rounded-[6px] text-[12px] text-[#555] dark:text-muted-foreground outline-none focus:border-[#2552ED] transition-colors"
+                    className="flex-1 h-[32px] px-2.5 bg-white dark:bg-muted border border-gray-60 dark:border-border rounded-[6px] text-[12px] text-gray-300 dark:text-muted-foreground outline-none focus:border-brand-color transition-colors"
                   />
                   <button type="button"
                     onClick={() => onChange({ options: (field.options ?? []).filter((_, i) => i !== idx) })}
-                    className="text-[#ccc] hover:text-[#de1b0c] transition-colors" aria-label="Remove">
+                    className="text-gray-60 hover:text-red-100 transition-colors" aria-label="Remove">
                     <X className="w-3.5 h-3.5" aria-hidden />
                   </button>
                 </div>
               ))}
               <button type="button"
                 onClick={() => onChange({ options: [...(field.options ?? []), `Option ${(field.options?.length ?? 0) + 1}`] })}
-                className="flex items-center gap-1.5 text-[12px] text-[#2552ED] hover:text-[#1E44CC] transition-colors py-1">
+                className="flex items-center gap-1.5 text-[12px] text-brand-color hover:text-brand-color transition-colors py-1">
                 <PlusCircle className="w-4 h-4" aria-hidden />Add option
               </button>
             </div>
@@ -533,7 +533,7 @@ function PropertiesPanel({
         {/* Rating max */}
         {field.type === "rating" && (
           <div>
-            <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Max stars</label>
+            <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Max stars</label>
             <SegmentedToggle
               value={String(field.maxStars ?? 5)}
               onChange={(v) => onChange({ maxStars: Number(v) as 3 | 5 | 10 })}
@@ -546,16 +546,16 @@ function PropertiesPanel({
         {/* Consent text */}
         {field.type === "consent" && (
           <div>
-            <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Consent text</label>
+            <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Consent text</label>
             <textarea
               value={field.consentText ?? ""}
               onChange={(e) => onChange({ consentText: e.target.value })}
               maxLength={500}
               rows={4}
               placeholder="Legal text the patient must read and agree to…"
-              className="w-full px-3 py-2 bg-white dark:bg-muted border border-[#ccc] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground outline-none focus:border-[#2552ED] transition-colors resize-none leading-[1.5]"
+              className="w-full px-3 py-2 bg-white dark:bg-muted border border-gray-60 dark:border-border rounded-[8px] text-[12px] text-gray-900 dark:text-foreground outline-none focus:border-brand-color transition-colors resize-none leading-[1.5]"
             />
-            <p className="text-right text-[11px] text-[#999] dark:text-muted-foreground mt-0.5">
+            <p className="text-right text-[11px] text-gray-90 dark:text-muted-foreground mt-0.5">
               {(field.consentText ?? "").length}/500
             </p>
           </div>
@@ -565,39 +565,39 @@ function PropertiesPanel({
         {field.type === "matrix" && (
           <>
             <div>
-              <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Row labels</label>
-              <div className="bg-[#f2f4f7] dark:bg-[#1a1e25] rounded-[8px] p-3 space-y-2">
+              <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Row labels</label>
+              <div className="bg-new-hover-color dark:bg-gray-800 rounded-[8px] p-3 space-y-2">
                 {(field.matrixRows ?? []).map((row, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <input type="text" value={row}
                       onChange={(e) => { const n = [...(field.matrixRows ?? [])]; n[i] = e.target.value; onChange({ matrixRows: n }); }}
-                      className="flex-1 h-[32px] px-2.5 bg-white dark:bg-muted border border-[#ccc] dark:border-border rounded-[6px] text-[12px] text-[#555] outline-none focus:border-[#2552ED] transition-colors" />
+                      className="flex-1 h-[32px] px-2.5 bg-white dark:bg-muted border border-gray-60 dark:border-border rounded-[6px] text-[12px] text-gray-300 outline-none focus:border-brand-color transition-colors" />
                     <button type="button" onClick={() => onChange({ matrixRows: (field.matrixRows ?? []).filter((_, j) => j !== i) })}
-                      className="text-[#ccc] hover:text-[#de1b0c] transition-colors"><X className="w-3.5 h-3.5" aria-hidden /></button>
+                      className="text-gray-60 hover:text-red-100 transition-colors"><X className="w-3.5 h-3.5" aria-hidden /></button>
                   </div>
                 ))}
                 <button type="button"
                   onClick={() => onChange({ matrixRows: [...(field.matrixRows ?? []), `Row ${(field.matrixRows?.length ?? 0) + 1}`] })}
-                  className="flex items-center gap-1.5 text-[12px] text-[#2552ED] hover:text-[#1E44CC] transition-colors py-1">
+                  className="flex items-center gap-1.5 text-[12px] text-brand-color hover:text-brand-color transition-colors py-1">
                   <PlusCircle className="w-4 h-4" aria-hidden />Add row
                 </button>
               </div>
             </div>
             <div>
-              <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Column labels</label>
-              <div className="bg-[#f2f4f7] dark:bg-[#1a1e25] rounded-[8px] p-3 space-y-2">
+              <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Column labels</label>
+              <div className="bg-new-hover-color dark:bg-gray-800 rounded-[8px] p-3 space-y-2">
                 {(field.matrixCols ?? []).map((col, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <input type="text" value={col}
                       onChange={(e) => { const n = [...(field.matrixCols ?? [])]; n[i] = e.target.value; onChange({ matrixCols: n }); }}
-                      className="flex-1 h-[32px] px-2.5 bg-white dark:bg-muted border border-[#ccc] dark:border-border rounded-[6px] text-[12px] text-[#555] outline-none focus:border-[#2552ED] transition-colors" />
+                      className="flex-1 h-[32px] px-2.5 bg-white dark:bg-muted border border-gray-60 dark:border-border rounded-[6px] text-[12px] text-gray-300 outline-none focus:border-brand-color transition-colors" />
                     <button type="button" onClick={() => onChange({ matrixCols: (field.matrixCols ?? []).filter((_, j) => j !== i) })}
-                      className="text-[#ccc] hover:text-[#de1b0c] transition-colors"><X className="w-3.5 h-3.5" aria-hidden /></button>
+                      className="text-gray-60 hover:text-red-100 transition-colors"><X className="w-3.5 h-3.5" aria-hidden /></button>
                   </div>
                 ))}
                 <button type="button"
                   onClick={() => onChange({ matrixCols: [...(field.matrixCols ?? []), `Col ${(field.matrixCols?.length ?? 0) + 1}`] })}
-                  className="flex items-center gap-1.5 text-[12px] text-[#2552ED] hover:text-[#1E44CC] transition-colors py-1">
+                  className="flex items-center gap-1.5 text-[12px] text-brand-color hover:text-brand-color transition-colors py-1">
                   <PlusCircle className="w-4 h-4" aria-hidden />Add column
                 </button>
               </div>
@@ -608,7 +608,7 @@ function PropertiesPanel({
         {/* File upload */}
         {field.type === "file_upload" && (
           <div>
-            <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Max files</label>
+            <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Max files</label>
             <Select value={String(field.maxFiles ?? 3)} onValueChange={(v) => onChange({ maxFiles: Number(v) })}>
               <SelectTrigger className="text-[12px] h-[36px]"><SelectValue /></SelectTrigger>
               <SelectContent>
@@ -621,19 +621,19 @@ function PropertiesPanel({
         {/* Section header subtitle */}
         {field.type === "section_header" && (
           <div>
-            <label className="text-[12px] text-[#212121] dark:text-foreground mb-1.5 block">Subtitle (optional)</label>
+            <label className="text-[12px] text-gray-900 dark:text-foreground mb-1.5 block">Subtitle (optional)</label>
             <input type="text" value={field.helpText ?? ""}
               onChange={(e) => onChange({ helpText: e.target.value })}
               placeholder="Additional context"
-              className="w-full h-[36px] px-3 bg-[#f5f5f5] dark:bg-muted border border-[#ccc] dark:border-border rounded-[8px] text-[12px] text-[#555] outline-none focus:border-[#2552ED] transition-colors" />
+              className="w-full h-[36px] px-3 bg-gray-20 dark:bg-muted border border-gray-60 dark:border-border rounded-[8px] text-[12px] text-gray-300 outline-none focus:border-brand-color transition-colors" />
           </div>
         )}
       </div>
 
       {/* Save field button */}
-      <div className="px-4 py-4 border-t border-[#e5e9f0] dark:border-border shrink-0">
+      <div className="px-4 py-4 border-t border-new-selected-color dark:border-border shrink-0">
         <Button type="button" onClick={() => toast.success("Field updated")}
-          className="w-full rounded-[8px] bg-[#2552ED] hover:bg-[#1E44CC] text-[13px] text-white">
+          className="w-full rounded-[8px] bg-brand-color hover:bg-brand-color text-[13px] text-white">
           Apply
         </Button>
       </div>
@@ -734,7 +734,7 @@ export function IntakeFormBuilderView({ form, onCancel, onSave, onPreview }: Int
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-white dark:bg-app-shell-gutter transition-colors duration-300">
       {/* Header */}
-      <div className="shrink-0 border-b border-[#e5e9f0] bg-white dark:border-border dark:bg-background">
+      <div className="shrink-0 border-b border-new-selected-color bg-white dark:border-border dark:bg-background">
         <MainCanvasViewHeader
           title={
             <span className="flex min-w-0 items-center gap-3">
@@ -750,7 +750,7 @@ export function IntakeFormBuilderView({ form, onCancel, onSave, onPreview }: Int
                   onChange={(e) => setFormName(e.target.value)}
                   onBlur={() => setEditingName(false)}
                   onKeyDown={(e) => { if (e.key === "Enter" || e.key === "Escape") setEditingName(false); }}
-                  className="h-8 min-w-0 flex-1 rounded-lg border border-[#2552ED] bg-background px-2 text-[15px] font-semibold text-foreground outline-none"
+                  className="h-8 min-w-0 flex-1 rounded-lg border border-brand-color bg-background px-2 text-[15px] font-semibold text-foreground outline-none"
                 />
               ) : (
                 <button type="button" onClick={() => setEditingName(true)}
@@ -767,14 +767,14 @@ export function IntakeFormBuilderView({ form, onCancel, onSave, onPreview }: Int
               </Button>
               <div className="flex items-center">
                 <Button type="button" size="sm"
-                  className="rounded-r-none pr-3 bg-[#2552ED] hover:bg-[#1E44CC] text-white"
+                  className="rounded-r-none pr-3 bg-brand-color hover:bg-brand-color text-white"
                   onClick={() => handleSave("active")}>
                   Save
                 </Button>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button size="sm"
-                      className="rounded-l-none border-l border-[#1E44CC] px-2 bg-[#2552ED] hover:bg-[#1E44CC] text-white">
+                      className="rounded-l-none border-l border-brand-color px-2 bg-brand-color hover:bg-brand-color text-white">
                       <ChevronDown className="size-3" aria-hidden />
                     </Button>
                   </DropdownMenuTrigger>

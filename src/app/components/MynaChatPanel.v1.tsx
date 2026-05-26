@@ -115,8 +115,8 @@ export function MynaChatPanel({
   };
 
   const headerIconBtnTone = expanded
-    ? "text-[#6b6b6b] hover:bg-black/[0.06] dark:text-[#a8a8a8] dark:hover:bg-white/[0.08]"
-    : "text-[#555] hover:bg-[#f0f1f5] dark:text-muted-foreground dark:hover:bg-muted";
+    ? "text-gray-200 hover:bg-black/[0.06] dark:text-gray-80 dark:hover:bg-white/[0.08]"
+    : "text-gray-300 hover:bg-light-grayish-blue dark:text-muted-foreground dark:hover:bg-muted";
 
   const renderComposer = (variant: "docked" | "expanded") => {
     const expandedShell = variant === "expanded";
@@ -126,7 +126,7 @@ export function MynaChatPanel({
         isLoading={isSending}
         className={cn(
           expandedShell &&
-            "rounded-3xl border-0 bg-[#ececec] shadow-none dark:bg-[#2f2f2f] dark:focus-within:border-transparent dark:focus-within:shadow-[0_0_0_1px_rgba(255,255,255,0.12)] focus-within:border-transparent focus-within:shadow-[0_0_0_1px_rgba(0,0,0,0.08)] hover:border-transparent dark:hover:border-transparent",
+            "rounded-3xl border-0 bg-gray-30 shadow-none dark:bg-gray-500 dark:focus-within:border-transparent dark:focus-within:shadow-[0_0_0_1px_rgba(255,255,255,0.12)] focus-within:border-transparent focus-within:shadow-[0_0_0_1px_rgba(0,0,0,0.08)] hover:border-transparent dark:hover:border-transparent",
           !expandedShell && "rounded-lg",
         )}
       >
@@ -144,7 +144,7 @@ export function MynaChatPanel({
               "flex flex-wrap gap-2 border-b px-4 py-2",
               expandedShell
                 ? "border-black/[0.06] dark:border-white/[0.08]"
-                : "border-[#e5e9f0] dark:border-border",
+                : "border-new-selected-color dark:border-border",
             )}
             onClick={(e) => e.stopPropagation()}
           >
@@ -154,16 +154,16 @@ export function MynaChatPanel({
                 className={cn(
                   "flex max-w-full items-center gap-2 rounded-lg px-4 py-2 text-[13px]",
                   expandedShell
-                    ? "bg-white/80 text-[#0d0d0d] dark:bg-black/20 dark:text-foreground"
-                    : "bg-[#f0f1f5] text-[#212121] dark:bg-muted dark:text-foreground",
+                    ? "bg-white/80 text-gray-900 dark:bg-black/20 dark:text-foreground"
+                    : "bg-light-grayish-blue text-gray-900 dark:bg-muted dark:text-foreground",
                 )}
               >
-                <Paperclip className="size-4 shrink-0 text-[#555] dark:text-muted-foreground" aria-hidden />
+                <Paperclip className="size-4 shrink-0 text-gray-300 dark:text-muted-foreground" aria-hidden />
                 <span className="max-w-[140px] truncate">{file.name}</span>
                 <button
                   type="button"
                   onClick={() => handleRemoveFile(index)}
-                  className="rounded-full p-1 text-[#555] hover:bg-[#e4e6ea] dark:text-muted-foreground dark:hover:bg-[#333a47]"
+                  className="rounded-full p-1 text-gray-300 hover:bg-gray-40 dark:text-muted-foreground dark:hover:bg-gray-600"
                   aria-label={`Remove ${file.name}`}
                 >
                   <X className="size-4" />
@@ -179,7 +179,7 @@ export function MynaChatPanel({
           placeholder={expandedShell ? "Ask anything" : "Ask Myna anything…"}
           className={cn(
             "text-[13px]",
-            expandedShell && "text-[15px] leading-6 placeholder:text-[#71717a] dark:placeholder:text-[#8e8e8e]",
+            expandedShell && "text-[15px] leading-6 placeholder:text-gray-100 dark:placeholder:text-gray-90",
           )}
         />
         <PromptInputActions className={cn("pt-2", expandedShell && "pb-2")}>
@@ -187,7 +187,7 @@ export function MynaChatPanel({
             tooltip="Attach files"
             aria-label="Attach files"
             onClick={() => uploadInputRef.current?.click()}
-            className={expandedShell ? "text-[#6b6b6b] dark:text-[#b4b4b4]" : undefined}
+            className={expandedShell ? "text-gray-200 dark:text-gray-70" : undefined}
           >
             {expandedShell ? (
               <Plus className="size-4" />
@@ -228,7 +228,7 @@ export function MynaChatPanel({
     <div
       className={cn(
         "flex h-full min-h-0 flex-col",
-        expanded && "bg-[#f7f7f8] dark:bg-[#212121]",
+        expanded && "bg-gray-10 dark:bg-gray-900",
       )}
     >
       <div className="flex shrink-0 flex-col">
@@ -241,7 +241,7 @@ export function MynaChatPanel({
           {!expanded ? (
             <div className="flex min-w-0 items-center gap-1">
               <p
-                className="truncate text-[14px] text-[#212121] dark:text-foreground"
+                className="truncate text-[14px] text-gray-900 dark:text-foreground"
                 style={{ fontWeight: 500 }}
               >
                 {MYNA_CHAT_HEADER_TITLE}
@@ -283,7 +283,7 @@ export function MynaChatPanel({
                   >
                     <div className="px-4 pt-3 pb-2">
                       <p
-                        className="text-[14px] text-[#212121] dark:text-foreground"
+                        className="text-[14px] text-gray-900 dark:text-foreground"
                         style={{ fontWeight: 500 }}
                       >
                         History
@@ -291,7 +291,7 @@ export function MynaChatPanel({
                     </div>
                     <div className="flex max-h-[min(16rem,40vh)] flex-col gap-2 overflow-y-auto px-4 pb-4 pt-0">
                       {conversations.length === 0 ? (
-                        <p className="text-[12px] leading-4 text-[#555] dark:text-muted-foreground">
+                        <p className="text-[12px] leading-4 text-gray-300 dark:text-muted-foreground">
                           No conversations yet.
                         </p>
                       ) : (
@@ -306,8 +306,8 @@ export function MynaChatPanel({
                             className={cn(
                               "w-full min-w-0 rounded-lg px-2 py-2 text-left text-[12px] leading-4 transition-colors",
                               c.id === activeConversationId
-                                ? "bg-[#eef2ff] text-[#212121] dark:bg-[#1e2d5e] dark:text-foreground"
-                                : "text-[#212121] hover:bg-[#f0f1f5] dark:text-foreground dark:hover:bg-muted",
+                                ? "bg-blue-10 text-gray-900 dark:bg-blue-300 dark:text-foreground"
+                                : "text-gray-900 hover:bg-light-grayish-blue dark:text-foreground dark:hover:bg-muted",
                             )}
                           >
                             <span className="line-clamp-2 break-words">{c.title}</span>
@@ -345,7 +345,7 @@ export function MynaChatPanel({
 
       {expandedEmpty ? (
         <div className="flex min-h-0 flex-1 flex-col items-center justify-center px-4 pb-16 pt-4">
-          <h1 className="mb-8 max-w-xl text-center text-2xl font-normal leading-8 tracking-tight text-[#0d0d0d] dark:text-white sm:text-[32px] sm:leading-10">
+          <h1 className="mb-8 max-w-xl text-center text-2xl font-normal leading-8 tracking-tight text-gray-900 dark:text-white sm:text-[32px] sm:leading-10">
             {MYNA_EXPANDED_EMPTY_HEADLINE}
           </h1>
           <div className="w-full max-w-3xl">{renderComposer("expanded")}</div>
@@ -360,7 +360,7 @@ export function MynaChatPanel({
               )}
             >
               {messages.length === 0 ? (
-                <p className="text-[13px] text-[#555] dark:text-muted-foreground">No messages yet.</p>
+                <p className="text-[13px] text-gray-300 dark:text-muted-foreground">No messages yet.</p>
               ) : (
                 messages.map((msg) =>
                   msg.role === "assistant" ? (
@@ -374,7 +374,7 @@ export function MynaChatPanel({
                       <MessageContent
                         className={cn(
                           expandedThread &&
-                            "border-0 bg-[#ececec] dark:bg-[#2f2f2f]",
+                            "border-0 bg-gray-30 dark:bg-gray-500",
                         )}
                       >
                         {msg.text}
@@ -393,7 +393,7 @@ export function MynaChatPanel({
           <div
             className={cn(
               "min-w-0 shrink-0 px-4 pt-2 pb-4",
-              expandedThread && "w-full bg-[#f7f7f8] dark:bg-[#212121]",
+              expandedThread && "w-full bg-gray-10 dark:bg-gray-900",
             )}
           >
             {!expanded && messages.length === 0 ? (

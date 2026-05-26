@@ -33,7 +33,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
-  color: #212121;
+  color: var(--gray-900);
 }
 
 .trigger-conditions__card {
@@ -41,7 +41,7 @@
   flex-direction: column;
   gap: 12px;
   padding: 12px;
-  background: #f2f4f7;
+  background: var(--new-hover-color);
   border-radius: 4px;
   width: 100%;
 }
@@ -72,7 +72,7 @@
   gap: 8px;
   width: 100%;
   padding: 8px 8px 8px 12px;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
@@ -81,11 +81,11 @@
 }
 
 .tc-dropdown__trigger:hover {
-  border-color: #aaa;
+  border-color: var(--gray-80);
 }
 
 .tc-dropdown__trigger--open {
-  border-color: #aaa;
+  border-color: var(--gray-80);
 }
 
 .tc-dropdown__value {
@@ -94,7 +94,7 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #212121;
+  color: var(--gray-900);
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -102,11 +102,11 @@
 }
 
 .tc-dropdown__value--placeholder {
-  color: #8f8f8f;
+  color: var(--gray-90);
 }
 
 .tc-dropdown__chevron {
-  color: #212121;
+  color: var(--gray-900);
   transition: transform 0.15s;
 }
 
@@ -123,7 +123,7 @@
   list-style: none;
   margin: 0;
   padding: 4px 0;
-  background: #fff;
+  background: var(--gray-0);
   border-radius: 4px;
   box-shadow: 0px 4px 8px 0px rgba(33, 33, 33, 0.18);
 }
@@ -138,23 +138,23 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #212121;
+  color: var(--gray-900);
   cursor: pointer;
 }
 
 .tc-dropdown__option:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }
 
 .tc-dropdown__option--selected {
-  background: #e5e9f0;
+  background: var(--new-selected-color);
 }
 
 .tc-dropdown__check {
   font-size: 20px;
   width: 20px;
   height: 20px;
-  color: #212121;
+  color: var(--gray-900);
 }
 
 /* Logic connector (AND / OR) between conditions */
@@ -177,7 +177,7 @@
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.24px;
-  color: #8f8f8f;
+  color: var(--gray-90);
 }
 
 .tc-connector__btn .material-symbols-outlined {
@@ -187,7 +187,7 @@
 }
 
 .tc-connector__btn:hover {
-  color: #555;
+  color: var(--gray-300);
 }
 
 .tc-connector__menu {
@@ -198,7 +198,7 @@
   list-style: none;
   margin: 0;
   padding: 12px 16px;
-  background: #fff;
+  background: var(--gray-0);
   border-radius: 4px;
   box-shadow: 0px 4px 8px 0px rgba(33, 33, 33, 0.18);
   min-width: 120px;
@@ -218,17 +218,17 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #212121;
+  color: var(--gray-900);
   cursor: pointer;
   list-style: none;
 }
 
 .tc-connector__option:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }
 
 .tc-connector__option--selected {
-  background: #e5e9f0;
+  background: var(--new-selected-color);
 }
 
 .tc-connector__option .material-symbols-outlined {
@@ -252,7 +252,7 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #1976d2;
+  color: var(--blue-100);
   white-space: nowrap;
 }
 
@@ -272,7 +272,7 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #1976d2;
+  color: var(--blue-100);
   text-align: left;
 }
 

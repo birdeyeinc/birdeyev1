@@ -6,7 +6,7 @@ export default function RHSTestFeedback({ value, onChange, onSubmit }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#555', fontFamily: '"Inter", arial, sans-serif' }}>Your feedback</span>
+        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-300)', fontFamily: '"Inter", arial, sans-serif' }}>Your feedback</span>
         <Textarea
           name="feedback"
           value={value}

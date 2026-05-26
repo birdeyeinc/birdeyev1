@@ -13,18 +13,18 @@ import {
 function TrendIcon({ direction }: { direction: TrendDirection }) {
   if (direction === "up")   return <TrendingUp  className="size-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />;
   if (direction === "down") return <TrendingDown className="size-3.5 text-red-500 dark:text-red-400 shrink-0" />;
-  return <Minus className="size-3.5 text-[#aaa] shrink-0" />;
+  return <Minus className="size-3.5 text-gray-80 shrink-0" />;
 }
 
 function trendClass(d: TrendDirection) {
   if (d === "up")   return "text-emerald-600 dark:text-emerald-400";
   if (d === "down") return "text-red-500 dark:text-red-400";
-  return "text-[#888] dark:text-[#666]";
+  return "text-gray-80 dark:text-gray-200";
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] font-semibold uppercase tracking-wide text-[#aaa] dark:text-[#555] mb-2.5">
+    <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-80 dark:text-gray-300 mb-2.5">
       {children}
     </p>
   );
@@ -32,19 +32,19 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 function AiInsightBlock({ insights }: { insights: { text: string; action?: string }[] }) {
   return (
-    <div className="rounded-xl border border-[#c7d2fe] dark:border-[#2a3a70] bg-[#EEF2FF] dark:bg-[#1a2040] p-5">
+    <div className="rounded-xl border border-purple-40 dark:border-blue-300 bg-blue-10 dark:bg-blue-400 p-5">
       <div className="flex items-center gap-1.5 mb-3.5">
-        <Sparkles className="size-3.5 text-[#4f46e5] dark:text-[#818cf8] shrink-0" />
-        <span className="text-[11px] font-semibold uppercase tracking-wide text-[#4f46e5] dark:text-[#818cf8]">AI Insight</span>
+        <Sparkles className="size-3.5 text-purple-100 dark:text-purple-60 shrink-0" />
+        <span className="text-[11px] font-semibold uppercase tracking-wide text-purple-100 dark:text-purple-60">AI Insight</span>
       </div>
       <ul className="flex flex-col gap-3">
         {insights.map((ins, i) => (
           <li key={i} className="flex gap-3 items-start">
-            <span className="mt-[7px] size-1.5 rounded-full bg-[#4f46e5] dark:bg-[#818cf8] shrink-0" />
+            <span className="mt-[7px] size-1.5 rounded-full bg-purple-100 dark:bg-purple-60 shrink-0" />
             <div className="min-w-0">
-              <p className="text-[13px] text-[#1e1e2e] dark:text-[#c7d2fe] leading-relaxed">{ins.text}</p>
+              <p className="text-[13px] text-gray-800 dark:text-purple-40 leading-relaxed">{ins.text}</p>
               {ins.action && (
-                <button className="mt-0.5 inline-flex items-center gap-0.5 text-[12px] text-[#4f46e5] dark:text-[#818cf8] hover:underline font-medium">
+                <button className="mt-0.5 inline-flex items-center gap-0.5 text-[12px] text-purple-100 dark:text-purple-60 hover:underline font-medium">
                   {ins.action}<ChevronRight className="size-3" />
                 </button>
               )}
@@ -59,13 +59,13 @@ function AiInsightBlock({ insights }: { insights: { text: string; action?: strin
 /* ─── KPI tile ─── */
 function KpiTile({ label, value, trend, delta }: typeof globalKpis[number]) {
   return (
-    <div className="rounded-xl border border-[#E5E7EB] dark:border-border bg-white dark:bg-background p-4 flex flex-col gap-2">
-      <p className="text-[11px] text-[#888] dark:text-muted-foreground">{label}</p>
-      <p className="text-[22px] font-semibold tracking-tight text-[#212121] dark:text-foreground leading-none">{value}</p>
+    <div className="rounded-xl border border-gray-50 dark:border-border bg-white dark:bg-background p-4 flex flex-col gap-2">
+      <p className="text-[11px] text-gray-80 dark:text-muted-foreground">{label}</p>
+      <p className="text-[22px] font-semibold tracking-tight text-gray-900 dark:text-foreground leading-none">{value}</p>
       <div className="flex items-center gap-1.5 mt-auto">
         <TrendIcon direction={trend} />
         <span className={cn("text-[11px] font-medium", trendClass(trend))}>{delta}</span>
-        <span className="text-[11px] text-[#bbb] dark:text-[#555]">vs prev 30d</span>
+        <span className="text-[11px] text-gray-70 dark:text-gray-300">vs prev 30d</span>
       </div>
     </div>
   );
@@ -78,8 +78,8 @@ function OverviewReport() {
   return (
     <div className="flex flex-col gap-6 px-6 py-6 max-w-[880px]">
       <div>
-        <h2 className="text-[18px] font-semibold text-[#212121] dark:text-foreground tracking-tight">Global Performance Overview</h2>
-        <p className="text-[13px] text-[#888] dark:text-muted-foreground mt-1">CEO-level snapshot of how your full AI team is performing.</p>
+        <h2 className="text-[18px] font-semibold text-gray-900 dark:text-foreground tracking-tight">Global Performance Overview</h2>
+        <p className="text-[13px] text-gray-80 dark:text-muted-foreground mt-1">CEO-level snapshot of how your full AI team is performing.</p>
       </div>
 
       {/* KPIs */}
@@ -99,22 +99,22 @@ function OverviewReport() {
       {/* Benchmarks */}
       <div>
         <SectionLabel>Benchmark vs. Industry</SectionLabel>
-        <div className="rounded-xl border border-[#E5E7EB] dark:border-border bg-white dark:bg-background px-5 py-5">
+        <div className="rounded-xl border border-gray-50 dark:border-border bg-white dark:bg-background px-5 py-5">
           <div className="flex flex-col gap-4">
             {globalBenchmarks.map((b) => (
               <div key={b.label} className="flex items-center gap-3 min-w-0">
-                <span className="text-[12px] text-[#666] dark:text-muted-foreground w-[130px] shrink-0">{b.label}</span>
-                <div className="flex-1 h-1.5 rounded-full bg-[#f0f1f5] dark:bg-muted overflow-hidden">
+                <span className="text-[12px] text-gray-200 dark:text-muted-foreground w-[130px] shrink-0">{b.label}</span>
+                <div className="flex-1 h-1.5 rounded-full bg-light-grayish-blue dark:bg-muted overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-[#4f46e5] dark:bg-[#818cf8] transition-all duration-500"
+                    className="h-full rounded-full bg-purple-100 dark:bg-purple-60 transition-all duration-500"
                     style={{ width: `${b.percentile}%` }}
                   />
                 </div>
-                <span className="text-[12px] text-[#212121] dark:text-foreground font-medium shrink-0 text-right w-[196px]">{b.result}</span>
+                <span className="text-[12px] text-gray-900 dark:text-foreground font-medium shrink-0 text-right w-[196px]">{b.result}</span>
               </div>
             ))}
           </div>
-          <p className="mt-4 text-[11px] text-[#bbb] dark:text-[#555]">Benchmarks reflect your industry vertical. Updated monthly.</p>
+          <p className="mt-4 text-[11px] text-gray-70 dark:text-gray-300">Benchmarks reflect your industry vertical. Updated monthly.</p>
         </div>
       </div>
     </div>
@@ -129,7 +129,7 @@ function AgentStatusBadge({ status }: { status: AgentSection["status"] }) {
     return <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">Active</span>;
   if (status === "inactive")
     return <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300">Inactive</span>;
-  return <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium bg-[#f0f1f5] text-[#888] dark:bg-muted dark:text-muted-foreground">Not configured</span>;
+  return <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium bg-light-grayish-blue text-gray-80 dark:bg-muted dark:text-muted-foreground">Not configured</span>;
 }
 
 function AgentReport({ agent }: { agent: AgentSection }) {
@@ -138,10 +138,10 @@ function AgentReport({ agent }: { agent: AgentSection }) {
       {/* Header */}
       <div>
         <div className="flex items-center gap-2.5 flex-wrap mb-1">
-          <h2 className="text-[18px] font-semibold text-[#212121] dark:text-foreground tracking-tight">{agent.label}</h2>
+          <h2 className="text-[18px] font-semibold text-gray-900 dark:text-foreground tracking-tight">{agent.label}</h2>
           <AgentStatusBadge status={agent.status} />
         </div>
-        <p className="text-[13px] text-[#888] dark:text-muted-foreground">{agent.description}</p>
+        <p className="text-[13px] text-gray-80 dark:text-muted-foreground">{agent.description}</p>
       </div>
 
       {/* Metrics */}
@@ -149,9 +149,9 @@ function AgentReport({ agent }: { agent: AgentSection }) {
         <SectionLabel>Metrics</SectionLabel>
         <div className="grid grid-cols-2 xl:grid-cols-3 gap-3">
           {agent.metrics.map((m) => (
-            <div key={m.label} className="rounded-xl border border-[#E5E7EB] dark:border-border bg-white dark:bg-background p-4 flex flex-col gap-1.5">
-              <p className="text-[11px] text-[#888] dark:text-muted-foreground">{m.label}</p>
-              <p className="text-[20px] font-semibold tracking-tight text-[#212121] dark:text-foreground leading-none">{m.value}</p>
+            <div key={m.label} className="rounded-xl border border-gray-50 dark:border-border bg-white dark:bg-background p-4 flex flex-col gap-1.5">
+              <p className="text-[11px] text-gray-80 dark:text-muted-foreground">{m.label}</p>
+              <p className="text-[20px] font-semibold tracking-tight text-gray-900 dark:text-foreground leading-none">{m.value}</p>
               {m.trend && m.delta && (
                 <div className="flex items-center gap-1 mt-auto">
                   <TrendIcon direction={m.trend} />
@@ -172,8 +172,8 @@ function AgentReport({ agent }: { agent: AgentSection }) {
       {/* Benchmark */}
       <div>
         <SectionLabel>Benchmark</SectionLabel>
-        <div className="rounded-xl border border-[#E5E7EB] dark:border-border bg-white dark:bg-background px-5 py-4">
-          <p className="text-[13px] text-[#212121] dark:text-foreground">{agent.benchmark}</p>
+        <div className="rounded-xl border border-gray-50 dark:border-border bg-white dark:bg-background px-5 py-4">
+          <p className="text-[13px] text-gray-900 dark:text-foreground">{agent.benchmark}</p>
         </div>
       </div>
     </div>

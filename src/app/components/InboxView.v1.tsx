@@ -714,7 +714,7 @@ function ConversationItem({
       onClick={onClick}
       className={`font-sans font-medium w-full rounded-none border-0 text-left transition-colors duration-150 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-inset ${
         isSelected
-          ? "bg-[#f0f4ff] dark:bg-muted"
+          ? "bg-blue-10 dark:bg-muted"
           : `bg-transparent ${HOVER}`
       }`}
     >
@@ -751,8 +751,8 @@ function ConversationItem({
         {conv.type === "call-recording" ? (
           <div className="flex items-center gap-1.5 pl-4">
             <Phone className="size-3 shrink-0 text-primary" aria-label="Call recording" />
-            <span className="text-[12px] tabular-nums text-[#666] dark:text-muted-foreground">{conv.callDuration}</span>
-            <span className="text-[#ccc] dark:text-[#444]">·</span>
+            <span className="text-[12px] tabular-nums text-gray-200 dark:text-muted-foreground">{conv.callDuration}</span>
+            <span className="text-gray-60 dark:text-gray-400">·</span>
             {conv.callOutcome === "resolved"   && <span className="rounded-md border-0 bg-emerald-50 px-2 py-0.5 text-[12px] font-medium text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400">Resolved</span>}
             {conv.callOutcome === "escalated"  && <span className="rounded-md border-0 bg-red-50 px-2 py-0.5 text-[12px] font-medium text-red-700 dark:bg-red-950/40 dark:text-red-400">Escalated</span>}
             {conv.callOutcome === "follow-up"  && <span className="rounded-md border-0 bg-amber-50 px-2 py-0.5 text-[12px] font-medium text-amber-700 dark:bg-amber-950/40 dark:text-amber-400">Follow-up</span>}
@@ -814,8 +814,8 @@ function ChatBubble({ msg }: { msg: ChatMessage }) {
         <div
           className={`max-w-[420px] px-4 py-3 rounded-2xl text-[14px] leading-relaxed ${
             isAgent
-              ? "bg-[#e3f0ff] dark:bg-[#1e3a5f] text-[#212121] dark:text-foreground rounded-br-md"
-              : "bg-white dark:bg-muted text-[#212121] dark:text-foreground rounded-bl-md"
+              ? "bg-blue-20 dark:bg-blue-400 text-gray-900 dark:text-foreground rounded-br-md"
+              : "bg-white dark:bg-muted text-gray-900 dark:text-foreground rounded-bl-md"
           }`}
           style={{ fontWeight: 400 }}
         >
@@ -825,7 +825,7 @@ function ChatBubble({ msg }: { msg: ChatMessage }) {
       <div className="flex items-center gap-2 mt-1.5 px-1">
         {msg.sentVia && (
           <span
-            className="text-[11px] text-[#b0b0b0] dark:text-[#5a6170] italic"
+            className="text-[11px] text-gray-70 dark:text-gray-300 italic"
             style={{ fontWeight: 400 }}
           >
             {msg.sentVia}
@@ -833,14 +833,14 @@ function ChatBubble({ msg }: { msg: ChatMessage }) {
         )}
         {msg.senderName && (
           <span
-            className="text-[11px] text-[#999] dark:text-[#5a6170]"
+            className="text-[11px] text-gray-90 dark:text-gray-300"
             style={{ fontWeight: 400 }}
           >
             {msg.senderName} •
           </span>
         )}
         <span
-          className="text-[11px] text-[#999] dark:text-[#5a6170]"
+          className="text-[11px] text-gray-90 dark:text-gray-300"
           style={{ fontWeight: 400 }}
         >
           {msg.time}
@@ -898,7 +898,7 @@ function Composer({ textareaRef }: { textareaRef: RefObject<HTMLTextAreaElement 
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Ask anything, use @ to tag files and collections"
           rows={1}
-          className="w-full bg-transparent text-[14px] text-[#212121] dark:text-foreground placeholder:text-[#b0b0b0] dark:placeholder:text-muted-foreground outline-none resize-none"
+          className="w-full bg-transparent text-[14px] text-gray-900 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground outline-none resize-none"
           style={{ fontWeight: 400 }}
         />
 
@@ -908,41 +908,41 @@ function Composer({ textareaRef }: { textareaRef: RefObject<HTMLTextAreaElement 
               type="button"
               variant="ghost"
               size="icon"
-              className="rounded-lg hover:bg-[#eaecef] dark:hover:bg-muted"
+              className="rounded-lg hover:bg-gray-40 dark:hover:bg-muted"
               title="Attach"
             >
-              <Paperclip className="w-[14px] h-[14px] text-[#212121] dark:text-muted-foreground" />
+              <Paperclip className="w-[14px] h-[14px] text-gray-900 dark:text-foreground" />
             </Button>
             <Button
               type="button"
               variant="ghost"
               size="icon"
-              className="rounded-lg hover:bg-[#eaecef] dark:hover:bg-muted"
+              className="rounded-lg hover:bg-gray-40 dark:hover:bg-muted"
               title="Image"
             >
-              <ImageIcon className="w-[14px] h-[14px] text-[#212121] dark:text-muted-foreground" />
+              <ImageIcon className="w-[14px] h-[14px] text-gray-900 dark:text-foreground" />
             </Button>
             <Button
               type="button"
               variant="ghost"
               size="icon"
-              className="rounded-lg hover:bg-[#eaecef] dark:hover:bg-muted"
+              className="rounded-lg hover:bg-gray-40 dark:hover:bg-muted"
               title="Mention"
             >
-              <AtSign className="w-[14px] h-[14px] text-[#212121] dark:text-muted-foreground" />
+              <AtSign className="w-[14px] h-[14px] text-gray-900 dark:text-foreground" />
             </Button>
             <div
-              className="mx-1 h-4 w-px shrink-0 bg-[#e5e9f0] dark:bg-muted"
+              className="mx-1 h-4 w-px shrink-0 bg-new-selected-color dark:bg-muted"
               aria-hidden
             />
             <Button
               type="button"
               variant="ghost"
               size="icon"
-              className="rounded-lg hover:bg-[#eaecef] dark:hover:bg-muted"
+              className="rounded-lg hover:bg-gray-40 dark:hover:bg-muted"
               title="Settings"
             >
-              <SlidersHorizontal className="w-[14px] h-[14px] text-[#212121] dark:text-muted-foreground" />
+              <SlidersHorizontal className="w-[14px] h-[14px] text-gray-900 dark:text-foreground" />
             </Button>
           </div>
 
@@ -951,8 +951,8 @@ function Composer({ textareaRef }: { textareaRef: RefObject<HTMLTextAreaElement 
             aria-label="Send"
             className={`h-10 w-10 shrink-0 rounded-[10px] p-0 text-white ${
               canSend
-                ? "bg-[#2552ED] hover:bg-[#1E44CC]"
-                : "bg-[#2552ED]/70 hover:bg-[#2552ED]/75 dark:bg-[#2552ED]/50 dark:hover:bg-[#2552ED]/55"
+                ? "bg-brand-color hover:bg-brand-color"
+                : "bg-brand-color/70 hover:bg-brand-color/75 dark:bg-brand-color/50 dark:hover:bg-brand-color/55"
             }`}
           >
             <ArrowUp className="mx-auto h-4 w-4" strokeWidth={L1_STRIP_ICON_STROKE_PX} absoluteStrokeWidth />
@@ -980,14 +980,14 @@ function InboxNav() {
   ];
 
   return (
-    <div className="w-[220px] bg-[#f0f1f5] dark:bg-background border-r border-[#f0f1f5] dark:border-border rounded-tl-lg flex flex-col h-full overflow-hidden shrink-0 transition-colors duration-300">
+    <div className="w-[220px] bg-light-grayish-blue dark:bg-background border-r border-light-grayish-blue dark:border-border rounded-tl-lg flex flex-col h-full overflow-hidden shrink-0 transition-colors duration-300">
       <div className="flex-1 overflow-y-auto px-2 pt-4 pb-2">
         <div className="flex flex-col gap-0.5">
           {/* New message */}
-          <button className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-[#212121] dark:text-foreground rounded-[4px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors tracking-[-0.28px]">
+          <button className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-gray-900 dark:text-foreground rounded-[4px] hover:bg-gray-40 dark:hover:bg-muted transition-colors tracking-[-0.28px]">
             <span>New message</span>
             <div className="w-[20px] h-[20px] flex items-center justify-center">
-              <MessageSquarePlus className="w-[15px] h-[15px] text-[#2552ED]" />
+              <MessageSquarePlus className="w-[15px] h-[15px] text-brand-color" />
             </div>
           </button>
 
@@ -996,8 +996,8 @@ function InboxNav() {
             onClick={() => setActiveItem("All messages")}
             className={`flex items-center gap-2.5 px-2 py-1.5 w-full text-[14px] rounded-[4px] transition-colors tracking-[-0.28px] ${
               activeItem === "All messages"
-                ? "text-[#2552ED] bg-[#e4e6ea] dark:bg-muted dark:text-[#6b9bff]"
-                : "text-[#212121] dark:text-foreground hover:bg-[#e4e6ea] dark:hover:bg-muted"
+                ? "text-brand-color bg-gray-40 dark:bg-muted dark:text-blue-70"
+                : "text-gray-900 dark:text-foreground hover:bg-gray-40 dark:hover:bg-muted"
             }`}
           >
             
@@ -1008,14 +1008,14 @@ function InboxNav() {
           <div>
             <button
               onClick={() => setAssignmentOpen(!assignmentOpen)}
-              className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-[#212121] dark:text-foreground rounded-[4px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors tracking-[-0.28px]"
+              className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-gray-900 dark:text-foreground rounded-[4px] hover:bg-gray-40 dark:hover:bg-muted transition-colors tracking-[-0.28px]"
             >
               <span>Assignment</span>
               <div className="w-[20px] h-[20px] flex items-center justify-center">
                 {assignmentOpen ? (
-                  <ChevronDown className="w-3 h-3 text-[#303030] dark:text-muted-foreground" />
+                  <ChevronDown className="w-3 h-3 text-gray-600 dark:text-muted-foreground" />
                 ) : (
-                  <ChevronRight className="w-3 h-3 text-[#303030] dark:text-muted-foreground" />
+                  <ChevronRight className="w-3 h-3 text-gray-600 dark:text-muted-foreground" />
                 )}
               </div>
             </button>
@@ -1027,8 +1027,8 @@ function InboxNav() {
                     onClick={() => setActiveItem(label)}
                     className={`text-left px-2 py-1.5 text-[13px] rounded-[4px] transition-colors tracking-[-0.26px] ${
                       activeItem === label
-                        ? "text-[#2552ED] bg-[#e4e6ea] dark:bg-muted dark:text-[#6b9bff]"
-                        : "text-[#555] dark:text-muted-foreground hover:bg-[#e4e6ea] dark:hover:bg-muted"
+                        ? "text-brand-color bg-gray-40 dark:bg-muted dark:text-blue-70"
+                        : "text-gray-300 dark:text-muted-foreground hover:bg-gray-40 dark:hover:bg-muted"
                     }`}
                   >
                     {label}
@@ -1043,8 +1043,8 @@ function InboxNav() {
             onClick={() => setActiveItem("Spam")}
             className={`text-left px-2 py-1.5 text-[14px] rounded-[4px] transition-colors tracking-[-0.28px] ${
               activeItem === "Spam"
-                ? "text-[#2552ED] bg-[#e4e6ea] dark:bg-muted dark:text-[#6b9bff]"
-                : "text-[#212121] dark:text-foreground hover:bg-[#e4e6ea] dark:hover:bg-muted"
+                ? "text-brand-color bg-gray-40 dark:bg-muted dark:text-blue-70"
+                : "text-gray-900 dark:text-foreground hover:bg-gray-40 dark:hover:bg-muted"
             }`}
           >
             Spam
@@ -1053,48 +1053,48 @@ function InboxNav() {
           {/* Leads */}
           <button
             onClick={() => setLeadsOpen(!leadsOpen)}
-            className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-[#212121] dark:text-foreground rounded-[4px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors tracking-[-0.28px]"
+            className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-gray-900 dark:text-foreground rounded-[4px] hover:bg-gray-40 dark:hover:bg-muted transition-colors tracking-[-0.28px]"
           >
             <span>Leads</span>
             <div className="w-[20px] h-[20px] flex items-center justify-center">
-              <ChevronRight className="w-3 h-3 text-[#303030] dark:text-muted-foreground" />
+              <ChevronRight className="w-3 h-3 text-gray-600 dark:text-muted-foreground" />
             </div>
           </button>
 
           {/* Feedback */}
           <button
             onClick={() => setFeedbackOpen(!feedbackOpen)}
-            className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-[#212121] dark:text-foreground rounded-[4px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors tracking-[-0.28px]"
+            className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-gray-900 dark:text-foreground rounded-[4px] hover:bg-gray-40 dark:hover:bg-muted transition-colors tracking-[-0.28px]"
           >
             <span>Feedback</span>
             <div className="w-[20px] h-[20px] flex items-center justify-center">
-              <ChevronRight className="w-3 h-3 text-[#303030] dark:text-muted-foreground" />
+              <ChevronRight className="w-3 h-3 text-gray-600 dark:text-muted-foreground" />
             </div>
           </button>
 
           {/* Saved filters */}
-          <button className="text-left px-2 py-1.5 w-full text-[14px] text-[#212121] dark:text-foreground rounded-[4px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors tracking-[-0.28px]">
+          <button className="text-left px-2 py-1.5 w-full text-[14px] text-gray-900 dark:text-foreground rounded-[4px] hover:bg-gray-40 dark:hover:bg-muted transition-colors tracking-[-0.28px]">
             Saved filters
           </button>
 
           {/* Agents */}
-          <button className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-[#212121] dark:text-foreground rounded-[4px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors tracking-[-0.28px]">
+          <button className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-gray-900 dark:text-foreground rounded-[4px] hover:bg-gray-40 dark:hover:bg-muted transition-colors tracking-[-0.28px]">
             <span>Agents</span>
             <div className="w-[20px] h-[20px] flex items-center justify-center">
-              <ChevronRight className="w-3 h-3 text-[#303030] dark:text-muted-foreground" />
+              <ChevronRight className="w-3 h-3 text-gray-600 dark:text-muted-foreground" />
             </div>
           </button>
 
           {/* Lead generation agents */}
-          <button className="text-left px-2 py-1.5 w-full text-[14px] text-[#212121] dark:text-foreground rounded-[4px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors tracking-[-0.28px]">
+          <button className="text-left px-2 py-1.5 w-full text-[14px] text-gray-900 dark:text-foreground rounded-[4px] hover:bg-gray-40 dark:hover:bg-muted transition-colors tracking-[-0.28px]">
             Lead generation agents
           </button>
 
           {/* Settings */}
-          <button className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-[#212121] dark:text-foreground rounded-[4px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors tracking-[-0.28px]">
+          <button className="flex items-center justify-between px-2 py-1.5 w-full text-[14px] text-gray-900 dark:text-foreground rounded-[4px] hover:bg-gray-40 dark:hover:bg-muted transition-colors tracking-[-0.28px]">
             <span>Settings</span>
             <div className="w-[20px] h-[20px] flex items-center justify-center">
-              <ChevronRight className="w-3 h-3 text-[#303030] dark:text-muted-foreground" />
+              <ChevronRight className="w-3 h-3 text-gray-600 dark:text-muted-foreground" />
             </div>
           </button>
         </div>
@@ -1260,12 +1260,12 @@ export function InboxView({ activeL2Key }: { activeL2Key?: string }) {
 
   return (
     <>
-    <div className="flex min-h-0 flex-1 flex-col overflow-hidden bg-[#f8f9fa] transition-colors duration-300 dark:bg-app-shell-gutter">
+    <div className="flex min-h-0 flex-1 flex-col overflow-hidden bg-gray-10 transition-colors duration-300 dark:bg-app-shell-gutter">
       <div className="flex min-h-0 flex-1 overflow-hidden">
       {/* ═══ CENTER-LEFT: Conversation list (resizable) ═══ */}
       <div
         ref={listContainerRef}
-        className="relative flex shrink-0 flex-col border-l border-r border-[#eaeaea] bg-white transition-colors duration-300 dark:border-border dark:bg-background"
+        className="relative flex shrink-0 flex-col border-l border-r border-comparison-0-star bg-white transition-colors duration-300 dark:border-border dark:bg-background"
         style={{ width: listWidth }}
       >
         <HorizontalResizeHandle
@@ -1287,26 +1287,26 @@ export function InboxView({ activeL2Key }: { activeL2Key?: string }) {
                   <button
                     type="button"
                     onClick={() => setStatusOpen(!statusOpen)}
-                    className="flex min-h-8 items-center gap-1 rounded-md text-left hover:bg-[#f5f5f5] dark:hover:bg-muted"
+                    className="flex min-h-8 items-center gap-1 rounded-md text-left hover:bg-gray-20 dark:hover:bg-muted"
                     aria-expanded={statusOpen}
                   >
                     <span
-                      className="text-[12px] text-[#212121] dark:text-foreground uppercase tracking-[0.5px]"
+                      className="text-[12px] text-gray-900 dark:text-foreground uppercase tracking-[0.5px]"
                       style={{ fontWeight: 400 }}
                     >
                       Open
                     </span>
-                    <ChevronDown className="size-3 shrink-0 text-[#555] dark:text-muted-foreground" />
+                    <ChevronDown className="size-3 shrink-0 text-gray-300 dark:text-muted-foreground" />
                   </button>
 
                   {statusOpen && (
-                    <div className="absolute left-0 top-full z-50 mt-1 min-w-[140px] rounded-lg border border-[#e5e9f0] bg-white py-1 shadow-lg dark:border-border dark:bg-muted">
+                    <div className="absolute left-0 top-full z-50 mt-1 min-w-[140px] rounded-lg border border-new-selected-color bg-white py-1 shadow-lg dark:border-border dark:bg-muted">
                       {["Open", "Closed", "Snoozed", "All"].map((s) => (
                         <button
                           key={s}
                           type="button"
                           onClick={() => setStatusOpen(false)}
-                          className="w-full px-4 py-2 text-left text-[13px] text-[#212121] hover:bg-[#f5f5f5] dark:text-foreground dark:hover:bg-muted"
+                          className="w-full px-4 py-2 text-left text-[13px] text-gray-900 hover:bg-gray-20 dark:text-foreground dark:hover:bg-muted"
                           style={{ fontWeight: 400 }}
                         >
                           {s}
@@ -1329,10 +1329,10 @@ export function InboxView({ activeL2Key }: { activeL2Key?: string }) {
                     type="button"
                     variant="ghost"
                     size="icon"
-                    className="size-8 shrink-0 rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-muted"
+                    className="size-8 shrink-0 rounded-lg hover:bg-gray-20 dark:hover:bg-muted"
                     title={label}
                   >
-                    <Icon className="size-[14px] text-[#555] dark:text-muted-foreground" />
+                    <Icon className="size-[14px] text-gray-300 dark:text-muted-foreground" />
                   </Button>
                 ))}
               </div>
@@ -1371,24 +1371,24 @@ export function InboxView({ activeL2Key }: { activeL2Key?: string }) {
       </div>
 
       {/* ═══ RIGHT: Conversation detail ═══ */}
-      <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-[#f5f6f8] transition-colors duration-300 dark:bg-app-shell-gutter">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-gray-10 transition-colors duration-300 dark:bg-app-shell-gutter">
         <div
-          className={`relative z-10 flex h-[60px] shrink-0 items-center justify-between bg-[#f5f6f8] px-5 transition-[box-shadow,colors] duration-200 dark:bg-app-shell-gutter ${
+          className={`relative z-10 flex h-[60px] shrink-0 items-center justify-between bg-gray-10 px-5 transition-[box-shadow,colors] duration-200 dark:bg-app-shell-gutter ${
             chatHeaderElevated
               ? "shadow-[0_2px_10px_-4px_rgba(15,23,42,0.1)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.28)]"
               : "shadow-none"
           }`}
         >
           <h2
-            className="text-[16px] text-[#212121] dark:text-foreground"
+            className="text-[16px] text-gray-900 dark:text-foreground"
             style={{ fontWeight: 400 }}
           >
             {detail.contactName}
           </h2>
 
           <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 rounded-[8px] px-2 py-1 transition-colors hover:bg-[#f5f5f5] dark:hover:bg-muted">
-              <div className="size-6 overflow-hidden rounded-full ring-1 ring-[#e8eaed] dark:ring-[#3d4555]">
+            <button className="flex items-center gap-2 rounded-[8px] px-2 py-1 transition-colors hover:bg-gray-20 dark:hover:bg-muted">
+              <div className="size-6 overflow-hidden rounded-full ring-1 ring-gray-40 dark:ring-gray-500">
                 <img
                   src={detail.assignedAvatar}
                   alt={detail.assignedTo}
@@ -1396,22 +1396,22 @@ export function InboxView({ activeL2Key }: { activeL2Key?: string }) {
                 />
               </div>
               <span
-                className="text-[13px] text-[#212121] dark:text-foreground"
+                className="text-[13px] text-gray-900 dark:text-foreground"
                 style={{ fontWeight: 400 }}
               >
                 {detail.assignedTo}
               </span>
-              <ChevronDown className="size-3.5 text-[#999] dark:text-muted-foreground" />
+              <ChevronDown className="size-3.5 text-gray-90 dark:text-muted-foreground" />
             </button>
 
             <Button
               type="button"
               variant="ghost"
               size="icon"
-              className="rounded-[8px] hover:bg-[#f5f5f5] dark:hover:bg-muted"
+              className="rounded-[8px] hover:bg-gray-20 dark:hover:bg-muted"
               aria-label="More options"
             >
-              <MoreVertical className="h-[14px] w-[14px] text-[#212121] dark:text-muted-foreground" />
+              <MoreVertical className="h-[14px] w-[14px] text-gray-900 dark:text-foreground" />
             </Button>
           </div>
         </div>
@@ -1424,7 +1424,7 @@ export function InboxView({ activeL2Key }: { activeL2Key?: string }) {
             <div className="px-6 py-5">
               <div className="mb-6 flex items-center justify-center">
                 <span
-                  className="relative z-10 bg-[#f5f6f8] px-3 text-[12px] text-[#999] dark:bg-app-shell-gutter dark:text-muted-foreground"
+                  className="relative z-10 bg-gray-10 px-3 text-[12px] text-gray-90 dark:bg-app-shell-gutter dark:text-muted-foreground"
                   style={{ fontWeight: 400 }}
                 >
                   {detail.dateSeparator}
@@ -1444,7 +1444,7 @@ export function InboxView({ activeL2Key }: { activeL2Key?: string }) {
                   {detail.dateSeparators?.[msg.id] && (
                     <div className="my-4 flex items-center justify-center">
                       <span
-                        className="relative z-10 bg-[#f5f6f8] px-3 text-[12px] text-[#999] dark:bg-app-shell-gutter dark:text-muted-foreground"
+                        className="relative z-10 bg-gray-10 px-3 text-[12px] text-gray-90 dark:bg-app-shell-gutter dark:text-muted-foreground"
                         style={{ fontWeight: 400 }}
                       >
                         {detail.dateSeparators[msg.id]}

@@ -54,14 +54,14 @@ function KpiTile({ value, label, icon, active, onClick }: KpiTileProps) {
       className={cn(
         "flex flex-col gap-1.5 rounded-xl px-5 py-4 text-left transition-colors min-w-[110px]",
         active
-          ? "bg-[#eff3ff] dark:bg-primary/10"
+          ? "bg-blue-10 dark:bg-primary/10"
           : "hover:bg-muted/60",
       )}
     >
-      <span className={cn("text-[30px] font-normal leading-[1.2] tabular-nums text-[#222] dark:text-[#e4e4e4]", active && "text-primary dark:text-primary")}>
+      <span className={cn("text-[30px] font-normal leading-[1.2] tabular-nums text-gray-800 dark:text-gray-50", active && "text-primary dark:text-primary")}>
         {value}
       </span>
-      <span className="flex items-center gap-1.5 text-[12px] font-normal text-[#8f8f8f] dark:text-[#7d849a]">
+      <span className="flex items-center gap-1.5 text-[12px] font-normal text-gray-90 dark:text-gray-90">
         {icon}
         {label}
       </span>
@@ -117,7 +117,7 @@ const fileColumns = [
 
 function SyncStatusCell({ status }: { status: KbSyncStatus }) {
   const config = {
-    synced:       { icon: <CheckCircle2  size={16} strokeWidth={1.6} absoluteStrokeWidth className="text-[#377e2c]"  aria-hidden />, label: "Synced" },
+    synced:       { icon: <CheckCircle2  size={16} strokeWidth={1.6} absoluteStrokeWidth className="text-green-300"  aria-hidden />, label: "Synced" },
     "in-progress":{ icon: <Clock         size={16} strokeWidth={1.6} absoluteStrokeWidth className="text-amber-500"   aria-hidden />, label: "In progress" },
     failed:       { icon: <XCircle       size={16} strokeWidth={1.6} absoluteStrokeWidth className="text-destructive" aria-hidden />, label: "Failed" },
   } as const;
@@ -227,7 +227,7 @@ export function KnowledgeBaseView({
             {searchOpen ? (
               <div className="relative h-[var(--button-height)] w-[240px]">
                 <Search
-                  className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-[#303030] dark:text-muted-foreground"
+                  className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-gray-600 dark:text-muted-foreground"
                   strokeWidth={1.6} absoluteStrokeWidth aria-hidden
                 />
                 <input
@@ -240,7 +240,7 @@ export function KnowledgeBaseView({
                   }}
                   autoFocus
                   placeholder={tab === "files" ? "Search files" : "Search links"}
-                  className="h-full w-full rounded-[8px] border border-[#e5e9f0] bg-white py-0 pr-8 pl-8 text-[14px] text-[#212121] outline-none transition-colors placeholder:text-[#757575] focus:border-[#2552ED] focus:ring-1 focus:ring-[#2552ED] dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-[#8b92a5]"
+                  className="h-full w-full rounded-[8px] border border-new-selected-color bg-white py-0 pr-8 pl-8 text-[14px] text-gray-900 outline-none transition-colors placeholder:text-gray-100 focus:border-brand-color focus:ring-1 focus:ring-brand-color dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-gray-90"
                   aria-label="Search"
                 />
                 {search && (
@@ -259,7 +259,7 @@ export function KnowledgeBaseView({
                 aria-label="Search" title="Search"
                 onClick={() => setSearchOpen(true)}
               >
-                <Search className="size-[14px] text-[#303030] dark:text-muted-foreground" strokeWidth={1.6} absoluteStrokeWidth aria-hidden />
+                <Search className="size-[14px] text-gray-600 dark:text-muted-foreground" strokeWidth={1.6} absoluteStrokeWidth aria-hidden />
               </Button>
             )}
 
@@ -316,7 +316,7 @@ export function KnowledgeBaseView({
             {/* KPI tiles — selectable, filters table */}
             <div className="flex flex-wrap gap-1 -mx-1">
               <KpiTile value={linkRows.length}  label="All links"              icon={<Link2         size={12} strokeWidth={1.6} absoluteStrokeWidth aria-hidden />}                                          active={activeKpi === "all"}         onClick={() => setActiveKpi("all")}         />
-              <KpiTile value={syncedCount}      label="Synced"                 icon={<CheckCircle2  size={12} strokeWidth={1.6} absoluteStrokeWidth className="text-[#377e2c]"   aria-hidden />}             active={activeKpi === "synced"}      onClick={() => setActiveKpi("synced")}      />
+              <KpiTile value={syncedCount}      label="Synced"                 icon={<CheckCircle2  size={12} strokeWidth={1.6} absoluteStrokeWidth className="text-green-300"   aria-hidden />}             active={activeKpi === "synced"}      onClick={() => setActiveKpi("synced")}      />
               <KpiTile value={inProgressCount}  label="In progress"            icon={<Clock         size={12} strokeWidth={1.6} absoluteStrokeWidth className="text-amber-500"    aria-hidden />}             active={activeKpi === "in-progress"} onClick={() => setActiveKpi("in-progress")} />
               <KpiTile value={failedCount}      label="Failed"                 icon={<XCircle       size={12} strokeWidth={1.6} absoluteStrokeWidth className="text-destructive"  aria-hidden />}             active={activeKpi === "failed"}      onClick={() => setActiveKpi("failed")}      />
               <KpiTile value={scheduledCount}   label="Links scheduled to sync" icon={<CalendarClock size={12} strokeWidth={1.6} absoluteStrokeWidth aria-hidden />}                                          active={activeKpi === "scheduled"}   onClick={() => setActiveKpi("scheduled")}   />

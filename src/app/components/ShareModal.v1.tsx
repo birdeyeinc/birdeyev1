@@ -80,9 +80,9 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
 
   /* ── Page footer ── */
   const PageFooter = ({ pageNum, label }: { pageNum?: number; label?: string }) => (
-    <div className="flex justify-between items-center px-2.5 py-1 border-t border-[#f0f0f0] dark:border-border mt-auto shrink-0">
-      <span className="font-['Inter',sans-serif] text-[4px] text-[#bbb] dark:text-muted-foreground">Profile performance report</span>
-      <span className="font-['Inter',sans-serif] text-[4px] text-[#bbb] dark:text-muted-foreground">{label || `Page ${pageNum}`}</span>
+    <div className="flex justify-between items-center px-2.5 py-1 border-t border-gray-20 dark:border-border mt-auto shrink-0">
+      <span className="font-['Inter',sans-serif] text-[4px] text-gray-70 dark:text-muted-foreground">Profile performance report</span>
+      <span className="font-['Inter',sans-serif] text-[4px] text-gray-70 dark:text-muted-foreground">{label || `Page ${pageNum}`}</span>
     </div>
   );
 
@@ -107,7 +107,7 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
           {/* Header */}
           <div className="flex items-center justify-between px-5 pt-4 pb-0 shrink-0">
             <h2
-              className="font-['Inter',sans-serif] text-[15px] text-[#111] dark:text-foreground tracking-[-0.3px]"
+              className="font-['Inter',sans-serif] text-[15px] text-gray-900 dark:text-foreground tracking-[-0.3px]"
               style={{ fontWeight: 400 }}
             >
               Share
@@ -117,7 +117,7 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
               variant="ghost"
               size="icon"
               onClick={onClose}
-              className="rounded-lg text-[#aaa] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#e4e4e4]"
+              className="rounded-lg text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-50"
             >
               <X className="w-[14px] h-[14px]" />
             </Button>
@@ -133,8 +133,8 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                   onClick={() => setActiveTab(tab)}
                   className={`px-3 py-[5px] rounded-lg text-[12px] capitalize transition-all ${
                     isActive
-                      ? "bg-[#e8effe] dark:bg-[#1e2d5e] text-[#2552ED] dark:text-[#6b9bff]"
-                      : "text-[#888] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#c0c6d4] hover:bg-[#f9fafb] dark:hover:bg-muted"
+                      ? "bg-blue-10 dark:bg-blue-300 text-brand-color dark:text-blue-70"
+                      : "text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-70 hover:bg-gray-10 dark:hover:bg-muted"
                   }`}
                   style={{ fontWeight: 400 }}
                 >
@@ -145,7 +145,7 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
           </div>
 
           {/* Separator */}
-          <div className="h-px bg-[#f0f0f0] dark:bg-muted mx-5 shrink-0" />
+          <div className="h-px bg-gray-20 dark:bg-muted mx-5 shrink-0" />
 
           {/* Content area */}
           <div className="flex-1 min-h-0 overflow-y-auto px-5 py-4">
@@ -154,10 +154,10 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
               <div className="flex flex-col gap-4">
                 {/* Share link */}
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Share link</label>
-                  <div className="flex items-center gap-2 bg-[#f8f9fb] dark:bg-muted border border-[#eceef2] dark:border-border rounded-lg px-3 min-h-[38px] py-1">
-                    <Link2 className="w-3.5 h-3.5 text-[#b0b0b0] dark:text-muted-foreground shrink-0" />
-                    <span className="flex-1 text-[12px] text-[#2552ED] dark:text-[#6b9bff] truncate select-all font-['Inter',sans-serif]">
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Share link</label>
+                  <div className="flex items-center gap-2 bg-gray-10 dark:bg-muted border border-gray-20 dark:border-border rounded-lg px-3 min-h-[38px] py-1">
+                    <Link2 className="w-3.5 h-3.5 text-gray-70 dark:text-muted-foreground shrink-0" />
+                    <span className="flex-1 text-[12px] text-brand-color dark:text-blue-70 truncate select-all font-['Inter',sans-serif]">
                       share.birdeye.com/view/cc6fe16f
                     </span>
                     <Button
@@ -166,7 +166,7 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                       onClick={handleCopyLink}
                       className={`shrink-0 gap-1 px-2.5 text-[11px] font-normal ${
                         justCopied
-                          ? "border-transparent bg-[#d4edda] dark:bg-[#1a3328] text-[#28a745] dark:text-[#6fcf73] hover:bg-[#d4edda] dark:hover:bg-[#1a3328]"
+                          ? "border-transparent bg-green-30 dark:bg-green-500 text-green-100 dark:text-green-80 hover:bg-green-30 dark:hover:bg-green-500"
                           : "bg-white dark:bg-muted shadow-sm"
                       }`}
                     >
@@ -181,25 +181,25 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
 
                 {/* Who can access */}
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Who can access?</label>
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Who can access?</label>
                   <div className="relative">
                     <Button
                       type="button"
                       variant="outline"
                       onClick={() => setAccessOpen(!accessOpen)}
-                      className="w-full justify-between rounded-lg border-[#eceef2] bg-white px-3 font-normal hover:border-[#d0d5dd] dark:border-border dark:bg-background dark:hover:border-[#3d4555]"
+                      className="w-full justify-between rounded-lg border-gray-20 bg-white px-3 font-normal hover:border-gray-60 dark:border-border dark:bg-background dark:hover:border-gray-500"
                     >
-                      <span className="text-[12px] text-[#333] dark:text-foreground font-['Inter',sans-serif]">{access}</span>
-                      <ChevronDown className={`w-4 h-4 text-[#aaa] dark:text-muted-foreground transition-transform ${accessOpen ? "rotate-180" : ""}`} />
+                      <span className="text-[12px] text-gray-500 dark:text-foreground font-['Inter',sans-serif]">{access}</span>
+                      <ChevronDown className={`w-4 h-4 text-gray-80 dark:text-muted-foreground transition-transform ${accessOpen ? "rotate-180" : ""}`} />
                     </Button>
                     {accessOpen && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-background border border-[#eceef2] dark:border-border rounded-lg shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.3)] z-30 py-1 overflow-hidden">
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-background border border-gray-20 dark:border-border rounded-lg shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.3)] z-30 py-1 overflow-hidden">
                         {["Only invited users", "Anyone with the link", "Public"].map(opt => (
                           <button
                             key={opt}
                             onClick={() => { setAccess(opt); setAccessOpen(false); }}
                             className={`w-full text-left px-3 py-2 text-[12px] font-['Inter',sans-serif] transition-colors ${
-                              access === opt ? "bg-[#e8effe] dark:bg-[#1e2d5e] text-[#2552ED] dark:text-[#6b9bff]" : "text-[#333] dark:text-foreground hover:bg-[#f8f9fb] dark:hover:bg-muted"
+                              access === opt ? "bg-blue-10 dark:bg-blue-300 text-brand-color dark:text-blue-70" : "text-gray-500 dark:text-foreground hover:bg-gray-10 dark:hover:bg-muted"
                             }`}
                           >
                             {opt}
@@ -212,14 +212,14 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
 
                 {/* Invite users */}
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Invite people</label>
-                  <div className="flex items-center bg-white dark:bg-background border border-[#eceef2] dark:border-border rounded-lg px-3 h-[36px] focus-within:border-[#7BA3F5] dark:focus-within:border-[#5580e0] focus-within:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus-within:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all">
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Invite people</label>
+                  <div className="flex items-center bg-white dark:bg-background border border-gray-20 dark:border-border rounded-lg px-3 h-[36px] focus-within:border-blue-70 dark:focus-within:border-blue-80 focus-within:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus-within:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all">
                     <input
                       type="text"
                       value={inviteSearch}
                       onChange={e => setInviteSearch(e.target.value)}
                       placeholder="Search users or teams..."
-                      className="w-full text-[12px] text-[#333] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground bg-transparent outline-none font-['Inter',sans-serif]"
+                      className="w-full text-[12px] text-gray-500 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground bg-transparent outline-none font-['Inter',sans-serif]"
                     />
                   </div>
                 </div>
@@ -237,7 +237,7 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                   <button
                     key={f.label}
                     onClick={() => toast.success(`Exporting as ${f.label}...`)}
-                    className="flex items-center gap-3 px-2.5 py-2.5 rounded-lg hover:bg-[#f8f9fb] dark:hover:bg-muted transition-colors group"
+                    className="flex items-center gap-3 px-2.5 py-2.5 rounded-lg hover:bg-gray-10 dark:hover:bg-muted transition-colors group"
                   >
                     <div
                       className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
@@ -246,10 +246,10 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                       <img src={f.icon} alt={f.label} className="w-[18px] h-[18px] object-contain" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="text-[12px] text-[#333] dark:text-foreground font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>{f.label}</p>
-                      <p className="text-[10px] text-[#aaa] dark:text-muted-foreground font-['Inter',sans-serif]">{f.sub}</p>
+                      <p className="text-[12px] text-gray-500 dark:text-foreground font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>{f.label}</p>
+                      <p className="text-[10px] text-gray-80 dark:text-muted-foreground font-['Inter',sans-serif]">{f.sub}</p>
                     </div>
-                    <svg className="w-[9px] h-[11px] text-[#d0d0d0] dark:text-[#3d4555] group-hover:text-[#999] dark:group-hover:text-[#8b92a5] transition-colors" viewBox="0 0 10 11.3333" fill="none">
+                    <svg className="w-[9px] h-[11px] text-gray-60 dark:text-gray-500 group-hover:text-gray-90 dark:group-hover:text-gray-90 transition-colors" viewBox="0 0 10 11.3333" fill="none">
                       <path d={exportSvgPaths.p1f1737a0} fill="currentColor" />
                     </svg>
                   </button>
@@ -260,27 +260,27 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
             {activeTab === "email" && (
               <div className="flex flex-col gap-3.5">
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Recipients</label>
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Recipients</label>
                   <input
                     type="text"
                     placeholder="Enter email addresses"
-                    className="w-full h-[36px] px-3 text-[12px] text-[#333] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                    className="w-full h-[36px] px-3 text-[12px] text-gray-500 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Subject</label>
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Subject</label>
                   <input
                     type="text"
                     defaultValue="Profile performance report"
-                    className="w-full h-[36px] px-3 text-[12px] text-[#333] dark:text-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                    className="w-full h-[36px] px-3 text-[12px] text-gray-500 dark:text-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Message (optional)</label>
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Message (optional)</label>
                   <textarea
                     placeholder="Add a message..."
                     rows={3}
-                    className="w-full px-3 py-2 text-[12px] text-[#333] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none resize-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                    className="w-full px-3 py-2 text-[12px] text-gray-500 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none resize-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                   />
                 </div>
               </div>
@@ -288,11 +288,11 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
           </div>
 
           {/* Footer bar */}
-          <div className={`flex items-center gap-2 px-5 py-3 border-t border-[#f0f0f0] dark:border-border shrink-0 ${hidePreview ? "justify-end" : "justify-between"}`}>
+          <div className={`flex items-center gap-2 px-5 py-3 border-t border-gray-20 dark:border-border shrink-0 ${hidePreview ? "justify-end" : "justify-between"}`}>
             {!hidePreview && (
               <button
                 onClick={onCustomize}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-[#f5f3ff] dark:hover:bg-[#1e2d5e] transition-colors group"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-purple-20 dark:hover:bg-blue-300 transition-colors group"
               >
                 <svg width="13" height="13" viewBox="0 0 10 12.1053" fill="none" className="shrink-0">
                   <path d={aiAgentSvg.p266794f0} fill="url(#ai-grad-compact)" />
@@ -302,7 +302,7 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                     </linearGradient>
                   </defs>
                 </svg>
-                <span className="text-[11px] text-[#6d28d9] dark:text-[#a78bfa] group-hover:text-[#5b21b6] dark:group-hover:text-[#c4b5fd] font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>
+                <span className="text-[11px] text-purple-100 dark:text-purple-70 group-hover:text-purple-100 dark:group-hover:text-purple-50 font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>
                   Customise with BirdAI
                 </span>
               </button>
@@ -312,7 +312,7 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                 type="button"
                 variant="ghost"
                 onClick={onClose}
-                className="px-3 text-[12px] text-[#666] dark:text-muted-foreground rounded-lg font-['Inter',sans-serif] font-normal"
+                className="px-3 text-[12px] text-gray-200 dark:text-muted-foreground rounded-lg font-['Inter',sans-serif] font-normal"
               >
                 Cancel
               </Button>
@@ -332,14 +332,14 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
 
         {/* ═══ RIGHT PANEL — 55% · Light grey preview canvas matching AICustomizePanel ═══ */}
         {!hidePreview && (
-          <div className="w-[55%] bg-[#f2f4f7] dark:bg-app-shell-gutter border-l border-[#ebebeb] dark:border-border flex flex-col min-h-0 overflow-hidden transition-colors duration-300">
+          <div className="w-[55%] bg-new-hover-color dark:bg-app-shell-gutter border-l border-gray-40 dark:border-border flex flex-col min-h-0 overflow-hidden transition-colors duration-300">
 
             {/* Preview header */}
             <div className="flex items-center justify-between px-4 h-[38px] shrink-0">
-              <span className="text-[10px] text-[#b0b0b0] dark:text-muted-foreground uppercase tracking-[0.5px] font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>
+              <span className="text-[10px] text-gray-70 dark:text-muted-foreground uppercase tracking-[0.5px] font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>
                 Preview
               </span>
-              <span className="text-[10px] text-[#ccc] dark:text-muted-foreground font-['Inter',sans-serif]">
+              <span className="text-[10px] text-gray-60 dark:text-muted-foreground font-['Inter',sans-serif]">
                 {totalPages} pages
               </span>
             </div>
@@ -366,24 +366,24 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                       {/* Birdeye full logo */}
                       <svg className="w-[50px] h-auto mb-3" viewBox="0 0 199.768 41.4" fill="none">
                         <path clipRule="evenodd" d={reportSvg.p2cc68880} fill={accentColor} fillRule="evenodd" />
-                        <path d={reportSvg.pfe99e80} fill="#212121" />
-                        <path d={reportSvg.p36edaf80} fill="#212121" />
-                        <path d={reportSvg.pa24ff80} fill="#212121" />
-                        <path d={reportSvg.p33cce400} fill="#212121" />
-                        <path d={reportSvg.p16db6100} fill="#212121" />
-                        <path d={reportSvg.p2b617580} fill="#212121" />
-                        <path d={reportSvg.p11bbd0f1} fill="#212121" />
-                        <path d={reportSvg.p3b3711e0} fill="#212121" />
+                        <path d={reportSvg.pfe99e80} fill="var(--gray-900)" />
+                        <path d={reportSvg.p36edaf80} fill="var(--gray-900)" />
+                        <path d={reportSvg.pa24ff80} fill="var(--gray-900)" />
+                        <path d={reportSvg.p33cce400} fill="var(--gray-900)" />
+                        <path d={reportSvg.p16db6100} fill="var(--gray-900)" />
+                        <path d={reportSvg.p2b617580} fill="var(--gray-900)" />
+                        <path d={reportSvg.p11bbd0f1} fill="var(--gray-900)" />
+                        <path d={reportSvg.p3b3711e0} fill="var(--gray-900)" />
                       </svg>
-                      <p className="font-['Inter',sans-serif] text-[8px] text-[#111] tracking-[-0.2px] mb-0.5" style={{ fontWeight: 400 }}>
+                      <p className="font-['Inter',sans-serif] text-[8px] text-gray-900 tracking-[-0.2px] mb-0.5" style={{ fontWeight: 400 }}>
                         Profile performance report
                       </p>
-                      <p className="font-['Inter',sans-serif] text-[5px] text-[#888] mb-2">
+                      <p className="font-['Inter',sans-serif] text-[5px] text-gray-80 mb-2">
                         Social media analytics overview
                       </p>
                       <div className="flex flex-col items-center gap-0.5">
-                        <span className="font-['Inter',sans-serif] text-[4px] text-[#888]">July 10, 2025</span>
-                        <span className="font-['Inter',sans-serif] text-[4px] text-[#888]">30 locations</span>
+                        <span className="font-['Inter',sans-serif] text-[4px] text-gray-80">July 10, 2025</span>
+                        <span className="font-['Inter',sans-serif] text-[4px] text-gray-80">30 locations</span>
                       </div>
                     </div>
                     {/* Footer */}
@@ -410,10 +410,10 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-['Inter',sans-serif] text-[8px] text-[#111] mb-1" style={{ fontWeight: 400 }}>
+                        <h3 className="font-['Inter',sans-serif] text-[8px] text-gray-900 mb-1" style={{ fontWeight: 400 }}>
                           Executive Summary
                         </h3>
-                        <p className="font-['Inter',sans-serif] text-[5px] text-[#888] mb-2 leading-[1.6]">
+                        <p className="font-['Inter',sans-serif] text-[5px] text-gray-80 mb-2 leading-[1.6]">
                           Comprehensive overview of your social media profile performance over the last 30 days with positive growth trends across all platforms.
                         </p>
 
@@ -425,16 +425,16 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                             { label: "Eng. Rate", value: "13.2%", change: "+6.3%" },
                             { label: "Link Clicks", value: "0", change: "" },
                           ].map(m => (
-                            <div key={m.label} className="bg-[#f8f9fb] border border-[#f0f0f0] rounded p-1.5">
-                              <p className="font-['Inter',sans-serif] text-[4px] text-[#aaa] mb-0.5">{m.label}</p>
-                              <p className="font-['Inter',sans-serif] text-[8px] text-[#111]" style={{ fontWeight: 400 }}>{m.value}</p>
-                              {m.change && <span className="font-['Inter',sans-serif] text-[4px] text-[#22c55e]">{m.change}</span>}
+                            <div key={m.label} className="bg-gray-10 border border-gray-20 rounded p-1.5">
+                              <p className="font-['Inter',sans-serif] text-[4px] text-gray-80 mb-0.5">{m.label}</p>
+                              <p className="font-['Inter',sans-serif] text-[8px] text-gray-900" style={{ fontWeight: 400 }}>{m.value}</p>
+                              {m.change && <span className="font-['Inter',sans-serif] text-[4px] text-green-90">{m.change}</span>}
                             </div>
                           ))}
                         </div>
 
                         {/* Key Insights */}
-                        <p className="font-['Inter',sans-serif] text-[5px] text-[#111] mb-1" style={{ fontWeight: 400 }}>Key Insights</p>
+                        <p className="font-['Inter',sans-serif] text-[5px] text-gray-900 mb-1" style={{ fontWeight: 400 }}>Key Insights</p>
                         <div className="space-y-1 flex-1">
                           {[
                             "Engagement saw a significant increase of 98.6%, indicating strong audience interaction.",
@@ -443,7 +443,7 @@ export function ShareModal({ open, onClose, onCustomize, themeColor, showSummary
                           ].map((insight, i) => (
                             <div key={i} className="flex items-start gap-1">
                               <span className="w-1 h-1 rounded-full mt-[2px] shrink-0" style={{ backgroundColor: accentColor }} />
-                              <span className="font-['Inter',sans-serif] text-[4.5px] text-[#888] leading-[1.5]">{insight}</span>
+                              <span className="font-['Inter',sans-serif] text-[4.5px] text-gray-80 leading-[1.5]">{insight}</span>
                             </div>
                           ))}
                         </div>

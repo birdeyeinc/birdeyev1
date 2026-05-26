@@ -66,14 +66,14 @@ function TimeDropdown({ value, onChange }) {
 
   return (
     <div ref={ref} style={{ position: 'relative', minWidth: 110, flex: 1 }}>
-      <button type="button" onClick={() => setOpen((v) => !v)} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 10px', border: '1px solid var(--border-onlightsurface-default, #e5e9f0)', borderRadius: 4, background: '#fff', cursor: 'pointer', fontFamily: font, fontSize: 13, color: 'var(--text-onlightsurface-primary, #212121)' }}>
+      <button type="button" onClick={() => setOpen((v) => !v)} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 10px', border: '1px solid var(--border-onlightsurface-default, #e5e9f0)', borderRadius: 4, background: 'var(--gray-0)', cursor: 'pointer', fontFamily: font, fontSize: 13, color: 'var(--text-onlightsurface-primary, #212121)' }}>
         <span>{label}</span>
         <span className="material-symbols-outlined" style={{ fontSize: 16 }}>expand_more</span>
       </button>
       {open && (
-        <ul style={{ position: 'absolute', top: 'calc(100% + 2px)', left: 0, zIndex: 200, margin: 0, padding: '4px 0', listStyle: 'none', background: '#fff', border: '1px solid #e5e9f0', borderRadius: 4, boxShadow: '0 4px 8px rgba(33,33,33,0.18)', maxHeight: 220, overflowY: 'auto', minWidth: '100%' }}>
+        <ul style={{ position: 'absolute', top: 'calc(100% + 2px)', left: 0, zIndex: 200, margin: 0, padding: '4px 0', listStyle: 'none', background: 'var(--gray-0)', border: '1px solid #e5e9f0', borderRadius: 4, boxShadow: '0 4px 8px rgba(33,33,33,0.18)', maxHeight: 220, overflowY: 'auto', minWidth: '100%' }}>
           {HOUR_OPTIONS.map((opt) => (
-            <li key={opt.value} onClick={() => { onChange(opt.value); setOpen(false); }} style={{ padding: '7px 14px', cursor: 'pointer', fontSize: 13, fontFamily: font, background: opt.value === value ? '#f0f4ff' : 'transparent', color: '#212121' }}>
+            <li key={opt.value} onClick={() => { onChange(opt.value); setOpen(false); }} style={{ padding: '7px 14px', cursor: 'pointer', fontSize: 13, fontFamily: font, background: opt.value === value ? '#f0f4ff' : 'transparent', color: 'var(--gray-900)' }}>
               {opt.label}
             </li>
           ))}
@@ -109,7 +109,7 @@ function BusinessHoursSchedule({ schedule, onChange }) {
         return (
           <div key={day} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: 80, flexShrink: 0 }}>
-              <span style={{ fontSize: 13, fontFamily: font, fontWeight: 500, color: '#212121', lineHeight: '20px' }}>{day}</span>
+              <span style={{ fontSize: 13, fontFamily: font, fontWeight: 500, color: 'var(--gray-900)', lineHeight: '20px' }}>{day}</span>
               <label style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', userSelect: 'none' }}>
                 <input type="checkbox" checked={closed} onChange={() => toggleClosed(day)} style={{ accentColor: '#1976d2', width: 13, height: 13 }} />
                 <span style={{ fontSize: 11, fontFamily: font, color: '#616161' }}>Closed</span>
@@ -144,7 +144,7 @@ function BusinessHoursSchedule({ schedule, onChange }) {
 function TimeConditionSelect({ value, onTimeChange, onConfigureCustom }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         Select time
       </span>
       <Select value={value || ''} onValueChange={(v) => onTimeChange(v)}>
@@ -158,7 +158,7 @@ function TimeConditionSelect({ value, onTimeChange, onConfigureCustom }) {
         </SelectContent>
       </Select>
       {value === 'custom' && (
-        <button type="button" onClick={onConfigureCustom} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontSize: 12, fontFamily: font, color: '#1976d2', textDecoration: 'underline' }}>
+        <button type="button" onClick={onConfigureCustom} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontSize: 12, fontFamily: font, color: 'var(--blue-100)', textDecoration: 'underline' }}>
           Set schedule
         </button>
       )}
@@ -184,19 +184,19 @@ function GroupedMultiselect({ groups, selected, onChange }) {
 
   return (
     <div ref={ref} style={{ position: 'relative' }}>
-      <button type="button" onClick={() => setOpen((v) => !v)} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', border: '1px solid var(--border-onlightsurface-default, #e5e9f0)', borderRadius: 4, background: '#fff', cursor: 'pointer', fontFamily: font, fontSize: 13, color: totalSelected > 0 ? 'var(--text-onlightsurface-primary, #212121)' : '#9e9e9e', boxSizing: 'border-box' }}>
+      <button type="button" onClick={() => setOpen((v) => !v)} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', border: '1px solid var(--border-onlightsurface-default, #e5e9f0)', borderRadius: 4, background: 'var(--gray-0)', cursor: 'pointer', fontFamily: font, fontSize: 13, color: totalSelected > 0 ? 'var(--text-onlightsurface-primary, #212121)' : '#9e9e9e', boxSizing: 'border-box' }}>
         <span>{totalSelected > 0 ? `${totalSelected} event${totalSelected !== 1 ? 's' : ''} selected` : 'Select'}</span>
         <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#616161' }}>{open ? 'expand_less' : 'expand_more'}</span>
       </button>
       {open && (
-        <div style={{ position: 'absolute', top: 'calc(100% + 2px)', left: 0, right: 0, zIndex: 200, background: '#fff', border: '1px solid #e5e9f0', borderRadius: 4, boxShadow: '0 4px 12px rgba(33,33,33,0.15)', overflow: 'hidden', padding: '16px 0' }}>
+        <div style={{ position: 'absolute', top: 'calc(100% + 2px)', left: 0, right: 0, zIndex: 200, background: 'var(--gray-0)', border: '1px solid #e5e9f0', borderRadius: 4, boxShadow: '0 4px 12px rgba(33,33,33,0.15)', overflow: 'hidden', padding: '16px 0' }}>
           {groups.map(({ group, events }) => (
             <div key={group} style={{ paddingBottom: 12 }}>
-              <div style={{ padding: '4px 12px', fontSize: 11, fontWeight: 600, color: '#9e9e9e', fontFamily: font, textTransform: 'uppercase', letterSpacing: '0.5px' }}>{group}</div>
+              <div style={{ padding: '4px 12px', fontSize: 11, fontWeight: 600, color: 'var(--gray-90)', fontFamily: font, textTransform: 'uppercase', letterSpacing: '0.5px' }}>{group}</div>
               {events.map(({ value, label }) => (
                 <label key={value} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 12px', cursor: 'pointer', background: selected.includes(value) ? '#f5f8ff' : 'transparent' }}>
                   <input type="checkbox" checked={selected.includes(value)} onChange={() => toggle(value)} style={{ accentColor: '#1976d2', width: 14, height: 14, cursor: 'pointer' }} />
-                  <span style={{ fontSize: 13, fontFamily: font, color: '#212121' }}>{label}</span>
+                  <span style={{ fontSize: 13, fontFamily: font, color: 'var(--gray-900)' }}>{label}</span>
                 </label>
               ))}
             </div>
@@ -210,8 +210,8 @@ function GroupedMultiselect({ groups, selected, onChange }) {
 function FieldLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>{label}</span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
     </div>
   );
 }
@@ -346,7 +346,7 @@ export default function CustomTriggerBody({ initialValues = {}, onChange, onValu
               {flatEvents.map((event) => (
                 <label key={event} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 12px', border: `1px solid ${selectedEvents.includes(event) ? '#1976d2' : '#e5e9f0'}`, borderRadius: 4, background: selectedEvents.includes(event) ? '#f5f8ff' : '#fff', cursor: 'pointer', userSelect: 'none' }}>
                   <input type="checkbox" checked={selectedEvents.includes(event)} onChange={() => toggleEvent(event)} style={{ accentColor: '#1976d2', width: 16, height: 16, flexShrink: 0 }} />
-                  <span style={{ fontSize: 14, lineHeight: '20px', color: '#212121', fontFamily: font }}>{event}</span>
+                  <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--gray-900)', fontFamily: font }}>{event}</span>
                 </label>
               ))}
             </div>

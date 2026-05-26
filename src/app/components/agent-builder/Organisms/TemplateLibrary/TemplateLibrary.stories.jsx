@@ -13,7 +13,7 @@ export default {
   parameters: { layout: 'fullscreen' },
   decorators: [
     (Story) => (
-      <div style={{ padding: 40, background: '#f4f6f7', minHeight: '100vh' }}>
+      <div style={{ padding: 40, background: 'var(--light-grayish-blue)', minHeight: '100vh' }}>
         <Story />
       </div>
     ),

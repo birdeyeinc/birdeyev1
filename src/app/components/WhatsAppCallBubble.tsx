@@ -64,8 +64,8 @@ export function WhatsAppCallBubble({
       <div
         className={`max-w-[320px] rounded-2xl px-3 py-2.5 flex flex-col gap-2 shadow-sm ${
           isAgent
-            ? "bg-[#e3f0ff] dark:bg-[#1e3a5f] rounded-br-md"
-            : "bg-white dark:bg-muted rounded-bl-md border border-[#eaeaea] dark:border-border"
+            ? "bg-blue-20 dark:bg-blue-400 rounded-br-md"
+            : "bg-white dark:bg-muted rounded-bl-md border border-comparison-0-star dark:border-border"
         }`}
       >
         {/* Top row: avatar · play · waveform · elapsed */}

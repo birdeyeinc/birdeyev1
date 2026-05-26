@@ -3,10 +3,10 @@ import React, { useRef, useEffect, forwardRef, useImperativeHandle } from 'react
 const font = '"Inter", arial, sans-serif';
 
 const CHIP_VARIANTS = {
-  variable: { icon: 'data_object', borderColor: '#d1e5f9', iconBg: '#ecf5fd', iconColor: '#1976d2' },
-  tool:     { icon: 'build',       borderColor: '#ccc',    iconBg: '#efefef', iconColor: '#555'    },
-  document: { icon: 'draft',       borderColor: '#dcf1d9', iconBg: '#f1faf0', iconColor: '#377e2c' },
-  file:     { icon: 'draft',       borderColor: '#dcf1d9', iconBg: '#f1faf0', iconColor: '#377e2c' },
+  variable: { icon: 'data_object', borderColor: 'var(--blue-50)', iconBg: '#ecf5fd', iconColor: '#1976d2' },
+  tool:     { icon: 'build',       borderColor: 'var(--gray-60)',    iconBg: '#efefef', iconColor: '#555'    },
+  document: { icon: 'draft',       borderColor: 'var(--green-50)', iconBg: '#f1faf0', iconColor: '#377e2c' },
+  file:     { icon: 'draft',       borderColor: 'var(--green-50)', iconBg: '#f1faf0', iconColor: '#377e2c' },
   link:     { icon: 'link',        borderColor: 'rgba(152,0,109,0.2)', iconBg: '#ffe8f8', iconColor: '#98006d' },
 };
 
@@ -30,7 +30,7 @@ function chipHTML(name, type = 'variable') {
     `background:${v.iconBg};border-right:1px solid ${v.borderColor};flex-shrink:0;">` +
     `<span class="material-symbols-outlined" style="font-size:16px;color:${v.iconColor};line-height:1;">${v.icon}</span>` +
     `</span>` +
-    `<span style="font-size:12px;line-height:16px;color:#555555;white-space:nowrap;font-family:${font};">${safe}</span>` +
+    `<span style="font-size:12px;line-height:16px;color:var(--gray-300);white-space:nowrap;font-family:${font};">${safe}</span>` +
     `</span>`
   );
 }
@@ -274,7 +274,7 @@ const VariableRichInput = forwardRef(function VariableRichInput({
       {isEmpty && (
         <div style={{
           position: 'absolute', top: 8, left: 12, right: 12,
-          fontSize: 14, lineHeight: '20px', color: '#9e9e9e',
+          fontSize: 14, lineHeight: '20px', color: 'var(--gray-90)',
           fontFamily: font, pointerEvents: 'none', userSelect: 'none',
         }}>
           {placeholder}
@@ -298,7 +298,7 @@ const VariableRichInput = forwardRef(function VariableRichInput({
           fontWeight: 400,
           lineHeight: '20px',
           letterSpacing: '-0.28px',
-          color: '#212121',
+          color: 'var(--gray-900)',
           fontFamily: font,
           boxSizing: 'border-box',
           background: 'transparent',

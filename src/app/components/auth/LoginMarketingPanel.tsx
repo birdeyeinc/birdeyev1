@@ -55,7 +55,7 @@ export function LoginMarketingPanel({ className }: { className?: string }) {
         className,
       )}
     >
-      <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-2xl bg-[#f7f5ff] ring-1 ring-border/40 dark:bg-[#17161e]">
+      <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-2xl bg-purple-10 ring-1 ring-border/40 dark:bg-gray-900">
 
         {/* Blob — top-left lavender */}
         <div
@@ -81,10 +81,10 @@ export function LoginMarketingPanel({ className }: { className?: string }) {
 
           {/* Headline + cycling platform */}
           <div className="flex flex-col items-center gap-[0.55rem]">
-            <p className="text-[3.575rem] font-black leading-[1.07] tracking-tight text-[#1a1a1a] dark:text-[#f0efff]">
+            <p className="text-[3.575rem] font-black leading-[1.07] tracking-tight text-gray-900 dark:text-purple-20">
               Be the #1 Answer
             </p>
-            <p className="text-[3.575rem] font-black leading-[1.07] tracking-tight text-[#1a1a1a] dark:text-[#f0efff]">
+            <p className="text-[3.575rem] font-black leading-[1.07] tracking-tight text-gray-900 dark:text-purple-20">
               for every location on
             </p>
 
@@ -112,14 +112,14 @@ export function LoginMarketingPanel({ className }: { className?: string }) {
           </div>
 
           {/* Subtitle */}
-          <p className="max-w-[440px] text-[20.625px] leading-relaxed text-[#555] dark:text-muted-foreground">
+          <p className="max-w-[440px] text-[20.625px] leading-relaxed text-gray-300 dark:text-muted-foreground">
             AI agents that track visibility and act on what&apos;s missing—across every location.
           </p>
 
           {/* CTA — Search AI marketing page (new tab) */}
           <Button
             asChild
-            className="h-[66px] min-w-[302.5px] rounded-xl bg-gradient-to-r from-[#5b73f5] to-[#7c4fe0] px-[2.2rem] text-[1.2375rem] font-semibold text-white hover:from-[#4c65e8] hover:to-[#6e42d3] border-0"
+            className="h-[66px] min-w-[302.5px] rounded-xl bg-gradient-to-r from-blue-80 to-purple-80 px-[2.2rem] text-[1.2375rem] font-semibold text-white hover:from-blue-90 hover:to-purple-90 border-0"
           >
             <a href={SEARCH_AI_SIGN_IN_CTA_URL} target="_blank" rel="noopener noreferrer">
               Try Search AI

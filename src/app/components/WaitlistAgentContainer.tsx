@@ -37,7 +37,7 @@ function EmptyIllustration() {
     }}>
       {/* White card wrapper */}
       <div style={{
-        background: "#fff", borderRadius: 8,
+        background: "var(--gray-0)", borderRadius: 8,
         padding: 12, display: "flex", flexDirection: "column", gap: 12,
         width: 184,
       }}>
@@ -132,31 +132,31 @@ function WaitlistAgentListView({ onCreateAgent }: { onCreateAgent: () => void })
     : agents.filter(a => a.locations.includes(locationFilter));
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%", background: "#fff", fontFamily: "'Inter', sans-serif", color: "#212121", overflow: "hidden" }}>
+    <div style={{ display: "flex", flexDirection: "column", height: "100%", background: "var(--gray-0)", fontFamily: "'Inter', sans-serif", color: "var(--gray-900)", overflow: "hidden" }}>
 
       <MainCanvasViewHeader
         title="Waitlist Agent"
         actions={
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <button style={{ width: 28, height: 28, border: "none", background: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 4, color: "#555" }}>
+            <button style={{ width: 28, height: 28, border: "none", background: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 4, color: "var(--gray-300)" }}>
               <Icon name="search" />
             </button>
             <Button type="button" onClick={onCreateAgent}>Create agent</Button>
             {/* Location filter */}
             <div style={{ position: "relative" }}>
               <button
-                style={{ display: "flex", alignItems: "center", gap: 6, height: 36, padding: "0 10px", background: "#fff", border: "1px solid #e5e9f0", borderRadius: 4, cursor: "pointer", fontSize: 13, color: "#555", whiteSpace: "nowrap" }}
+                style={{ display: "flex", alignItems: "center", gap: 6, height: 36, padding: "0 10px", background: "var(--gray-0)", border: "1px solid #e5e9f0", borderRadius: 4, cursor: "pointer", fontSize: 13, color: "var(--gray-300)", whiteSpace: "nowrap" }}
                 onClick={() => setLocationDropdownOpen(v => !v)}
               >
                 {locationFilter}
                 <Icon name="expand_more" size={16} />
               </button>
               {locationDropdownOpen && (
-                <div style={{ position: "absolute", top: "calc(100% + 4px)", right: 0, background: "#fff", border: "1px solid #e5e9f0", borderRadius: 4, boxShadow: "0 4px 12px rgba(0,0,0,0.1)", zIndex: 100, minWidth: 200, padding: 4 }}>
+                <div style={{ position: "absolute", top: "calc(100% + 4px)", right: 0, background: "var(--gray-0)", border: "1px solid #e5e9f0", borderRadius: 4, boxShadow: "0 4px 12px rgba(0,0,0,0.1)", zIndex: 100, minWidth: 200, padding: 4 }}>
                   {["All locations", ...ALL_LOCATIONS].map(loc => (
                     <button key={loc} type="button"
                       onClick={() => { setLocationFilter(loc); setLocationDropdownOpen(false); }}
-                      style={{ display: "block", width: "100%", textAlign: "left", padding: "6px 12px", background: locationFilter === loc ? "#e5e9f0" : "transparent", border: "none", borderRadius: 4, cursor: "pointer", fontSize: 13, color: "#333" }}
+                      style={{ display: "block", width: "100%", textAlign: "left", padding: "6px 12px", background: locationFilter === loc ? "#e5e9f0" : "transparent", border: "none", borderRadius: 4, cursor: "pointer", fontSize: 13, color: "var(--gray-500)" }}
                     >{loc}</button>
                   ))}
                 </div>
@@ -178,10 +178,10 @@ function WaitlistAgentListView({ onCreateAgent }: { onCreateAgent: () => void })
           /* Empty state */
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, padding: 40 }}>
             <EmptyIllustration />
-            <span style={{ fontSize: 16, fontWeight: 400, color: "#212121", lineHeight: "24px", letterSpacing: "-0.32px" }}>
+            <span style={{ fontSize: 16, fontWeight: 400, color: "var(--gray-900)", lineHeight: "24px", letterSpacing: "-0.32px" }}>
               Create your first waitlist agent
             </span>
-            <span style={{ fontSize: 14, fontWeight: 400, color: "#555", lineHeight: "20px", letterSpacing: "-0.28px", textAlign: "center", maxWidth: 480 }}>
+            <span style={{ fontSize: 14, fontWeight: 400, color: "var(--gray-300)", lineHeight: "20px", letterSpacing: "-0.28px", textAlign: "center", maxWidth: 480 }}>
               Start by creating your first waitlist agent — helps with auto-filling available slots,
               notifying patients, and managing your waitlist automatically.
             </span>
@@ -195,21 +195,21 @@ function WaitlistAgentListView({ onCreateAgent }: { onCreateAgent: () => void })
               <thead>
                 <tr style={{ borderBottom: "1px solid #e5e9f0" }}>
                   {["Name", "Locations", "Status", "Created", ""].map((h) => (
-                    <th key={h} style={{ padding: "10px 12px", textAlign: "left", fontSize: 12, fontWeight: 500, color: "#555", letterSpacing: "-0.24px" }}>{h}</th>
+                    <th key={h} style={{ padding: "10px 12px", textAlign: "left", fontSize: 12, fontWeight: 500, color: "var(--gray-300)", letterSpacing: "-0.24px" }}>{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {visibleAgents.map((a) => (
                   <tr key={a.id} style={{ borderBottom: "1px solid #f0f0f0" }}>
-                    <td style={{ padding: "12px", fontSize: 14, color: "#212121", letterSpacing: "-0.28px" }}>{a.name}</td>
-                    <td style={{ padding: "12px", fontSize: 13, color: "#555", letterSpacing: "-0.26px" }}>{formatLocations(a.locations)}</td>
+                    <td style={{ padding: "12px", fontSize: 14, color: "var(--gray-900)", letterSpacing: "-0.28px" }}>{a.name}</td>
+                    <td style={{ padding: "12px", fontSize: 13, color: "var(--gray-300)", letterSpacing: "-0.26px" }}>{formatLocations(a.locations)}</td>
                     <td style={{ padding: "12px" }}>
                       <span style={{ fontSize: 12, color: statusColor[a.status] || "#555", background: `${statusColor[a.status]}18`, borderRadius: 4, padding: "2px 8px" }}>{a.status}</span>
                     </td>
-                    <td style={{ padding: "12px", fontSize: 14, color: "#555", letterSpacing: "-0.28px" }}>{a.created}</td>
+                    <td style={{ padding: "12px", fontSize: 14, color: "var(--gray-300)", letterSpacing: "-0.28px" }}>{a.created}</td>
                     <td style={{ padding: "12px", textAlign: "right" }}>
-                      <button style={{ border: "none", background: "none", cursor: "pointer", color: "#555", display: "flex", alignItems: "center" }}>
+                      <button style={{ border: "none", background: "none", cursor: "pointer", color: "var(--gray-300)", display: "flex", alignItems: "center" }}>
                         <Icon name="more_vert" />
                       </button>
                     </td>
@@ -221,7 +221,7 @@ function WaitlistAgentListView({ onCreateAgent }: { onCreateAgent: () => void })
         )}
 
         {tab === "library" && (
-          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", color: "#9e9e9e", fontSize: 14 }}>
+          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--gray-90)", fontSize: 14 }}>
             Template library coming soon
           </div>
         )}

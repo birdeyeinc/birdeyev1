@@ -13,7 +13,7 @@
   top: 0;
   bottom: 0;
   width: 598px;
-  background: #fff;
+  background: var(--gray-0);
   box-shadow: 0px 4px 8px 0px rgba(33, 33, 33, 0.18);
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px 4px;
-  background: #fff;
+  background: var(--gray-0);
 }
 
 .adv-header__left {
@@ -44,7 +44,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: #212121;
+  color: var(--gray-900);
 }
 
 .adv-back-btn .material-symbols-outlined {

@@ -20,7 +20,7 @@ export default function RHSPanelHeader({
       justifyContent: 'space-between',
       padding: '0 15px',
       height: 60,
-      background: '#ffffff',
+      background: 'var(--gray-0)',
       borderTop: '1px solid #e5e9f0',
       borderLeft: '1px solid #e5e9f0',
       borderRight: '1px solid #e5e9f0',
@@ -32,7 +32,7 @@ export default function RHSPanelHeader({
         fontWeight: 400,
         lineHeight: '24px',
         letterSpacing: '-0.32px',
-        color: '#555555',
+        color: 'var(--gray-300)',
         fontFamily: '"Inter", arial, sans-serif',
       }}>
         {title}

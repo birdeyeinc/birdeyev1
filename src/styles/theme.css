@@ -151,30 +151,30 @@
   --button-height-lg: 44px;
 
   --font-sans: var(--font-family-brand), ui-sans-serif, system-ui, sans-serif;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #1E44CC;
-  --primary-foreground: #ffffff;
+  --background: var(--gray-0);
+  --foreground: var(--gray-900);
+  --card: var(--gray-0);
+  --card-foreground: var(--gray-900);
+  --popover: var(--gray-0);
+  --popover-foreground: var(--gray-900);
+  --primary: var(--brand-color);
+  --primary-foreground: var(--gray-0);
   --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #1E44CC;
+  --secondary-foreground: var(--brand-color);
   --muted: #ececf0;
-  --muted-foreground: #717182;
+  --muted-foreground: var(--gray-100);
   --accent: #e9ebef;
-  --accent-foreground: #1E44CC;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
+  --accent-foreground: var(--brand-color);
+  --destructive: var(--red-100);
+  --destructive-foreground: var(--gray-0);
   --border: rgba(0, 0, 0, 0.1);
   /** Default input chrome: visible edge on white/card surfaces (see `input.v1` / `border-input`). */
   --input: var(--border);
   /** Form control fill — white in light mode (product standard for settings/forms). */
-  --input-background: #ffffff;
+  --input-background: var(--gray-0);
   --switch-background: #cbced4;
   --font-weight-normal: var(--font-weight-regular);
-  --ring: #1E44CC;
+  --ring: var(--brand-color);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -182,9 +182,9 @@
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #1E44CC;
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-foreground: var(--gray-900);
+  --sidebar-primary: var(--brand-color);
+  --sidebar-primary-foreground: var(--gray-0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
@@ -225,18 +225,18 @@
   --font-weight-black: var(--font-weight-medium);
 
   /* Social components */
-  --s-bg-primary: #ffffff;
-  --s-bg-secondary: #fafafa;
-  --s-bg-muted: #f4f6f7;
-  --s-bg-input: #ffffff;
-  --s-border: #eaeaea;
-  --s-border-subtle: #e5e9f0;
-  --s-text-primary: #212121;
-  --s-text-secondary: #555555;
-  --s-text-muted: #888888;
-  --s-icon-fill: #303030;
-  --s-blue: #1976d2;
-  --s-blue-bg: #e3f2fd;
+  --s-bg-primary: var(--gray-0);
+  --s-bg-secondary: var(--gray-10);
+  --s-bg-muted: var(--light-grayish-blue);
+  --s-bg-input: var(--gray-0);
+  --s-border: var(--gray-40);
+  --s-border-subtle: var(--gray-2000);
+  --s-text-primary: var(--gray-900);
+  --s-text-secondary: var(--gray-300);
+  --s-text-muted: var(--gray-80);
+  --s-icon-fill: var(--gray-600);
+  --s-blue: var(--blue-100);
+  --s-blue-bg: var(--blue-20);
 
   /* Drawer shimmer gradient stops */
   --shimmer-from: #eef1f6;
@@ -250,8 +250,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: #1e2229;
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #2952E3;
-  --primary-foreground: #ffffff;
+  --primary: var(--brand-color);
+  --primary-foreground: var(--gray-0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: #262b35;
@@ -265,7 +265,7 @@
   --input: #333848;
   /** Explicit dark fill so light `:root` values do not leak (checkboxes, popover search, etc.). */
   --input-background: #262b35;
-  --ring: #2952E3;
+  --ring: var(--brand-color);
   --font-weight-normal: var(--font-weight-regular);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -274,8 +274,8 @@
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: #2952E3;
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-primary: var(--brand-color);
+  --sidebar-primary-foreground: var(--gray-0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);

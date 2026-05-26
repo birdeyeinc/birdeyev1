@@ -23,11 +23,11 @@ const DESTINATION_TYPE_OPTIONS = [
 function FieldLabel({ label, required, showInfo }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
-      {showInfo && <i className="icon_phoenix-info" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer' }} />}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
+      {showInfo && <i className="icon_phoenix-info" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer' }} />}
     </div>
   );
 }
@@ -50,8 +50,8 @@ function AddIfAny({ label, value, onChange, placeholder }) {
         onClick={() => setExpanded(true)}
         style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', padding: '4px 0', cursor: 'pointer', alignSelf: 'flex-start' }}
       >
-        <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#1976d2' }}>add_circle</span>
-        <span style={{ fontSize: 14, lineHeight: '20px', color: '#1976d2', fontFamily: font }}>Add {label}</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--blue-100)' }}>add_circle</span>
+        <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--blue-100)', fontFamily: font }}>Add {label}</span>
       </button>
     );
   }

@@ -57,9 +57,9 @@ const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
           data-disabled={disabled || undefined}
           onKeyDown={handleKeyDown}
           className={cn(
-            "relative rounded-xl border border-[#e5e9f0] dark:border-border bg-white dark:bg-muted transition-all duration-200",
-            "focus-within:border-[#c4d5e9] dark:focus-within:border-[#5580e0] focus-within:shadow-[0_0_0_2px_rgba(25,118,210,0.08)] dark:focus-within:shadow-[0_0_0_2px_rgba(37,82,237,0.2)]",
-            "hover:border-[#d0d5dc] dark:hover:border-[#3d4555]",
+            "relative rounded-xl border border-new-selected-color dark:border-border bg-white dark:bg-muted transition-all duration-200",
+            "focus-within:border-blue-40 dark:focus-within:border-blue-80 focus-within:shadow-[0_0_0_2px_rgba(25,118,210,0.08)] dark:focus-within:shadow-[0_0_0_2px_rgba(37,82,237,0.2)]",
+            "hover:border-gray-60 dark:hover:border-gray-500",
             disabled && "pointer-events-none opacity-50",
             className
           )}
@@ -110,7 +110,7 @@ const PromptInputTextarea = React.forwardRef<
         disabled={disabled}
         rows={1}
         className={cn(
-          "w-full resize-none bg-transparent text-[13px] text-[#212121] dark:text-foreground placeholder:text-[#a3a3a3] dark:placeholder:text-muted-foreground outline-none leading-[20px]",
+          "w-full resize-none bg-transparent text-[13px] text-gray-900 dark:text-foreground placeholder:text-gray-80 dark:placeholder:text-muted-foreground outline-none leading-[20px]",
           className
         )}
         style={{ minHeight: "20px" }}
@@ -162,7 +162,7 @@ const PromptInputAction = React.forwardRef<
       title={tooltip}
       className={cn(
         "p-1.5 rounded-lg transition-colors",
-        "hover:bg-[#f5f5f5] dark:hover:bg-muted text-[#888] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#9ba2b0]",
+        "hover:bg-gray-20 dark:hover:bg-muted text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-90",
         "disabled:pointer-events-none disabled:opacity-40",
         className
       )}
@@ -174,7 +174,7 @@ PromptInputAction.displayName = "PromptInputAction";
 
 /** Apply to `PromptInputAction` for Myna’s circular gradient send. Documented in **UI / PromptInput → Branded send (Myna)**. */
 export const PROMPT_INPUT_BRANDED_SEND_CLASSNAME =
-  "rounded-full bg-gradient-to-r from-[#9970D7] to-[#2552ED] text-white shadow-sm hover:opacity-95 hover:text-white disabled:opacity-40 disabled:hover:opacity-40 p-2";
+  "rounded-full bg-gradient-to-r from-purple-80 to-brand-color text-white shadow-sm hover:opacity-95 hover:text-white disabled:opacity-40 disabled:hover:opacity-40 p-2";
 
 /** Circular primary send/stop layout for prompt-kit–style composers (pair with `Button` variant `default`). */
 export const PROMPT_INPUT_PRIMARY_ICON_SEND_CLASSNAME =

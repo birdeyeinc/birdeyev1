@@ -295,19 +295,19 @@ function TranscriptBubble({
         className={cn(
           "max-w-[420px] px-4 py-3 rounded-2xl text-[14px] leading-relaxed transition-all duration-200",
           isAgent
-            ? "bg-[#e3f0ff] dark:bg-[#1e3a5f] text-[#212121] dark:text-foreground rounded-br-md"
-            : "bg-white dark:bg-muted text-[#212121] dark:text-foreground rounded-bl-md",
-          isActive && "ring-2 ring-[#2552ED]/40 ring-offset-1",
+            ? "bg-blue-20 dark:bg-blue-400 text-gray-900 dark:text-foreground rounded-br-md"
+            : "bg-white dark:bg-muted text-gray-900 dark:text-foreground rounded-bl-md",
+          isActive && "ring-2 ring-brand-color/40 ring-offset-1",
         )}
         style={{ fontWeight: 400 }}
       >
         {msg.translations[language]}
       </div>
       <div className="flex items-center gap-2 mt-1.5 px-1">
-        <span className="text-[11px] text-[#b0b0b0] dark:text-[#5a6170] italic" style={{ fontWeight: 400 }}>
+        <span className="text-[11px] text-gray-70 dark:text-gray-300 italic" style={{ fontWeight: 400 }}>
           {isAgent ? "Sarah M." : "Alex K."}
         </span>
-        <span className="text-[11px] text-[#999] dark:text-[#5a6170]" style={{ fontWeight: 400 }}>
+        <span className="text-[11px] text-gray-90 dark:text-gray-300" style={{ fontWeight: 400 }}>
           {formatTime(msg.timestampSec)}
         </span>
       </div>
@@ -372,14 +372,14 @@ export function CallRecordingPlayer() {
   return (
     <>
       {/* ── Sticky audio player bar ── */}
-      <div className="sticky top-0 z-10 bg-[#f5f6f8] dark:bg-app-shell-gutter border-b border-[#eaeaea] dark:border-border px-6 py-3 transition-colors duration-300">
+      <div className="sticky top-0 z-10 bg-gray-10 dark:bg-app-shell-gutter border-b border-comparison-0-star dark:border-border px-6 py-3 transition-colors duration-300">
         {/* Top row: call meta + controls */}
         <div className="flex items-center gap-3 mb-2.5">
           {/* Play/pause */}
           <button
             onClick={handlePlayPause}
             aria-label={isPlaying ? "Pause" : "Play"}
-            className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#2552ED] text-white transition-colors hover:bg-[#1E44CC] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2552ED]/50"
+            className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-brand-color text-white transition-colors hover:bg-brand-color focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-color/50"
           >
             {isPlaying ? (
               <Pause className="size-3.5 fill-current" />
@@ -392,13 +392,13 @@ export function CallRecordingPlayer() {
           <button
             onClick={() => setCurrentTime((t) => Math.min(t + 15, TOTAL_DURATION))}
             aria-label="Skip forward 15 seconds"
-            className="flex size-7 cursor-pointer items-center justify-center rounded-md text-[#555] transition-colors hover:bg-[#eaeaea] dark:text-muted-foreground dark:hover:bg-muted"
+            className="flex size-7 cursor-pointer items-center justify-center rounded-md text-gray-300 transition-colors hover:bg-comparison-0-star dark:text-muted-foreground dark:hover:bg-muted"
           >
             <FastForward className="size-3.5" />
           </button>
 
           {/* Time */}
-          <span className="tabular-nums text-[12px] text-[#999] dark:text-muted-foreground shrink-0" style={{ fontWeight: 400 }}>
+          <span className="tabular-nums text-[12px] text-gray-90 dark:text-muted-foreground shrink-0" style={{ fontWeight: 400 }}>
             {formatTime(currentTime)} / {formatTime(TOTAL_DURATION)}
           </span>
 
@@ -411,8 +411,8 @@ export function CallRecordingPlayer() {
                 className={cn(
                   "cursor-pointer rounded px-2 py-0.5 text-[11px] transition-colors duration-150",
                   speed === opt.value
-                    ? "bg-[#2552ED] text-white"
-                    : "text-[#555] dark:text-muted-foreground hover:bg-[#eaeaea] dark:hover:bg-muted",
+                    ? "bg-brand-color text-white"
+                    : "text-gray-300 dark:text-muted-foreground hover:bg-comparison-0-star dark:hover:bg-muted",
                 )}
               >
                 {opt.label}
@@ -423,7 +423,7 @@ export function CallRecordingPlayer() {
           <div className="ml-auto flex items-center gap-2">
             {/* Language select */}
             <div className="flex items-center gap-1">
-              <Globe className="size-3.5 text-[#999] dark:text-muted-foreground shrink-0" />
+              <Globe className="size-3.5 text-gray-90 dark:text-muted-foreground shrink-0" />
               <Select value={language} onValueChange={(v) => setLanguage(v as Language)}>
                 <SelectTrigger size="sm" className="h-7 w-24 text-[12px]">
                   <SelectValue />
@@ -439,7 +439,7 @@ export function CallRecordingPlayer() {
             {/* Create ticket */}
             <button
               onClick={() => setTicketSheetOpen(true)}
-              className="flex cursor-pointer items-center gap-1.5 rounded-md border border-[#e5e9f0] bg-white px-2.5 py-1 text-[12px] text-[#212121] transition-colors hover:bg-[#f5f5f5] dark:border-border dark:bg-muted dark:text-foreground dark:hover:bg-muted"
+              className="flex cursor-pointer items-center gap-1.5 rounded-md border border-new-selected-color bg-white px-2.5 py-1 text-[12px] text-gray-900 transition-colors hover:bg-gray-20 dark:border-border dark:bg-muted dark:text-foreground dark:hover:bg-muted"
               style={{ fontWeight: 400 }}
             >
               <TicketIcon className="size-3" />
@@ -463,7 +463,7 @@ export function CallRecordingPlayer() {
       <div className="px-6 py-5">
         <div className="mb-4 flex justify-center">
           <span
-            className="relative z-10 bg-[#f5f6f8] px-3 text-[12px] text-[#999] dark:bg-app-shell-gutter dark:text-muted-foreground"
+            className="relative z-10 bg-gray-10 px-3 text-[12px] text-gray-90 dark:bg-app-shell-gutter dark:text-muted-foreground"
             style={{ fontWeight: 400 }}
           >
             Today · Call Recording · 3:30

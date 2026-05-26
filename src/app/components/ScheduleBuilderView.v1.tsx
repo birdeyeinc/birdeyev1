@@ -198,8 +198,8 @@ function AiChatPanel({ onApply }: { onApply: (text: string) => void }) {
             <div
               className={`max-w-[90%] px-3 py-2.5 rounded-[10px] text-[12px] ${
                 msg.role === "user"
-                  ? "bg-[#2552ED] text-white rounded-br-[3px]"
-                  : "bg-[#f0f1f5] dark:bg-muted text-[#212121] dark:text-foreground rounded-bl-[3px]"
+                  ? "bg-brand-color text-white rounded-br-[3px]"
+                  : "bg-light-grayish-blue dark:bg-muted text-gray-900 dark:text-foreground rounded-bl-[3px]"
               }`}
               style={{ lineHeight: "18px", whiteSpace: "pre-wrap" }}
               dangerouslySetInnerHTML={{ __html: msg.text.replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight:400">$1</strong>').replace(/\n/g, '<br/>') }}
@@ -208,10 +208,10 @@ function AiChatPanel({ onApply }: { onApply: (text: string) => void }) {
         ))}
         {isThinking && (
           <div className="flex justify-start">
-            <div className="bg-[#f0f1f5] dark:bg-muted px-3 py-2.5 rounded-[10px] rounded-bl-[3px] flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#2552ED] animate-bounce" style={{ animationDelay: "0ms" }} />
-              <div className="w-1.5 h-1.5 rounded-full bg-[#2552ED] animate-bounce" style={{ animationDelay: "150ms" }} />
-              <div className="w-1.5 h-1.5 rounded-full bg-[#2552ED] animate-bounce" style={{ animationDelay: "300ms" }} />
+            <div className="bg-light-grayish-blue dark:bg-muted px-3 py-2.5 rounded-[10px] rounded-bl-[3px] flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-color animate-bounce" style={{ animationDelay: "0ms" }} />
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-color animate-bounce" style={{ animationDelay: "150ms" }} />
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-color animate-bounce" style={{ animationDelay: "300ms" }} />
             </div>
           </div>
         )}
@@ -219,20 +219,20 @@ function AiChatPanel({ onApply }: { onApply: (text: string) => void }) {
       </div>
 
       {/* Input */}
-      <div className="p-3 border-t border-[#e5e9f0] dark:border-border shrink-0">
-        <div className="flex items-center gap-2 bg-[#f8f9fb] dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] px-3 h-[38px]">
+      <div className="p-3 border-t border-new-selected-color dark:border-border shrink-0">
+        <div className="flex items-center gap-2 bg-gray-10 dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] px-3 h-[38px]">
           <input
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === "Enter" && handleSend()}
             placeholder="Describe your schedule..."
-            className="flex-1 bg-transparent text-[12px] text-[#212121] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground outline-none"
+            className="flex-1 bg-transparent text-[12px] text-gray-900 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground outline-none"
 
           />
           <button
             onClick={handleSend}
             disabled={!input.trim() || isThinking}
-            className="w-6 h-6 rounded-md bg-[#2552ED] hover:bg-[#1E44CC] disabled:opacity-30 flex items-center justify-center transition-colors shrink-0"
+            className="w-6 h-6 rounded-md bg-brand-color hover:bg-brand-color disabled:opacity-30 flex items-center justify-center transition-colors shrink-0"
           >
             <Send className="w-3 h-3 text-white" />
           </button>
@@ -265,48 +265,48 @@ function ManualToolbox() {
     <div className="flex-1 overflow-y-auto px-3 py-3 space-y-2">
       {/* Triggers */}
       <div>
-        <button onClick={() => setTriggerExpanded(!triggerExpanded)} className="flex items-center justify-between w-full px-2 py-1.5 text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
+        <button onClick={() => setTriggerExpanded(!triggerExpanded)} className="flex items-center justify-between w-full px-2 py-1.5 text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
           <span>Triggers</span>
           {triggerExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
         </button>
         {triggerExpanded && triggers.map(t => (
-          <div key={t.label} className="flex items-center gap-2.5 px-2.5 py-2 rounded-[8px] hover:bg-[#f0f1f5] dark:hover:bg-[#262b35] cursor-grab transition-colors">
-            <div className="w-7 h-7 rounded-[6px] bg-[#f0f1f5] dark:bg-[#2a3040] flex items-center justify-center shrink-0">
-              <t.icon className="w-3.5 h-3.5 text-[#2552ED]" />
+          <div key={t.label} className="flex items-center gap-2.5 px-2.5 py-2 rounded-[8px] hover:bg-light-grayish-blue dark:hover:bg-gray-700 cursor-grab transition-colors">
+            <div className="w-7 h-7 rounded-[6px] bg-light-grayish-blue dark:bg-gray-700 flex items-center justify-center shrink-0">
+              <t.icon className="w-3.5 h-3.5 text-brand-color" />
             </div>
-            <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{t.label}</span>
+            <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{t.label}</span>
           </div>
         ))}
       </div>
 
       {/* Tasks */}
       <div>
-        <button onClick={() => setTasksExpanded(!tasksExpanded)} className="flex items-center justify-between w-full px-2 py-1.5 text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
+        <button onClick={() => setTasksExpanded(!tasksExpanded)} className="flex items-center justify-between w-full px-2 py-1.5 text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
           <span>Tasks</span>
           {tasksExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
         </button>
         {tasksExpanded && tasks.map(t => (
-          <div key={t.label} className="flex items-center gap-2.5 px-2.5 py-2 rounded-[8px] hover:bg-[#f0f1f5] dark:hover:bg-[#262b35] cursor-grab transition-colors">
-            <div className="w-7 h-7 rounded-[6px] bg-[#f0f1f5] dark:bg-[#2a3040] flex items-center justify-center shrink-0">
-              <t.icon className="w-3.5 h-3.5 text-[#555] dark:text-muted-foreground" />
+          <div key={t.label} className="flex items-center gap-2.5 px-2.5 py-2 rounded-[8px] hover:bg-light-grayish-blue dark:hover:bg-gray-700 cursor-grab transition-colors">
+            <div className="w-7 h-7 rounded-[6px] bg-light-grayish-blue dark:bg-gray-700 flex items-center justify-center shrink-0">
+              <t.icon className="w-3.5 h-3.5 text-gray-300 dark:text-muted-foreground" />
             </div>
-            <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{t.label}</span>
+            <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{t.label}</span>
           </div>
         ))}
       </div>
 
       {/* Product modules */}
       <div>
-        <button onClick={() => setModulesExpanded(!modulesExpanded)} className="flex items-center justify-between w-full px-2 py-1.5 text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
+        <button onClick={() => setModulesExpanded(!modulesExpanded)} className="flex items-center justify-between w-full px-2 py-1.5 text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
           <span>Products</span>
           {modulesExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
         </button>
         {modulesExpanded && modules.map(m => (
-          <div key={m.label} className="flex items-center gap-2.5 px-2.5 py-2 rounded-[8px] hover:bg-[#f0f1f5] dark:hover:bg-[#262b35] cursor-grab transition-colors">
-            <div className="w-7 h-7 rounded-[6px] bg-[#f0f1f5] dark:bg-[#2a3040] flex items-center justify-center shrink-0">
-              <m.icon className="w-3.5 h-3.5 text-[#555] dark:text-muted-foreground" />
+          <div key={m.label} className="flex items-center gap-2.5 px-2.5 py-2 rounded-[8px] hover:bg-light-grayish-blue dark:hover:bg-gray-700 cursor-grab transition-colors">
+            <div className="w-7 h-7 rounded-[6px] bg-light-grayish-blue dark:bg-gray-700 flex items-center justify-center shrink-0">
+              <m.icon className="w-3.5 h-3.5 text-gray-300 dark:text-muted-foreground" />
             </div>
-            <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{m.label}</span>
+            <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{m.label}</span>
           </div>
         ))}
       </div>
@@ -359,10 +359,10 @@ function WorkflowCanvas({
                 onClick={() => onSelectStep(step.id)}
                 className={`relative w-[340px] border rounded-[12px] px-5 py-4 text-left transition-all ${
                   isActive
-                    ? "border-[#2552ED] bg-white dark:bg-background shadow-[0_0_0_2px_rgba(37,82,237,0.15)]"
+                    ? "border-brand-color bg-white dark:bg-background shadow-[0_0_0_2px_rgba(37,82,237,0.15)]"
                     : step.enabled
-                    ? "border-[#e5e9f0] dark:border-border bg-white dark:bg-background hover:border-[#c0c6d4] dark:hover:border-[#4d5568]"
-                    : "border-[#e5e9f0] dark:border-border bg-[#fafbfc] dark:bg-app-shell-rail opacity-50"
+                    ? "border-new-selected-color dark:border-border bg-white dark:bg-background hover:border-gray-70 dark:hover:border-gray-400"
+                    : "border-new-selected-color dark:border-border bg-gray-10 dark:bg-app-shell-rail opacity-50"
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -375,12 +375,12 @@ function WorkflowCanvas({
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
+                        <span className="text-[10px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
                           Step {i + 1}
                         </span>
                         {step.completed && (
-                          <span className="w-4 h-4 rounded-full bg-[#e8f5e9] dark:bg-[#1a3328] flex items-center justify-center">
-                            <Check className="w-2.5 h-2.5 text-[#2e7d32] dark:text-[#6fcf73]" />
+                          <span className="w-4 h-4 rounded-full bg-green-20 dark:bg-green-500 flex items-center justify-center">
+                            <Check className="w-2.5 h-2.5 text-green-200 dark:text-green-80" />
                           </span>
                         )}
                       </div>
@@ -388,8 +388,8 @@ function WorkflowCanvas({
                         onClick={(e) => { e.stopPropagation(); onToggleStep(step.id); }}
                         className={`w-7 h-4 rounded-full relative transition-colors ${
                           step.enabled
-                            ? "bg-[#2552ED]"
-                            : "bg-[#d0d5dd] dark:bg-app-shell-l2-row-active"
+                            ? "bg-brand-color"
+                            : "bg-gray-60 dark:bg-app-shell-l2-row-active"
                         }`}
                       >
                         <span className={`absolute top-0.5 w-3 h-3 rounded-full bg-white shadow-sm transition-all ${
@@ -397,10 +397,10 @@ function WorkflowCanvas({
                         }`} />
                       </button>
                     </div>
-                    <p className="text-[13px] text-[#212121] dark:text-foreground mt-1" style={{ fontWeight: 400 }}>
+                    <p className="text-[13px] text-gray-900 dark:text-foreground mt-1" style={{ fontWeight: 400 }}>
                       {step.label}
                     </p>
-                    <p className="text-[11px] text-[#888] dark:text-muted-foreground mt-0.5 font-regular">
+                    <p className="text-[11px] text-gray-80 dark:text-muted-foreground mt-0.5 font-regular">
                       {step.description}
                     </p>
                   </div>
@@ -410,8 +410,8 @@ function WorkflowCanvas({
               {/* Connector */}
               {!isLast && (
                 <div className="flex flex-col items-center py-1">
-                  <div className="w-px h-6 bg-[#d0d5dd] dark:bg-muted" />
-                  <ArrowDown className="w-3 h-3 text-[#d0d5dd] dark:text-[#333a47] -mt-1" />
+                  <div className="w-px h-6 bg-gray-60 dark:bg-muted" />
+                  <ArrowDown className="w-3 h-3 text-gray-60 dark:text-gray-600 -mt-1" />
                 </div>
               )}
             </div>
@@ -429,36 +429,36 @@ function TriggerConfig({ config, onChange }: { config: ScheduleConfig; onChange:
   return (
     <div className="space-y-4">
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Schedule name</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Schedule name</label>
         <input
           value={config.name}
           onChange={e => onChange({ ...config, name: e.target.value })}
-          className="w-full px-3 py-2 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground outline-none focus:border-[#2552ED]"
+          className="w-full px-3 py-2 bg-white dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] text-[12px] text-gray-900 dark:text-foreground outline-none focus:border-brand-color"
           style={{ fontWeight: 400 }}
         />
       </div>
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Frequency</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Frequency</label>
         <InlineSelectField value={config.frequency.charAt(0).toUpperCase() + config.frequency.slice(1)} options={["Daily", "Weekly", "Monthly"]} onChange={v => onChange({ ...config, frequency: v.toLowerCase() as Frequency })} />
       </div>
       {config.frequency === "weekly" && (
         <div>
-          <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Day of week</label>
+          <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Day of week</label>
           <InlineSelectField value={config.dayOfWeek} options={["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]} onChange={v => onChange({ ...config, dayOfWeek: v })} />
         </div>
       )}
       {config.frequency === "monthly" && (
         <div>
-          <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Day of month</label>
+          <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Day of month</label>
           <InlineSelectField value={config.dayOfMonth} options={["1st", "5th", "10th", "15th", "20th", "25th", "Last day"]} onChange={v => onChange({ ...config, dayOfMonth: v })} />
         </div>
       )}
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Time</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Time</label>
         <InlineSelectField value={config.time} options={["6:00 AM", "7:00 AM", "7:30 AM", "8:00 AM", "9:00 AM", "10:00 AM", "12:00 PM", "2:00 PM", "5:00 PM"]} onChange={v => onChange({ ...config, time: v })} />
       </div>
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Timezone</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Timezone</label>
         <InlineSelectField value={config.timezone} options={timezones} onChange={v => onChange({ ...config, timezone: v })} />
       </div>
     </div>
@@ -477,42 +477,42 @@ function ReportSelector({ modules, onToggle }: { modules: ReportModule[]; onTogg
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>Select reports</span>
-        <span className="text-[11px] text-[#2552ED] dark:text-[#6b9bff]" style={{ fontWeight: 400 }}>{selectedCount} selected</span>
+        <span className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>Select reports</span>
+        <span className="text-[11px] text-brand-color dark:text-blue-70" style={{ fontWeight: 400 }}>{selectedCount} selected</span>
       </div>
       <div className="space-y-1">
         {modules.map(mod => {
           const isExpanded = expandedModules[mod.id];
           const modSelectedCount = mod.reports.filter(r => r.selected).length;
           return (
-            <div key={mod.id} className="border border-[#e5e9f0] dark:border-border rounded-[8px] overflow-hidden">
+            <div key={mod.id} className="border border-new-selected-color dark:border-border rounded-[8px] overflow-hidden">
               <button
                 onClick={() => setExpandedModules(p => ({ ...p, [mod.id]: !p[mod.id] }))}
-                className="w-full flex items-center justify-between px-3 py-2.5 hover:bg-[#f8f9fb] dark:hover:bg-[#232830] transition-colors"
+                className="w-full flex items-center justify-between px-3 py-2.5 hover:bg-gray-10 dark:hover:bg-gray-800 transition-colors"
               >
                 <div className="flex items-center gap-2">
-                  <mod.icon className="w-3.5 h-3.5 text-[#555] dark:text-muted-foreground" />
-                  <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{mod.module}</span>
+                  <mod.icon className="w-3.5 h-3.5 text-gray-300 dark:text-muted-foreground" />
+                  <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{mod.module}</span>
                   {modSelectedCount > 0 && (
-                    <span className="text-[10px] text-[#2552ED] dark:text-[#6b9bff] bg-[#e8effe] dark:bg-[#1e2d5e] px-1.5 py-0.5 rounded-full">{modSelectedCount}</span>
+                    <span className="text-[10px] text-brand-color dark:text-blue-70 bg-blue-10 dark:bg-blue-300 px-1.5 py-0.5 rounded-full">{modSelectedCount}</span>
                   )}
                 </div>
-                {isExpanded ? <ChevronUp className="w-3 h-3 text-[#888] dark:text-muted-foreground" /> : <ChevronDown className="w-3 h-3 text-[#888] dark:text-muted-foreground" />}
+                {isExpanded ? <ChevronUp className="w-3 h-3 text-gray-80 dark:text-muted-foreground" /> : <ChevronDown className="w-3 h-3 text-gray-80 dark:text-muted-foreground" />}
               </button>
               {isExpanded && (
-                <div className="border-t border-[#e5e9f0] dark:border-border px-3 py-1.5 space-y-0.5">
+                <div className="border-t border-new-selected-color dark:border-border px-3 py-1.5 space-y-0.5">
                   {mod.reports.map(report => (
                     <button
                       key={report.id}
                       onClick={() => onToggle(mod.id, report.id)}
-                      className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded-[6px] hover:bg-[#f0f1f5] dark:hover:bg-[#262b35] transition-colors text-left"
+                      className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded-[6px] hover:bg-light-grayish-blue dark:hover:bg-gray-700 transition-colors text-left"
                     >
                       <div className={`w-4 h-4 rounded-[3px] border-2 flex items-center justify-center shrink-0 transition-all ${
-                        report.selected ? "bg-[#2552ED] border-[#2552ED]" : "border-[#d0d5dd] dark:border-[#4d5568]"
+                        report.selected ? "bg-brand-color border-brand-color" : "border-gray-60 dark:border-gray-400"
                       }`}>
                         {report.selected && <Check className="w-2.5 h-2.5 text-white" />}
                       </div>
-                      <span className={`text-[12px] ${report.selected ? "text-[#212121] dark:text-foreground" : "text-[#555] dark:text-muted-foreground"}`} style={{ fontWeight: report.selected ? 400 : 300 }}>
+                      <span className={`text-[12px] ${report.selected ? "text-gray-900 dark:text-foreground" : "text-gray-300 dark:text-muted-foreground"}`} style={{ fontWeight: report.selected ? 400 : 300 }}>
                         {report.label}
                       </span>
                     </button>
@@ -531,36 +531,36 @@ function CustomizeConfig({ config, onChange }: { config: CustomizationConfig; on
   return (
     <div className="space-y-4">
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Theme</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Theme</label>
         <InlineSelectField value={config.theme} options={themes} onChange={v => onChange({ ...config, theme: v })} />
       </div>
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Layout</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Layout</label>
         <InlineSelectField value={config.layout} options={layouts} onChange={v => onChange({ ...config, layout: v })} />
       </div>
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Font</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Font</label>
         <InlineSelectField value={config.font} options={fonts} onChange={v => onChange({ ...config, font: v })} />
       </div>
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Spacing</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Spacing</label>
         <InlineSelectField value={config.spacing} options={spacings} onChange={v => onChange({ ...config, spacing: v })} />
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>Page cover</span>
-        <button onClick={() => onChange({ ...config, pageCover: !config.pageCover })} className={`w-8 h-[18px] rounded-full relative transition-colors ${config.pageCover ? "bg-[#2552ED]" : "bg-[#d0d5dd] dark:bg-app-shell-l2-row-active"}`}>
+        <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>Page cover</span>
+        <button onClick={() => onChange({ ...config, pageCover: !config.pageCover })} className={`w-8 h-[18px] rounded-full relative transition-colors ${config.pageCover ? "bg-brand-color" : "bg-gray-60 dark:bg-app-shell-l2-row-active"}`}>
           <span className={`absolute top-[2px] w-[14px] h-[14px] rounded-full bg-white shadow-sm transition-all ${config.pageCover ? "left-[15px]" : "left-[2px]"}`} />
         </button>
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>Page numbers</span>
-        <button onClick={() => onChange({ ...config, pageNumbers: !config.pageNumbers })} className={`w-8 h-[18px] rounded-full relative transition-colors ${config.pageNumbers ? "bg-[#2552ED]" : "bg-[#d0d5dd] dark:bg-app-shell-l2-row-active"}`}>
+        <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>Page numbers</span>
+        <button onClick={() => onChange({ ...config, pageNumbers: !config.pageNumbers })} className={`w-8 h-[18px] rounded-full relative transition-colors ${config.pageNumbers ? "bg-brand-color" : "bg-gray-60 dark:bg-app-shell-l2-row-active"}`}>
           <span className={`absolute top-[2px] w-[14px] h-[14px] rounded-full bg-white shadow-sm transition-all ${config.pageNumbers ? "left-[15px]" : "left-[2px]"}`} />
         </button>
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>Generated date</span>
-        <button onClick={() => onChange({ ...config, generatedDate: !config.generatedDate })} className={`w-8 h-[18px] rounded-full relative transition-colors ${config.generatedDate ? "bg-[#2552ED]" : "bg-[#d0d5dd] dark:bg-app-shell-l2-row-active"}`}>
+        <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>Generated date</span>
+        <button onClick={() => onChange({ ...config, generatedDate: !config.generatedDate })} className={`w-8 h-[18px] rounded-full relative transition-colors ${config.generatedDate ? "bg-brand-color" : "bg-gray-60 dark:bg-app-shell-l2-row-active"}`}>
           <span className={`absolute top-[2px] w-[14px] h-[14px] rounded-full bg-white shadow-sm transition-all ${config.generatedDate ? "left-[15px]" : "left-[2px]"}`} />
         </button>
       </div>
@@ -573,15 +573,15 @@ function SummaryConfig() {
   return (
     <div className="space-y-4">
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Summary type</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Summary type</label>
         <InlineSelectField value={summaryType} options={["Executive", "Detailed", "Key metrics only", "Custom"]} onChange={setSummaryType} />
       </div>
-      <div className="bg-[#f8f9fb] dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] p-3">
+      <div className="bg-gray-10 dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] p-3">
         <div className="flex items-center gap-1.5 mb-2">
-          <Sparkles className="w-3 h-3 text-[#9970D7]" />
-          <span className="text-[11px] text-[#9970D7]" style={{ fontWeight: 400 }}>AI-generated preview</span>
+          <Sparkles className="w-3 h-3 text-purple-80" />
+          <span className="text-[11px] text-purple-80" style={{ fontWeight: 400 }}>AI-generated preview</span>
         </div>
-        <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular" style={{ lineHeight: "16px" }}>
+        <p className="text-[11px] text-gray-300 dark:text-muted-foreground font-regular" style={{ lineHeight: "16px" }}>
           This week's performance overview highlights a 12% increase in review volume, with an average rating of 4.3 stars across all locations. Social engagement rose 8%, driven by Instagram stories. Ticket resolution maintained a 95% SLA compliance rate.
         </p>
       </div>
@@ -606,7 +606,7 @@ function DeliveryConfig({ config, onChange }: { config: DeliveryConfig; onChange
   return (
     <div className="space-y-4">
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Output format</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Output format</label>
         <div className="flex gap-2">
           {(["PDF", "XLS", "PPT", "PNG"] as OutputFormat[]).map(fmt => (
             <button
@@ -614,8 +614,8 @@ function DeliveryConfig({ config, onChange }: { config: DeliveryConfig; onChange
               onClick={() => onChange({ ...config, format: fmt })}
               className={`px-3 py-1.5 rounded-[8px] border text-[12px] transition-all ${
                 config.format === fmt
-                  ? "border-[#2552ED] bg-[#e8effe] dark:bg-[#1e2d5e] text-[#2552ED] dark:text-[#6b9bff]"
-                  : "border-[#e5e9f0] dark:border-border text-[#555] dark:text-muted-foreground hover:border-[#c0c6d4] dark:hover:border-[#4d5568]"
+                  ? "border-brand-color bg-blue-10 dark:bg-blue-300 text-brand-color dark:text-blue-70"
+                  : "border-new-selected-color dark:border-border text-gray-300 dark:text-muted-foreground hover:border-gray-70 dark:hover:border-gray-400"
               }`}
               style={{ fontWeight: 400 }}
             >
@@ -625,12 +625,12 @@ function DeliveryConfig({ config, onChange }: { config: DeliveryConfig; onChange
         </div>
       </div>
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Recipients</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Recipients</label>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {config.recipients.map(r => (
-            <span key={r} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[11px] bg-[#f0f1f5] dark:bg-muted text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border font-regular">
+            <span key={r} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[11px] bg-light-grayish-blue dark:bg-muted text-gray-900 dark:text-foreground border border-new-selected-color dark:border-border font-regular">
               {r}
-              <button onClick={() => removeRecipient(r)} className="text-[#888] dark:text-muted-foreground hover:text-[#c62828]">
+              <button onClick={() => removeRecipient(r)} className="text-gray-80 dark:text-muted-foreground hover:text-red-200">
                 <X className="w-2.5 h-2.5" />
               </button>
             </span>
@@ -642,30 +642,30 @@ function DeliveryConfig({ config, onChange }: { config: DeliveryConfig; onChange
             onChange={e => setRecipientInput(e.target.value)}
             onKeyDown={e => e.key === "Enter" && addRecipient()}
             placeholder="Add email address"
-            className="flex-1 px-3 py-2 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground outline-none focus:border-[#2552ED]"
+            className="flex-1 px-3 py-2 bg-white dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] text-[12px] text-gray-900 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground outline-none focus:border-brand-color"
 
           />
-          <button onClick={addRecipient} className="px-2.5 py-2 bg-[#f0f1f5] dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] hover:bg-[#e4e6ea] dark:hover:bg-muted transition-colors">
-            <Plus className="w-3.5 h-3.5 text-[#555] dark:text-muted-foreground" />
+          <button onClick={addRecipient} className="px-2.5 py-2 bg-light-grayish-blue dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] hover:bg-gray-40 dark:hover:bg-muted transition-colors">
+            <Plus className="w-3.5 h-3.5 text-gray-300 dark:text-muted-foreground" />
           </button>
         </div>
       </div>
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Subject</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Subject</label>
         <input
           value={config.subject}
           onChange={e => onChange({ ...config, subject: e.target.value })}
-          className="w-full px-3 py-2 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground outline-none focus:border-[#2552ED]"
+          className="w-full px-3 py-2 bg-white dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] text-[12px] text-gray-900 dark:text-foreground outline-none focus:border-brand-color"
           style={{ fontWeight: 400 }}
         />
       </div>
       <div>
-        <label className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Email body</label>
+        <label className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px] mb-1.5 block" style={{ fontWeight: 400 }}>Email body</label>
         <textarea
           value={config.body}
           onChange={e => onChange({ ...config, body: e.target.value })}
           rows={4}
-          className="w-full px-3 py-2 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground outline-none focus:border-[#2552ED] resize-none"
+          className="w-full px-3 py-2 bg-white dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] text-[12px] text-gray-900 dark:text-foreground outline-none focus:border-brand-color resize-none"
 
         />
       </div>
@@ -761,7 +761,7 @@ export function ScheduleBuilderView({ onBack }: ScheduleBuilderViewProps) {
 
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-white dark:bg-app-shell-gutter transition-colors duration-300">
-      <div className="shrink-0 border-b border-[#eaeaea] dark:border-border">
+      <div className="shrink-0 border-b border-comparison-0-star dark:border-border">
         <MainCanvasViewHeader
           title={
             <span className="flex min-w-0 flex-wrap items-center gap-2">
@@ -794,7 +794,7 @@ export function ScheduleBuilderView({ onBack }: ScheduleBuilderViewProps) {
                 <Save className="size-3.5" />
                 Save draft
               </Button>
-              <Button type="button" size="sm" className="gap-1.5 bg-[#2552ED] text-xs text-white hover:bg-[#1E44CC]" onClick={() => handleSave(true)}>
+              <Button type="button" size="sm" className="gap-1.5 bg-brand-color text-xs text-white hover:bg-brand-color" onClick={() => handleSave(true)}>
                 <Play className="size-3" />
                 Activate
               </Button>
@@ -806,28 +806,28 @@ export function ScheduleBuilderView({ onBack }: ScheduleBuilderViewProps) {
       {/* Three-panel layout */}
       <div className="flex-1 flex min-h-0 overflow-hidden">
         {/* Left Panel */}
-        <div className="w-[260px] border-r border-[#e5e9f0] dark:border-border bg-white dark:bg-background flex flex-col shrink-0 overflow-hidden">
+        <div className="w-[260px] border-r border-new-selected-color dark:border-border bg-white dark:bg-background flex flex-col shrink-0 overflow-hidden">
           {/* Mode toggle */}
           <div className="px-4 pt-4 pb-3 shrink-0">
-            <div className="inline-flex bg-[#f0f1f5] dark:bg-muted rounded-full p-[2px]">
+            <div className="inline-flex bg-light-grayish-blue dark:bg-muted rounded-full p-[2px]">
               <button
                 onClick={() => setMode("ai")}
                 className={`flex items-center justify-center gap-1 px-3 py-[5px] rounded-full text-[12px] transition-all duration-200 ${
                   mode === "ai"
-                    ? "bg-white dark:bg-muted shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-[#212121] dark:text-foreground"
-                    : "text-[#888] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#c0c6d4]"
+                    ? "bg-white dark:bg-muted shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-gray-900 dark:text-foreground"
+                    : "text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-70"
                 }`}
                 style={{ fontWeight: 400 }}
               >
-                <Sparkles className="w-3 h-3 text-[#6834B7]" />
+                <Sparkles className="w-3 h-3 text-purple-100" />
                 AI
               </button>
               <button
                 onClick={() => setMode("manual")}
                 className={`flex items-center justify-center px-3 py-[5px] rounded-full text-[12px] transition-all duration-200 ${
                   mode === "manual"
-                    ? "bg-white dark:bg-muted shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-[#212121] dark:text-foreground"
-                    : "text-[#888] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#c0c6d4]"
+                    ? "bg-white dark:bg-muted shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-gray-900 dark:text-foreground"
+                    : "text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-70"
                 }`}
                 style={{ fontWeight: 400 }}
               >
@@ -845,18 +845,18 @@ export function ScheduleBuilderView({ onBack }: ScheduleBuilderViewProps) {
         </div>
 
         {/* Center – Workflow Canvas */}
-        <div className="flex-1 bg-[#fafbfc] dark:bg-app-shell-gutter overflow-hidden flex flex-col">
+        <div className="flex-1 bg-gray-10 dark:bg-app-shell-gutter overflow-hidden flex flex-col">
           {/* Canvas header */}
-          <div className="shrink-0 flex items-center justify-between px-5 py-2.5 border-b border-[#eaeaea] dark:border-border">
-            <span className="text-[11px] text-[#888] dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
+          <div className="shrink-0 flex items-center justify-between px-5 py-2.5 border-b border-comparison-0-star dark:border-border">
+            <span className="text-[11px] text-gray-80 dark:text-muted-foreground uppercase tracking-[0.5px]" style={{ fontWeight: 400 }}>
               Workflow
             </span>
             <div className="flex items-center gap-1.5">
               <Button type="button" variant="outline" size="icon" className="rounded-[6px]" title="Preview">
-                <Eye className="w-3.5 h-3.5 text-[#888] dark:text-muted-foreground" />
+                <Eye className="w-3.5 h-3.5 text-gray-80 dark:text-muted-foreground" />
               </Button>
               <Button type="button" variant="outline" size="icon" className="rounded-[6px]" title="Full screen">
-                <Maximize2 className="w-3.5 h-3.5 text-[#888] dark:text-muted-foreground" />
+                <Maximize2 className="w-3.5 h-3.5 text-gray-80 dark:text-muted-foreground" />
               </Button>
             </div>
           </div>
@@ -869,24 +869,24 @@ export function ScheduleBuilderView({ onBack }: ScheduleBuilderViewProps) {
         </div>
 
         {/* Right Panel – Configuration */}
-        <div className="w-[300px] border-l border-[#e5e9f0] dark:border-border bg-white dark:bg-background flex flex-col shrink-0 overflow-hidden">
-          <div className="shrink-0 px-4 py-3 border-b border-[#eaeaea] dark:border-border flex items-center justify-between">
+        <div className="w-[300px] border-l border-new-selected-color dark:border-border bg-white dark:bg-background flex flex-col shrink-0 overflow-hidden">
+          <div className="shrink-0 px-4 py-3 border-b border-comparison-0-star dark:border-border flex items-center justify-between">
             <div className="flex items-center gap-2">
               {currentStep && (
                 <>
-                  {currentStep.type === "trigger" && <Clock className="w-3.5 h-3.5 text-[#2552ED]" />}
-                  {currentStep.type === "reports" && <FileText className="w-3.5 h-3.5 text-[#7b1fa2]" />}
-                  {currentStep.type === "customize" && <Palette className="w-3.5 h-3.5 text-[#e65100]" />}
-                  {currentStep.type === "summary" && <Sparkles className="w-3.5 h-3.5 text-[#9970D7]" />}
-                  {currentStep.type === "delivery" && <Send className="w-3.5 h-3.5 text-[#2e7d32]" />}
+                  {currentStep.type === "trigger" && <Clock className="w-3.5 h-3.5 text-brand-color" />}
+                  {currentStep.type === "reports" && <FileText className="w-3.5 h-3.5 text-purple-100" />}
+                  {currentStep.type === "customize" && <Palette className="w-3.5 h-3.5 text-yellow-300" />}
+                  {currentStep.type === "summary" && <Sparkles className="w-3.5 h-3.5 text-purple-80" />}
+                  {currentStep.type === "delivery" && <Send className="w-3.5 h-3.5 text-green-200" />}
                 </>
               )}
-              <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>
+              <span className="text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>
                 {currentStep?.label || "Select a step"}
               </span>
             </div>
             {activeStep && (
-              <button onClick={() => setActiveStep(null)} className="text-[#888] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#e4e4e4]">
+              <button onClick={() => setActiveStep(null)} className="text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-50">
                 <X className="w-3.5 h-3.5" />
               </button>
             )}
@@ -894,8 +894,8 @@ export function ScheduleBuilderView({ onBack }: ScheduleBuilderViewProps) {
           <div className="flex-1 overflow-y-auto px-4 py-4">
             {!activeStep && (
               <div className="flex flex-col items-center justify-center h-full text-center">
-                <Settings className="w-8 h-8 text-[#d0d5dd] dark:text-[#333a47] mb-3" />
-                <p className="text-[13px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                <Settings className="w-8 h-8 text-gray-60 dark:text-gray-600 mb-3" />
+                <p className="text-[13px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                   Select a workflow step to configure
                 </p>
               </div>

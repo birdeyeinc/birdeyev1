@@ -20,7 +20,7 @@ export default {
 };
 
 const wrap = (children) => (
-  <div style={{ padding: 24, background: '#ffffff' }}>
+  <div style={{ padding: 24, background: 'var(--gray-0)' }}>
     {children}
   </div>
 );

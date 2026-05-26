@@ -9,7 +9,7 @@
 }
 
 .afm-dialog {
-  background: #fff;
+  background: var(--gray-0);
   border-radius: 8px;
   box-shadow: 0px 10px 24px 0px rgba(33, 33, 33, 0.2);
   width: 784px;
@@ -53,7 +53,7 @@
   flex-direction: column;
   gap: 8px;
   padding: 12px;
-  background: #f8f9fa;
+  background: var(--gray-10);
   border: 1px solid #e5e9f0;
   border-radius: 4px;
 }
@@ -91,7 +91,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  color: #000;
+  color: var(--gray-900);
 }
 
 .afm-row__dropdowns {
@@ -120,7 +120,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 6px 8px;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #e5e9f0;
   border-radius: 4px;
   cursor: pointer;
@@ -130,11 +130,11 @@
 }
 
 .afm-dropdown__trigger:hover {
-  border-color: #ccc;
+  border-color: var(--gray-60);
 }
 
 .afm-dropdown__trigger--open {
-  border-color: #ccc;
+  border-color: var(--gray-60);
 }
 
 .afm-dropdown__value {
@@ -142,7 +142,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  color: #555;
+  color: var(--gray-300);
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -155,7 +155,7 @@
   width: 20px;
   height: 20px;
   line-height: 1;
-  color: #212121;
+  color: var(--gray-900);
   flex-shrink: 0;
   overflow: hidden;
   transition: transform 0.15s;
@@ -174,7 +174,7 @@
   list-style: none;
   margin: 0;
   padding: 4px 0;
-  background: #fff;
+  background: var(--gray-0);
   border-radius: 4px;
   box-shadow: 0px 4px 8px 0px rgba(33, 33, 33, 0.18);
 }
@@ -187,17 +187,17 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  color: #212121;
+  color: var(--gray-900);
   cursor: pointer;
   list-style: none;
 }
 
 .afm-dropdown__option:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }
 
 .afm-dropdown__option--selected {
-  background: #e5e9f0;
+  background: var(--new-selected-color);
 }
 
 .afm-dropdown__option .material-symbols-outlined {
@@ -222,12 +222,12 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  color: #8f8f8f;
+  color: var(--gray-90);
 }
 
 .afm-row__delete:hover,
 .afm-remove-group-btn:hover {
-  color: #de1b0c;
+  color: var(--red-100);
 }
 
 .afm-row__delete .material-symbols-outlined,
@@ -255,7 +255,7 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #1976d2;
+  color: var(--blue-100);
 }
 
 .afm-add-btn:hover {
@@ -295,19 +295,19 @@
 .afm-btn--tertiary {
   background: none;
   border: none;
-  color: #1976d2;
+  color: var(--blue-100);
 }
 
 .afm-btn--tertiary:hover {
-  background: #f0f7ff;
+  background: var(--blue-10);
 }
 
 .afm-btn--primary {
-  background: #1976d2;
+  background: var(--blue-100);
   border: none;
-  color: #fff;
+  color: var(--gray-0);
 }
 
 .afm-btn--primary:hover {
-  background: #1565c0;
+  background: var(--blue-200);
 }

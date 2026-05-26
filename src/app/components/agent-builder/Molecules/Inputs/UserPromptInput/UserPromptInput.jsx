@@ -215,12 +215,12 @@ export default function UserPromptInput({ tokens = [], onTokensChange, onFieldIc
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font, whiteSpace: 'nowrap' }}>
+        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font, whiteSpace: 'nowrap' }}>
           {label}
         </span>
-        {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
+        {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e9f0', borderRadius: 4, boxSizing: 'border-box', background: '#ffffff', width: '100%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e9f0', borderRadius: 4, boxSizing: 'border-box', background: 'var(--gray-0)', width: '100%' }}>
         <div
           ref={editorRef}
           contentEditable
@@ -239,7 +239,7 @@ export default function UserPromptInput({ tokens = [], onTokensChange, onFieldIc
             fontWeight: 400,
             lineHeight: '20px',
             letterSpacing: '-0.28px',
-            color: '#212121',
+            color: 'var(--gray-900)',
             fontFamily: font,
             outline: 'none',
             boxSizing: 'border-box',

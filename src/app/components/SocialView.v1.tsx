@@ -280,7 +280,7 @@ function PostCardComponent({
   onOpenPreview: () => void;
 }) {
   return (
-    <div className="w-full rounded-[6px] border border-[#e9e9eb] bg-[#f4f6f7] p-2 transition-colors dark:border-border dark:bg-background">
+    <div className="w-full rounded-[6px] border border-gray-40 bg-light-grayish-blue p-2 transition-colors dark:border-border dark:bg-background">
       <div className="flex flex-col gap-2">
         <button
           type="button"
@@ -295,14 +295,14 @@ function PostCardComponent({
           <div className="flex items-center gap-1">
             <button
               type="button"
-              className="p-0.5 text-[#555] transition-colors hover:text-[#212121] dark:text-muted-foreground dark:hover:text-[#e4e4e4]"
+              className="p-0.5 text-gray-300 transition-colors hover:text-gray-900 dark:text-foreground dark:hover:text-gray-50"
               aria-label="Edit post"
             >
               <EditIcon />
             </button>
             <button
               type="button"
-              className="p-0.5 text-[#555] transition-colors hover:text-[#212121] dark:text-muted-foreground dark:hover:text-[#e4e4e4]"
+              className="p-0.5 text-gray-300 transition-colors hover:text-gray-900 dark:text-foreground dark:hover:text-gray-50"
               aria-label="Schedule"
             >
               <CalendarIcon />
@@ -310,7 +310,7 @@ function PostCardComponent({
           </div>
           <button
             type="button"
-            className="-rotate-90 p-0.5 text-[#555] transition-colors hover:text-[#212121] dark:text-muted-foreground dark:hover:text-[#e4e4e4]"
+            className="-rotate-90 p-0.5 text-gray-300 transition-colors hover:text-gray-900 dark:text-foreground dark:hover:text-gray-50"
             aria-label="More options"
           >
             <MoreHorizontal className="h-[14px] w-[14px]" strokeWidth={1.6} absoluteStrokeWidth aria-hidden />
@@ -331,21 +331,21 @@ function SocialWeekGrid({
     <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden text-xs leading-normal">
       {/* overflow-x-auto wraps header + body so they scroll in sync — same pattern as appointments week/by-doctor */}
       <div className="flex min-h-0 flex-1 flex-col overflow-x-auto">
-        <div className="flex shrink-0 border-b border-[#e9e9eb] dark:border-border">
+        <div className="flex shrink-0 border-b border-gray-40 dark:border-border">
           {WEEK_DAYS.map((day) => (
             <div key={day.date} className="flex flex-1 min-w-[108px] items-center justify-center bg-white py-3 dark:bg-background">
               {day.isToday ? (
                 <div className="flex items-center gap-1">
-                  <span className="text-[#125598] dark:text-[#6b9bff]">{day.label}</span>
+                  <span className="text-blue-300 dark:text-blue-70">{day.label}</span>
                   <span
-                    className="flex h-5 w-5 items-center justify-center rounded-full bg-[#125598] text-[11px] text-white dark:bg-[#2552ED]"
+                    className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-300 text-[11px] text-white dark:bg-brand-color"
                     style={{ fontWeight: 400 }}
                   >
                     {day.date}
                   </span>
                 </div>
               ) : (
-                <span className="text-[#555] dark:text-muted-foreground">
+                <span className="text-gray-300 dark:text-muted-foreground">
                   {day.label} {day.date}
                 </span>
               )}
@@ -359,8 +359,8 @@ function SocialWeekGrid({
             return (
               <div
                 key={day.date}
-                className={`flex min-w-[108px] flex-1 flex-col gap-2 border-r border-[#e9e9eb] p-2 last:border-r-0 dark:border-border ${
-                  day.isToday ? "bg-white dark:bg-background" : "bg-[#f9fafb] dark:bg-app-shell-rail"
+                className={`flex min-w-[108px] flex-1 flex-col gap-2 border-r border-gray-40 p-2 last:border-r-0 dark:border-border ${
+                  day.isToday ? "bg-white dark:bg-background" : "bg-gray-10 dark:bg-app-shell-rail"
                 }`}
               >
                 {posts.map((post) => (
@@ -406,7 +406,7 @@ function SocialListView({
             <section key={day} aria-labelledby={`social-list-day-${day}`}>
               <h2
                 id={`social-list-day-${day}`}
-                className="sticky top-0 z-[1] -mx-1 mb-2 border-b border-[#e9e9eb] bg-white px-1 py-2 font-semibold text-[#212121] dark:border-border dark:bg-background dark:text-foreground"
+                className="sticky top-0 z-[1] -mx-1 mb-2 border-b border-gray-40 bg-white px-1 py-2 font-semibold text-gray-900 dark:border-border dark:bg-background dark:text-foreground"
               >
                 April {day}
               </h2>

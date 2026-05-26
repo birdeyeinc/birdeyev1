@@ -64,7 +64,7 @@ function CollapsibleSection({ title, defaultOpen = false, children }) {
           width: '100%', padding: '12px 16px', background: 'none', border: 'none', cursor: 'pointer',
         }}
       >
-        <span style={{ fontSize: 14, fontWeight: 500, color: '#212121', fontFamily: font }}>{title}</span>
+        <span style={{ fontSize: 14, fontWeight: 500, color: 'var(--gray-900)', fontFamily: font }}>{title}</span>
         <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#616161', transform: open ? 'rotate(90deg)' : 'none', transition: 'transform 0.2s' }}>chevron_right</span>
       </button>
       {open && <div style={{ padding: '0 16px 16px' }}>{children}</div>}
@@ -123,18 +123,18 @@ function MultiSelectTags({ options, selected, onChange, placeholder }) {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           width: '100%', height: 36, padding: '0 12px',
           border: '1px solid #ccc', borderRadius: 4,
-          background: '#fff', cursor: 'pointer', fontSize: 14, fontFamily: font,
+          background: 'var(--gray-0)', cursor: 'pointer', fontSize: 14, fontFamily: font,
         }}
       >
         <span style={{ color: selected.length ? '#212121' : '#9e9e9e', flex: 1, textAlign: 'left', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {selected.length ? selected.join(', ') : placeholder}
         </span>
-        <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', flexShrink: 0 }}>expand_more</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', flexShrink: 0 }}>expand_more</span>
       </button>
       {open && (
-        <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, zIndex: 100, background: '#fff', border: '1px solid #ccc', borderRadius: 4, maxHeight: 220, overflowY: 'auto', boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}>
+        <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, zIndex: 100, background: 'var(--gray-0)', border: '1px solid #ccc', borderRadius: 4, maxHeight: 220, overflowY: 'auto', boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}>
           {options.map((opt) => (
-            <label key={opt.value} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', cursor: 'pointer', fontSize: 14, fontFamily: font, color: '#212121' }}>
+            <label key={opt.value} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', cursor: 'pointer', fontSize: 14, fontFamily: font, color: 'var(--gray-900)' }}>
               <input type="checkbox" checked={selected.includes(opt.value)} onChange={() => toggle(opt.value)} style={{ accentColor: '#1976d2' }} />
               {opt.label}
             </label>
@@ -152,17 +152,17 @@ function VoiceInputField({ label, selected, placeholder, onClick }) {
       <button type="button" onClick={onClick} style={{
         display: 'flex', alignItems: 'center', gap: 8,
         height: 36, padding: '0 12px', border: '1px solid #ccc', borderRadius: 4,
-        background: '#fff', cursor: 'pointer', width: '100%', textAlign: 'left', overflow: 'hidden',
+        background: 'var(--gray-0)', cursor: 'pointer', width: '100%', textAlign: 'left', overflow: 'hidden',
       }}>
         {selected && (
-          <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#1976d2', flexShrink: 0 }} onClick={(e) => e.stopPropagation()}>
+          <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--blue-100)', flexShrink: 0 }} onClick={(e) => e.stopPropagation()}>
             play_arrow
           </span>
         )}
         <span style={{ fontSize: 14, fontFamily: font, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: selected ? '#212121' : '#9e9e9e' }}>
           {selected || placeholder}
         </span>
-        <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', flexShrink: 0 }}>chevron_right</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', flexShrink: 0 }}>chevron_right</span>
       </button>
     </div>
   );
@@ -181,18 +181,18 @@ function KeywordsInput({ keywords = [], onChange }) {
   const remove = (idx) => onChange(keywords.filter((_, i) => i !== idx));
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-      <div style={{ border: '1px solid #ccc', borderRadius: 4, padding: '6px 8px', minHeight: 36, background: '#fff', display: 'flex', flexWrap: 'wrap', gap: 4, alignItems: 'center' }}>
+      <div style={{ border: '1px solid #ccc', borderRadius: 4, padding: '6px 8px', minHeight: 36, background: 'var(--gray-0)', display: 'flex', flexWrap: 'wrap', gap: 4, alignItems: 'center' }}>
         {keywords.map((kw, i) => (
-          <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: '#e3f2fd', borderRadius: 4, padding: '2px 8px', fontSize: 13, fontFamily: font, color: '#1565c0' }}>
+          <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: '#e3f2fd', borderRadius: 4, padding: '2px 8px', fontSize: 13, fontFamily: font, color: 'var(--blue-200)' }}>
             {kw}
-            <button type="button" onClick={() => remove(i)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 1, color: '#1565c0', fontSize: 14 }}>×</button>
+            <button type="button" onClick={() => remove(i)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 1, color: 'var(--blue-200)', fontSize: 14 }}>×</button>
           </span>
         ))}
         <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyDown}
           placeholder={keywords.length === 0 ? 'Type a keyword and press Enter' : ''}
-          style={{ border: 'none', outline: 'none', fontSize: 14, fontFamily: font, flex: 1, minWidth: 160, color: '#212121' }} />
+          style={{ border: 'none', outline: 'none', fontSize: 14, fontFamily: font, flex: 1, minWidth: 160, color: 'var(--gray-900)' }} />
       </div>
-      <span style={{ fontSize: 12, color: '#9e9e9e', fontFamily: font, textAlign: 'right' }}>{keywords.length} / {MAX} keywords</span>
+      <span style={{ fontSize: 12, color: 'var(--gray-90)', fontFamily: font, textAlign: 'right' }}>{keywords.length} / {MAX} keywords</span>
     </div>
   );
 }
@@ -394,13 +394,13 @@ function VoiceCallContent({ values, onChange }) {
         <span style={{ fontSize: 12, color: '#616161', fontFamily: font }}>Hang up or leave a voicemail if a voicemail is detected.</span>
         {values.voicemailDetection && (
           <div style={{ marginTop: 8, border: '1px solid #e0e0e0', borderRadius: 8, padding: 16, display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <span style={{ fontSize: 12, fontWeight: 500, color: '#212121', fontFamily: font }}>Voicemail Response</span>
+            <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--gray-900)', fontFamily: font }}>Voicemail Response</span>
             {[{ label: 'Hang up if reaching voicemail', value: 'hangup' }, { label: 'Leave a message if reaching voicemail', value: 'leave_message' }].map(({ label, value }) => (
               <label key={value} style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
                 <input type="radio" name="voicemailResponse" value={value}
                   checked={(values.voicemailResponse ?? 'leave_message') === value}
                   onChange={() => set('voicemailResponse')(value)} style={{ accentColor: '#1976d2' }} />
-                <span style={{ fontSize: 14, color: '#212121', fontFamily: font }}>{label}</span>
+                <span style={{ fontSize: 14, color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
               </label>
             ))}
             {(values.voicemailResponse ?? 'leave_message') === 'leave_message' && (

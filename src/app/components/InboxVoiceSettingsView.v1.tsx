@@ -190,7 +190,7 @@ function buildColumns(
             <span className="text-[15px] leading-none" aria-hidden>{row.flagEmoji}</span>
             <span className="text-[13px] text-muted-foreground">
               {info.getValue()}
-              <span className="text-border dark:text-[#555]"> / </span>
+              <span className="text-border dark:text-gray-300"> / </span>
               {row.accent}
             </span>
           </div>
@@ -230,7 +230,7 @@ function buildColumns(
               {agents.map((agent) => (
                 <span
                   key={agent}
-                  className="inline-flex items-center rounded-md bg-[#eff3ff] dark:bg-primary/10 px-1.5 py-0.5 text-[11px] font-medium text-primary leading-none"
+                  className="inline-flex items-center rounded-md bg-blue-10 dark:bg-primary/10 px-1.5 py-0.5 text-[11px] font-medium text-primary leading-none"
                 >
                   {agent}
                 </span>
@@ -336,7 +336,7 @@ export function InboxVoiceSettingsView({
             {searchOpen ? (
               <div className="relative h-[var(--button-height)] w-[240px]">
                 <Search
-                  className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-[#303030] dark:text-muted-foreground"
+                  className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-gray-600 dark:text-muted-foreground"
                   strokeWidth={1.6} absoluteStrokeWidth aria-hidden
                 />
                 <input
@@ -347,7 +347,7 @@ export function InboxVoiceSettingsView({
                   onKeyDown={(e) => { if (e.key === "Escape") { setSearch(""); setSearchOpen(false); } }}
                   autoFocus
                   placeholder="Search voices…"
-                  className="h-full w-full rounded-[8px] border border-[#e5e9f0] bg-white py-0 pr-8 pl-8 text-[14px] text-[#212121] outline-none transition-colors placeholder:text-[#757575] focus:border-[#2552ED] focus:ring-1 focus:ring-[#2552ED] dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-[#8b92a5]"
+                  className="h-full w-full rounded-[8px] border border-new-selected-color bg-white py-0 pr-8 pl-8 text-[14px] text-gray-900 outline-none transition-colors placeholder:text-gray-100 focus:border-brand-color focus:ring-1 focus:ring-brand-color dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-gray-90"
                   aria-label="Search voices"
                 />
                 {search && (
@@ -362,7 +362,7 @@ export function InboxVoiceSettingsView({
               </div>
             ) : (
               <Button type="button" variant="outline" size="icon" aria-label="Search voices" onClick={() => setSearchOpen(true)}>
-                <Search className="size-[14px] text-[#303030] dark:text-muted-foreground" strokeWidth={1.6} absoluteStrokeWidth aria-hidden />
+                <Search className="size-[14px] text-gray-600 dark:text-muted-foreground" strokeWidth={1.6} absoluteStrokeWidth aria-hidden />
               </Button>
             )}
             <AppDataTableColumnSettingsTrigger

@@ -7,8 +7,8 @@ const font = '"Inter", arial, sans-serif';
 function FieldLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>{label}</span>
-      {required && <span style={{ color: '#de1b0c', fontSize: 12 }}>*</span>}
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
+      {required && <span style={{ color: 'var(--red-100)', fontSize: 12 }}>*</span>}
     </div>
   );
 }
@@ -28,7 +28,7 @@ function BranchRow({ branch, index, onChange, onRemove }) {
       display: 'flex', alignItems: 'center', gap: 8,
       border: '1px solid #e5e9f0', borderRadius: 4, padding: '8px 10px',
     }}>
-      <i className="icon_phoenix-splitscreen_add" style={{ fontSize: 18, color: '#8f8f8f', flexShrink: 0 }} />
+      <i className="icon_phoenix-splitscreen_add" style={{ fontSize: 18, color: 'var(--gray-90)', flexShrink: 0 }} />
       <div style={{ flex: 1 }}>
         <Input
           name={`branch-${index}`}
@@ -43,7 +43,7 @@ function BranchRow({ branch, index, onChange, onRemove }) {
         onClick={() => onRemove(index)}
         style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex', flexShrink: 0 }}
       >
-        <i className="icon_phoenix-close" style={{ fontSize: 16, color: '#8f8f8f' }} />
+        <i className="icon_phoenix-close" style={{ fontSize: 16, color: 'var(--gray-90)' }} />
       </button>
     </div>
   );
@@ -80,7 +80,7 @@ export default function ParallelBody({ initialValues = {} }) {
       </FormField>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>
+        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>
           Parallel branches
         </span>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -92,8 +92,8 @@ export default function ParallelBody({ initialValues = {} }) {
           onClick={addBranch}
           style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', padding: 0, cursor: 'pointer', alignSelf: 'flex-start', marginTop: 4 }}
         >
-          <i className="icon_phoenix-add_circle" style={{ fontSize: 20, color: '#1976d2' }} />
-          <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: '#1976d2', fontFamily: font }}>
+          <i className="icon_phoenix-add_circle" style={{ fontSize: 20, color: 'var(--blue-100)' }} />
+          <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--blue-100)', fontFamily: font }}>
             Add branch
           </span>
         </button>

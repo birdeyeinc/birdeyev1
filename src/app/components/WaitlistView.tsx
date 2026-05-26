@@ -425,7 +425,7 @@ function AddPatientDrawer({
         >
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-1">
-              <Label htmlFor="ap-name" className="text-[12px] text-[#212121]">Patient name</Label>
+              <Label htmlFor="ap-name" className="text-[12px] text-gray-900">Patient name</Label>
               <Input
                 id="ap-name"
                 placeholder="e.g. Sarah Mitchell"
@@ -436,7 +436,7 @@ function AddPatientDrawer({
             </div>
 
             <div className="flex flex-col gap-1">
-              <Label htmlFor="ap-phone" className="text-[12px] text-[#212121]">Phone number</Label>
+              <Label htmlFor="ap-phone" className="text-[12px] text-gray-900">Phone number</Label>
               <Input
                 id="ap-phone"
                 type="tel"
@@ -448,7 +448,7 @@ function AddPatientDrawer({
             </div>
 
             <div className="flex flex-col gap-1">
-              <Label htmlFor="ap-location" className="text-[12px] text-[#212121]">Location</Label>
+              <Label htmlFor="ap-location" className="text-[12px] text-gray-900">Location</Label>
               <Input
                 id="ap-location"
                 placeholder="e.g. San Francisco, CA"
@@ -459,7 +459,7 @@ function AddPatientDrawer({
             </div>
 
             <div className="flex flex-col gap-1">
-              <Label className="text-[12px] text-[#212121]">Provider</Label>
+              <Label className="text-[12px] text-gray-900">Provider</Label>
               <Select value={provider} onValueChange={setProvider}>
                 <SelectTrigger className="h-9 rounded px-3 !text-sm">
                   <SelectValue placeholder="Select provider" />
@@ -474,7 +474,7 @@ function AddPatientDrawer({
             </div>
 
             <div className="flex flex-col gap-1">
-              <Label className="text-[12px] text-[#212121]">Slot preference</Label>
+              <Label className="text-[12px] text-gray-900">Slot preference</Label>
               <Select value={slot} onValueChange={setSlot}>
                 <SelectTrigger className="h-9 rounded px-3 !text-sm">
                   <SelectValue placeholder="Select preference" />
@@ -802,7 +802,7 @@ function OfferSlotDrawer({
           <div className="flex flex-col gap-3">
             {/* Date — popover calendar */}
             <div className="flex flex-col gap-1">
-              <Label className="text-[12px] text-[#212121]">Date</Label>
+              <Label className="text-[12px] text-gray-900">Date</Label>
               <Popover open={calOpen} onOpenChange={setCalOpen}>
                 <PopoverTrigger asChild>
                   <button
@@ -830,7 +830,7 @@ function OfferSlotDrawer({
 
             {/* Time — select */}
             <div className="flex flex-col gap-1">
-              <Label className="text-[12px] text-[#212121]">Time</Label>
+              <Label className="text-[12px] text-gray-900">Time</Label>
               <Select value={time} onValueChange={setTime}>
                 <SelectTrigger className="h-9 rounded px-3 !text-sm">
                   <SelectValue placeholder="Pick a time" />
@@ -845,7 +845,7 @@ function OfferSlotDrawer({
 
             {/* Provider */}
             <div className="flex flex-col gap-1">
-              <Label className="text-[12px] text-[#212121]">Provider</Label>
+              <Label className="text-[12px] text-gray-900">Provider</Label>
               <Select value={provider} onValueChange={setProvider}>
                 <SelectTrigger className="h-9 rounded px-3 !text-sm">
                   <SelectValue placeholder="Select provider" />
@@ -861,7 +861,7 @@ function OfferSlotDrawer({
 
             {/* Slot preference (read-only) */}
             <div className="flex flex-col gap-1">
-              <Label className="text-[12px] text-[#212121]">Slot preference</Label>
+              <Label className="text-[12px] text-gray-900">Slot preference</Label>
               <Input
                 value={patient ? SLOT_CONFIG[patient.slotPreference].label : ""}
                 readOnly

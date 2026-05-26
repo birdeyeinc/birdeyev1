@@ -66,8 +66,8 @@ export default function AddInputFieldModal({ onClose, onAdd }) {
             {/* Field name */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>Field name</span>
-                <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>
+                <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>Field name</span>
+                <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>
               </div>
               <input
                 type="text"
@@ -77,7 +77,7 @@ export default function AddInputFieldModal({ onClose, onAdd }) {
                 style={{
                   width: '100%', height: 36, border: '1px solid #e0e0e0', borderRadius: 4,
                   padding: '0 12px', fontSize: 14, lineHeight: '20px', letterSpacing: '-0.28px',
-                  color: '#212121', fontFamily: font, outline: 'none', boxSizing: 'border-box', background: '#fff',
+                  color: 'var(--gray-900)', fontFamily: font, outline: 'none', boxSizing: 'border-box', background: 'var(--gray-0)',
                 }}
               />
             </div>
@@ -85,8 +85,8 @@ export default function AddInputFieldModal({ onClose, onAdd }) {
             {/* Field value */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>Field value</span>
-                <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>
+                <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>Field value</span>
+                <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>
               </div>
               <div ref={fieldValueRef} style={{ display: 'flex' }}>
                 <div
@@ -94,11 +94,11 @@ export default function AddInputFieldModal({ onClose, onAdd }) {
                   style={{
                     flex: 1, minHeight: 36, border: '1px solid #e0e0e0', borderRadius: '4px 0 0 4px',
                     padding: '4px 8px', display: 'flex', flexWrap: 'wrap', alignItems: 'center',
-                    gap: 6, boxSizing: 'border-box', background: '#fff', cursor: 'pointer',
+                    gap: 6, boxSizing: 'border-box', background: 'var(--gray-0)', cursor: 'pointer',
                   }}
                 >
                   {fieldValueChips.length === 0 && (
-                    <span style={{ fontSize: 14, lineHeight: '20px', color: '#8f8f8f', fontFamily: font, userSelect: 'none' }}>
+                    <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--gray-90)', fontFamily: font, userSelect: 'none' }}>
                       Select field value
                     </span>
                   )}
@@ -116,12 +116,12 @@ export default function AddInputFieldModal({ onClose, onAdd }) {
                   onClick={openVariablePicker}
                   style={{
                     width: 40, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: '#ecf5fd', borderRadius: '0 4px 4px 0',
+                    background: 'var(--blue-20)', borderRadius: '0 4px 4px 0',
                     border: '1px solid #d1e5f9', borderLeft: 'none',
                     cursor: 'pointer', padding: 0,
                   }}
                 >
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20", fontSize: 16, width: 16, height: 16, lineHeight: 1, color: '#1a73e8', overflow: 'hidden' }}>
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20", fontSize: 16, width: 16, height: 16, lineHeight: 1, color: 'var(--google-bg)', overflow: 'hidden' }}>
                     data_object
                   </span>
                 </button>

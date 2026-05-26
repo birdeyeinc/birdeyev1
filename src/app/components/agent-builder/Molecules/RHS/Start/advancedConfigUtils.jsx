@@ -23,14 +23,14 @@ export const LANGUAGE_OPTIONS = [
 export function FieldLabel({ label, showInfo, tooltip }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-      <span style={{ fontSize: 14, fontWeight: 400, lineHeight: '20px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 14, fontWeight: 400, lineHeight: '20px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
       {(showInfo || tooltip) && (
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer', lineHeight: 1 }}>info</span>
+              <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer', lineHeight: 1 }}>info</span>
             </TooltipTrigger>
             <TooltipContent side="top">{tooltip || label}</TooltipContent>
           </Tooltip>
@@ -44,7 +44,7 @@ export function LabeledToggle({ label, name, checked, onChange, showInfo, toolti
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-        <span style={{ fontSize: 14, lineHeight: '20px', color: '#212121', fontFamily: font }}>{label}</span>
+        <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
         {badge && (
           <span style={{ fontSize: 11, fontWeight: 500, color: '#6200ea', background: '#ede7f6', borderRadius: 4, padding: '1px 6px', fontFamily: font }}>{badge}</span>
         )}
@@ -52,7 +52,7 @@ export function LabeledToggle({ label, name, checked, onChange, showInfo, toolti
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer', lineHeight: 1 }}>info</span>
+                <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer', lineHeight: 1 }}>info</span>
               </TooltipTrigger>
               <TooltipContent side="top">{tooltip || label}</TooltipContent>
             </Tooltip>
@@ -88,9 +88,9 @@ export function OverridableField({ label, showInfo, tooltip, defaultValue, defau
       ) : (
         <div style={{
           height: 36, border: '1px solid #e0e0e0', borderRadius: 4, padding: '0 12px',
-          display: 'flex', alignItems: 'center', background: '#f5f5f5',
+          display: 'flex', alignItems: 'center', background: 'var(--gray-20)',
         }}>
-          <span style={{ fontSize: 14, color: '#9e9e9e', fontFamily: font }}>{defaultLabel ?? defaultValue}</span>
+          <span style={{ fontSize: 14, color: 'var(--gray-90)', fontFamily: font }}>{defaultLabel ?? defaultValue}</span>
         </div>
       )}
       <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', marginTop: 2 }}>
@@ -118,11 +118,11 @@ export function ClientEventsField({ selected = [], onChange }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-          <span style={{ fontSize: 14, color: '#212121', fontFamily: font }}>Client events</span>
+          <span style={{ fontSize: 14, color: 'var(--gray-900)', fontFamily: font }}>Client events</span>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer', lineHeight: 1 }}>info</span>
+                <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer', lineHeight: 1 }}>info</span>
               </TooltipTrigger>
               <TooltipContent side="top">Select the events that should be sent to the client.</TooltipContent>
             </Tooltip>
@@ -131,10 +131,10 @@ export function ClientEventsField({ selected = [], onChange }) {
         <div style={{ position: 'relative' }}>
           <Button variant="outline" size="sm" onClick={() => setOpen((v) => !v)}>Add event</Button>
           {open && available.length > 0 && (
-            <div style={{ position: 'absolute', right: 0, top: '100%', marginTop: 4, background: '#fff', border: '1px solid #e0e0e0', borderRadius: 6, boxShadow: '0 4px 12px rgba(0,0,0,0.12)', zIndex: 10, minWidth: 220 }}>
+            <div style={{ position: 'absolute', right: 0, top: '100%', marginTop: 4, background: 'var(--gray-0)', border: '1px solid #e0e0e0', borderRadius: 6, boxShadow: '0 4px 12px rgba(0,0,0,0.12)', zIndex: 10, minWidth: 220 }}>
               {available.map((ev) => (
                 <button key={ev} type="button" onClick={() => add(ev)}
-                  style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 14px', background: 'none', border: 'none', fontSize: 13, fontFamily: font, color: '#212121', cursor: 'pointer' }}
+                  style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 14px', background: 'none', border: 'none', fontSize: 13, fontFamily: font, color: 'var(--gray-900)', cursor: 'pointer' }}
                   onMouseEnter={(e) => { e.currentTarget.style.background = '#f5f5f5'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; }}>
                   {ev}
@@ -145,11 +145,11 @@ export function ClientEventsField({ selected = [], onChange }) {
         </div>
       </div>
       <div style={{ border: '1px solid #e0e0e0', borderRadius: 6, padding: '10px 12px', minHeight: 48, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-        {selected.length === 0 && <span style={{ fontSize: 13, color: '#9e9e9e', fontFamily: font }}>No events selected</span>}
+        {selected.length === 0 && <span style={{ fontSize: 13, color: 'var(--gray-90)', fontFamily: font }}>No events selected</span>}
         {selected.map((ev) => (
-          <span key={ev} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#f5f5f5', borderRadius: 4, padding: '4px 10px', fontSize: 13, fontFamily: font, color: '#212121' }}>
+          <span key={ev} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--gray-20)', borderRadius: 4, padding: '4px 10px', fontSize: 13, fontFamily: font, color: 'var(--gray-900)' }}>
             {ev}
-            <button type="button" onClick={() => remove(ev)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 1, color: '#757575', fontSize: 16 }}>×</button>
+            <button type="button" onClick={() => remove(ev)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 1, color: 'var(--gray-100)', fontSize: 16 }}>×</button>
           </span>
         ))}
       </div>

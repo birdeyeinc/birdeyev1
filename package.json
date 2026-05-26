@@ -9,6 +9,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "generate:colors": "node scripts/generate-elemental-colors.mjs",
+    "migrate:colors": "node scripts/migrate-elemental-colors.mjs",
     "build:elemental": "node scripts/elemental-build.mjs",
     "storybook:elemental": "node scripts/elemental-storybook.mjs",
     "dev": "vite",

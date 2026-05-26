@@ -196,14 +196,14 @@ export function ReviewBody({ text }: { text: string }) {
   return (
     <div ref={wrapRef} className="w-full min-w-0">
       <p
-        className={`whitespace-pre-wrap break-words text-[13px] leading-[18px] text-[#212121] dark:text-muted-foreground ${showLineClampFallback ? "line-clamp-5" : ""}`}
+        className={`whitespace-pre-wrap break-words text-[13px] leading-[18px] text-gray-900 dark:text-foreground ${showLineClampFallback ? "line-clamp-5" : ""}`}
       >
         {paragraphText}
       </p>
       {needsToggle ? (
         <button
           type="button"
-          className="mt-1 text-left text-[12px] font-medium text-[#1976d2] hover:underline dark:text-[#90caf9]"
+          className="mt-1 text-left text-[12px] font-medium text-blue-100 hover:underline dark:text-blue-60"
           onClick={() => setExpanded((v) => !v)}
         >
           {expanded ? "View less" : "View more"}
@@ -437,8 +437,8 @@ function StarRating({ rating, size = 14 }: { rating: number; size?: number }) {
             absoluteStrokeWidth={!filled}
             className={
               filled
-                ? "fill-[#D4A017] stroke-[#D4A017]"
-                : "fill-none stroke-[#D4A017]"
+                ? "fill-yellow-200 stroke-yellow-200"
+                : "fill-none stroke-yellow-200"
             }
           />
         );
@@ -450,32 +450,32 @@ function StarRating({ rating, size = 14 }: { rating: number; size?: number }) {
 /* ─── BirdAI Suggested Reply ─── */
 function MynaAIReply({ hasThreeDots }: { hasThreeDots?: boolean }) {
   return (
-    <div className="relative bg-[#f9f7fd] dark:bg-background rounded-[8px] p-5 w-full">
+    <div className="relative bg-purple-10 dark:bg-background rounded-[8px] p-5 w-full">
       <div className="flex flex-col gap-[6px]">
         {/* Header row */}
         <div className="flex items-center gap-2">
-          <span className="text-[12px] text-[#555] dark:text-muted-foreground">BirdAI suggested reply</span>
-          <div className="size-[4px] rounded-full bg-[#555] dark:bg-[#8b92a5]" />
+          <span className="text-[12px] text-gray-300 dark:text-muted-foreground">BirdAI suggested reply</span>
+          <div className="size-[4px] rounded-full bg-gray-300 dark:bg-gray-90" />
           <div className="flex items-center">
-            <span className="text-[12px] text-[#555] dark:text-muted-foreground">Reply as</span>
+            <span className="text-[12px] text-gray-300 dark:text-muted-foreground">Reply as</span>
             <div className="flex items-center gap-[2px] px-1 rounded-full">
-              <span className="text-[12px] text-[#1976d2]">Sampada (me)</span>
+              <span className="text-[12px] text-blue-100">Sampada (me)</span>
               <svg className="w-[7.5px] h-[3.75px]" viewBox="0 0 7.5 3.75" fill="none">
-                <path d="M0 0L3.75 3.75L7.5 0H0Z" fill="#49454F" />
+                <path d="M0 0L3.75 3.75L7.5 0H0Z" fill="var(--gray-400)" />
               </svg>
             </div>
           </div>
         </div>
         {/* Reply text */}
-        <p className="text-[13px] text-[#212121] dark:text-muted-foreground leading-[18px]">
+        <p className="text-[13px] text-gray-900 dark:text-foreground leading-[18px]">
           We appreciate your feedback! Thank you for taking the time to share your experience with us.
         </p>
       </div>
       {/* Optional 3-dot menu on reply */}
       {hasThreeDots && (
-        <div className="absolute right-3 top-2 bg-[#f9f7fd] dark:bg-background rounded-full size-[24px] flex items-center justify-center">
+        <div className="absolute right-3 top-2 bg-purple-10 dark:bg-background rounded-full size-[24px] flex items-center justify-center">
           <svg className="w-[12px] h-[3px] rotate-90" viewBox="0 0 12 3" fill="none">
-            <path clipRule="evenodd" d={svgPaths.p2d3a0500} fill="#757575" fillRule="evenodd" />
+            <path clipRule="evenodd" d={svgPaths.p2d3a0500} fill="var(--gray-100)" fillRule="evenodd" />
           </svg>
         </div>
       )}
@@ -551,7 +551,7 @@ function ProgressiveImg({
       {/* Shimmer bg — fades out once the blurred image is visible */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-[#eff0f2] dark:bg-muted animate-pulse opacity-70 transition-opacity duration-300 ease-out"
+        className="absolute inset-0 bg-gray-20 dark:bg-muted animate-pulse opacity-70 transition-opacity duration-300 ease-out"
         style={{ opacity: phase === "idle" ? 1 : 0 }}
       />
       <img
@@ -696,14 +696,14 @@ function PhotoCarousel({ photos }: { photos: string[] }) {
         {canScrollLeft && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-12 bg-gradient-to-r from-background/80 dark:from-[#1e2229]/80 to-transparent rounded-l-lg"
+            className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-12 bg-gradient-to-r from-background/80 dark:from-gray-700/80 to-transparent rounded-l-lg"
           />
         )}
         {/* Right edge fade */}
         {canScrollRight && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-12 bg-gradient-to-l from-background/80 dark:from-[#1e2229]/80 to-transparent rounded-r-lg"
+            className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-12 bg-gradient-to-l from-background/80 dark:from-gray-700/80 to-transparent rounded-r-lg"
           />
         )}
 
@@ -769,36 +769,36 @@ function ReviewCard({ review }: { review: Review }) {
         <div className="flex min-w-0 items-start gap-3">
           <ReviewSiteLogo site={review.site} size={40} />
           <div className="flex min-w-0 flex-col gap-1">
-            <span className="text-[13px] font-semibold leading-tight text-[#212121] dark:text-foreground">
+            <span className="text-[13px] font-semibold leading-tight text-gray-900 dark:text-foreground">
               {review.reviewer}
             </span>
             <div className="flex flex-wrap items-center gap-2 text-[12px]">
               <StarRating rating={review.rating} size={14} />
-              <span className="text-[#555] dark:text-muted-foreground" title={review.date}>
+              <span className="text-gray-300 dark:text-muted-foreground" title={review.date}>
                 {formatReviewDateRelative(review.date)}
               </span>
               {review.photoCount != null && review.photoCount > 0 && (
                 <>
-                  <div className="size-[3px] shrink-0 rounded-full bg-[#555] dark:bg-[#8b92a5]" />
-                  <span className="text-[#555] dark:text-muted-foreground">{review.photoCount} photos</span>
+                  <div className="size-[3px] shrink-0 rounded-full bg-gray-300 dark:bg-gray-90" />
+                  <span className="text-gray-300 dark:text-muted-foreground">{review.photoCount} photos</span>
                 </>
               )}
               {review.featured && (
                 <>
-                  <div className="size-[3px] shrink-0 rounded-full bg-[#555] dark:bg-[#8b92a5]" />
-                  <div className="rounded-[4px] bg-[#eaeaea] px-2 py-0.5 dark:bg-muted">
-                    <span className="text-[12px] text-[#212121] dark:text-foreground">Featured</span>
+                  <div className="size-[3px] shrink-0 rounded-full bg-gray-300 dark:bg-gray-90" />
+                  <div className="rounded-[4px] bg-comparison-0-star px-2 py-0.5 dark:bg-muted">
+                    <span className="text-[12px] text-gray-900 dark:text-foreground">Featured</span>
                   </div>
                 </>
               )}
             </div>
           </div>
         </div>
-        <div className="flex shrink-0 items-center gap-2 text-[12px] text-[#555] dark:text-muted-foreground">
+        <div className="flex shrink-0 items-center gap-2 text-[12px] text-gray-300 dark:text-muted-foreground">
           <span className="whitespace-nowrap">
             {review.employees} {review.employees === 1 ? "employee" : "employees"}
           </span>
-          <div className="size-[3px] shrink-0 rounded-full bg-[#555] dark:bg-[#8b92a5]" />
+          <div className="size-[3px] shrink-0 rounded-full bg-gray-300 dark:bg-gray-90" />
           <span className="whitespace-nowrap">{review.location}</span>
         </div>
       </div>
@@ -820,7 +820,7 @@ function ReviewCard({ review }: { review: Review }) {
 
 /* ─── Review card skeleton ─── */
 function ReviewCardSkeleton() {
-  const s = "bg-[#eff0f2] dark:bg-muted rounded animate-pulse opacity-70";
+  const s = "bg-gray-20 dark:bg-muted rounded animate-pulse opacity-70";
   return (
     <div className="flex flex-col gap-4 py-1">
       {/* Header: avatar + name/sub-line | right label */}
@@ -952,7 +952,7 @@ export function ReviewsViewList() {
                       key={i}
                       aria-hidden
                       className={`h-2.5 w-2.5 ${
-                        filled ? "fill-[#D4A017] stroke-[#D4A017]" : "fill-none stroke-[#D4A017]"
+                        filled ? "fill-yellow-200 stroke-yellow-200" : "fill-none stroke-yellow-200"
                       }`}
                       strokeWidth={filled ? 0 : L1_STRIP_ICON_STROKE_PX}
                       absoluteStrokeWidth={!filled}
@@ -966,7 +966,7 @@ export function ReviewsViewList() {
           <div className="flex items-center gap-2">
             {searchOpen ? (
               <div className="relative h-[var(--button-height)] w-[240px]">
-                <Search className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-[#303030] dark:text-muted-foreground" aria-hidden />
+                <Search className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-gray-600 dark:text-muted-foreground" aria-hidden />
                 <input
                   ref={searchInputRef}
                   type="search"
@@ -983,7 +983,7 @@ export function ReviewsViewList() {
                   }}
                   autoFocus
                   placeholder="Search reviews"
-                  className="h-full w-full rounded-[8px] border border-[#e5e9f0] bg-white py-0 pr-2 pl-8 text-[14px] text-[#212121] outline-none transition-colors placeholder:text-[#757575] focus:border-[#2552ED] focus:ring-1 focus:ring-[#2552ED] dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-[#8b92a5]"
+                  className="h-full w-full rounded-[8px] border border-new-selected-color bg-white py-0 pr-2 pl-8 text-[14px] text-gray-900 outline-none transition-colors placeholder:text-gray-100 focus:border-brand-color focus:ring-1 focus:ring-brand-color dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-gray-90"
                   aria-label="Search reviews"
                 />
               </div>
@@ -997,13 +997,13 @@ export function ReviewsViewList() {
                 title="Search reviews"
                 onClick={() => setSearchOpen(true)}
               >
-                <Search className="w-[14px] h-[14px] text-[#303030] dark:text-muted-foreground" aria-hidden />
+                <Search className="w-[14px] h-[14px] text-gray-600 dark:text-muted-foreground" aria-hidden />
               </Button>
             )}
 
             {/* More options */}
             <Button variant="outline" size="icon">
-              <MoreVertical className="w-[14px] h-[14px] text-[#303030] dark:text-muted-foreground" />
+              <MoreVertical className="w-[14px] h-[14px] text-gray-600 dark:text-muted-foreground" />
             </Button>
 
             {/* AI button */}
@@ -1015,10 +1015,10 @@ export function ReviewsViewList() {
               size="icon"
             >
               <svg className="w-[14px] h-[14px]" viewBox="0 0 16.6975 14.8252" fill="none">
-                <path d={svgPaths.p33170700} fill="#6834B7" />
-                <path d={svgPaths.p2d8f3b80} fill="#6834B7" />
-                <path clipRule="evenodd" d={svgPaths.p1692000} fill="#6834B7" fillRule="evenodd" />
-                <path d={svgPaths.p4cf0c70} fill="#6834B7" />
+                <path d={svgPaths.p33170700} fill="var(--purple-100)" />
+                <path d={svgPaths.p2d8f3b80} fill="var(--purple-100)" />
+                <path clipRule="evenodd" d={svgPaths.p1692000} fill="var(--purple-100)" fillRule="evenodd" />
+                <path d={svgPaths.p4cf0c70} fill="var(--purple-100)" />
               </svg>
             </Button>
 
@@ -1067,7 +1067,7 @@ export function ReviewsViewList() {
 
             {/* End-of-feed label */}
             {visibleCount >= filteredReviews.length && filteredReviews.length > 0 && (
-              <p className="text-center text-[12px] text-[#aaa] dark:text-[#555] pb-2">
+              <p className="text-center text-[12px] text-gray-80 dark:text-gray-300 pb-2">
                 All {filteredReviews.length} reviews loaded
               </p>
             )}

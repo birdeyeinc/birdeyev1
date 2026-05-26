@@ -44,20 +44,20 @@
   height: 16px;
 }
 
-.cnh__icon-circle--trigger { background: #fff3e0; }
-.cnh__icon-circle--trigger .material-symbols-outlined { color: #e65100; }
+.cnh__icon-circle--trigger { background: var(--yellow-20); }
+.cnh__icon-circle--trigger .material-symbols-outlined { color: var(--yellow-300); }
 
 .cnh__icon-circle--task { background: #e3f2fd; }
-.cnh__icon-circle--task .material-symbols-outlined { color: #1976d2; }
+.cnh__icon-circle--task .material-symbols-outlined { color: var(--blue-100); }
 
-.cnh__icon-circle--branch { background: #e8f5e9; }
-.cnh__icon-circle--branch .material-symbols-outlined { color: #2e7d32; }
+.cnh__icon-circle--branch { background: var(--green-20); }
+.cnh__icon-circle--branch .material-symbols-outlined { color: var(--green-200); }
 
 .cnh__icon-circle--parallel { background: #e0f2f1; }
 .cnh__icon-circle--parallel .material-symbols-outlined { color: #00695c; }
 
 .cnh__icon-circle--loop { background: #f3e5f5; }
-.cnh__icon-circle--loop .material-symbols-outlined { color: #7b1fa2; }
+.cnh__icon-circle--loop .material-symbols-outlined { color: var(--purple-100); }
 
 .cnh__icon-circle--delay { background: #fff8e1; }
 .cnh__icon-circle--delay .material-symbols-outlined { color: #f57f17; }
@@ -90,7 +90,7 @@
 }
 
 .cnh__ai-icon .material-symbols-outlined {
-  color: #6834b7;
+  color: var(--purple-100);
   font-size: 24px !important;
   width: 24px;
   height: 24px;

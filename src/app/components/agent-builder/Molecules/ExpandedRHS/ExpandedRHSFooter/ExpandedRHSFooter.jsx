@@ -14,7 +14,7 @@ export default function ExpandedRHSFooter({
       position: 'sticky',
       bottom: 0,
       zIndex: 10,
-      background: '#ffffff',
+      background: 'var(--gray-0)',
       borderTop: '1px solid #eaeaea',
       borderRadius: '0 0 8px 8px',
       padding: '8px 24px',

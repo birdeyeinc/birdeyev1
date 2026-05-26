@@ -21,13 +21,13 @@
 .agents-table thead th {
   position: sticky !important;
   top: 0;
-  background: #fff;
+  background: var(--gray-0);
   z-index: 10;
 }
 
 /* Consistent hover across all columns including column 1 */
 .agents-table tbody tr:hover td {
-  background-color: #f5f5f5 !important;
+  background-color: var(--gray-20) !important;
 }
 
 /* Actions cell */
@@ -50,12 +50,12 @@
 }
 
 .actions-cell-btn:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }
 
 /* Dropdown — positioning handled via portal inline styles */
 .actions-dropdown {
-  background: #fff;
+  background: var(--gray-0);
   border-radius: 4px;
   box-shadow: 0px 4px 8px 0px rgba(33, 33, 33, 0.18);
   padding: 12px 0;
@@ -77,11 +77,11 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #555;
+  color: var(--gray-300);
   padding: 8px 16px 8px 12px;
   border-radius: 4px;
 }
 
 .actions-dropdown-item:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }

@@ -3,7 +3,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #e5e9f0;
   border-radius: 8px;
   font-family: var(--font-family-brand), Inter, arial, sans-serif;
@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #e5e9f0;
   border-radius: 4px;
   padding: 4px;
@@ -41,15 +41,15 @@
   border-radius: 4px;
   cursor: pointer;
   padding: 0;
-  color: #555;
+  color: var(--gray-300);
 }
 
 .graph-controls__toggle-btn:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }
 
 .graph-controls__toggle-btn--active {
-  background: #e5e9f0;
+  background: var(--new-selected-color);
 }
 
 .graph-controls__toggle-btn .material-symbols-outlined {
@@ -68,7 +68,7 @@
   gap: 8px;
   height: 36px;
   padding: 8px 8px 8px 12px;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #e5e9f0;
   border-radius: 4px;
   cursor: pointer;
@@ -76,13 +76,13 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #555;
+  color: var(--gray-300);
   white-space: nowrap;
   font-family: var(--font-family-brand), Inter, arial, sans-serif;
 }
 
 .graph-controls__zoom-btn:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }
 
 .graph-controls__zoom-label {
@@ -94,7 +94,7 @@
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #e5e9f0;
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -113,22 +113,22 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 13px;
-  color: #333;
+  color: var(--gray-500);
   font-family: var(--font-family-brand), Inter, arial, sans-serif;
 }
 
 .graph-controls__zoom-option:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }
 
 .graph-controls__zoom-option--active {
-  background: #e5e9f0;
+  background: var(--new-selected-color);
   font-weight: 500;
 }
 
 .graph-controls__zoom-divider {
   height: 1px;
-  background: #e5e9f0;
+  background: var(--new-selected-color);
   margin: 4px 0;
 }
 
@@ -138,14 +138,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #e5e9f0;
   border-radius: 4px;
   cursor: pointer;
-  color: #555;
+  color: var(--gray-300);
   padding: 0;
 }
 
 .graph-controls__run:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }

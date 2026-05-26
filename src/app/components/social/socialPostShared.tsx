@@ -15,7 +15,7 @@ export interface SocialCalendarPost {
 function FacebookIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden>
-      <circle cx="8" cy="8" r="8" fill="#337FFF" />
+      <circle cx="8" cy="8" r="8" fill="var(--blue-90)" />
       <path
         d="M10.5 8.5h-1.75v4h-2v-4H5.5v-2h1.25V5.25c0-1.25.75-2 1.875-2H10v1.75H9.125c-.375 0-.375.188-.375.5V6.5H10.5l-.25 2z"
         fill="white"
@@ -47,7 +47,7 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
 function TwitterIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden>
-      <circle cx="8" cy="8" r="8" fill="#1DA1F2" />
+      <circle cx="8" cy="8" r="8" fill="var(--twitter-bg)" />
       <path
         d="M12 5.5c-.35.15-.72.26-1.1.3.4-.23.7-.6.85-1.05-.37.22-.78.38-1.22.47A1.93 1.93 0 009.2 4.5c-1.06 0-1.93.87-1.93 1.93 0 .15.02.3.05.44A5.48 5.48 0 014.3 5.1a1.93 1.93 0 00.6 2.58c-.32-.01-.62-.1-.88-.24v.02c0 .94.67 1.72 1.55 1.9a1.93 1.93 0 01-.87.03c.24.76.95 1.32 1.79 1.33A3.87 3.87 0 014 11.5a5.47 5.47 0 002.97.87c3.56 0 5.5-2.95 5.5-5.5v-.25c.38-.27.7-.61.96-1 0 0-.44.2-.93.3z"
         fill="white"
@@ -60,10 +60,10 @@ function GoogleIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden>
       <circle cx="8" cy="8" r="8" fill="white" />
-      <path d="M11.8 8.1c0-.4 0-.7-.1-1H8v1.9h2.1c-.1.5-.4.9-.8 1.2v1h1.3c.8-.7 1.2-1.8 1.2-3.1z" fill="#4285F4" />
-      <path d="M8 12c1.1 0 2-.4 2.6-1l-1.3-1c-.4.2-.8.4-1.3.4-1 0-1.9-.7-2.2-1.6H4.5v1C5.1 11.2 6.5 12 8 12z" fill="#34A853" />
+      <path d="M11.8 8.1c0-.4 0-.7-.1-1H8v1.9h2.1c-.1.5-.4.9-.8 1.2v1h1.3c.8-.7 1.2-1.8 1.2-3.1z" fill="var(--google-bg)" />
+      <path d="M8 12c1.1 0 2-.4 2.6-1l-1.3-1c-.4.2-.8.4-1.3.4-1 0-1.9-.7-2.2-1.6H4.5v1C5.1 11.2 6.5 12 8 12z" fill="var(--green-100)" />
       <path d="M5.8 8.8c-.1-.3-.1-.6 0-.9v-1H4.5c-.3.7-.3 1.5 0 2.2l1.3-1z" fill="#FBBC05" />
-      <path d="M8 5.4c.6 0 1.1.2 1.5.6l1.1-1.1C10 4.3 9.1 4 8 4c-1.5 0-2.9.8-3.5 2.1l1.3 1c.3-.9 1.2-1.7 2.2-1.7z" fill="#EA4335" />
+      <path d="M8 5.4c.6 0 1.1.2 1.5.6l1.1-1.1C10 4.3 9.1 4 8 4c-1.5 0-2.9.8-3.5 2.1l1.3 1c.3-.9 1.2-1.7 2.2-1.7z" fill="var(--google-brand-bg)" />
     </svg>
   );
 }
@@ -71,7 +71,7 @@ function GoogleIcon({ size = 16 }: { size?: number }) {
 function LinkedInIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden>
-      <rect width="16" height="16" rx="3" fill="#0A66C2" />
+      <rect width="16" height="16" rx="3" fill="var(--fb-bg)" />
       <path d="M4.5 6.5h1.5v5H4.5v-5zm.75-2.5a.875.875 0 110 1.75.875.875 0 010-1.75zM7.5 6.5H9v.7c.3-.5.9-.8 1.5-.8 1.3 0 1.5.8 1.5 1.9V11.5H10.5V8.7c0-.6 0-1.2-.7-1.2-.7 0-.8.6-.8 1.1V11.5H7.5v-5z" fill="white" />
     </svg>
   );

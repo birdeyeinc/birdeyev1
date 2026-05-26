@@ -22,7 +22,7 @@ export default function RHSPanelFooter({
 
   return (
     <div style={{
-      background: '#ffffff',
+      background: 'var(--gray-0)',
       borderBottom: '1px solid #e5e9f0',
       borderLeft: '1px solid #e5e9f0',
       borderRight: '1px solid #e5e9f0',
@@ -45,12 +45,12 @@ export default function RHSPanelFooter({
               <img src={CloseIcon} alt="Close" style={{ width: 16, height: 16 }} />
             </button>
           </div>
-          <p style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#8f8f8f', fontFamily: font, margin: 0 }}>
+          <p style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-90)', fontFamily: font, margin: 0 }}>
             Suggestions to improve your prompt
           </p>
           <ul style={{ margin: 0, paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 0 }}>
             {SUGGESTIONS.map((s) => (
-              <li key={s} style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#8f8f8f', fontFamily: font }}>
+              <li key={s} style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-90)', fontFamily: font }}>
                 {s}
               </li>
             ))}

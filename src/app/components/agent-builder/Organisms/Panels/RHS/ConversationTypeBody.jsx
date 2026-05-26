@@ -12,8 +12,8 @@ const TYPE_OPTIONS = [
 export default function ConversationTypeBody({ initialValues = {}, onTypeSelect }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
-        Type <span style={{ color: '#de1b0c' }}>*</span>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
+        Type <span style={{ color: 'var(--red-100)' }}>*</span>
       </span>
       <Select
         value={initialValues.conversationType || ''}

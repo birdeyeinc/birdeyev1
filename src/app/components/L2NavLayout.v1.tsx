@@ -88,9 +88,9 @@ export const L2_HEADER_PLUS_GLYPH_BLUE =
 
 /** Same shape for `headerActionColor="green"` (pale green surface + darker plus). */
 export const L2_HEADER_PLUS_WRAPPER_GREEN =
-  "size-[1.8rem] bg-[#4caf50]/20 dark:bg-[#4caf50]/25 rounded-full flex items-center justify-center shrink-0";
+  "size-[1.8rem] bg-green-100/20 dark:bg-green-100/25 rounded-full flex items-center justify-center shrink-0";
 export const L2_HEADER_PLUS_GLYPH_GREEN =
-  "size-[13.5px] shrink-0 text-[#1b5e20] dark:text-[#a5d6a7] pointer-events-none";
+  "size-[13.5px] shrink-0 text-green-300 dark:text-green-60 pointer-events-none";
 
 /** Lucide `Plus` stroke in L2 header circles — matches L1 rail / product outline icons (`L1_STRIP_ICON_STROKE_PX`). */
 export const L2_HEADER_PLUS_STROKE_PX = L1_STRIP_ICON_STROKE_PX;

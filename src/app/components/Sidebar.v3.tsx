@@ -226,7 +226,7 @@ export function IconStrip({ currentView, onViewChange, iconSize = L1_STRIP_ICON_
             className="relative shrink-0 cursor-pointer overflow-hidden rounded-full p-0 shadow-sm ring-2 ring-white/80 transition-all hover:ring-white dark:ring-sidebar-border dark:hover:ring-sidebar-accent"
           >
             <img src={avatarUrl} alt="Profile" className="h-full w-full object-cover" />
-            <span className="absolute bottom-[1px] right-[1px] h-[10px] w-[10px] rounded-full border-2 border-sidebar bg-[#4caf50] dark:border-sidebar" />
+            <span className="absolute bottom-[1px] right-[1px] h-[10px] w-[10px] rounded-full border-2 border-sidebar bg-green-100 dark:border-sidebar" />
           </Button>
 
           {profileOpen && (

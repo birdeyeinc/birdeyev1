@@ -106,7 +106,7 @@ function ModalDemo({ initialGroups }) {
     setGroups([makeGroup()]);
 
   return (
-    <div style={{ background: '#f0f0f0', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ background: 'var(--gray-20)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <AdvancedFiltersModal
         isOpen
         onClose={() => {}}

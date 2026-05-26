@@ -20,8 +20,8 @@ const ENTITY_OPTIONS = Object.keys(CATEGORY_OPTIONS);
 
 function FieldLabel({ label, required }) {
   return (
-    <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
-      {label}{required && <span style={{ color: '#de1b0c' }}> *</span>}
+    <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
+      {label}{required && <span style={{ color: 'var(--red-100)' }}> *</span>}
     </span>
   );
 }

@@ -63,57 +63,57 @@ export function ShareReportModal({ open, onClose, context }: ShareReportModalPro
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] w-full max-w-[480px] overflow-hidden">
+      <div className="relative bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] w-full max-w-[480px] overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#f0f1f5] dark:border-border">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-light-grayish-blue dark:border-border">
           <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-[#2552ED]" />
-            <h2 className="text-[15px] text-[#212121] dark:text-foreground tracking-[-0.3px]" style={{ fontWeight: 400 }}>
+            <Users className="w-4 h-4 text-brand-color" />
+            <h2 className="text-[15px] text-gray-900 dark:text-foreground tracking-[-0.3px]" style={{ fontWeight: 400 }}>
               Share report
             </h2>
           </div>
           <Button type="button" variant="ghost" size="icon" onClick={onClose} aria-label="Close">
-            <X className="w-4 h-4 text-[#888] dark:text-muted-foreground" />
+            <X className="w-4 h-4 text-gray-80 dark:text-muted-foreground" />
           </Button>
         </div>
 
         {/* Body */}
         <div className="px-5 py-4 space-y-4">
           {/* Report name */}
-          <div className="flex items-center gap-2 bg-[#f8f9fa] dark:bg-muted rounded-[8px] px-3 py-2.5">
-            <span className="text-[13px] text-[#888] dark:text-muted-foreground font-regular">Report:</span>
-            <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{context.reportName}</span>
+          <div className="flex items-center gap-2 bg-gray-10 dark:bg-muted rounded-[8px] px-3 py-2.5">
+            <span className="text-[13px] text-gray-80 dark:text-muted-foreground font-regular">Report:</span>
+            <span className="text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{context.reportName}</span>
           </div>
 
           {/* Recipients */}
           <div>
-            <label className="block text-[12px] text-[#888] dark:text-muted-foreground mb-1.5 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Recipients</label>
+            <label className="block text-[12px] text-gray-80 dark:text-muted-foreground mb-1.5 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Recipients</label>
             <input
               type="text"
               value={recipients}
               onChange={(e) => setRecipients(e.target.value)}
               placeholder="Enter email addresses, separated by commas"
-              className="w-full px-3 py-2 text-[13px] text-[#212121] dark:text-foreground bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] outline-none focus:border-[#2552ED] transition-colors placeholder:text-[#bbb] dark:placeholder:text-[#555]"
+              className="w-full px-3 py-2 text-[13px] text-gray-900 dark:text-foreground bg-white dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] outline-none focus:border-brand-color transition-colors placeholder:text-gray-70 dark:placeholder:text-gray-300"
               style={{ fontWeight: 400 }}
             />
           </div>
 
           {/* Message */}
           <div>
-            <label className="block text-[12px] text-[#888] dark:text-muted-foreground mb-1.5 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Message (optional)</label>
+            <label className="block text-[12px] text-gray-80 dark:text-muted-foreground mb-1.5 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Message (optional)</label>
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Add a message..."
               rows={3}
-              className="w-full px-3 py-2 text-[13px] text-[#212121] dark:text-foreground bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] outline-none focus:border-[#2552ED] transition-colors resize-none placeholder:text-[#bbb] dark:placeholder:text-[#555]"
+              className="w-full px-3 py-2 text-[13px] text-gray-900 dark:text-foreground bg-white dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] outline-none focus:border-brand-color transition-colors resize-none placeholder:text-gray-70 dark:placeholder:text-gray-300"
               style={{ fontWeight: 400 }}
             />
           </div>
 
           {/* Access level */}
           <div>
-            <label className="block text-[12px] text-[#888] dark:text-muted-foreground mb-1.5 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Access</label>
+            <label className="block text-[12px] text-gray-80 dark:text-muted-foreground mb-1.5 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Access</label>
             <div className="flex gap-2">
               {(["view", "edit"] as const).map((level) => (
                 <button
@@ -121,8 +121,8 @@ export function ShareReportModal({ open, onClose, context }: ShareReportModalPro
                   onClick={() => setAccess(level)}
                   className={`px-3 py-1.5 text-[12px] rounded-[8px] border transition-colors capitalize tracking-[-0.24px] ${
                     access === level
-                      ? "text-[#2552ED] dark:text-[#6b9bff] bg-[#f0f4ff] dark:bg-[#1e2d5e] border-[#2552ED]/20 dark:border-[#2552ED]/30"
-                      : "text-[#888] dark:text-muted-foreground bg-white dark:bg-muted border-[#e5e9f0] dark:border-border hover:bg-[#f5f5f5] dark:hover:bg-muted"
+                      ? "text-brand-color dark:text-blue-70 bg-blue-10 dark:bg-blue-300 border-brand-color/20 dark:border-brand-color/30"
+                      : "text-gray-80 dark:text-muted-foreground bg-white dark:bg-muted border-new-selected-color dark:border-border hover:bg-gray-20 dark:hover:bg-muted"
                   }`}
                   style={{ fontWeight: 400 }}
                 >
@@ -135,7 +135,7 @@ export function ShareReportModal({ open, onClose, context }: ShareReportModalPro
           {/* Copy link */}
           <button
             onClick={handleCopyLink}
-            className="flex items-center gap-2 text-[13px] text-[#2552ED] dark:text-[#6b9bff] hover:underline"
+            className="flex items-center gap-2 text-[13px] text-brand-color dark:text-blue-70 hover:underline"
             style={{ fontWeight: 400 }}
           >
             {justCopied ? <Check className="w-3.5 h-3.5" /> : <Link2 className="w-3.5 h-3.5" />}
@@ -144,10 +144,10 @@ export function ShareReportModal({ open, onClose, context }: ShareReportModalPro
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end gap-2 px-5 py-3 border-t border-[#f0f1f5] dark:border-border">
+        <div className="flex items-center justify-end gap-2 px-5 py-3 border-t border-light-grayish-blue dark:border-border">
           <button
             onClick={onClose}
-            className="px-4 py-2 text-[13px] text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border rounded-[8px] hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors"
+            className="px-4 py-2 text-[13px] text-gray-900 dark:text-foreground border border-new-selected-color dark:border-border rounded-[8px] hover:bg-gray-20 dark:hover:bg-muted transition-colors"
             style={{ fontWeight: 400 }}
           >
             Cancel
@@ -155,7 +155,7 @@ export function ShareReportModal({ open, onClose, context }: ShareReportModalPro
           <button
             onClick={handleSend}
             disabled={sending}
-            className="px-4 py-2 text-[13px] text-white bg-[#2552ED] hover:bg-[#1E44CC] rounded-[8px] transition-colors disabled:opacity-60"
+            className="px-4 py-2 text-[13px] text-white bg-brand-color hover:bg-brand-color rounded-[8px] transition-colors disabled:opacity-60"
             style={{ fontWeight: 400 }}
           >
             {sending ? "Sending..." : "Share"}

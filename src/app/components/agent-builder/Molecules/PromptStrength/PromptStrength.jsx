@@ -19,20 +19,20 @@ export default function PromptStrength({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 18 }}>
-        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', fontFamily: font, color: '#212121' }}>
+        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', fontFamily: font, color: 'var(--gray-900)' }}>
           {'Prompt strength: '}
           <span style={{ color: strengthColor }}>{promptStrength}</span>
         </span>
         {onToggle && (
           <button
             onClick={onToggle}
-            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontSize: 12, lineHeight: '18px', color: '#8f8f8f', fontFamily: font }}
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontSize: 12, lineHeight: '18px', color: 'var(--gray-90)', fontFamily: font }}
           >
             {toggleLabel}
           </button>
         )}
       </div>
-      <div style={{ position: 'relative', height: 5, width: '100%', borderRadius: 4, background: '#eaeaea' }}>
+      <div style={{ position: 'relative', height: 5, width: '100%', borderRadius: 4, background: 'var(--comparison-0-star)' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, height: 5, width: promptFillWidth, borderRadius: 4, background: strengthColor }} />
       </div>
     </div>

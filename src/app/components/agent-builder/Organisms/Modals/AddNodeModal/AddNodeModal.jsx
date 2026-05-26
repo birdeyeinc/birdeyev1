@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const font = '"Inter", arial, sans-serif';
 
 const cardStyle = {
-  background: '#fff',
+  background: 'var(--gray-0)',
   borderRadius: 8,
   boxShadow: '0 4px 16px rgba(0,0,0,0.16)',
   padding: '4px 0',
@@ -44,7 +44,7 @@ function MenuItem({ title, icon, active, hasChildren, onClick, onHover }) {
       style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         width: '100%', padding: '8px 14px', background: active ? '#f5f5f5' : 'none',
-        border: 'none', cursor: 'pointer', fontSize: 13, color: '#212121', fontFamily: font,
+        border: 'none', cursor: 'pointer', fontSize: 13, color: 'var(--gray-900)', fontFamily: font,
         textAlign: 'left',
       }}
     >
@@ -55,7 +55,7 @@ function MenuItem({ title, icon, active, hasChildren, onClick, onHover }) {
         {title}
       </div>
       {hasChildren && (
-        <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#9e9e9e' }}>chevron_right</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)' }}>chevron_right</span>
       )}
     </button>
   );

@@ -8,7 +8,7 @@ export default {
 };
 
 const wrap = (children) => (
-  <div style={{ width: 520, height: '100vh', padding: 24, background: '#fafafa', boxSizing: 'border-box' }}>
+  <div style={{ width: 520, height: '100vh', padding: 24, background: 'var(--gray-10)', boxSizing: 'border-box' }}>
     {children}
   </div>
 );

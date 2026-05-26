@@ -4,10 +4,10 @@
  */
 
 :root {
-  /* Brand (also aligned with src/styles/theme.css --primary) */
-  --token-brand: #2552ed;
-  --token-primary-light: #1e44cc;
-  --token-primary-dark: #2952e3;
+  /* Brand (Elemental BK-BIRD-00000-learning $brand-color) */
+  --token-brand: var(--brand-color);
+  --token-primary-light: var(--brand-color);
+  --token-primary-dark: var(--brand-color);
 
   /* App shell (L1 strip + main chrome) */
   --token-app-shell-bg: #e0e5eb;
@@ -16,7 +16,7 @@
 
   /* L2 column */
   --token-l2-panel-bg: #f0f1f5;
-  --token-l2-border: #e5e9f0;
+  --token-l2-border: var(--gray-2000);
   --token-l2-width: 220px;
 
   /* Typography — aligned with Elemental fs scale (BK-BIRD-00000-learning) */
@@ -32,13 +32,13 @@
   --token-radius-control: 8px;
   --token-radius-modal: 12px;
 
-  /* Text */
-  --token-text-primary: #212121;
-  --token-text-secondary: #555555;
-  --token-text-muted: #888888;
+  /* Text — Elemental grey scale */
+  --token-text-primary: var(--gray-900);
+  --token-text-secondary: var(--gray-300);
+  --token-text-muted: var(--gray-80);
 
   /* Focus / shadow */
-  --token-shadow-focus: 0 0 0 2px rgba(25, 118, 210, 0.08);
+  --token-shadow-focus: 0 0 0 2px rgba(38, 82, 237, 0.08);
 }
 
 .dark {
@@ -49,5 +49,5 @@
   --token-text-primary: #e4e4e4;
   --token-text-secondary: #9ba2b0;
   --token-text-muted: #6b7280;
-  --token-shadow-focus: 0 0 0 2px rgba(37, 82, 237, 0.2);
+  --token-shadow-focus: 0 0 0 2px rgba(38, 82, 237, 0.2);
 }

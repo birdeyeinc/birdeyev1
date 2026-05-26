@@ -8,14 +8,14 @@ export default {
 };
 
 const wrap = (Story) => (
-  <div style={{ width: 400, padding: 20, background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
+  <div style={{ width: 400, padding: 20, background: 'var(--gray-0)', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
     <Story />
   </div>
 );
 
 export const TriggerHeader = {
   render: () => (
-    <div style={{ width: 400, padding: 20, background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
+    <div style={{ width: 400, padding: 20, background: 'var(--gray-0)', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
       <CanvasNodeHeader nodeType="trigger" label="Trigger" />
     </div>
   ),
@@ -25,7 +25,7 @@ export const TaskHeader = {
   render: () => {
     const [on, setOn] = useState(true);
     return (
-      <div style={{ width: 400, padding: 20, background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
+      <div style={{ width: 400, padding: 20, background: 'var(--gray-0)', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
         <CanvasNodeHeader
           nodeType="task"
           label="Task"
@@ -43,7 +43,7 @@ export const BranchHeader = {
   render: () => {
     const [on, setOn] = useState(true);
     return (
-      <div style={{ width: 400, padding: 20, background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
+      <div style={{ width: 400, padding: 20, background: 'var(--gray-0)', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
         <CanvasNodeHeader
           nodeType="branch"
           label="Branch"
@@ -63,13 +63,13 @@ export const AllTypes = {
     const [branchOn, setBranchOn] = useState(true);
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: 400 }}>
-        <div style={{ padding: 20, background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
+        <div style={{ padding: 20, background: 'var(--gray-0)', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
           <CanvasNodeHeader nodeType="trigger" label="Trigger" />
         </div>
-        <div style={{ padding: 20, background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
+        <div style={{ padding: 20, background: 'var(--gray-0)', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
           <CanvasNodeHeader nodeType="task" label="Task" hasAiIcon hasToggle toggleEnabled={taskOn} onToggleChange={setTaskOn} />
         </div>
-        <div style={{ padding: 20, background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
+        <div style={{ padding: 20, background: 'var(--gray-0)', borderRadius: 8, boxShadow: '0 2px 12px rgba(33,33,33,0.06)' }}>
           <CanvasNodeHeader nodeType="branch" label="Branch" hasToggle toggleEnabled={branchOn} onToggleChange={setBranchOn} hasAddButton />
         </div>
       </div>

@@ -34,10 +34,10 @@ export function MonitorNotificationsTrigger() {
           aria-haspopup="dialog"
           className={cn(
             "group relative shrink-0 rounded-[10px] transition-all duration-200 ease-out",
-            "bg-transparent hover:bg-[#d4dae3] dark:hover:bg-[#282e3a] active:bg-[#c8d0dc] dark:active:bg-[#313845] hover:scale-110 active:scale-95",
-            "focus-visible:ring-2 focus-visible:ring-[#1E44CC]/50 focus-visible:ring-offset-1 focus-visible:ring-offset-app-shell-rail",
+            "bg-transparent hover:bg-gray-2000 dark:hover:bg-gray-700 active:bg-gray-60 dark:active:bg-gray-600 hover:scale-110 active:scale-95",
+            "focus-visible:ring-2 focus-visible:ring-brand-color/50 focus-visible:ring-offset-1 focus-visible:ring-offset-app-shell-rail",
             /* Open popover = same surface as L1 active item */
-            "data-[state=open]:bg-[#d4dae3] dark:data-[state=open]:bg-[#282e3a] data-[state=open]:shadow-none",
+            "data-[state=open]:bg-gray-2000 dark:data-[state=open]:bg-gray-700 data-[state=open]:shadow-none",
           )}
         >
           <Bell
@@ -46,9 +46,9 @@ export function MonitorNotificationsTrigger() {
             strokeWidth={L1_STRIP_ICON_STROKE_PX}
             className={cn(
               "transition-all duration-200",
-              "text-[#505050] dark:text-muted-foreground",
-              "group-hover:text-[#1E44CC] dark:group-hover:text-[#2952E3] group-active:text-[#1E44CC] dark:group-active:text-[#2952E3]",
-              "group-data-[state=open]:text-[#1E44CC] dark:group-data-[state=open]:text-[#2952E3] group-hover:scale-110",
+              "text-gray-400 dark:text-muted-foreground",
+              "group-hover:text-brand-color dark:group-hover:text-brand-color group-active:text-brand-color dark:group-active:text-brand-color",
+              "group-data-[state=open]:text-brand-color dark:group-data-[state=open]:text-brand-color group-hover:scale-110",
             )}
             aria-hidden
           />
@@ -201,7 +201,7 @@ export function MonitorNotificationsTrigger() {
           {notificationItems.filter(n => resolvedNotifs.has(n.id)).length > 0 && (
             <div>
               <div className="px-4 py-2">
-                <span className="text-[10px] text-[#4caf50] tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>
+                <span className="text-[10px] text-green-100 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>
                   Resolved
                 </span>
               </div>

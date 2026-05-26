@@ -11,7 +11,7 @@ export const Default = {
   render: () => {
     const [open, setOpen] = useState(true);
     return (
-      <div style={{ height: '100vh', background: '#f4f6f7' }}>
+      <div style={{ height: '100vh', background: 'var(--light-grayish-blue)' }}>
         <button
           onClick={() => setOpen(true)}
           style={{ margin: 24, padding: '8px 16px', cursor: 'pointer' }}

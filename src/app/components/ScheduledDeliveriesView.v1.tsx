@@ -327,8 +327,8 @@ function FilterDropdown({ label, options, value, onChange }: {
         onClick={() => setOpen(!open)}
         className={`flex items-center gap-1 px-3 py-[6px] rounded-[8px] border text-[12px] font-['Inter',sans-serif] transition-colors ${
           value !== "All"
-            ? "border-[#2552ED] dark:border-[#5580e0] bg-[#e8effe] dark:bg-[#1e2d5e] text-[#2552ED] dark:text-[#6b9bff]"
-            : "border-[#e5e9f0] dark:border-border bg-white dark:bg-muted text-[#555] dark:text-muted-foreground hover:bg-[#f5f5f5] dark:hover:bg-muted"
+            ? "border-brand-color dark:border-blue-80 bg-blue-10 dark:bg-blue-300 text-brand-color dark:text-blue-70"
+            : "border-new-selected-color dark:border-border bg-white dark:bg-muted text-gray-300 dark:text-muted-foreground hover:bg-gray-20 dark:hover:bg-muted"
         }`}
         style={{ fontWeight: 400 }}
       >
@@ -336,15 +336,15 @@ function FilterDropdown({ label, options, value, onChange }: {
         <ChevronDown className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="absolute left-0 top-full mt-1 bg-white dark:bg-background border border-[#eceef2] dark:border-border rounded-lg shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.3)] z-30 py-1 min-w-[140px]">
+        <div className="absolute left-0 top-full mt-1 bg-white dark:bg-background border border-gray-20 dark:border-border rounded-lg shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.3)] z-30 py-1 min-w-[140px]">
           {["All", ...options].map(opt => (
             <button
               key={opt}
               onClick={() => { onChange(opt); setOpen(false); }}
               className={`w-full text-left px-3 py-2 text-[12px] font-['Inter',sans-serif] transition-colors ${
                 value === opt
-                  ? "bg-[#e8effe] dark:bg-[#1e2d5e] text-[#2552ED] dark:text-[#6b9bff]"
-                  : "text-[#333] dark:text-foreground hover:bg-[#f8f9fb] dark:hover:bg-muted"
+                  ? "bg-blue-10 dark:bg-blue-300 text-brand-color dark:text-blue-70"
+                  : "text-gray-500 dark:text-foreground hover:bg-gray-10 dark:hover:bg-muted"
               }`}
             >
               {opt}
@@ -389,7 +389,7 @@ function RowActionMenu({ schedule, onAction }: {
         variant="ghost"
         size="icon"
         onClick={(e) => { e.stopPropagation(); setOpen(!open); }}
-        className="rounded-lg text-[#888] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#e4e4e4] hover:bg-[#f5f5f5] dark:hover:bg-muted"
+        className="rounded-lg text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-50 hover:bg-gray-20 dark:hover:bg-muted"
       >
         <MoreHorizontal className="w-[14px] h-[14px]" />
       </Button>
@@ -531,7 +531,7 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
             <button
               type="button"
               onClick={() => onCreateSchedule?.()}
-              className="flex items-center gap-1.5 rounded-lg bg-[#2552ED] px-4 py-1.5 text-sm text-white transition-all tracking-tight hover:brightness-[0.92]"
+              className="flex items-center gap-1.5 rounded-lg bg-brand-color px-4 py-1.5 text-sm text-white transition-all tracking-tight hover:brightness-[0.92]"
             >
               <Plus className="size-4" aria-hidden />
               Create schedule
@@ -544,14 +544,14 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
         {/* ─── Summary cards ─── */}
         <div className="grid grid-cols-4 gap-4">
           {[
-            { label: "Active schedules", value: activeCount, icon: CheckCircle2, color: "#2e7d32", bg: "#e8f5e9", darkBg: "#1a3328" },
-            { label: "Total sends", value: totalSends, icon: Send, color: "#2552ED", bg: "#e8effe", darkBg: "#1e2d5e" },
-            { label: "Unique recipients", value: uniqueRecipients, icon: Users, color: "#7b1fa2", bg: "#f3e5f5", darkBg: "#2a1f33" },
-            { label: "Failed deliveries", value: failedCount, icon: AlertTriangle, color: "#c62828", bg: "#ffebee", darkBg: "#352020" },
+            { label: "Active schedules", value: activeCount, icon: CheckCircle2, color: "var(--green-200)", bg: "#e8f5e9", darkBg: "#1a3328" },
+            { label: "Total sends", value: totalSends, icon: Send, color: "var(--brand-color)", bg: "#e8effe", darkBg: "#1e2d5e" },
+            { label: "Unique recipients", value: uniqueRecipients, icon: Users, color: "var(--purple-100)", bg: "#f3e5f5", darkBg: "#2a1f33" },
+            { label: "Failed deliveries", value: failedCount, icon: AlertTriangle, color: "var(--red-200)", bg: "#ffebee", darkBg: "#352020" },
           ].map(card => (
             <div
               key={card.label}
-              className="bg-white dark:bg-background rounded-[8px] border border-[#e5e9f0] dark:border-border px-5 py-4 flex items-center gap-4 transition-colors duration-300"
+              className="bg-white dark:bg-background rounded-[8px] border border-new-selected-color dark:border-border px-5 py-4 flex items-center gap-4 transition-colors duration-300"
             >
               <div
                 className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
@@ -564,10 +564,10 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
                 `}</style>
               </div>
               <div>
-                <p className="text-[22px] text-[#212121] dark:text-foreground tracking-[-0.3px]" style={{ fontWeight: 400 }}>
+                <p className="text-[22px] text-gray-900 dark:text-foreground tracking-[-0.3px]" style={{ fontWeight: 400 }}>
                   {card.value}
                 </p>
-                <p className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                <p className="text-[12px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                   {card.label}
                 </p>
               </div>
@@ -587,7 +587,7 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
           {hasActiveFilters && (
             <button
               onClick={clearFilters}
-              className="flex items-center gap-1 px-2 py-[6px] text-[12px] text-[#c62828] dark:text-[#ef9a9a] hover:bg-[#ffebee] dark:hover:bg-[#352020] rounded-lg transition-colors font-['Inter',sans-serif]"
+              className="flex items-center gap-1 px-2 py-[6px] text-[12px] text-red-200 dark:text-red-60 hover:bg-red-20 dark:hover:bg-red-400 rounded-lg transition-colors font-['Inter',sans-serif]"
             >
               <X className="w-3 h-3" />
               Clear filters
@@ -619,31 +619,31 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
         {activeTab === "drafts" && (
           <div className="flex flex-col gap-3">
             {mockDrafts.length === 0 ? (
-              <div className="bg-white dark:bg-background border border-[#e5e9f0] dark:border-border rounded-[8px] px-6 py-12 flex flex-col items-center justify-center gap-3">
-                <FileText className="w-10 h-10 text-[#ccc] dark:text-[#3d4555]" />
-                <p className="text-[14px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>No draft schedules</p>
-                <p className="text-[12px] text-[#bbb] dark:text-muted-foreground">Draft schedules will appear here</p>
+              <div className="bg-white dark:bg-background border border-new-selected-color dark:border-border rounded-[8px] px-6 py-12 flex flex-col items-center justify-center gap-3">
+                <FileText className="w-10 h-10 text-gray-60 dark:text-gray-500" />
+                <p className="text-[14px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>No draft schedules</p>
+                <p className="text-[12px] text-gray-70 dark:text-muted-foreground">Draft schedules will appear here</p>
               </div>
             ) : (
               mockDrafts.map(draft => (
                 <div
                   key={draft.id}
-                  className="bg-white dark:bg-background border border-[#e5e9f0] dark:border-border rounded-[8px] px-5 py-4 flex items-center justify-between hover:bg-[#fafbfc] dark:hover:bg-[#232830] transition-colors cursor-pointer group"
+                  className="bg-white dark:bg-background border border-new-selected-color dark:border-border rounded-[8px] px-5 py-4 flex items-center justify-between hover:bg-gray-10 dark:hover:bg-gray-800 transition-colors cursor-pointer group"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] dark:bg-[#2a3040] flex items-center justify-center shrink-0">
-                      <FileText className="w-4 h-4 text-[#888] dark:text-muted-foreground" />
+                    <div className="w-8 h-8 rounded-lg bg-gray-20 dark:bg-gray-700 flex items-center justify-center shrink-0">
+                      <FileText className="w-4 h-4 text-gray-80 dark:text-muted-foreground" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[13px] text-[#212121] dark:text-foreground truncate" style={{ fontWeight: 400 }}>{draft.name}</p>
-                      <p className="text-[11px] text-[#999] dark:text-muted-foreground truncate">{draft.description}</p>
+                      <p className="text-[13px] text-gray-900 dark:text-foreground truncate" style={{ fontWeight: 400 }}>{draft.name}</p>
+                      <p className="text-[11px] text-gray-90 dark:text-muted-foreground truncate">{draft.description}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-[11px] text-[#bbb] dark:text-muted-foreground font-['Inter',sans-serif]">Updated {draft.updatedAt}</span>
+                    <span className="text-[11px] text-gray-70 dark:text-muted-foreground font-['Inter',sans-serif]">Updated {draft.updatedAt}</span>
                     <button
                       onClick={() => toast.success(`Editing draft "${draft.name}"...`)}
-                      className="px-3 py-1 text-[12px] text-[#2552ED] dark:text-[#6b9bff] rounded-lg border border-[#2552ED] dark:border-[#5580e0] opacity-0 group-hover:opacity-100 transition-opacity font-['Inter',sans-serif]"
+                      className="px-3 py-1 text-[12px] text-brand-color dark:text-blue-70 rounded-lg border border-brand-color dark:border-blue-80 opacity-0 group-hover:opacity-100 transition-opacity font-['Inter',sans-serif]"
                       style={{ fontWeight: 400 }}
                     >
                       Continue editing
@@ -657,21 +657,21 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
 
         {/* ─── Schedule table ─── */}
         {activeTab !== "drafts" && (
-          <div className="bg-white dark:bg-background border border-[#e5e9f0] dark:border-border rounded-[8px] overflow-hidden transition-colors duration-300">
+          <div className="bg-white dark:bg-background border border-new-selected-color dark:border-border rounded-[8px] overflow-hidden transition-colors duration-300">
             {/* Search bar */}
-            <div className="px-5 py-3 border-b border-[#eaeaea] dark:border-border">
-              <div className="flex items-center gap-2 bg-[#f8f9fb] dark:bg-muted border border-[#eceef2] dark:border-border rounded-lg px-3 h-[36px] max-w-[400px]">
-                <Search className="w-3.5 h-3.5 text-[#b0b0b0] dark:text-muted-foreground shrink-0" />
+            <div className="px-5 py-3 border-b border-comparison-0-star dark:border-border">
+              <div className="flex items-center gap-2 bg-gray-10 dark:bg-muted border border-gray-20 dark:border-border rounded-lg px-3 h-[36px] max-w-[400px]">
+                <Search className="w-3.5 h-3.5 text-gray-70 dark:text-muted-foreground shrink-0" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Search schedules, owners, recipients..."
-                  className="w-full text-[12px] text-[#333] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground bg-transparent outline-none font-['Inter',sans-serif]"
+                  className="w-full text-[12px] text-gray-500 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground bg-transparent outline-none font-['Inter',sans-serif]"
                 />
                 {searchQuery && (
                   <button onClick={() => setSearchQuery("")} className="shrink-0">
-                    <X className="w-3 h-3 text-[#999] dark:text-muted-foreground" />
+                    <X className="w-3 h-3 text-gray-90 dark:text-muted-foreground" />
                   </button>
                 )}
               </div>
@@ -681,7 +681,7 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
             <div className="overflow-x-auto">
               <table className="w-full min-w-[900px]">
                 <thead>
-                  <tr className="border-b border-[#eaeaea] dark:border-border">
+                  <tr className="border-b border-comparison-0-star dark:border-border">
                     {[
                       { key: "name", label: "Name", width: "w-[24%]" },
                       { key: "reports", label: "Reports", width: "w-[14%]" },
@@ -696,13 +696,13 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
                     ].map(col => (
                       <th
                         key={col.key}
-                        className={`${col.width} text-left px-4 py-3 text-[length:var(--table-label-size)] text-[#888] dark:text-muted-foreground font-['Inter',sans-serif] uppercase tracking-[0.5px]`}
+                        className={`${col.width} text-left px-4 py-3 text-[length:var(--table-label-size)] text-gray-80 dark:text-muted-foreground font-['Inter',sans-serif] uppercase tracking-[0.5px]`}
                         style={{ fontWeight: 400 }}
                       >
                         {col.key !== "actions" ? (
                           <button
                             onClick={() => handleSort(col.key)}
-                            className="flex items-center gap-1 hover:text-[#555] dark:hover:text-[#c0c6d4] transition-colors"
+                            className="flex items-center gap-1 hover:text-gray-300 dark:hover:text-gray-70 transition-colors"
                           >
                             {col.label}
                             {sortField === col.key && (
@@ -719,15 +719,15 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
                     <tr>
                       <td colSpan={10} className="px-4 py-16 text-center">
                         <div className="flex flex-col items-center gap-3">
-                          <Clock className="w-10 h-10 text-[#ccc] dark:text-[#3d4555]" />
-                          <p className="text-[14px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                          <Clock className="w-10 h-10 text-gray-60 dark:text-gray-500" />
+                          <p className="text-[14px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                             {searchQuery ? "No schedules match your search" : "No scheduled deliveries yet"}
                           </p>
                           {!searchQuery && (
                             <button
                               onClick={() => toast.success("Opening schedule creator...")}
                               className="px-4 py-1.5 text-[13px] text-white rounded-[8px] transition-all"
-                              style={{ fontWeight: 400, backgroundColor: "#2552ED" }}
+                              style={{ fontWeight: 400, backgroundColor: "var(--brand-color)" }}
                             >
                               Create your first scheduled delivery
                             </button>
@@ -739,21 +739,21 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
                     filteredSchedules.map(schedule => (
                       <tr
                         key={schedule.id}
-                        className="border-b border-[#f5f5f5] dark:border-[#2a3040] last:border-b-0 hover:bg-[#fafbfc] dark:hover:bg-[#232830] transition-colors cursor-pointer group"
+                        className="border-b border-gray-20 dark:border-gray-700 last:border-b-0 hover:bg-gray-10 dark:hover:bg-gray-800 transition-colors cursor-pointer group"
                       >
                         {/* Name */}
                         <td className="px-4 py-3">
-                          <p className="text-[13px] text-[#212121] dark:text-foreground truncate" style={{ fontWeight: 400 }}>
+                          <p className="text-[13px] text-gray-900 dark:text-foreground truncate" style={{ fontWeight: 400 }}>
                             {schedule.name}
                           </p>
-                          <p className="text-[11px] text-[#999] dark:text-muted-foreground truncate mt-0.5">
+                          <p className="text-[11px] text-gray-90 dark:text-muted-foreground truncate mt-0.5">
                             {schedule.description}
                           </p>
                         </td>
 
                         {/* Reports */}
                         <td className="px-4 py-3">
-                          <p className="text-[12px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                          <p className="text-[12px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                             {schedule.reports.length} {schedule.reports.length === 1 ? "report" : "reports"}
                           </p>
                         </td>
@@ -761,7 +761,7 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
                         {/* Owner (admin/team only) */}
                         {(isAdmin || activeTab === "team") && (
                           <td className="px-4 py-3">
-                            <p className="text-[12px] text-[#555] dark:text-muted-foreground truncate" style={{ fontWeight: 400 }}>
+                            <p className="text-[12px] text-gray-300 dark:text-muted-foreground truncate" style={{ fontWeight: 400 }}>
                               {schedule.owner}
                             </p>
                           </td>
@@ -769,35 +769,35 @@ export function ScheduledDeliveriesView({ onCreateSchedule }: { onCreateSchedule
 
                         {/* Recipients */}
                         <td className="px-4 py-3">
-                          <p className="text-[12px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                          <p className="text-[12px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                             {schedule.recipients.length} {schedule.recipients.length === 1 ? "person" : "people"}
                           </p>
                         </td>
 
                         {/* Frequency */}
                         <td className="px-4 py-3">
-                          <p className="text-[12px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                          <p className="text-[12px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                             {freqLabel(schedule.frequency)}
                           </p>
                         </td>
 
                         {/* Next run */}
                         <td className="px-4 py-3">
-                          <p className="text-[12px] text-[#555] dark:text-muted-foreground whitespace-nowrap" style={{ fontWeight: 400 }}>
+                          <p className="text-[12px] text-gray-300 dark:text-muted-foreground whitespace-nowrap" style={{ fontWeight: 400 }}>
                             {schedule.nextRun}
                           </p>
                         </td>
 
                         {/* Last sent */}
                         <td className="px-4 py-3">
-                          <p className="text-[12px] text-[#555] dark:text-muted-foreground whitespace-nowrap" style={{ fontWeight: 400 }}>
+                          <p className="text-[12px] text-gray-300 dark:text-muted-foreground whitespace-nowrap" style={{ fontWeight: 400 }}>
                             {schedule.lastSent || "—"}
                           </p>
                         </td>
 
                         {/* Format */}
                         <td className="px-4 py-3">
-                          <span className="text-[11px] text-[#555] dark:text-muted-foreground px-2 py-0.5 rounded bg-[#f5f5f5] dark:bg-[#2a3040] font-['Inter',sans-serif]">
+                          <span className="text-[11px] text-gray-300 dark:text-muted-foreground px-2 py-0.5 rounded bg-gray-20 dark:bg-gray-700 font-['Inter',sans-serif]">
                             {schedule.format}
                           </span>
                         </td>

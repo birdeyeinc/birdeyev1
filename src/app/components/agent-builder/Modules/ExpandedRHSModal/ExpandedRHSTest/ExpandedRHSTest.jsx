@@ -26,7 +26,7 @@ function Illustration() {
           left: 25,
           top: 29,
           width: 168,
-          background: '#ffffff',
+          background: 'var(--gray-0)',
           borderRadius: 6,
           padding: '20px 10px',
           display: 'flex',
@@ -34,27 +34,27 @@ function Illustration() {
           gap: 10,
         }}>
           {/* Top bar */}
-          <div style={{ height: 4, width: 37, background: '#ecf5fd', borderRadius: 100 }} />
+          <div style={{ height: 4, width: 37, background: 'var(--blue-20)', borderRadius: 100 }} />
           {/* Row 1 */}
           <div style={{
             display: 'flex', alignItems: 'center', gap: 3.2,
-            background: '#ecf5fd', borderRadius: 3.3, padding: 6.5,
+            background: 'var(--blue-20)', borderRadius: 3.3, padding: 6.5,
           }}>
-            <div style={{ width: 13.2, height: 13.2, background: '#d1e5f9', borderRadius: '50%', flexShrink: 0 }} />
+            <div style={{ width: 13.2, height: 13.2, background: 'var(--blue-50)', borderRadius: '50%', flexShrink: 0 }} />
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 4.3 }}>
-              <div style={{ height: 4.3, background: '#d1e5f9', borderRadius: 5.7 }} />
-              <div style={{ height: 4.3, width: 37.8, background: '#d1e5f9', borderRadius: 5.7 }} />
+              <div style={{ height: 4.3, background: 'var(--blue-50)', borderRadius: 5.7 }} />
+              <div style={{ height: 4.3, width: 37.8, background: 'var(--blue-50)', borderRadius: 5.7 }} />
             </div>
           </div>
           {/* Row 2 */}
           <div style={{
             display: 'flex', alignItems: 'center', gap: 3.2,
-            background: '#ecf5fd', borderRadius: 3.3, padding: 6.5,
+            background: 'var(--blue-20)', borderRadius: 3.3, padding: 6.5,
           }}>
-            <div style={{ width: 13.2, height: 13.2, background: '#d1e5f9', borderRadius: '50%', flexShrink: 0 }} />
+            <div style={{ width: 13.2, height: 13.2, background: 'var(--blue-50)', borderRadius: '50%', flexShrink: 0 }} />
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 4.3 }}>
-              <div style={{ height: 4.3, background: '#d1e5f9', borderRadius: 5.7 }} />
-              <div style={{ height: 4.3, width: 37.8, background: '#d1e5f9', borderRadius: 5.7 }} />
+              <div style={{ height: 4.3, background: 'var(--blue-50)', borderRadius: 5.7 }} />
+              <div style={{ height: 4.3, width: 37.8, background: 'var(--blue-50)', borderRadius: 5.7 }} />
             </div>
           </div>
         </div>
@@ -72,10 +72,10 @@ function Illustration() {
         gap: 4,
         textAlign: 'center',
       }}>
-        <p style={{ margin: 0, fontSize: 14, fontWeight: 400, lineHeight: '20px', letterSpacing: '-0.28px', color: '#212121', fontFamily: font }}>
+        <p style={{ margin: 0, fontSize: 14, fontWeight: 400, lineHeight: '20px', letterSpacing: '-0.28px', color: 'var(--gray-900)', fontFamily: font }}>
           Your preview will appear here
         </p>
-        <p style={{ margin: 0, fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#555555', fontFamily: font }}>
+        <p style={{ margin: 0, fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-300)', fontFamily: font }}>
           Run task to generate preview
         </p>
       </div>
@@ -103,7 +103,7 @@ export default function ExpandedRHSTest({
       <div style={{
         width: '100%',
         height: '100%',
-        background: '#fafafa',
+        background: 'var(--gray-10)',
         borderRadius: 8,
         display: 'flex',
         flexDirection: 'column',

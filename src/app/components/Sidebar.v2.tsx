@@ -636,7 +636,7 @@ export function IconStrip({
               setProfileOpen(!profileOpen);
               if (profileOpen) setShowAppearance(false);
             }}
-            className="relative min-h-0 min-w-0 shrink-0 cursor-pointer overflow-hidden rounded-full p-0 shadow-sm ring-2 ring-white/80 transition-all hover:ring-white dark:ring-[#3d4555] dark:hover:ring-[#4d5568]"
+            className="relative min-h-0 min-w-0 shrink-0 cursor-pointer overflow-hidden rounded-full p-0 shadow-sm ring-2 ring-white/80 transition-all hover:ring-white dark:ring-gray-500 dark:hover:ring-gray-400"
           >
             <img src={avatarUrl} alt="Profile" className="h-full w-full object-cover" />
           </Button>
@@ -658,7 +658,7 @@ export function IconStrip({
                     <div className="px-4 pb-2 pt-4">
                       <div className="flex items-center gap-3">
                         <div className="relative group shrink-0">
-                          <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-[#e8eaed] dark:ring-[#3d4555]">
+                          <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-gray-40 dark:ring-gray-500">
                             <img src={avatarUrl} alt="Profile" className="w-full h-full object-cover" />
                           </div>
                           <button
@@ -914,7 +914,7 @@ export function IconStrip({
                 setProfileOpen(!profileOpen);
                 if (profileOpen) setShowAppearance(false);
               }}
-              className="relative min-h-0 min-w-0 shrink-0 cursor-pointer overflow-hidden rounded-full p-0 shadow-sm ring-2 ring-white/80 transition-all hover:ring-white dark:ring-[#3d4555] dark:hover:ring-[#4d5568]"
+              className="relative min-h-0 min-w-0 shrink-0 cursor-pointer overflow-hidden rounded-full p-0 shadow-sm ring-2 ring-white/80 transition-all hover:ring-white dark:ring-gray-500 dark:hover:ring-gray-400"
             >
               <img src={avatarUrl} alt="Profile" className="h-full w-full object-cover" />
             </Button>

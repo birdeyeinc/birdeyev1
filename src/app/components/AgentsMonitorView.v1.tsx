@@ -39,7 +39,7 @@ import { MainCanvasViewHeader } from "@/app/components/layout/MainCanvasViewHead
 
 /** Selected activity row: blue highlight on the title (agent name) only. */
 const ACTIVITY_ROW_TITLE_SELECTED =
-  "text-[#1E44CC] dark:text-[#6b9bff]";
+  "text-brand-color dark:text-blue-70";
 
 /** Default share of the feed/detail row for the activity list (~⅓ list, ~⅔ detail). */
 const DEFAULT_ACTIVITY_LIST_FRACTION = 1 / 3;
@@ -56,10 +56,10 @@ function clampActivityListDividerLeft(
 
 /* ─── Mock Data ─── */
 const monitorMetrics = [
-  { label: "Agent actions today", value: "342", icon: Activity, color: "#2552ED" },
-  { label: "Successful actions", value: "318", icon: CheckCircle2, color: "#4caf50" },
-  { label: "Automation rate", value: "93%", icon: Zap, color: "#9970D7" },
-  { label: "Avg response time", value: "4.2s", icon: Clock, color: "#F59E0B" },
+  { label: "Agent actions today", value: "342", icon: Activity, color: "var(--brand-color)" },
+  { label: "Successful actions", value: "318", icon: CheckCircle2, color: "var(--green-100)" },
+  { label: "Automation rate", value: "93%", icon: Zap, color: "var(--purple-80)" },
+  { label: "Avg response time", value: "4.2s", icon: Clock, color: "var(--yellow-100)" },
 ];
 
 /* ─── Status / category labels (text badges; design tokens via UI Badge) ─── */
@@ -119,7 +119,7 @@ function ConfidenceMeter({ value }: { value: number }) {
   const color = pct >= 80 ? "#4caf50" : pct >= 50 ? "#F59E0B" : "#ef5350";
   return (
     <div className="flex items-center gap-2">
-      <div className="flex-1 h-[4px] bg-[#f0f1f5] dark:bg-muted rounded-full overflow-hidden">
+      <div className="flex-1 h-[4px] bg-light-grayish-blue dark:bg-muted rounded-full overflow-hidden">
         <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, backgroundColor: color }} />
       </div>
       <span className="text-[12px] tabular-nums" style={{ fontWeight: 400, color }}>{pct}%</span>
@@ -136,7 +136,7 @@ function StarRating({ rating }: { rating: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          className={cn("w-2.5 h-2.5", i < rating ? "fill-amber-400 text-amber-400" : "text-[#ddd] dark:text-[#444]")}
+          className={cn("w-2.5 h-2.5", i < rating ? "fill-amber-400 text-amber-400" : "text-gray-50 dark:text-gray-400")}
         />
       ))}
     </span>
@@ -159,7 +159,7 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
           variant="ghost"
           size="icon"
           onClick={onClose}
-          className="shrink-0 rounded-[4px] text-[#999] dark:text-muted-foreground"
+          className="shrink-0 rounded-[4px] text-gray-90 dark:text-muted-foreground"
           aria-label="Close activity details"
         >
           <X className="w-3.5 h-3.5" />
@@ -175,38 +175,38 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
             <ActivityCategoryBadge category={activity.category} />
             <ActivityStatusBadge status={activity.status} />
           </div>
-          <p className="text-[14px] text-[#212121] dark:text-foreground tracking-[-0.28px]" style={{ fontWeight: 400 }}>
+          <p className="text-[14px] text-gray-900 dark:text-foreground tracking-[-0.28px]" style={{ fontWeight: 400 }}>
             {activity.agentName}
           </p>
-          <p className="text-[13px] text-[#555] dark:text-muted-foreground font-regular">
+          <p className="text-[13px] text-gray-300 dark:text-muted-foreground font-regular">
             {activity.action}
           </p>
           {activity.detail && (
-            <p className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">{activity.detail}</p>
+            <p className="text-[11px] text-gray-90 dark:text-muted-foreground font-regular">{activity.detail}</p>
           )}
         </div>
 
         {/* Conversation Timeline */}
         {activity.timeline && activity.timeline.length > 0 && (
           <div>
-            <h4 className="text-[12px] text-[#888] dark:text-muted-foreground mb-3 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Timeline</h4>
+            <h4 className="text-[12px] text-gray-80 dark:text-muted-foreground mb-3 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Timeline</h4>
             <div className="relative pl-4">
               {/* Vertical line */}
-              <div className="absolute left-[5px] top-1 bottom-1 w-px bg-[#E5E7EB] dark:bg-muted" />
+              <div className="absolute left-[5px] top-1 bottom-1 w-px bg-gray-50 dark:bg-muted" />
               <div className="space-y-3">
                 {activity.timeline.map((step, i) => (
                   <div key={i} className="relative">
                     {/* Dot */}
                     <div className={`absolute -left-4 top-[5px] w-[10px] h-[10px] rounded-full border-2 ${
                       i === activity.timeline!.length - 1
-                        ? "border-[#2552ED] bg-[#2552ED]"
-                        : "border-[#E5E7EB] dark:border-[#4d5568] bg-white dark:bg-background"
+                        ? "border-brand-color bg-brand-color"
+                        : "border-gray-50 dark:border-gray-400 bg-white dark:bg-background"
                     }`} />
                     <div>
-                      <span className="text-[10px] text-[#999] dark:text-muted-foreground tabular-nums font-regular">{step.time}</span>
-                      <p className="text-[12px] text-[#212121] dark:text-foreground mt-0.5" style={{ fontWeight: 400 }}>{step.label}</p>
+                      <span className="text-[10px] text-gray-90 dark:text-muted-foreground tabular-nums font-regular">{step.time}</span>
+                      <p className="text-[12px] text-gray-900 dark:text-foreground mt-0.5" style={{ fontWeight: 400 }}>{step.label}</p>
                       {step.detail && (
-                        <p className="text-[11px] text-[#777] dark:text-muted-foreground mt-0.5 italic font-regular">{step.detail}</p>
+                        <p className="text-[11px] text-gray-100 dark:text-muted-foreground mt-0.5 italic font-regular">{step.detail}</p>
                       )}
                     </div>
                   </div>
@@ -219,28 +219,28 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
         {/* Agent Reasoning */}
         {activity.reasoning && (
           <div>
-            <h4 className="text-[12px] text-[#888] dark:text-muted-foreground mb-2 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Agent reasoning</h4>
-            <div className="bg-[#f8f9fa] dark:bg-[#1a1e26] border border-[#E5E7EB] dark:border-border rounded-[8px] px-4 py-3 space-y-2">
+            <h4 className="text-[12px] text-gray-80 dark:text-muted-foreground mb-2 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Agent reasoning</h4>
+            <div className="bg-gray-10 dark:bg-gray-800 border border-gray-50 dark:border-border rounded-[8px] px-4 py-3 space-y-2">
               {activity.reasoning.sentiment && (
                 <div className="flex justify-between">
-                  <span className="text-[11px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>Sentiment</span>
-                  <span className="text-[11px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{activity.reasoning.sentiment}</span>
+                  <span className="text-[11px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>Sentiment</span>
+                  <span className="text-[11px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{activity.reasoning.sentiment}</span>
                 </div>
               )}
               {activity.reasoning.topic && (
                 <div className="flex justify-between">
-                  <span className="text-[11px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>Topic detected</span>
-                  <span className="text-[11px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{activity.reasoning.topic}</span>
+                  <span className="text-[11px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>Topic detected</span>
+                  <span className="text-[11px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{activity.reasoning.topic}</span>
                 </div>
               )}
               {activity.reasoning.customerHistory && (
                 <div className="flex justify-between">
-                  <span className="text-[11px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>Customer history</span>
-                  <span className="text-[11px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{activity.reasoning.customerHistory}</span>
+                  <span className="text-[11px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>Customer history</span>
+                  <span className="text-[11px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{activity.reasoning.customerHistory}</span>
                 </div>
               )}
               <div className="pt-1">
-                <span className="text-[11px] text-[#888] dark:text-muted-foreground block mb-1" style={{ fontWeight: 400 }}>Confidence score</span>
+                <span className="text-[11px] text-gray-80 dark:text-muted-foreground block mb-1" style={{ fontWeight: 400 }}>Confidence score</span>
                 <ConfidenceMeter value={activity.reasoning.confidence} />
               </div>
             </div>
@@ -250,9 +250,9 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
         {/* Draft Preview */}
         {activity.hasDraft && activity.draftText && (
           <div>
-            <h4 className="text-[12px] text-[#888] dark:text-muted-foreground mb-2 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Response draft</h4>
-            <div className="bg-[#fffbf0] dark:bg-[#2a2618] border border-[#f0e6c8] dark:border-[#4a3f20] rounded-[8px] px-4 py-3">
-              <p className="text-[12px] text-[#555] dark:text-muted-foreground italic font-regular">
+            <h4 className="text-[12px] text-gray-80 dark:text-muted-foreground mb-2 tracking-[-0.24px]" style={{ fontWeight: 400 }}>Response draft</h4>
+            <div className="bg-yellow-10 dark:bg-yellow-900 border border-yellow-30 dark:border-yellow-700 rounded-[8px] px-4 py-3">
+              <p className="text-[12px] text-gray-300 dark:text-muted-foreground italic font-regular">
                 "{activity.draftText}"
               </p>
             </div>
@@ -262,28 +262,28 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
         {/* Linked Review */}
         {activity.reviewLink && (
           <div>
-            <h4 className="text-[12px] text-[#888] dark:text-muted-foreground mb-2 tracking-[-0.24px]" style={{ fontWeight: 400 }}>
+            <h4 className="text-[12px] text-gray-80 dark:text-muted-foreground mb-2 tracking-[-0.24px]" style={{ fontWeight: 400 }}>
               Linked review
             </h4>
-            <div className="border border-[#E5E7EB] dark:border-border rounded-[8px] overflow-hidden">
+            <div className="border border-gray-50 dark:border-border rounded-[8px] overflow-hidden">
               {/* Review content */}
-              <div className="px-4 py-3 space-y-2 bg-[#f8f9fa] dark:bg-[#1a1e26]">
+              <div className="px-4 py-3 space-y-2 bg-gray-10 dark:bg-gray-800">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] px-1.5 py-0.5 bg-[#e8f0fe] text-[#2552ED] dark:bg-[#1e2d5e] dark:text-[#6b9bff] rounded-[3px] font-medium">
+                  <span className="text-[10px] px-1.5 py-0.5 bg-blue-10 text-brand-color dark:bg-blue-300 dark:text-blue-70 rounded-[3px] font-medium">
                     {activity.reviewLink.platform}
                   </span>
                   <StarRating rating={activity.reviewLink.rating} />
                 </div>
-                <p className="text-[11px] text-[#555] dark:text-muted-foreground italic font-regular">
+                <p className="text-[11px] text-gray-300 dark:text-muted-foreground italic font-regular">
                   "{activity.reviewLink.reviewText}"
                 </p>
               </div>
               {/* Generated response */}
-              <div className="px-4 py-3 border-t border-[#E5E7EB] dark:border-border bg-white dark:bg-background space-y-1.5">
-                <p className="text-[10px] text-[#888] dark:text-muted-foreground uppercase tracking-wide" style={{ fontWeight: 400 }}>
+              <div className="px-4 py-3 border-t border-gray-50 dark:border-border bg-white dark:bg-background space-y-1.5">
+                <p className="text-[10px] text-gray-80 dark:text-muted-foreground uppercase tracking-wide" style={{ fontWeight: 400 }}>
                   {activity.status === "warning" ? "Drafted response" : "Response sent"}
                 </p>
-                <p className="text-[11px] text-[#212121] dark:text-foreground font-regular">
+                <p className="text-[11px] text-gray-900 dark:text-foreground font-regular">
                   "{activity.reviewLink.generatedResponse}"
                 </p>
               </div>
@@ -291,12 +291,12 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
               {onNavigateToReviews && (
                 <button
                   onClick={onNavigateToReviews}
-                  className="w-full flex items-center justify-between px-4 py-2.5 border-t border-[#E5E7EB] dark:border-border bg-white dark:bg-background hover:bg-[#f0f4ff] dark:hover:bg-[#1a2040] transition-colors group"
+                  className="w-full flex items-center justify-between px-4 py-2.5 border-t border-gray-50 dark:border-border bg-white dark:bg-background hover:bg-blue-10 dark:hover:bg-blue-400 transition-colors group"
                 >
-                  <span className="text-[11px] text-[#2552ED] dark:text-[#6b9bff]" style={{ fontWeight: 400 }}>
+                  <span className="text-[11px] text-brand-color dark:text-blue-70" style={{ fontWeight: 400 }}>
                     View in Reviews
                   </span>
-                  <ArrowRight className="w-3 h-3 text-[#2552ED] dark:text-[#6b9bff] group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3 h-3 text-brand-color dark:text-blue-70 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               )}
             </div>
@@ -307,18 +307,18 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
         <div>
           <button
             onClick={() => setExplainOpen(!explainOpen)}
-            className="flex items-center gap-1.5 text-[12px] text-[#2552ED] dark:text-[#6b9bff] hover:underline transition-colors"
+            className="flex items-center gap-1.5 text-[12px] text-brand-color dark:text-blue-70 hover:underline transition-colors"
             style={{ fontWeight: 400 }}
           >
             <Sparkles className="w-3 h-3" />
             Explain this activity
           </button>
           {explainOpen && (
-            <div className="mt-2 bg-[#f0f4ff] dark:bg-[#1a2040] border border-[#d0dbf8] dark:border-[#2e3a5e] rounded-[8px] px-4 py-3 space-y-1">
+            <div className="mt-2 bg-blue-10 dark:bg-blue-400 border border-blue-40 dark:border-blue-300 rounded-[8px] px-4 py-3 space-y-1">
               {activity.status === "success" && activity.reasoning && activity.reasoning.confidence >= 0.85 && (
                 <>
-                  <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular">This action was auto-approved because:</p>
-                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
+                  <p className="text-[11px] text-gray-300 dark:text-muted-foreground font-regular">This action was auto-approved because:</p>
+                  <ul className="text-[11px] text-gray-300 dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
                     {activity.reasoning.sentiment && <li>Sentiment was {activity.reasoning.sentiment.toLowerCase()}</li>}
                     <li>Response confidence {">"} 0.85 ({Math.round(activity.reasoning.confidence * 100)}%)</li>
                     <li>Auto-reply policy enabled for this agent</li>
@@ -327,8 +327,8 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
               )}
               {activity.status === "warning" && (
                 <>
-                  <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular">This action was flagged for review because:</p>
-                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
+                  <p className="text-[11px] text-gray-300 dark:text-muted-foreground font-regular">This action was flagged for review because:</p>
+                  <ul className="text-[11px] text-gray-300 dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
                     <li>Confidence score below auto-approval threshold</li>
                     {activity.reasoning && <li>Current confidence: {Math.round(activity.reasoning.confidence * 100)}%</li>}
                     <li>Human review required per policy</li>
@@ -337,8 +337,8 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
               )}
               {activity.status === "error" && (
                 <>
-                  <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular">This action failed because:</p>
-                  <ul className="text-[11px] text-[#555] dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
+                  <p className="text-[11px] text-gray-300 dark:text-muted-foreground font-regular">This action failed because:</p>
+                  <ul className="text-[11px] text-gray-300 dark:text-muted-foreground list-disc pl-4 space-y-0.5 font-regular">
                     <li>External API returned an authentication error</li>
                     <li>Retry attempts exhausted</li>
                     <li>Manual intervention is required to resolve</li>
@@ -346,7 +346,7 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
                 </>
               )}
               {activity.status === "success" && activity.reasoning && activity.reasoning.confidence < 0.85 && (
-                <p className="text-[11px] text-[#555] dark:text-muted-foreground font-regular">
+                <p className="text-[11px] text-gray-300 dark:text-muted-foreground font-regular">
                   This action completed successfully. The agent processed the task according to its configured workflow rules.
                 </p>
               )}
@@ -359,40 +359,40 @@ function InspectionPanel({ activity, onClose, onNavigateToReviews }: {
       <div className="px-5 py-3 shrink-0">
         {activity.status === "warning" && activity.hasDraft ? (
           <div className="flex items-center gap-2">
-            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border rounded-[8px] hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
+            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-gray-900 dark:text-foreground border border-new-selected-color dark:border-border rounded-[8px] hover:bg-gray-20 dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
               <Pencil className="w-3 h-3" />
               Edit
             </button>
-            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-white bg-[#4caf50] hover:bg-[#43a047] rounded-[8px] transition-colors" style={{ fontWeight: 400 }}>
+            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-white bg-green-100 hover:bg-green-100 rounded-[8px] transition-colors" style={{ fontWeight: 400 }}>
               <CheckCircle2 className="w-3 h-3" />
               Approve
             </button>
           </div>
         ) : activity.status === "error" ? (
           <div className="flex items-center gap-2">
-            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border rounded-[8px] hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
+            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-gray-900 dark:text-foreground border border-new-selected-color dark:border-border rounded-[8px] hover:bg-gray-20 dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
               <RotateCcw className="w-3 h-3" />
               Retry
             </button>
-            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border rounded-[8px] hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
+            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-gray-900 dark:text-foreground border border-new-selected-color dark:border-border rounded-[8px] hover:bg-gray-20 dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
               <UserCheck className="w-3 h-3" />
               Escalate
             </button>
           </div>
         ) : activity.status === "warning" ? (
           <div className="flex items-center gap-2">
-            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border rounded-[8px] hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
+            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-gray-900 dark:text-foreground border border-new-selected-color dark:border-border rounded-[8px] hover:bg-gray-20 dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
               <UserCheck className="w-3 h-3" />
               Escalate
             </button>
-            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-white bg-[#4caf50] hover:bg-[#43a047] rounded-[8px] transition-colors" style={{ fontWeight: 400 }}>
+            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-white bg-green-100 hover:bg-green-100 rounded-[8px] transition-colors" style={{ fontWeight: 400 }}>
               <CheckCircle2 className="w-3 h-3" />
               Approve
             </button>
           </div>
         ) : (
           <div className="flex items-center gap-2">
-            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-[#212121] dark:text-foreground border border-[#e5e9f0] dark:border-border rounded-[8px] hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
+            <button className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[12px] text-gray-900 dark:text-foreground border border-new-selected-color dark:border-border rounded-[8px] hover:bg-gray-20 dark:hover:bg-muted transition-colors" style={{ fontWeight: 400 }}>
               <PauseCircle className="w-3 h-3" />
               Pause agent
             </button>
@@ -640,11 +640,11 @@ export function AgentsMonitorView({
                     className={cn(
                       "group w-full flex cursor-pointer items-start gap-2 rounded-[4px] px-2 py-4 text-left",
                       "transition-colors duration-200",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E44CC]/40 focus-visible:ring-offset-1 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#13161b]",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-color/40 focus-visible:ring-offset-1 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900",
                     )}
                   >
                     <span
-                      className="text-[11px] text-[#999] dark:text-muted-foreground whitespace-nowrap mt-0.5 w-[65px] shrink-0 tabular-nums"
+                      className="text-[11px] text-gray-90 dark:text-muted-foreground whitespace-nowrap mt-0.5 w-[65px] shrink-0 tabular-nums"
 
                     >
                       {item.time}
@@ -656,7 +656,7 @@ export function AgentsMonitorView({
                             "text-[13px] transition-colors duration-200",
                             isSelected
                               ? ACTIVITY_ROW_TITLE_SELECTED
-                              : "text-[#212121] dark:text-foreground group-hover:text-[#1E44CC] dark:group-hover:text-[#6b9bff] group-focus-visible:text-[#1E44CC] dark:group-focus-visible:text-[#6b9bff]",
+                              : "text-gray-900 dark:text-foreground group-hover:text-brand-color dark:group-hover:text-blue-70 group-focus-visible:text-brand-color dark:group-focus-visible:text-blue-70",
                           )}
                           style={{ fontWeight: 400 }}
                         >
@@ -665,11 +665,11 @@ export function AgentsMonitorView({
                         <ActivityCategoryBadge category={item.category} />
                         <ActivityStatusBadge status={item.status} />
                       </div>
-                      <span className="text-[13px] text-[#555] dark:text-muted-foreground block font-regular">
+                      <span className="text-[13px] text-gray-300 dark:text-muted-foreground block font-regular">
                         {item.action}
                       </span>
                       {item.detail && (
-                        <p className="text-[11px] text-[#999] dark:text-muted-foreground mt-0.5 font-regular">
+                        <p className="text-[11px] text-gray-90 dark:text-muted-foreground mt-0.5 font-regular">
                           {item.detail}
                         </p>
                       )}
@@ -678,7 +678,7 @@ export function AgentsMonitorView({
                 );
               })}
               {filteredActivities.length === 0 && (
-                <div className="text-center py-12 text-[13px] text-[#999] dark:text-muted-foreground font-regular">No activities match your filters</div>
+                <div className="text-center py-12 text-[13px] text-gray-90 dark:text-muted-foreground font-regular">No activities match your filters</div>
               )}
             </div>
           </div>

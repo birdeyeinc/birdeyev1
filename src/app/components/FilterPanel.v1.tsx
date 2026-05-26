@@ -131,15 +131,15 @@ export function FilterPanel({
       <button
         onClick={onToggleCollapse}
         className={cn(
-          "h-full w-10 bg-white dark:bg-background flex flex-col items-center justify-start pt-4 shrink-0 transition-colors hover:bg-[#f5f5f5] dark:hover:bg-[#262b35]",
+          "h-full w-10 bg-white dark:bg-background flex flex-col items-center justify-start pt-4 shrink-0 transition-colors hover:bg-gray-20 dark:hover:bg-gray-700",
           edge === "left"
-            ? "border-r border-[#e5e9f0] dark:border-border"
-            : "border-l border-[#e5e9f0] dark:border-border",
+            ? "border-r border-new-selected-color dark:border-border"
+            : "border-l border-new-selected-color dark:border-border",
         )}
         title="Expand filters"
       >
         <span
-          className="text-[11px] text-[#555] dark:text-muted-foreground mt-0"
+          className="text-[11px] text-gray-300 dark:text-muted-foreground mt-0"
           style={{ writingMode: "vertical-rl", textOrientation: "mixed", fontWeight: 400 }}
         >
           {title}
@@ -153,21 +153,21 @@ export function FilterPanel({
       className={cn(
         "bg-white dark:bg-background flex flex-col h-full min-h-0 shrink-0 transition-colors w-[260px]",
         edge === "left"
-          ? "border-r border-[#e5e9f0] dark:border-border"
-          : "border-l border-[#e5e9f0] dark:border-border",
+          ? "border-r border-new-selected-color dark:border-border"
+          : "border-l border-new-selected-color dark:border-border",
         className,
       )}
     >
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#e5e9f0] dark:border-border shrink-0">
-        <span className="text-sm text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>
+      <div className="flex items-center justify-between px-4 py-3 border-b border-new-selected-color dark:border-border shrink-0">
+        <span className="text-sm text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>
           {title}
         </span>
         <button
           onClick={onToggleCollapse}
-          className="p-1 rounded hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors"
+          className="p-1 rounded hover:bg-gray-20 dark:hover:bg-muted transition-colors"
           title="Close filters"
         >
-          <X className="w-3.5 h-3.5 text-[#555] dark:text-muted-foreground" />
+          <X className="w-3.5 h-3.5 text-gray-300 dark:text-muted-foreground" />
         </button>
       </div>
 
@@ -183,10 +183,10 @@ export function FilterPanel({
         </div>
       </div>
 
-      <div className="flex items-center gap-2 px-3 py-3 border-t border-[#e5e9f0] dark:border-border shrink-0">
+      <div className="flex items-center gap-2 px-3 py-3 border-t border-new-selected-color dark:border-border shrink-0">
         <button
           onClick={handleReset}
-          className="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-[13px] text-[#555] dark:text-muted-foreground border border-[#e5e9f0] dark:border-border rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors"
+          className="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-[13px] text-gray-300 dark:text-muted-foreground border border-new-selected-color dark:border-border rounded-lg hover:bg-gray-20 dark:hover:bg-muted transition-colors"
           style={{ fontWeight: 400 }}
         >
           <RotateCcw className="w-3 h-3" />
@@ -194,7 +194,7 @@ export function FilterPanel({
         </button>
         <button
           onClick={onApply}
-          className="flex-1 px-3 py-2 text-[13px] text-white bg-[#2552ED] rounded-lg hover:bg-[#1E44CC] transition-colors"
+          className="flex-1 px-3 py-2 text-[13px] text-white bg-brand-color rounded-lg hover:bg-brand-color transition-colors"
           style={{ fontWeight: 400 }}
         >
           Apply

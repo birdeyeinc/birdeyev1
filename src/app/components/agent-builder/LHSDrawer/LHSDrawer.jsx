@@ -361,7 +361,7 @@ export default function LHSDrawer({
         <div className="lhs-drawer__body">
           <div className="lhs-drawer__search">
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-              <span className="material-symbols-outlined" style={{ position: 'absolute', left: 8, fontSize: 18, color: '#8f8f8f', pointerEvents: 'none' }}>search</span>
+              <span className="material-symbols-outlined" style={{ position: 'absolute', left: 8, fontSize: 18, color: 'var(--gray-90)', pointerEvents: 'none' }}>search</span>
               <Input
                 name="search"
                 type="text"

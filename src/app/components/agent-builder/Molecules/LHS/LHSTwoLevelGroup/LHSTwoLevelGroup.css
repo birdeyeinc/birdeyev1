@@ -14,7 +14,7 @@
 }
 
 .lhs-two-level-group__panel {
-  background: #fff;
+  background: var(--gray-0);
   border-radius: 8px;
   box-shadow: 0px 4px 8px 0px rgba(33, 33, 33, 0.18);
   padding: 20px;
@@ -31,7 +31,7 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #212121;
+  color: var(--gray-900);
   margin: 0;
 }
 
@@ -52,7 +52,7 @@
   font-weight: 500;
   line-height: 16px;
   letter-spacing: 0.4px;
-  color: #757575;
+  color: var(--gray-100);
   margin: 0;
 }
 
@@ -70,7 +70,7 @@
   padding: 4px 12px;
   border: 1px solid #e5e9f0;
   border-radius: 4px;
-  background: #fff;
+  background: var(--gray-0);
   cursor: grab;
   width: 100%;
   box-sizing: border-box;
@@ -78,7 +78,7 @@
 }
 
 .lhs-two-level-group__item:hover {
-  background: #f5f5f5;
+  background: var(--gray-20);
 }
 
 .lhs-two-level-group__item-label {
@@ -87,11 +87,11 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #212121;
+  color: var(--gray-900);
   min-width: 0;
 }
 
 .lhs-two-level-group__item-drag {
   flex-shrink: 0;
-  color: #212121;
+  color: var(--gray-900);
 }

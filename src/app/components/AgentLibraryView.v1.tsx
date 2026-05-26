@@ -24,7 +24,7 @@ function AgentCardItem({ agent, onClick }: { agent: AgentCard; onClick?: () => v
     <button
       type="button"
       onClick={onClick}
-      className="flex flex-col gap-2 rounded-xl border border-border bg-card p-4 text-left transition-all hover:border-[#93C5FD] hover:scale-[1.01] hover:shadow-sm cursor-pointer"
+      className="flex flex-col gap-2 rounded-xl border border-border bg-card p-4 text-left transition-all hover:border-blue-60 hover:scale-[1.01] hover:shadow-sm cursor-pointer"
     >
       {/* Badges row */}
       <div className="flex flex-wrap gap-1.5">

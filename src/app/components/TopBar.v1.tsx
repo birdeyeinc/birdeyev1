@@ -36,7 +36,7 @@ export function TopBar({ currentView, onViewChange, onToggleMynaChat, titleOverr
       data-no-print
     >
       {/* Left: current area (aligned with L1 rail / route) */}
-      <p className="text-[16px] font-regular text-[#212121] dark:text-foreground tracking-[-0.31px]">
+      <p className="text-[16px] font-regular text-gray-900 dark:text-foreground tracking-[-0.31px]">
         {titleOverride ?? getAppViewTitle(currentView)}
       </p>
 
@@ -47,7 +47,7 @@ export function TopBar({ currentView, onViewChange, onToggleMynaChat, titleOverr
           type="button"
           variant="ghost"
           onClick={onToggleMynaChat}
-          className="group ml-1 h-[30px] min-h-[30px] gap-1 rounded-lg border-0 bg-app-shell-l2-surface px-2 py-0 text-[12px] leading-none hover:bg-app-shell-l2-surface hover:text-inherit dark:bg-muted dark:hover:bg-[#252a3a]"
+          className="group ml-1 h-[30px] min-h-[30px] gap-1 rounded-lg border-0 bg-app-shell-l2-surface px-2 py-0 text-[12px] leading-none hover:bg-app-shell-l2-surface hover:text-inherit dark:bg-muted dark:hover:bg-gray-700"
         >
           <svg aria-hidden className="absolute h-0 w-0 overflow-hidden">
             <defs>
@@ -69,7 +69,7 @@ export function TopBar({ currentView, onViewChange, onToggleMynaChat, titleOverr
             className="h-3.5 w-3.5 shrink-0 group-hover:animate-[myna-cta-icon-tilt_360ms_ease-out_1] motion-reduce:group-hover:animate-none"
             style={{ stroke: "url(#ask-birdai-cta-gradient)" }}
           />
-          <span className="bg-gradient-to-r from-[#9970D7] via-[#7f87e8] to-[#2552ED] bg-[length:220%_100%] bg-clip-text text-transparent leading-none animate-[l2-nav-shimmer_2.2s_linear_infinite] motion-reduce:animate-none">
+          <span className="bg-gradient-to-r from-purple-80 via-blue-70 to-brand-color bg-[length:220%_100%] bg-clip-text text-transparent leading-none animate-[l2-nav-shimmer_2.2s_linear_infinite] motion-reduce:animate-none">
             Ask BirdAI
           </span>
         </Button>

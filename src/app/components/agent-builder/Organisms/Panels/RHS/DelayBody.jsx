@@ -14,10 +14,10 @@ const UNIT_OPTIONS = [
 function FieldLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
     </div>
   );
 }

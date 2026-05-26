@@ -6,7 +6,7 @@
 
 | Rule | Elemental | birdeye-v1 |
 |------|-----------|------------|
-| Font family | Inter, arial, sans-serif | `--font-family-brand` in `src/styles/typography.css`; loaded via `src/styles/fonts.css` (400 + 500) |
+| Font family | Inter, arial, sans-serif | `--font-family-brand` in `src/styles/typography.css`; Inter 400+500 via `<link>` in `index.html` (not CSS `@import` — Vite bundles `elemental-colors.css` first) |
 | Weights | **400** regular, **500** medium only | `--font-weight-regular`, `--font-weight-medium`; Tailwind `font-semibold`/`font-bold` clamp to 500 |
 | Base size | 14px (`$fs14`) | `--font-size-base: 14px`; `:root --font-size` uses it |
 | No light (300) | Not on DS surface | Inline `fontWeight: 300` removed from shell + BirdAI/agent views |

@@ -7,7 +7,7 @@ import svgPaths from '../../imports/svg-q05k7ytov1';
 export function FacebookIcon() {
   return (
     <div className="relative shrink-0 size-[20px]">
-      <div className="absolute bg-[#337fff] inset-[0_-0.01%_0_0.01%] rounded-[10.591px]" />
+      <div className="absolute bg-blue-90 inset-[0_-0.01%_0_0.01%] rounded-[10.591px]" />
       <div className="absolute inset-[25.11%_35.93%_24.84%_36.99%]">
         <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 5.41425 10.0089">
           <path d={svgPaths.p3dc9c800} fill="white" />
@@ -40,7 +40,7 @@ export function InstagramIcon() {
 export function LinkedInIcon() {
   return (
     <div className="relative shrink-0 size-[20px]">
-      <div className="absolute bg-[#0a66c2] inset-0 rounded-[12px]" />
+      <div className="absolute bg-fb-bg inset-0 rounded-[12px]" />
       <div className="absolute inset-[30.22%_29.15%_29.74%_29%]">
         <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 8.36943 8.00711">
           <path d={svgPaths.p36823500} fill="white" />
@@ -53,7 +53,7 @@ export function LinkedInIcon() {
 export function WhatsAppIcon() {
   return (
     <div className="relative shrink-0 size-[20px]">
-      <div className="absolute inset-0 rounded-full bg-[#25D366]" />
+      <div className="absolute inset-0 rounded-full bg-green-90" />
       <svg
         className="absolute inset-[3px] block size-[14px]"
         viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ export function WhatsAppIcon() {
 export function YouTubeIcon() {
   return (
     <div className="relative shrink-0 size-[20px]">
-      <div className="absolute inset-[2px_0] rounded-[6px] bg-[#FF0000]" />
+      <div className="absolute inset-[2px_0] rounded-[6px] bg-red-90" />
       <svg
         className="absolute inset-[5px] block size-[10px]"
         viewBox="0 0 24 24"

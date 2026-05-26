@@ -136,7 +136,7 @@ export default function RHS({ variant = 'agentDetails', title, bodyProps, onClos
         flexDirection: 'column',
         width: 390,
         height: '100%',
-        background: '#ffffff',
+        background: 'var(--gray-0)',
         borderLeft: '1px solid #e5e9f0',
         fontFamily: '"Inter", arial, sans-serif',
       }}>

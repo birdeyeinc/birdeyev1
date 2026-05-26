@@ -1,5 +1,5 @@
 .up-editor[data-empty="true"]::before {
   content: attr(data-placeholder);
-  color: #8f8f8f;
+  color: var(--gray-90);
   pointer-events: none;
 }

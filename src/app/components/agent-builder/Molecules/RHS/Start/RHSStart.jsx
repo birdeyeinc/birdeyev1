@@ -48,8 +48,8 @@ export function RHSStartBody({ initialValues = {}, onValuesChange }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>
-          Name <span style={{ color: '#de1b0c' }}>*</span>
+        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>
+          Name <span style={{ color: 'var(--red-100)' }}>*</span>
         </label>
         <Input
           name="name"
@@ -62,8 +62,8 @@ export function RHSStartBody({ initialValues = {}, onValuesChange }) {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>
-          Goals <span style={{ color: '#de1b0c' }}>*</span>
+        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>
+          Goals <span style={{ color: 'var(--red-100)' }}>*</span>
         </label>
         <Textarea
           name="goals"
@@ -77,7 +77,7 @@ export function RHSStartBody({ initialValues = {}, onValuesChange }) {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>
+        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>
           Outcomes
         </label>
         <Textarea
@@ -93,28 +93,28 @@ export function RHSStartBody({ initialValues = {}, onValuesChange }) {
       {/* Locations */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12, fontWeight: 400, lineHeight: '18px', fontFamily: font }}>
-          <span style={{ color: '#212121' }}>Locations</span>
-          <span style={{ color: '#de1b0c' }}>*</span>
-          <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer', lineHeight: 1 }}>info</span>
+          <span style={{ color: 'var(--gray-900)' }}>Locations</span>
+          <span style={{ color: 'var(--red-100)' }}>*</span>
+          <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer', lineHeight: 1 }}>info</span>
         </div>
         {values.locations.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
             {values.locations.slice(0, 4).map((loc) => (
               <span key={loc.id} onClick={() => setShowLocations(true)} style={{ cursor: 'pointer' }}>
-                <Badge variant="secondary" style={{ fontWeight: 400, fontSize: 12, background: '#f5f5f5', color: '#212121', border: 'none' }}>
+                <Badge variant="secondary" style={{ fontWeight: 400, fontSize: 12, background: 'var(--gray-20)', color: 'var(--gray-900)', border: 'none' }}>
                   {loc.name || loc.id}
                 </Badge>
               </span>
             ))}
             {values.locations.length > 4 && (
-              <span onClick={() => setShowLocations(true)} style={{ fontSize: 12, fontWeight: 500, color: '#1976d2', fontFamily: font, whiteSpace: 'nowrap', cursor: 'pointer' }}>
+              <span onClick={() => setShowLocations(true)} style={{ fontSize: 12, fontWeight: 500, color: 'var(--blue-100)', fontFamily: font, whiteSpace: 'nowrap', cursor: 'pointer' }}>
                 +{values.locations.length - 4} more
               </span>
             )}
           </div>
         )}
         {values.locations.length === 0 && (
-          <span onClick={() => setShowLocations(true)} style={{ fontSize: 14, fontWeight: 500, lineHeight: '20px', color: '#1976d2', cursor: 'pointer', fontFamily: font }}>
+          <span onClick={() => setShowLocations(true)} style={{ fontSize: 14, fontWeight: 500, lineHeight: '20px', color: 'var(--blue-100)', cursor: 'pointer', fontFamily: font }}>
             + Add
           </span>
         )}
@@ -145,7 +145,7 @@ export default function RHSStart({ onClose, onExpand, onPreview, onSave, onValue
   const currentValuesRef = useRef(initialValues);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: 390, height: '100%', background: '#ffffff', borderLeft: '1px solid #e5e9f0', fontFamily: font }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: 390, height: '100%', background: 'var(--gray-0)', borderLeft: '1px solid #e5e9f0', fontFamily: font }}>
       <RHSPanelHeader
         title="Agent details"
         showActions={false}

@@ -1,4 +1,5 @@
-@import './fonts.css';
+@import './elemental-colors.css';
 @import './typography.css';
 @import './tailwind.css';
 @import './theme.css';
+@import './elemental-tailwind-theme.css';

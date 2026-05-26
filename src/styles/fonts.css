@@ -1,1 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+/**
+ * Inter (400, 500) is loaded from index.html so Vite does not hoist a late
+ * @import after elemental-colors.css (invalid CSS — fonts would not apply).
+ */

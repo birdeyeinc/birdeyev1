@@ -151,7 +151,7 @@ export default function VoicePickerDrawer({ selected = [], onSelectionChange, on
                 <span className="vpd-voice-id">{voice.voiceId}</span>
                 <div className="vpd-check">
                   {isSelected && (
-                    <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#2e7d32' }}>check_circle</span>
+                    <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--green-200)' }}>check_circle</span>
                   )}
                 </div>
               </button>

@@ -23,11 +23,11 @@ export default function ExpandedRHSTestFeedback({ value, onChange, onSubmit }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#555555', fontFamily: font, whiteSpace: 'nowrap' }}>
+        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-300)', fontFamily: font, whiteSpace: 'nowrap' }}>
           Your feedback
         </span>
       </div>
-      <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, background: '#ffffff', boxSizing: 'border-box', width: '100%', padding: '8px 12px' }}>
+      <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, background: 'var(--gray-0)', boxSizing: 'border-box', width: '100%', padding: '8px 12px' }}>
         <textarea
           ref={textareaRef}
           value={value}
@@ -37,7 +37,7 @@ export default function ExpandedRHSTestFeedback({ value, onChange, onSubmit }) {
           style={{
             width: '100%', border: 'none', outline: 'none', resize: 'none',
             padding: 0, fontSize: 14, fontWeight: 400, lineHeight: `${LINE_HEIGHT}px`,
-            letterSpacing: '-0.28px', color: '#212121', fontFamily: font,
+            letterSpacing: '-0.28px', color: 'var(--gray-900)', fontFamily: font,
             boxSizing: 'border-box', background: 'transparent', overflowY: 'hidden',
             minHeight: 66,
           }}

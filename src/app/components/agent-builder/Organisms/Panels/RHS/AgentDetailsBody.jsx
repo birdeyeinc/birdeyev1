@@ -8,8 +8,8 @@ const font = '"Inter", arial, sans-serif';
 function FieldLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>{label}</span>
-      {required && <span style={{ color: '#de1b0c', fontSize: 12 }}>*</span>}
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
+      {required && <span style={{ color: 'var(--red-100)', fontSize: 12 }}>*</span>}
     </div>
   );
 }
@@ -63,11 +63,11 @@ export default function AgentDetailsBody({ values: externalValues, onChange }) {
       </FormField>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12, fontWeight: 400, lineHeight: '18px', fontFamily: font }}>
-          <span style={{ color: '#212121' }}>Locations</span>
-          <span style={{ color: '#de1b0c' }}>*</span>
-          <i className="icon_phoenix-info" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer' }} />
+          <span style={{ color: 'var(--gray-900)' }}>Locations</span>
+          <span style={{ color: 'var(--red-100)' }}>*</span>
+          <i className="icon_phoenix-info" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer' }} />
         </div>
-        <span onClick={() => setShowLocations(true)} style={{ fontSize: 14, fontWeight: 500, lineHeight: '20px', color: '#1976d2', cursor: 'pointer', fontFamily: font }}>
+        <span onClick={() => setShowLocations(true)} style={{ fontSize: 14, fontWeight: 500, lineHeight: '20px', color: 'var(--blue-100)', cursor: 'pointer', fontFamily: font }}>
           + Add
         </span>
       </div>

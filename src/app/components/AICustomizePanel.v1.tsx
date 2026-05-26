@@ -138,18 +138,18 @@ function DraggableReportThumb({ origIdx, posIdx, totalCount, children, onMove }:
       {/* Drop indicator — above */}
       {isOver && dropIndicator === "above" && (
         <div className="absolute -top-[5px] left-1 right-1 flex items-center z-20 pointer-events-none">
-          <div className="w-[5px] h-[5px] rounded-full bg-[#2552ED] shrink-0" />
-          <div className="flex-1 h-[2px] bg-[#2552ED] rounded-full" />
-          <div className="w-[5px] h-[5px] rounded-full bg-[#2552ED] shrink-0" />
+          <div className="w-[5px] h-[5px] rounded-full bg-brand-color shrink-0" />
+          <div className="flex-1 h-[2px] bg-brand-color rounded-full" />
+          <div className="w-[5px] h-[5px] rounded-full bg-brand-color shrink-0" />
         </div>
       )}
       {children}
       {/* Drop indicator — below */}
       {isOver && dropIndicator === "below" && (
         <div className="absolute -bottom-[5px] left-1 right-1 flex items-center z-20 pointer-events-none">
-          <div className="w-[5px] h-[5px] rounded-full bg-[#2552ED] shrink-0" />
-          <div className="flex-1 h-[2px] bg-[#2552ED] rounded-full" />
-          <div className="w-[5px] h-[5px] rounded-full bg-[#2552ED] shrink-0" />
+          <div className="w-[5px] h-[5px] rounded-full bg-brand-color shrink-0" />
+          <div className="flex-1 h-[2px] bg-brand-color rounded-full" />
+          <div className="w-[5px] h-[5px] rounded-full bg-brand-color shrink-0" />
         </div>
       )}
     </div>
@@ -157,12 +157,12 @@ function DraggableReportThumb({ origIdx, posIdx, totalCount, children, onMove }:
 }
 
 const colorPresets = [
-  { name: "Blue", color: "#2552ED" },
-  { name: "Purple", color: "#7B1FA2" },
+  { name: "Blue", color: "var(--brand-color)" },
+  { name: "Purple", color: "var(--purple-100)" },
   { name: "Teal", color: "#00897B" },
-  { name: "Orange", color: "#E65100" },
-  { name: "Red", color: "#C62828" },
-  { name: "Green", color: "#2E7D32" },
+  { name: "Orange", color: "var(--yellow-300)" },
+  { name: "Red", color: "var(--red-200)" },
+  { name: "Green", color: "var(--green-200)" },
   { name: "Indigo", color: "#283593" },
   { name: "Pink", color: "#AD1457" },
 ];
@@ -203,7 +203,7 @@ const stylePresets = [
     titleColor: "#1a1a1a",
     bodyColor: "#666666",
     linkColor: "#2552ED",
-    borderColor: "#e0e0e0",
+    borderColor: "var(--light-gray)",
     headerBg: "linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%)",
     preview: "default" as const,
   },
@@ -239,7 +239,7 @@ const stylePresets = [
     titleColor: "#1e293b",
     bodyColor: "#64748b",
     linkColor: "#0ea5e9",
-    borderColor: "#e2e8f0",
+    borderColor: "var(--gray-2000)",
     headerBg: "linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)",
     preview: "insight" as const,
   },
@@ -251,7 +251,7 @@ const stylePresets = [
     titleColor: "#171717",
     bodyColor: "#737373",
     linkColor: "#18181b",
-    borderColor: "#e5e5e5",
+    borderColor: "var(--gray-50)",
     headerBg: "linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%)",
     preview: "minimal" as const,
   },
@@ -391,14 +391,14 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
       return (
         <svg className="w-[80px] h-auto" viewBox="0 0 199.768 41.4" fill="none">
           <path clipRule="evenodd" d={reportSvg.p2cc68880} fill={themeColor} fillRule="evenodd" />
-          <path d={reportSvg.pfe99e80} fill="#212121" />
-          <path d={reportSvg.p36edaf80} fill="#212121" />
-          <path d={reportSvg.pa24ff80} fill="#212121" />
-          <path d={reportSvg.p33cce400} fill="#212121" />
-          <path d={reportSvg.p16db6100} fill="#212121" />
-          <path d={reportSvg.p2b617580} fill="#212121" />
-          <path d={reportSvg.p11bbd0f1} fill="#212121" />
-          <path d={reportSvg.p3b3711e0} fill="#212121" />
+          <path d={reportSvg.pfe99e80} fill="var(--gray-900)" />
+          <path d={reportSvg.p36edaf80} fill="var(--gray-900)" />
+          <path d={reportSvg.pa24ff80} fill="var(--gray-900)" />
+          <path d={reportSvg.p33cce400} fill="var(--gray-900)" />
+          <path d={reportSvg.p16db6100} fill="var(--gray-900)" />
+          <path d={reportSvg.p2b617580} fill="var(--gray-900)" />
+          <path d={reportSvg.p11bbd0f1} fill="var(--gray-900)" />
+          <path d={reportSvg.p3b3711e0} fill="var(--gray-900)" />
         </svg>
       );
     }
@@ -701,7 +701,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
     <button
       onClick={() => onChange(!checked)}
       className={`w-[36px] h-[20px] rounded-full transition-colors relative shrink-0 ${
-        checked ? "bg-[#2552ED]" : "bg-[#ccc] dark:bg-muted"
+        checked ? "bg-brand-color" : "bg-gray-60 dark:bg-muted"
       }`}
     >
       <span
@@ -896,16 +896,16 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
   const SectionHeader = ({ section, icon, label }: { section: ManualSection; icon: React.ReactNode; label: string }) => (
     <button
       onClick={() => toggleSection(section)}
-      className="w-full flex items-center justify-between py-3 px-1 hover:bg-[#fafafa] dark:hover:bg-muted rounded transition-colors"
+      className="w-full flex items-center justify-between py-3 px-1 hover:bg-gray-10 dark:hover:bg-muted rounded transition-colors"
     >
       <div className="flex items-center gap-2.5">
-        <span className="text-[#555] dark:text-muted-foreground">{icon}</span>
-        <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{label}</span>
+        <span className="text-gray-300 dark:text-muted-foreground">{icon}</span>
+        <span className="text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{label}</span>
       </div>
       {expandedSection === section ? (
-        <ChevronDown className="w-4 h-4 text-[#999] dark:text-muted-foreground" />
+        <ChevronDown className="w-4 h-4 text-gray-90 dark:text-muted-foreground" />
       ) : (
-        <ChevronRight className="w-4 h-4 text-[#999] dark:text-muted-foreground" />
+        <ChevronRight className="w-4 h-4 text-gray-90 dark:text-muted-foreground" />
       )}
     </button>
   );
@@ -957,10 +957,10 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-white dark:bg-app-shell-gutter transition-colors duration-300" data-print-root>
       {/* Page-level header bar */}
-      <div className="h-[56px] border-b border-[#e5e9f0] dark:border-border flex items-center justify-between px-6 shrink-0 bg-white dark:bg-background transition-colors duration-300" data-no-print>
+      <div className="h-[56px] border-b border-new-selected-color dark:border-border flex items-center justify-between px-6 shrink-0 bg-white dark:bg-background transition-colors duration-300" data-no-print>
         <div className="flex items-center gap-2">
           <Button type="button" variant="ghost" size="icon" onClick={onClose} className="rounded-md">
-            <ArrowLeft className="w-[14px] h-[14px] text-[#303030] dark:text-muted-foreground" />
+            <ArrowLeft className="w-[14px] h-[14px] text-gray-600 dark:text-muted-foreground" />
           </Button>
           {isEditingName ? (
             <input
@@ -972,13 +972,13 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                 if (e.key === "Enter") commitName();
                 if (e.key === "Escape") setIsEditingName(false);
               }}
-              className="text-[16px] text-[#212121] dark:text-foreground border-b border-[#2552ED] outline-none bg-transparent w-[220px] py-0.5"
+              className="text-[16px] text-gray-900 dark:text-foreground border-b border-brand-color outline-none bg-transparent w-[220px] py-0.5"
               style={{ fontWeight: 400 }}
               autoFocus
             />
           ) : (
             <>
-              <span className="text-[16px] text-[#212121] dark:text-foreground">{coverTitle || (editingDraft ? "Edit draft" : "New share")}</span>
+              <span className="text-[16px] text-gray-900 dark:text-foreground">{coverTitle || (editingDraft ? "Edit draft" : "New share")}</span>
               <Button
                 type="button"
                 variant="ghost"
@@ -987,7 +987,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                 className="rounded-md"
                 title="Edit report name"
               >
-                <FileEdit className="w-[14px] h-[14px] text-[#303030] dark:text-muted-foreground" />
+                <FileEdit className="w-[14px] h-[14px] text-gray-600 dark:text-muted-foreground" />
               </Button>
             </>
           )}
@@ -998,10 +998,10 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
             variant="outline"
             onClick={handlePrint}
             title="Print report"
-            className="gap-[6px] rounded-[4px] border-[#d0d5dd] px-3 font-normal dark:border-border"
+            className="gap-[6px] rounded-[4px] border-gray-60 px-3 font-normal dark:border-border"
           >
-            <Printer className="w-[14px] h-[14px] text-[#555] dark:text-muted-foreground" />
-            <span className="font-['Roboto',sans-serif] text-[14px] text-[#555] dark:text-muted-foreground tracking-[-0.28px] whitespace-nowrap leading-[24px]" style={{ fontVariationSettings: "'wdth' 100" }}>Print</span>
+            <Printer className="w-[14px] h-[14px] text-gray-300 dark:text-muted-foreground" />
+            <span className="font-['Roboto',sans-serif] text-[14px] text-gray-300 dark:text-muted-foreground tracking-[-0.28px] whitespace-nowrap leading-[24px]" style={{ fontVariationSettings: "'wdth' 100" }}>Print</span>
           </Button>
           <div className="relative">
             <Button
@@ -1009,17 +1009,17 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
               variant="outline"
               onClick={handleSaveDraft}
               title="Save as draft"
-              className="gap-[6px] rounded-[4px] border-[#d0d5dd] px-3 font-normal dark:border-border"
+              className="gap-[6px] rounded-[4px] border-gray-60 px-3 font-normal dark:border-border"
             >
-              <Save className="w-[14px] h-[14px] text-[#555] dark:text-muted-foreground" />
-              <span className="font-['Roboto',sans-serif] text-[14px] text-[#555] dark:text-muted-foreground tracking-[-0.28px] whitespace-nowrap leading-[24px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <Save className="w-[14px] h-[14px] text-gray-300 dark:text-muted-foreground" />
+              <span className="font-['Roboto',sans-serif] text-[14px] text-gray-300 dark:text-muted-foreground tracking-[-0.28px] whitespace-nowrap leading-[24px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                 {currentDraftId ? "Update draft" : "Save draft"}
               </span>
             </Button>
             {/* Saved confirmation tooltip */}
             {showSavedToast && (
-              <div className="absolute right-0 top-full mt-2 px-3 py-1.5 bg-[#323232] text-white text-[12px] rounded-lg shadow-lg whitespace-nowrap z-50 flex items-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-[#4caf50]" />
+              <div className="absolute right-0 top-full mt-2 px-3 py-1.5 bg-gray-500 text-white text-[12px] rounded-lg shadow-lg whitespace-nowrap z-50 flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5 text-green-100" />
                 Draft saved
               </div>
             )}
@@ -1030,7 +1030,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
             <Button
               type="button"
               onClick={() => setShowScheduleModal(true)}
-              className="rounded-[4px] bg-[#2552ED] px-3 font-normal text-white hover:bg-[#1E44CC]"
+              className="rounded-[4px] bg-brand-color px-3 font-normal text-white hover:bg-brand-color"
             >
               <span className="font-['Roboto',sans-serif] text-[16px] tracking-[-0.32px] whitespace-nowrap leading-[24px]" style={{ fontVariationSettings: "'wdth' 100" }}>Schedule</span>
             </Button>
@@ -1039,7 +1039,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
               <DropdownMenuTrigger asChild>
                 <Button
                   type="button"
-                  className="rounded-[4px] bg-[#2552ED] px-3 font-normal text-white hover:bg-[#1E44CC]"
+                  className="rounded-[4px] bg-brand-color px-3 font-normal text-white hover:bg-brand-color"
                 >
                   <span
                     className="font-['Roboto',sans-serif] text-[16px] tracking-[-0.32px] whitespace-nowrap leading-[24px]"
@@ -1091,23 +1091,23 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
       {/* Main content: left panel + preview + thumbnails */}
       <div className="flex-1 flex min-h-0 overflow-hidden">
         {/* Left - AI Chat / Manual Panel */}
-        <div className="w-[300px] bg-white dark:bg-background flex flex-col border-r border-[#e5e9f0] dark:border-border shrink-0 transition-colors duration-300" data-no-print>
+        <div className="w-[300px] bg-white dark:bg-background flex flex-col border-r border-new-selected-color dark:border-border shrink-0 transition-colors duration-300" data-no-print>
           {/* Mode toggle */}
           <div className="px-4 pt-3 pb-2 shrink-0">
-            <div className="inline-flex bg-[#f0f1f5] dark:bg-muted rounded-full p-[2px]">
+            <div className="inline-flex bg-light-grayish-blue dark:bg-muted rounded-full p-[2px]">
               <button
                 onClick={() => setMode("ai")}
                 className={`flex items-center justify-center gap-1 px-3 py-[5px] rounded-full text-[12px] transition-all duration-200 ${
-                  mode === "ai" ? "bg-white dark:bg-border shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-[#212121] dark:text-foreground" : "text-[#888] dark:text-muted-foreground hover:text-[#555] dark:hover:text-muted-foreground"
+                  mode === "ai" ? "bg-white dark:bg-border shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-gray-900 dark:text-foreground" : "text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-muted-foreground"
                 }`}
               >
-                <Sparkles className="w-3 h-3 text-[#6834B7]" />
+                <Sparkles className="w-3 h-3 text-purple-100" />
                 AI
               </button>
               <button
                 onClick={() => setMode("manual")}
                 className={`flex items-center justify-center px-3 py-[5px] rounded-full text-[12px] transition-all duration-200 ${
-                  mode === "manual" ? "bg-white dark:bg-border shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-[#212121] dark:text-foreground" : "text-[#888] dark:text-muted-foreground hover:text-[#555] dark:hover:text-muted-foreground"
+                  mode === "manual" ? "bg-white dark:bg-border shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-gray-900 dark:text-foreground" : "text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-muted-foreground"
                 }`}
               >
                 Manual
@@ -1123,7 +1123,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                   <div key={msg.id}>
                     {msg.role === "assistant" ? (
                       <div>
-                          <p className="text-[13px] text-[#212121] dark:text-foreground whitespace-pre-line leading-relaxed">{msg.content}</p>
+                          <p className="text-[13px] text-gray-900 dark:text-foreground whitespace-pre-line leading-relaxed">{msg.content}</p>
                           {msg.colorSuggestions && (
                             <div className="flex flex-wrap gap-2 mt-3">
                               {msg.colorSuggestions.map(color => (
@@ -1155,8 +1155,8 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                       </div>
                     ) : (
                       <div className="flex justify-end">
-                        <div className="bg-[#f5f5f5] dark:bg-muted rounded-lg px-3 py-2">
-                          <p className="text-[13px] text-[#212121] dark:text-foreground">{msg.content}</p>
+                        <div className="bg-gray-20 dark:bg-muted rounded-lg px-3 py-2">
+                          <p className="text-[13px] text-gray-900 dark:text-foreground">{msg.content}</p>
                         </div>
                       </div>
                     )}
@@ -1164,9 +1164,9 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                 ))}
                 {isTyping && (
                   <div className="flex gap-1 items-center">
-                      <div className="w-2 h-2 bg-[#ccc] dark:bg-app-shell-l2-row-active rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                      <div className="w-2 h-2 bg-[#ccc] dark:bg-app-shell-l2-row-active rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                      <div className="w-2 h-2 bg-[#ccc] dark:bg-app-shell-l2-row-active rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                      <div className="w-2 h-2 bg-gray-60 dark:bg-app-shell-l2-row-active rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                      <div className="w-2 h-2 bg-gray-60 dark:bg-app-shell-l2-row-active rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                      <div className="w-2 h-2 bg-gray-60 dark:bg-app-shell-l2-row-active rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                   </div>
                 )}
                 <div ref={messagesEndRef} />
@@ -1196,10 +1196,10 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                         variant="ghost"
                         size="icon"
                         onClick={() => setIsTyping(false)}
-                        className="rounded-lg bg-[#212121] hover:bg-[#333] dark:bg-[#e4e4e4] dark:hover:bg-[#ccc]"
+                        className="rounded-lg bg-gray-900 hover:bg-gray-500 dark:bg-gray-50 dark:hover:bg-gray-60"
                         title="Stop generating"
                       >
-                        <Square className="w-3 h-3 text-white dark:text-[#1e2229] fill-white dark:fill-[#1e2229]" />
+                        <Square className="w-3 h-3 text-white dark:text-gray-700 fill-white dark:fill-gray-700" />
                       </Button>
                     ) : (
                       <Button
@@ -1210,12 +1210,12 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                         disabled={!input.trim()}
                         className={`rounded-lg shadow-sm disabled:opacity-100 ${
                           input.trim()
-                            ? "bg-[#2552ED] hover:bg-[#1E44CC]"
-                            : "bg-[#e8e8e8] dark:bg-muted"
+                            ? "bg-brand-color hover:bg-brand-color"
+                            : "bg-gray-40 dark:bg-muted"
                         }`}
                         title="Send message"
                       >
-                        <ArrowUp className={`w-[14px] h-[14px] ${input.trim() ? "text-white" : "text-[#bbb] dark:text-muted-foreground"}`} strokeWidth={L1_STRIP_ICON_STROKE_PX} absoluteStrokeWidth />
+                        <ArrowUp className={`w-[14px] h-[14px] ${input.trim() ? "text-white" : "text-gray-70 dark:text-muted-foreground"}`} strokeWidth={L1_STRIP_ICON_STROKE_PX} absoluteStrokeWidth />
                       </Button>
                     )}
                   </PromptInputActions>
@@ -1229,13 +1229,13 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
             <div className="flex-1 overflow-y-auto px-4 py-2">
 
               {/* ── Theme Style ── */}
-              <div className="border-b border-[#f0f0f0] dark:border-border">
+              <div className="border-b border-gray-20 dark:border-border">
                 <SectionHeader section="style" icon={<Palette className="w-[14px] h-[14px]" />} label="Theme" />
                 {expandedSection === "style" && (
                   <div className="pb-4 pl-7">
                     <div className="flex items-center justify-between mb-2.5">
-                      <p className="text-[11px] text-[#777] dark:text-muted-foreground leading-tight">Use one of our report styles below to change how analytics are visualized.</p>
-                      <button className="flex items-center gap-1 text-[11px] text-[#2552ED] hover:underline shrink-0 ml-2">
+                      <p className="text-[11px] text-gray-100 dark:text-muted-foreground leading-tight">Use one of our report styles below to change how analytics are visualized.</p>
+                      <button className="flex items-center gap-1 text-[11px] text-brand-color hover:underline shrink-0 ml-2">
                         <Sparkles className="w-3 h-3" />
                         View more
                       </button>
@@ -1251,8 +1251,8 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                             onClick={() => setSelectedStyle(style.id)}
                             className={`rounded-xl border-2 overflow-hidden transition-all text-left cursor-pointer ${
                               isSelected
-                                ? "border-[#2552ED] shadow-[0_0_0_1px_#2552ED]"
-                                : "border-[#e8eaed] dark:border-border hover:border-[#ccc] dark:hover:border-border hover:shadow-sm"
+                                ? "border-brand-color shadow-[0_0_0_1px_#2552ED]"
+                                : "border-gray-40 dark:border-border hover:border-gray-60 dark:hover:border-border hover:shadow-sm"
                             }`}
                           >
                             {/* Chart preview illustration */}
@@ -1325,7 +1325,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                                       <polyline points="5,16 20,12 35,14 50,6 65,10 80,8 95,12" fill="none" stroke={accent} strokeWidth="1.5" />
                                       {[{x:20,y:12},{x:50,y:6},{x:80,y:8}].map((p,i) => (
                                         <g key={i}>
-                                          <circle cx={p.x} cy={p.y} r="2.5" fill="#fff" stroke={accent} strokeWidth="1" />
+                                          <circle cx={p.x} cy={p.y} r="2.5" fill="var(--gray-0)" stroke={accent} strokeWidth="1" />
                                           <circle cx={p.x} cy={p.y} r="1" fill={accent} />
                                         </g>
                                       ))}
@@ -1367,9 +1367,9 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                               </div>
                             </div>
                             <div className="px-2.5 py-1.5 flex items-center gap-1.5 bg-white dark:bg-muted" style={{ backgroundColor: isDark ? style.bg : undefined }}>
-                              {isSelected && <Check className="w-3 h-3 text-[#2552ED]" />}
+                              {isSelected && <Check className="w-3 h-3 text-brand-color" />}
                               <span
-                                className={`text-[11px] ${isSelected ? "text-[#2552ED]" : "text-[#212121] dark:text-foreground"}`}
+                                className={`text-[11px] ${isSelected ? "text-brand-color" : "text-gray-900 dark:text-foreground"}`}
                                 style={{ fontWeight: isSelected ? 400 : 300, color: isSelected ? undefined : (isDark ? style.titleColor : undefined) }}
                               >{style.name}</span>
                             </div>
@@ -1382,7 +1382,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
               </div>
 
               {/* ── Layout ── */}
-              <div className="border-b border-[#f0f0f0] dark:border-border">
+              <div className="border-b border-gray-20 dark:border-border">
                 <SectionHeader section="layout" icon={<Maximize className="w-[14px] h-[14px]" />} label="Layout" />
                 {expandedSection === "layout" && (
                   <div className="pb-4 space-y-3 pl-7">
@@ -1393,20 +1393,20 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                           onClick={() => setSelectedLayout(opt.id)}
                           className={`flex flex-col items-center gap-1 py-3 px-2 rounded-lg border transition-colors ${
                             selectedLayout === opt.id
-                              ? "border-[#2552ED] bg-[#e8effe] dark:bg-[#1e2d5e]"
-                              : "border-[#e5e9f0] dark:border-border hover:bg-[#fafafa] dark:hover:bg-muted"
+                              ? "border-brand-color bg-blue-10 dark:bg-blue-300"
+                              : "border-new-selected-color dark:border-border hover:bg-gray-10 dark:hover:bg-muted"
                           }`}
                         >
                           <span className="text-[18px]">{opt.icon}</span>
-                          <span className="text-[11px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{opt.label}</span>
-                          <span className="text-[9px] text-[#999] dark:text-muted-foreground">{opt.desc}</span>
+                          <span className="text-[11px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{opt.label}</span>
+                          <span className="text-[9px] text-gray-90 dark:text-muted-foreground">{opt.desc}</span>
                         </button>
                       ))}
                     </div>
                     {/* Text alignment */}
                     <div>
-                      <label className="text-[11px] text-[#999] dark:text-muted-foreground mb-1.5 block">Text alignment</label>
-                      <div className="flex bg-[#f0f1f5] dark:bg-muted rounded-md p-0.5 w-fit">
+                      <label className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1.5 block">Text alignment</label>
+                      <div className="flex bg-light-grayish-blue dark:bg-muted rounded-md p-0.5 w-fit">
                         {([
                           { key: "left" as const, icon: <AlignLeft className="w-3.5 h-3.5" /> },
                           { key: "center" as const, icon: <AlignCenter className="w-3.5 h-3.5" /> },
@@ -1416,7 +1416,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                             key={a.key}
                             onClick={() => setTextAlign(a.key)}
                             className={`p-2 rounded transition-colors ${
-                              textAlign === a.key ? "bg-white dark:bg-muted shadow-sm text-[#212121] dark:text-foreground" : "text-[#999] dark:text-muted-foreground"
+                              textAlign === a.key ? "bg-white dark:bg-muted shadow-sm text-gray-900 dark:text-foreground" : "text-gray-90 dark:text-muted-foreground"
                             }`}
                           >
                             {a.icon}
@@ -1429,91 +1429,91 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
               </div>
 
               {/* ── Page Cover ── */}
-              <div className="border-b border-[#f0f0f0] dark:border-border">
+              <div className="border-b border-gray-20 dark:border-border">
                 <SectionHeader section="cover" icon={<BookOpen className="w-[14px] h-[14px]" />} label="Page cover" />
                 {expandedSection === "cover" && (
                   <div className="pb-4 space-y-3 pl-7">
                     <div className="flex items-center justify-between">
-                      <span className="text-[12px] text-[#555] dark:text-muted-foreground">Show cover page</span>
+                      <span className="text-[12px] text-gray-300 dark:text-muted-foreground">Show cover page</span>
                       <Toggle checked={showCoverPage} onChange={setShowCoverPage} />
                     </div>
                     {showCoverPage && (
                       <>
                         <div>
-                          <label className="text-[11px] text-[#999] dark:text-muted-foreground mb-1 block">Title</label>
+                          <label className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1 block">Title</label>
                           <input
                             type="text"
                             value={coverTitle}
                             onChange={e => setCoverTitle(e.target.value)}
-                            className="w-full border border-[#e5e9f0] dark:border-border rounded px-2.5 py-1.5 text-[12px] text-[#212121] dark:text-foreground bg-white dark:bg-muted outline-none focus:border-[#2552ED]"
+                            className="w-full border border-new-selected-color dark:border-border rounded px-2.5 py-1.5 text-[12px] text-gray-900 dark:text-foreground bg-white dark:bg-muted outline-none focus:border-brand-color"
                           />
                         </div>
                         <div>
-                          <label className="text-[11px] text-[#999] dark:text-muted-foreground mb-1 block">Subtitle</label>
+                          <label className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1 block">Subtitle</label>
                           <input
                             type="text"
                             value={coverSubtitle}
                             onChange={e => setCoverSubtitle(e.target.value)}
-                            className="w-full border border-[#e5e9f0] dark:border-border rounded px-2.5 py-1.5 text-[12px] text-[#212121] dark:text-foreground bg-white dark:bg-muted outline-none focus:border-[#2552ED]"
+                            className="w-full border border-new-selected-color dark:border-border rounded px-2.5 py-1.5 text-[12px] text-gray-900 dark:text-foreground bg-white dark:bg-muted outline-none focus:border-brand-color"
                           />
                         </div>
                         <div>
-                          <label className="text-[11px] text-[#999] dark:text-muted-foreground mb-1 block">Date</label>
+                          <label className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1 block">Date</label>
                           <input
                             type="text"
                             value={coverDate}
                             onChange={e => setCoverDate(e.target.value)}
-                            className="w-full border border-[#e5e9f0] dark:border-border rounded px-2.5 py-1.5 text-[12px] text-[#212121] dark:text-foreground bg-white dark:bg-muted outline-none focus:border-[#2552ED]"
+                            className="w-full border border-new-selected-color dark:border-border rounded px-2.5 py-1.5 text-[12px] text-gray-900 dark:text-foreground bg-white dark:bg-muted outline-none focus:border-brand-color"
                           />
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-[12px] text-[#555] dark:text-muted-foreground">Show logo</span>
+                          <span className="text-[12px] text-gray-300 dark:text-muted-foreground">Show logo</span>
                           <Toggle checked={showLogo} onChange={setShowLogo} />
                         </div>
                         {showLogo && (
                           <div>
-                            <label className="text-[11px] text-[#999] dark:text-muted-foreground mb-1.5 block">Change logo</label>
+                            <label className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1.5 block">Change logo</label>
                             <div className="space-y-2.5">
                               {/* Current logo preview */}
                               {customLogoUrl && (
-                                <div className="flex items-center gap-2.5 p-2 rounded-lg border border-[#e5e9f0] dark:border-border bg-[#fafafa] dark:bg-muted">
+                                <div className="flex items-center gap-2.5 p-2 rounded-lg border border-new-selected-color dark:border-border bg-gray-10 dark:bg-muted">
                                   <img src={customLogoUrl} alt="Current logo" className="w-10 h-10 object-contain rounded" />
-                                  <span className="text-[11px] text-[#555] dark:text-muted-foreground flex-1 truncate">Custom logo</span>
+                                  <span className="text-[11px] text-gray-300 dark:text-muted-foreground flex-1 truncate">Custom logo</span>
                                   <button
                                     onClick={() => setCustomLogoUrl(null)}
-                                    className="p-1 rounded hover:bg-[#eee] dark:hover:bg-muted transition-colors"
+                                    className="p-1 rounded hover:bg-gray-30 dark:hover:bg-muted transition-colors"
                                     title="Remove logo"
                                   >
-                                    <Trash2 className="w-3.5 h-3.5 text-[#999]" />
+                                    <Trash2 className="w-3.5 h-3.5 text-gray-90" />
                                   </button>
                                 </div>
                               )}
                               {/* Upload button */}
                               <button
                                 onClick={() => logoFileRef.current?.click()}
-                                className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg border border-dashed border-[#ccc] dark:border-border hover:border-[#2552ED] hover:bg-[#f5f8ff] dark:hover:bg-[#1e2d5e] transition-all text-left"
+                                className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg border border-dashed border-gray-60 dark:border-border hover:border-brand-color hover:bg-blue-10 dark:hover:bg-blue-300 transition-all text-left"
                               >
-                                <Upload className="w-[14px] h-[14px] text-[#999] dark:text-muted-foreground shrink-0" />
-                                <span className="text-[12px] text-[#555] dark:text-muted-foreground">Upload from device</span>
+                                <Upload className="w-[14px] h-[14px] text-gray-90 dark:text-muted-foreground shrink-0" />
+                                <span className="text-[12px] text-gray-300 dark:text-muted-foreground">Upload from device</span>
                               </button>
                               {/* Search by website */}
                               <div>
                                 <div className="flex items-center gap-1.5">
-                                  <div className="flex-1 flex items-center gap-2 border border-[#e5e9f0] dark:border-border rounded-lg px-2.5 py-1.5 focus-within:border-[#2552ED] transition-colors bg-white dark:bg-muted">
-                                    <Globe className="w-3.5 h-3.5 text-[#999] dark:text-muted-foreground shrink-0" />
+                                  <div className="flex-1 flex items-center gap-2 border border-new-selected-color dark:border-border rounded-lg px-2.5 py-1.5 focus-within:border-brand-color transition-colors bg-white dark:bg-muted">
+                                    <Globe className="w-3.5 h-3.5 text-gray-90 dark:text-muted-foreground shrink-0" />
                                     <input
                                       type="text"
                                       value={logoSearchUrl}
                                       onChange={e => { setLogoSearchUrl(e.target.value); setLogoSearchError(""); }}
                                       onKeyDown={e => e.key === "Enter" && handleLogoSearch()}
                                       placeholder="company.com"
-                                      className="flex-1 text-[12px] text-[#212121] dark:text-foreground outline-none bg-transparent placeholder:text-[#bbb] dark:placeholder:text-muted-foreground min-w-0"
+                                      className="flex-1 text-[12px] text-gray-900 dark:text-foreground outline-none bg-transparent placeholder:text-gray-70 dark:placeholder:text-muted-foreground min-w-0"
                                     />
                                   </div>
                                   <button
                                     onClick={handleLogoSearch}
                                     disabled={isFetchingLogo || !logoSearchUrl.trim()}
-                                    className="px-2.5 py-1.5 rounded-lg bg-[#2552ED] hover:bg-[#1E44CC] disabled:bg-[#ccc] transition-colors shrink-0"
+                                    className="px-2.5 py-1.5 rounded-lg bg-brand-color hover:bg-brand-color disabled:bg-gray-60 transition-colors shrink-0"
                                   >
                                     {isFetchingLogo ? (
                                       <Loader2 className="w-3.5 h-3.5 text-white animate-spin" />
@@ -1523,7 +1523,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                                   </button>
                                 </div>
                                 {logoSearchError && (
-                                  <p className="text-[10px] text-[#C62828] mt-1">{logoSearchError}</p>
+                                  <p className="text-[10px] text-red-200 mt-1">{logoSearchError}</p>
                                 )}
                               </div>
                             </div>
@@ -1541,7 +1541,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                           </div>
                         )}
                         <div className="flex items-center justify-between">
-                          <span className="text-[12px] text-[#555] dark:text-muted-foreground">Summary page</span>
+                          <span className="text-[12px] text-gray-300 dark:text-muted-foreground">Summary page</span>
                           <Toggle checked={showSummaryPage} onChange={onToggleSummaryPage} />
                         </div>
                       </>
@@ -1551,11 +1551,11 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
               </div>
 
               {/* ── Theme ── */}
-              <div className="border-b border-[#f0f0f0] dark:border-border">
+              <div className="border-b border-gray-20 dark:border-border">
                 <SectionHeader section="theme" icon={<Palette className="w-[14px] h-[14px]" />} label="Colors" />
                 {expandedSection === "theme" && (
                   <div className="pb-4 space-y-3 pl-7">
-                    <label className="text-[11px] text-[#999] dark:text-muted-foreground block">Accent color</label>
+                    <label className="text-[11px] text-gray-90 dark:text-muted-foreground block">Accent color</label>
                     <div className="flex flex-wrap gap-2">
                       {colorPresets.map(p => (
                         <button
@@ -1575,18 +1575,18 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
               </div>
 
               {/* ── Font Type ── */}
-              <div className="border-b border-[#f0f0f0] dark:border-border">
+              <div className="border-b border-gray-20 dark:border-border">
                 <SectionHeader section="font" icon={<Type className="w-[14px] h-[14px]" />} label="Font type" />
                 {expandedSection === "font" && (
                   <div className="pb-4 space-y-3 pl-7">
                     {/* Font size control */}
                     <div>
-                      <label className="text-[11px] text-[#999] dark:text-muted-foreground mb-1.5 block">Font size</label>
+                      <label className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1.5 block">Font size</label>
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => setFontScale(prev => Math.max(75, prev - 5))}
                           disabled={fontScale <= 75}
-                          className={`w-7 h-7 rounded-md border border-[#e5e9f0] dark:border-border flex items-center justify-center transition-colors ${fontScale <= 75 ? "text-[#ccc] dark:text-muted-foreground cursor-not-allowed" : "hover:bg-[#f5f5f5] dark:hover:bg-muted text-[#555] dark:text-muted-foreground"}`}
+                          className={`w-7 h-7 rounded-md border border-new-selected-color dark:border-border flex items-center justify-center transition-colors ${fontScale <= 75 ? "text-gray-60 dark:text-muted-foreground cursor-not-allowed" : "hover:bg-gray-20 dark:hover:bg-muted text-gray-300 dark:text-muted-foreground"}`}
                         >
                           <Minus className="w-3.5 h-3.5" />
                         </button>
@@ -1598,48 +1598,48 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                             step={5}
                             value={fontScale}
                             onChange={e => setFontScale(Number(e.target.value))}
-                            className="w-full h-1 bg-[#e5e9f0] dark:bg-muted rounded-full appearance-none cursor-pointer accent-[#2552ED]"
+                            className="w-full h-1 bg-new-selected-color dark:bg-muted rounded-full appearance-none cursor-pointer accent-brand-color"
                           />
                         </div>
                         <button
                           onClick={() => setFontScale(prev => Math.min(150, prev + 5))}
                           disabled={fontScale >= 150}
-                          className={`w-7 h-7 rounded-md border border-[#e5e9f0] dark:border-border flex items-center justify-center transition-colors ${fontScale >= 150 ? "text-[#ccc] dark:text-muted-foreground cursor-not-allowed" : "hover:bg-[#f5f5f5] dark:hover:bg-muted text-[#555] dark:text-muted-foreground"}`}
+                          className={`w-7 h-7 rounded-md border border-new-selected-color dark:border-border flex items-center justify-center transition-colors ${fontScale >= 150 ? "text-gray-60 dark:text-muted-foreground cursor-not-allowed" : "hover:bg-gray-20 dark:hover:bg-muted text-gray-300 dark:text-muted-foreground"}`}
                         >
                           <Plus className="w-3.5 h-3.5" />
                         </button>
                       </div>
                       <div className="flex items-center justify-between mt-1">
-                        <span className="text-[10px] text-[#999] dark:text-muted-foreground">75%</span>
+                        <span className="text-[10px] text-gray-90 dark:text-muted-foreground">75%</span>
                         <button
                           onClick={() => setFontScale(100)}
-                          className={`text-[11px] transition-colors ${fontScale !== 100 ? "text-[#2552ED] hover:underline cursor-pointer" : "text-[#999] dark:text-muted-foreground"}`}
+                          className={`text-[11px] transition-colors ${fontScale !== 100 ? "text-brand-color hover:underline cursor-pointer" : "text-gray-90 dark:text-muted-foreground"}`}
                         >
                           {fontScale}%{fontScale !== 100 ? " — Reset" : ""}
                         </button>
-                        <span className="text-[10px] text-[#999] dark:text-muted-foreground">150%</span>
+                        <span className="text-[10px] text-gray-90 dark:text-muted-foreground">150%</span>
                       </div>
                     </div>
 
                     {/* Font family selection */}
                     <div>
-                      <label className="text-[11px] text-[#999] dark:text-muted-foreground mb-1.5 block">Font family</label>
+                      <label className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1.5 block">Font family</label>
                       <div className="space-y-1.5">
                         {fontOptions.map(f => (
                           <button
                             key={f.name}
                             onClick={() => setSelectedFont(f.name)}
                             className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg border transition-colors ${
-                              selectedFont === f.name ? "border-[#2552ED] bg-[#e8effe] dark:bg-[#1e2d5e]" : "border-[#e5e9f0] dark:border-border hover:bg-[#fafafa] dark:hover:bg-muted"
+                              selectedFont === f.name ? "border-brand-color bg-blue-10 dark:bg-blue-300" : "border-new-selected-color dark:border-border hover:bg-gray-10 dark:hover:bg-muted"
                             }`}
                           >
                             <div>
-                              <span className="text-[13px] text-[#212121] dark:text-foreground block" style={{ fontFamily: f.family, fontWeight: 400 }}>
+                              <span className="text-[13px] text-gray-900 dark:text-foreground block" style={{ fontFamily: f.family, fontWeight: 400 }}>
                                 {f.name}
                               </span>
-                              <span className="text-[10px] text-[#999] dark:text-muted-foreground">{f.style}</span>
+                              <span className="text-[10px] text-gray-90 dark:text-muted-foreground">{f.style}</span>
                             </div>
-                            {selectedFont === f.name && <Check className="w-4 h-4 text-[#2552ED]" />}
+                            {selectedFont === f.name && <Check className="w-4 h-4 text-brand-color" />}
                           </button>
                         ))}
                       </div>
@@ -1649,18 +1649,18 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
               </div>
 
               {/* ── Padding & Spacing ── */}
-              <div className="border-b border-[#f0f0f0] dark:border-border">
+              <div className="border-b border-gray-20 dark:border-border">
                 <SectionHeader section="padding" icon={<Maximize className="w-[14px] h-[14px]" />} label="Padding & spacing" />
                 {expandedSection === "padding" && (
                   <div className="pb-4 space-y-3 pl-7">
-                    <label className="text-[11px] text-[#999] dark:text-muted-foreground block">Page padding</label>
-                    <div className="flex bg-[#f0f1f5] dark:bg-muted rounded-md p-0.5">
+                    <label className="text-[11px] text-gray-90 dark:text-muted-foreground block">Page padding</label>
+                    <div className="flex bg-light-grayish-blue dark:bg-muted rounded-md p-0.5">
                       {(["compact", "normal", "spacious"] as const).map(s => (
                         <button
                           key={s}
                           onClick={() => setPaddingSize(s)}
                           className={`flex-1 py-1.5 rounded text-[12px] capitalize transition-colors ${
-                            paddingSize === s ? "bg-white dark:bg-muted shadow-sm text-[#212121] dark:text-foreground" : "text-[#999] dark:text-muted-foreground"
+                            paddingSize === s ? "bg-white dark:bg-muted shadow-sm text-gray-900 dark:text-foreground" : "text-gray-90 dark:text-muted-foreground"
                           }`}
                           style={{ fontWeight: paddingSize === s ? 400 : 300 }}
                         >
@@ -1668,10 +1668,10 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                         </button>
                       ))}
                     </div>
-                    <div className="bg-[#fafafa] dark:bg-muted rounded-md px-3 py-2 mt-1">
+                    <div className="bg-gray-10 dark:bg-muted rounded-md px-3 py-2 mt-1">
                       <div className="flex items-center justify-between">
-                        <span className="text-[11px] text-[#555] dark:text-muted-foreground">Inner padding</span>
-                        <span className="text-[11px] text-[#2552ED]" style={{ fontWeight: 400 }}>{pagePadding}px</span>
+                        <span className="text-[11px] text-gray-300 dark:text-muted-foreground">Inner padding</span>
+                        <span className="text-[11px] text-brand-color" style={{ fontWeight: 400 }}>{pagePadding}px</span>
                       </div>
                     </div>
                   </div>
@@ -1684,25 +1684,25 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                 {expandedSection === "header" && (
                   <div className="pb-4 space-y-3 pl-7">
                     <div className="flex items-center justify-between">
-                      <span className="text-[12px] text-[#555] dark:text-muted-foreground">Show header</span>
+                      <span className="text-[12px] text-gray-300 dark:text-muted-foreground">Show header</span>
                       <Toggle checked={showHeader} onChange={setShowHeader} />
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[12px] text-[#555] dark:text-muted-foreground">Show footer</span>
+                      <span className="text-[12px] text-gray-300 dark:text-muted-foreground">Show footer</span>
                       <Toggle checked={showFooter} onChange={setShowFooter} />
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[12px] text-[#555] dark:text-muted-foreground">Page numbers</span>
+                      <span className="text-[12px] text-gray-300 dark:text-muted-foreground">Page numbers</span>
                       <Toggle checked={showPageNumbers} onChange={setShowPageNumbers} />
                     </div>
                     {showHeader && (
                       <div>
-                        <label className="text-[11px] text-[#999] dark:text-muted-foreground mb-1 block">Footer text</label>
+                        <label className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1 block">Footer text</label>
                         <input
                           type="text"
                           value={headerText}
                           onChange={e => setHeaderText(e.target.value)}
-                          className="w-full border border-[#e5e9f0] dark:border-border rounded px-2.5 py-1.5 text-[12px] text-[#212121] dark:text-foreground bg-white dark:bg-muted outline-none focus:border-[#2552ED]"
+                          className="w-full border border-new-selected-color dark:border-border rounded px-2.5 py-1.5 text-[12px] text-gray-900 dark:text-foreground bg-white dark:bg-muted outline-none focus:border-brand-color"
                         />
                       </div>
                     )}
@@ -1714,22 +1714,22 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
         </div>
 
         {/* Right - Preview + Thumbnails */}
-        <div className="flex-1 bg-[#f2f4f7] dark:bg-app-shell-gutter flex flex-col min-w-0 relative transition-colors duration-300">
+        <div className="flex-1 bg-new-hover-color dark:bg-app-shell-gutter flex flex-col min-w-0 relative transition-colors duration-300">
           {/* Toolbar */}
           <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20" data-no-print>
             <div className="flex items-center gap-0.5 bg-white dark:bg-background rounded-full shadow-[0px_2px_12px_rgba(0,0,0,0.12)] dark:shadow-[0px_2px_12px_rgba(0,0,0,0.35)] px-1.5 py-1">
               {/* Group 1: Page view */}
-              <button onClick={() => setViewMode("single")} title="Single-page view" className={`p-1.5 rounded-full transition-colors ${viewMode === "single" ? "bg-[#e8effe] dark:bg-[#1e2d5e] text-[#2552ED]" : "hover:bg-[#f5f5f5] dark:hover:bg-muted text-[#555] dark:text-muted-foreground"}`}>
+              <button onClick={() => setViewMode("single")} title="Single-page view" className={`p-1.5 rounded-full transition-colors ${viewMode === "single" ? "bg-blue-10 dark:bg-blue-300 text-brand-color" : "hover:bg-gray-20 dark:hover:bg-muted text-gray-300 dark:text-muted-foreground"}`}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" strokeWidth="1.2" fill="none"/><line x1="5" y1="5" x2="11" y2="5" stroke="currentColor" strokeWidth="0.8"/><line x1="5" y1="7.5" x2="11" y2="7.5" stroke="currentColor" strokeWidth="0.8"/><line x1="5" y1="10" x2="9" y2="10" stroke="currentColor" strokeWidth="0.8"/></svg>
               </button>
-              <button onClick={() => setViewMode("two")} title="Two-page view" className={`p-1.5 rounded-full transition-colors ${viewMode === "two" ? "bg-[#e8effe] dark:bg-[#1e2d5e] text-[#2552ED]" : "hover:bg-[#f5f5f5] dark:hover:bg-muted text-[#555] dark:text-muted-foreground"}`}>
+              <button onClick={() => setViewMode("two")} title="Two-page view" className={`p-1.5 rounded-full transition-colors ${viewMode === "two" ? "bg-blue-10 dark:bg-blue-300 text-brand-color" : "hover:bg-gray-20 dark:hover:bg-muted text-gray-300 dark:text-muted-foreground"}`}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="6" height="12" rx="1" stroke="currentColor" strokeWidth="1" fill="none"/><rect x="9" y="2" width="6" height="12" rx="1" stroke="currentColor" strokeWidth="1" fill="none"/></svg>
               </button>
 
-              <div className="w-px h-4 bg-[#ddd] dark:bg-muted mx-0.5 shrink-0" />
+              <div className="w-px h-4 bg-gray-50 dark:bg-muted mx-0.5 shrink-0" />
 
               {/* Group 2: Zoom controls — Acrobat-style */}
-              <button onClick={() => { setAutoFit(false); setZoomPercent(p => Math.max(25, p - 10)); }} title="Zoom out (−)" className="p-1.5 rounded-full hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors text-[#555] dark:text-muted-foreground">
+              <button onClick={() => { setAutoFit(false); setZoomPercent(p => Math.max(25, p - 10)); }} title="Zoom out (−)" className="p-1.5 rounded-full hover:bg-gray-20 dark:hover:bg-muted transition-colors text-gray-300 dark:text-muted-foreground">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.2" fill="none"/><line x1="4.5" y1="7" x2="9.5" y2="7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/><line x1="11" y1="11" x2="14" y2="14" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
               </button>
               <DropdownMenu>
@@ -1737,7 +1737,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                   <button
                     type="button"
                     title="Zoom level"
-                    className={`text-[12px] min-w-[46px] text-center tabular-nums select-none cursor-pointer rounded-full px-1.5 py-0.5 transition-colors flex items-center gap-0.5 justify-center ${autoFit ? "text-[#2552ED]" : "text-[#555] dark:text-muted-foreground hover:text-[#2552ED]"}`}
+                    className={`text-[12px] min-w-[46px] text-center tabular-nums select-none cursor-pointer rounded-full px-1.5 py-0.5 transition-colors flex items-center gap-0.5 justify-center ${autoFit ? "text-brand-color" : "text-gray-300 dark:text-muted-foreground hover:text-brand-color"}`}
                   >
                     {zoomPercent}%
                     <ChevronDown className="w-3 h-3 opacity-50" aria-hidden />
@@ -1781,17 +1781,17 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                   })}
                 </DropdownMenuContent>
               </DropdownMenu>
-              <button onClick={() => { setAutoFit(false); setZoomPercent(p => Math.min(400, p + 10)); }} title="Zoom in (+)" className="p-1.5 rounded-full hover:bg-[#f5f5f5] dark:hover:bg-muted transition-colors text-[#555] dark:text-muted-foreground">
+              <button onClick={() => { setAutoFit(false); setZoomPercent(p => Math.min(400, p + 10)); }} title="Zoom in (+)" className="p-1.5 rounded-full hover:bg-gray-20 dark:hover:bg-muted transition-colors text-gray-300 dark:text-muted-foreground">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.2" fill="none"/><line x1="4.5" y1="7" x2="9.5" y2="7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/><line x1="7" y1="4.5" x2="7" y2="9.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/><line x1="11" y1="11" x2="14" y2="14" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
               </button>
 
-              <div className="w-px h-4 bg-[#ddd] dark:bg-muted mx-0.5 shrink-0" />
+              <div className="w-px h-4 bg-gray-50 dark:bg-muted mx-0.5 shrink-0" />
 
               {/* Group 3: Undo / Redo */}
-              <button onClick={handleUndo} title="Undo" className={`p-1.5 rounded-full transition-colors ${canUndo ? "hover:bg-[#f5f5f5] dark:hover:bg-muted text-[#555] dark:text-muted-foreground" : "text-[#ccc] dark:text-muted-foreground cursor-not-allowed"}`} disabled={!canUndo}>
+              <button onClick={handleUndo} title="Undo" className={`p-1.5 rounded-full transition-colors ${canUndo ? "hover:bg-gray-20 dark:hover:bg-muted text-gray-300 dark:text-muted-foreground" : "text-gray-60 dark:text-muted-foreground cursor-not-allowed"}`} disabled={!canUndo}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 7L2 4L5 1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 4H10C12.2091 4 14 5.79086 14 8V8C14 10.2091 12.2091 12 10 12H6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
               </button>
-              <button onClick={handleRedo} title="Redo" className={`p-1.5 rounded-full transition-colors ${canRedo ? "hover:bg-[#f5f5f5] dark:hover:bg-muted text-[#555] dark:text-muted-foreground" : "text-[#ccc] dark:text-muted-foreground cursor-not-allowed"}`} disabled={!canRedo}>
+              <button onClick={handleRedo} title="Redo" className={`p-1.5 rounded-full transition-colors ${canRedo ? "hover:bg-gray-20 dark:hover:bg-muted text-gray-300 dark:text-muted-foreground" : "text-gray-60 dark:text-muted-foreground cursor-not-allowed"}`} disabled={!canRedo}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11 7L14 4L11 1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/><path d="M14 4H6C3.79086 4 2 5.79086 2 8V8C2 10.2091 3.79086 12 6 12H10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
               </button>
             </div>
@@ -1883,15 +1883,15 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                         data-page-index={pageIndex}
                         data-print-page
                         className="shadow-[0px_4px_16px_rgba(0,0,0,0.1)] overflow-hidden shrink-0 flex flex-col"
-                        style={{ width: pageW, height: pageH, borderRadius: 6, backgroundColor: "#fff" }}
+                        style={{ width: pageW, height: pageH, borderRadius: 6, backgroundColor: "var(--gray-0)" }}
                       >
                         <div className="flex-1 min-h-0 overflow-hidden flex items-start" style={{ padding: pagePadding }}>
                           <img src={defaultStaticImages[origIdx]} alt={`Report page ${seqIdx + 1}`} className="w-full" />
                         </div>
                         {showFooter && (
                           <div className="flex justify-between items-center px-3 py-1.5" style={{ borderTop: "1px solid #e0e0e0" }}>
-                            <span className="text-[5px]" style={{ color: "#666", opacity: 0.6 }}>{headerText}</span>
-                            {showPageNumbers && <span className="text-[5px]" style={{ color: "#666", opacity: 0.6 }}>Page {pageNum}</span>}
+                            <span className="text-[5px]" style={{ color: "var(--gray-200)", opacity: 0.6 }}>{headerText}</span>
+                            {showPageNumbers && <span className="text-[5px]" style={{ color: "var(--gray-200)", opacity: 0.6 }}>Page {pageNum}</span>}
                           </div>
                         )}
                       </div>
@@ -1940,10 +1940,10 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
 
             {/* Right thumbnail strip */}
             {/* Right page navigation panel — Gamma-style */}
-            <div className="w-[120px] bg-white dark:bg-background border-l border-[#e5e9f0] dark:border-border shrink-0 flex flex-col transition-colors duration-300" data-no-print>
+            <div className="w-[120px] bg-white dark:bg-background border-l border-new-selected-color dark:border-border shrink-0 flex flex-col transition-colors duration-300" data-no-print>
               {/* Panel header */}
-              <div className="px-2.5 pt-2.5 pb-1.5 border-b border-[#f0f0f0] dark:border-border">
-                <p className="text-[10px] text-[#999] dark:text-muted-foreground tracking-wide uppercase">Pages</p>
+              <div className="px-2.5 pt-2.5 pb-1.5 border-b border-gray-20 dark:border-border">
+                <p className="text-[10px] text-gray-90 dark:text-muted-foreground tracking-wide uppercase">Pages</p>
               </div>
               {/* Scrollable thumbnails */}
               <div className="flex-1 overflow-y-auto px-2 py-2 space-y-2.5">
@@ -1954,7 +1954,7 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                     <div className="w-full group relative">
                       <button onClick={() => showCoverPage && scrollToPage(0)} className={`w-full cursor-pointer text-left ${!showCoverPage ? "opacity-40" : ""}`} disabled={!showCoverPage}>
                         <div
-                          className="w-full rounded-lg overflow-hidden border-2 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.08)] group-hover:shadow-[0_2px_8px_rgba(0,0,0,0.12)] group-hover:border-[#2552ED]/40"
+                          className="w-full rounded-lg overflow-hidden border-2 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.08)] group-hover:shadow-[0_2px_8px_rgba(0,0,0,0.12)] group-hover:border-brand-color/40"
                           style={{ aspectRatio: `1/${currentLayout.ratio}`, backgroundColor: currentStyle.bg, borderColor: 'var(--thumb-border, #e5e9f0)' }}
                         >
                           <div className="w-full h-full flex flex-col items-center justify-center p-1.5 relative [--thumb-border:#e5e9f0] dark:[--thumb-border:#333a47]">
@@ -1967,21 +1967,21 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                             <div className="w-3/4 h-[2px] rounded mt-1 relative z-10" style={{ backgroundColor: currentStyle.borderColor }} />
                             <div className="w-1/2 h-[1px] rounded mt-0.5 relative z-10" style={{ backgroundColor: currentStyle.borderColor }} />
                             {showCoverPage && (
-                              <div className="absolute bottom-1 left-1 w-4 h-4 rounded flex items-center justify-center bg-white/90 dark:bg-background/90 shadow-sm border border-[#e5e9f0] dark:border-border">
-                                <span className="text-[8px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>{pageNum}</span>
+                              <div className="absolute bottom-1 left-1 w-4 h-4 rounded flex items-center justify-center bg-white/90 dark:bg-background/90 shadow-sm border border-new-selected-color dark:border-border">
+                                <span className="text-[8px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>{pageNum}</span>
                               </div>
                             )}
                           </div>
                         </div>
-                        <p className="text-[9px] text-[#777] dark:text-muted-foreground mt-1 px-0.5 truncate">{coverTitle || "Cover"}</p>
+                        <p className="text-[9px] text-gray-100 dark:text-muted-foreground mt-1 px-0.5 truncate">{coverTitle || "Cover"}</p>
                       </button>
                       <div className="absolute top-0.5 right-0.5 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col gap-0.5 z-10">
                         <button
                           onClick={(e) => { e.stopPropagation(); setShowCoverPage(!showCoverPage); }}
                           title={showCoverPage ? "Hide cover page" : "Show cover page"}
-                          className="w-5 h-5 rounded bg-white/95 dark:bg-background/95 shadow-sm border border-[#e0e0e0] dark:border-border flex items-center justify-center hover:bg-[#f0f0f0] dark:hover:bg-muted transition-colors"
+                          className="w-5 h-5 rounded bg-white/95 dark:bg-background/95 shadow-sm border border-light-gray dark:border-border flex items-center justify-center hover:bg-gray-20 dark:hover:bg-muted transition-colors"
                         >
-                          {showCoverPage ? <Eye className="w-2.5 h-2.5 text-[#555] dark:text-muted-foreground" /> : <EyeOff className="w-2.5 h-2.5 text-[#999] dark:text-muted-foreground" />}
+                          {showCoverPage ? <Eye className="w-2.5 h-2.5 text-gray-300 dark:text-muted-foreground" /> : <EyeOff className="w-2.5 h-2.5 text-gray-90 dark:text-muted-foreground" />}
                         </button>
                       </div>
                     </div>
@@ -1994,8 +1994,8 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                     <div className="w-full group relative">
                       <button onClick={() => showSummaryPage && scrollToPage(showCoverPage ? 1 : 0)} className={`w-full cursor-pointer text-left ${!showSummaryPage ? "opacity-40" : ""}`} disabled={!showSummaryPage}>
                         <div
-                          className="w-full rounded-lg overflow-hidden border-2 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.08)] group-hover:shadow-[0_2px_8px_rgba(0,0,0,0.12)] group-hover:border-[#2552ED]/40"
-                          style={{ aspectRatio: `1/${currentLayout.ratio}`, backgroundColor: currentStyle.bg, borderColor: '#e5e9f0' }}
+                          className="w-full rounded-lg overflow-hidden border-2 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.08)] group-hover:shadow-[0_2px_8px_rgba(0,0,0,0.12)] group-hover:border-brand-color/40"
+                          style={{ aspectRatio: `1/${currentLayout.ratio}`, backgroundColor: currentStyle.bg, borderColor: 'var(--new-selected-color)' }}
                         >
                           <div className="w-full h-full p-1.5 relative" style={{ borderTop: `2px solid ${themeColor}` }}>
                             <div className="w-6 h-0.5 rounded mb-0.5" style={{ backgroundColor: themeColor }} />
@@ -2009,21 +2009,21 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                               ))}
                             </div>
                             {showSummaryPage && (
-                              <div className="absolute bottom-1 left-1 w-4 h-4 rounded flex items-center justify-center bg-white/90 dark:bg-background/90 shadow-sm border border-[#e5e9f0] dark:border-border">
-                                <span className="text-[8px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>{pageNum}</span>
+                              <div className="absolute bottom-1 left-1 w-4 h-4 rounded flex items-center justify-center bg-white/90 dark:bg-background/90 shadow-sm border border-new-selected-color dark:border-border">
+                                <span className="text-[8px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>{pageNum}</span>
                               </div>
                             )}
                           </div>
                         </div>
-                        <p className="text-[9px] text-[#777] dark:text-muted-foreground mt-1 px-0.5 truncate">Summary</p>
+                        <p className="text-[9px] text-gray-100 dark:text-muted-foreground mt-1 px-0.5 truncate">Summary</p>
                       </button>
                       <div className="absolute top-0.5 right-0.5 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col gap-0.5 z-10">
                         <button
                           onClick={(e) => { e.stopPropagation(); onToggleSummaryPage(!showSummaryPage); }}
                           title={showSummaryPage ? "Hide summary page" : "Show summary page"}
-                          className="w-5 h-5 rounded bg-white/95 dark:bg-background/95 shadow-sm border border-[#e0e0e0] dark:border-border flex items-center justify-center hover:bg-[#f0f0f0] dark:hover:bg-muted transition-colors"
+                          className="w-5 h-5 rounded bg-white/95 dark:bg-background/95 shadow-sm border border-light-gray dark:border-border flex items-center justify-center hover:bg-gray-20 dark:hover:bg-muted transition-colors"
                         >
-                          {showSummaryPage ? <Eye className="w-2.5 h-2.5 text-[#555] dark:text-muted-foreground" /> : <EyeOff className="w-2.5 h-2.5 text-[#999] dark:text-muted-foreground" />}
+                          {showSummaryPage ? <Eye className="w-2.5 h-2.5 text-gray-300 dark:text-muted-foreground" /> : <EyeOff className="w-2.5 h-2.5 text-gray-90 dark:text-muted-foreground" />}
                         </button>
                       </div>
                     </div>
@@ -2053,8 +2053,8 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                           className="absolute -left-0.5 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-200 cursor-grab active:cursor-grabbing"
                           style={{ transitionTimingFunction: "cubic-bezier(0.2, 0, 0, 1)" }}
                         >
-                          <div className="w-[14px] h-[24px] rounded-[4px] bg-white/95 dark:bg-background/95 shadow-[0_1px_4px_rgba(0,0,0,0.12)] border border-[#e0e0e0]/60 dark:border-border/60 backdrop-blur-sm flex items-center justify-center hover:bg-[#f5f5f5] dark:hover:bg-muted hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-all duration-150">
-                            <GripVertical className="w-[9px] h-[9px] text-[#999] dark:text-muted-foreground" />
+                          <div className="w-[14px] h-[24px] rounded-[4px] bg-white/95 dark:bg-background/95 shadow-[0_1px_4px_rgba(0,0,0,0.12)] border border-light-gray/60 dark:border-border/60 backdrop-blur-sm flex items-center justify-center hover:bg-gray-20 dark:hover:bg-muted hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-all duration-150">
+                            <GripVertical className="w-[9px] h-[9px] text-gray-90 dark:text-muted-foreground" />
                           </div>
                         </div>
                         <button
@@ -2065,19 +2065,19 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                           {selectedStyle === "default" ? (
                             <div
                               className="w-full rounded-lg overflow-hidden border-2 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.08)] relative"
-                              style={{ aspectRatio: `1/${currentLayout.ratio}`, backgroundColor: "#fff", borderColor: '#e5e9f0' }}
+                              style={{ aspectRatio: `1/${currentLayout.ratio}`, backgroundColor: "var(--gray-0)", borderColor: 'var(--new-selected-color)' }}
                             >
                               <img src={defaultStaticImages[origIdx]} alt="" className="w-full h-full object-cover object-top" />
                               {!isHidden && (
-                                <div className="absolute bottom-1 left-1 w-4 h-4 rounded flex items-center justify-center bg-white/90 dark:bg-background/90 shadow-sm border border-[#e5e9f0] dark:border-border">
-                                  <span className="text-[8px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>{displayNum}</span>
+                                <div className="absolute bottom-1 left-1 w-4 h-4 rounded flex items-center justify-center bg-white/90 dark:bg-background/90 shadow-sm border border-new-selected-color dark:border-border">
+                                  <span className="text-[8px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>{displayNum}</span>
                                 </div>
                               )}
                             </div>
                           ) : (
                             <div
                               className="w-full rounded-lg overflow-hidden border-2 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.08)] relative"
-                              style={{ aspectRatio: `1/${currentLayout.ratio}`, backgroundColor: currentStyle.bg, borderColor: '#e5e9f0' }}
+                              style={{ aspectRatio: `1/${currentLayout.ratio}`, backgroundColor: currentStyle.bg, borderColor: 'var(--new-selected-color)' }}
                             >
                               <div className="w-full h-full p-2" style={{ borderTop: `2px solid ${themeColor}` }}>
                                 <div className="w-3/4 h-[2px] rounded mb-1" style={{ backgroundColor: themeColor }} />
@@ -2113,29 +2113,29 @@ export function AICustomizePanel({ onClose, themeColor, onThemeColorChange, show
                                 </div>
                               </div>
                               {!isHidden && (
-                                <div className="absolute bottom-1 left-1 w-4 h-4 rounded flex items-center justify-center bg-white/90 dark:bg-background/90 shadow-sm border border-[#e5e9f0] dark:border-border">
-                                  <span className="text-[8px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>{displayNum}</span>
+                                <div className="absolute bottom-1 left-1 w-4 h-4 rounded flex items-center justify-center bg-white/90 dark:bg-background/90 shadow-sm border border-new-selected-color dark:border-border">
+                                  <span className="text-[8px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>{displayNum}</span>
                                 </div>
                               )}
                             </div>
                           )}
-                          <p className="text-[9px] text-[#777] dark:text-muted-foreground mt-1 px-0.5 truncate">{page?.title || `Page ${displayNum}`}</p>
+                          <p className="text-[9px] text-gray-100 dark:text-muted-foreground mt-1 px-0.5 truncate">{page?.title || `Page ${displayNum}`}</p>
                         </button>
                         {/* Hover action bar — streamlined (drag replaces move up/down) */}
                         <div className="absolute top-0.5 right-0.5 opacity-0 group-hover:opacity-100 transition-all duration-200 flex flex-col gap-0.5 z-10" style={{ transitionTimingFunction: "cubic-bezier(0.2, 0, 0, 1)" }}>
                           <button
                             onClick={(e) => { e.stopPropagation(); toggleReportPageVisibility(origIdx); }}
                             title={isHidden ? "Show page" : "Hide page"}
-                            className="w-5 h-5 rounded-[5px] bg-white/95 dark:bg-background/95 shadow-[0_1px_4px_rgba(0,0,0,0.1)] border border-[#e0e0e0]/60 dark:border-border/60 backdrop-blur-sm flex items-center justify-center hover:bg-[#f5f5f5] dark:hover:bg-muted hover:shadow-[0_2px_6px_rgba(0,0,0,0.14)] transition-all duration-150"
+                            className="w-5 h-5 rounded-[5px] bg-white/95 dark:bg-background/95 shadow-[0_1px_4px_rgba(0,0,0,0.1)] border border-light-gray/60 dark:border-border/60 backdrop-blur-sm flex items-center justify-center hover:bg-gray-20 dark:hover:bg-muted hover:shadow-[0_2px_6px_rgba(0,0,0,0.14)] transition-all duration-150"
                           >
-                            {isHidden ? <EyeOff className="w-2.5 h-2.5 text-[#999] dark:text-muted-foreground" /> : <Eye className="w-2.5 h-2.5 text-[#555] dark:text-muted-foreground" />}
+                            {isHidden ? <EyeOff className="w-2.5 h-2.5 text-gray-90 dark:text-muted-foreground" /> : <Eye className="w-2.5 h-2.5 text-gray-300 dark:text-muted-foreground" />}
                           </button>
                           <button
                             onClick={(e) => { e.stopPropagation(); deleteReportPage(origIdx); }}
                             title="Delete page"
-                            className="w-5 h-5 rounded-[5px] bg-white/95 dark:bg-background/95 shadow-[0_1px_4px_rgba(0,0,0,0.1)] border border-[#e0e0e0]/60 dark:border-border/60 backdrop-blur-sm flex items-center justify-center hover:bg-[#fee2e2] dark:hover:bg-[#3b1c1c] hover:shadow-[0_2px_6px_rgba(0,0,0,0.14)] transition-all duration-150"
+                            className="w-5 h-5 rounded-[5px] bg-white/95 dark:bg-background/95 shadow-[0_1px_4px_rgba(0,0,0,0.1)] border border-light-gray/60 dark:border-border/60 backdrop-blur-sm flex items-center justify-center hover:bg-red-20 dark:hover:bg-red-400 hover:shadow-[0_2px_6px_rgba(0,0,0,0.14)] transition-all duration-150"
                           >
-                            <Trash2 className="w-2.5 h-2.5 text-[#dc2626]" />
+                            <Trash2 className="w-2.5 h-2.5 text-red-90" />
                           </button>
                         </div>
                       </div>

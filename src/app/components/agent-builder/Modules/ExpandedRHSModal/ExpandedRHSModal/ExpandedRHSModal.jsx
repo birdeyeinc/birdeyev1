@@ -5,7 +5,7 @@ import ExpandedRHSFooter from '../../../Molecules/ExpandedRHS/ExpandedRHSFooter/
 const font = '"Inter", arial, sans-serif';
 
 const DIVIDER = (
-  <div style={{ width: 1, background: '#e5e9f0', flexShrink: 0 }} />
+  <div style={{ width: 1, background: 'var(--new-selected-color)', flexShrink: 0 }} />
 );
 
 export default function ExpandedRHSModal({
@@ -26,7 +26,7 @@ export default function ExpandedRHSModal({
       flexDirection: 'column',
       width: '100%',
       height: '100%',
-      background: '#ffffff',
+      background: 'var(--gray-0)',
       borderRadius: 8,
       fontFamily: font,
       overflow: 'hidden',
@@ -41,7 +41,7 @@ export default function ExpandedRHSModal({
           {formContent}
         </div>
         {DIVIDER}
-        <div style={{ flex: 1, overflowY: 'auto', padding: '24px', background: '#fafafa' }}>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '24px', background: 'var(--gray-10)' }}>
           {testContent}
         </div>
       </div>

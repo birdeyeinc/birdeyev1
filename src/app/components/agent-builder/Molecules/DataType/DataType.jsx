@@ -26,7 +26,7 @@ const VARIANT_CONFIG = {
   tool: {
     icon: 'build',
     label: 'Tool',
-    borderColor: '#c8d0dc',
+    borderColor: 'var(--gray-60)',
     iconBg: '#f5f7fa',
     iconColor: '#616161',
   },

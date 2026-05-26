@@ -99,7 +99,7 @@ function ToolboxPanel({ mode, onModeChange }: { mode: BuilderMode; onModeChange:
   );
 
   return (
-    <div className="w-[280px] border-r border-[#e5e9f0] dark:border-border bg-white dark:bg-background flex flex-col shrink-0 overflow-hidden">
+    <div className="w-[280px] border-r border-new-selected-color dark:border-border bg-white dark:bg-background flex flex-col shrink-0 overflow-hidden">
       {/* Mode toggle */}
       <div className="px-4 pt-4 pb-3 shrink-0">
         <SegmentedToggle<BuilderMode>
@@ -107,7 +107,7 @@ function ToolboxPanel({ mode, onModeChange }: { mode: BuilderMode; onModeChange:
           value={mode}
           onChange={onModeChange}
           items={[
-            { value: "ai",     label: "AI",     icon: <Sparkles className="w-3 h-3 text-[#6834B7]" aria-hidden /> },
+            { value: "ai",     label: "AI",     icon: <Sparkles className="w-3 h-3 text-purple-100" aria-hidden /> },
             { value: "manual", label: "Manual" },
           ]}
         />
@@ -116,13 +116,13 @@ function ToolboxPanel({ mode, onModeChange }: { mode: BuilderMode; onModeChange:
       {/* Search */}
       <div className="px-4 pb-3 shrink-0">
         <div className="relative">
-          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-[13px] h-[13px] text-[#888] dark:text-muted-foreground" />
+          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-[13px] h-[13px] text-gray-80 dark:text-muted-foreground" />
           <input
             type="text"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search"
-            className="w-full h-[32px] pl-8 pr-3 bg-white dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground placeholder-[#999] dark:placeholder-[#6b7280] outline-none focus:border-[#2552ED] dark:focus:border-[#2552ED] transition-colors"
+            className="w-full h-[32px] pl-8 pr-3 bg-white dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] text-[12px] text-gray-900 dark:text-foreground placeholder-gray-90 dark:placeholder-gray-100 outline-none focus:border-brand-color dark:focus:border-brand-color transition-colors"
             style={{ fontWeight: 400 }}
           />
         </div>
@@ -134,28 +134,28 @@ function ToolboxPanel({ mode, onModeChange }: { mode: BuilderMode; onModeChange:
         <div className="mb-1">
           <button
             onClick={() => setTriggerExpanded(!triggerExpanded)}
-            className="flex items-center justify-between w-full py-2.5 text-[13px] text-[#212121] dark:text-foreground"
+            className="flex items-center justify-between w-full py-2.5 text-[13px] text-gray-900 dark:text-foreground"
             style={{ fontWeight: 400 }}
           >
             Trigger
-            {triggerExpanded ? <ChevronUp className="w-3.5 h-3.5 text-[#888]" /> : <ChevronDown className="w-3.5 h-3.5 text-[#888]" />}
+            {triggerExpanded ? <ChevronUp className="w-3.5 h-3.5 text-gray-80" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-80" />}
           </button>
           {triggerExpanded && (
             <div className="flex flex-col gap-0.5">
               {filteredTriggers.map(item => (
                 <button
                   key={item.id}
-                  className="flex items-center justify-between w-full px-2 py-2 text-[12px] text-[#555] dark:text-muted-foreground hover:bg-[#f5f5f5] dark:hover:bg-muted rounded-[6px] transition-colors group"
+                  className="flex items-center justify-between w-full px-2 py-2 text-[12px] text-gray-300 dark:text-muted-foreground hover:bg-gray-20 dark:hover:bg-muted rounded-[6px] transition-colors group"
                   style={{ fontWeight: 400 }}
                 >
                   <div className="flex items-center gap-2.5">
-                    <item.icon className="w-[15px] h-[15px] text-[#888] dark:text-muted-foreground" />
+                    <item.icon className="w-[15px] h-[15px] text-gray-80 dark:text-muted-foreground" />
                     <span>{item.label}</span>
                   </div>
                   {item.id === "schedule" ? (
-                    <MoreVertical className="w-3.5 h-3.5 text-[#ccc] dark:text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <MoreVertical className="w-3.5 h-3.5 text-gray-60 dark:text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                   ) : (
-                    <ChevronRight className="w-3.5 h-3.5 text-[#ccc] dark:text-muted-foreground" />
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-60 dark:text-muted-foreground" />
                   )}
                 </button>
               ))}
@@ -164,34 +164,34 @@ function ToolboxPanel({ mode, onModeChange }: { mode: BuilderMode; onModeChange:
         </div>
 
         {/* Tasks */}
-        <div className="mb-1 border-t border-[#f0f1f5] dark:border-border pt-1">
+        <div className="mb-1 border-t border-light-grayish-blue dark:border-border pt-1">
           <button
             onClick={() => setTasksExpanded(!tasksExpanded)}
-            className="flex items-center justify-between w-full py-2.5 text-[13px] text-[#212121] dark:text-foreground"
+            className="flex items-center justify-between w-full py-2.5 text-[13px] text-gray-900 dark:text-foreground"
             style={{ fontWeight: 400 }}
           >
             Tasks
-            {tasksExpanded ? <ChevronUp className="w-3.5 h-3.5 text-[#888]" /> : <ChevronDown className="w-3.5 h-3.5 text-[#888]" />}
+            {tasksExpanded ? <ChevronUp className="w-3.5 h-3.5 text-gray-80" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-80" />}
           </button>
           {tasksExpanded && (
-            <p className="text-[11px] text-[#999] dark:text-muted-foreground px-2 pb-2 font-regular">
+            <p className="text-[11px] text-gray-90 dark:text-muted-foreground px-2 pb-2 font-regular">
               Drag task nodes onto the canvas to build your workflow.
             </p>
           )}
         </div>
 
         {/* Controls */}
-        <div className="border-t border-[#f0f1f5] dark:border-border pt-1">
+        <div className="border-t border-light-grayish-blue dark:border-border pt-1">
           <button
             onClick={() => setControlsExpanded(!controlsExpanded)}
-            className="flex items-center justify-between w-full py-2.5 text-[13px] text-[#212121] dark:text-foreground"
+            className="flex items-center justify-between w-full py-2.5 text-[13px] text-gray-900 dark:text-foreground"
             style={{ fontWeight: 400 }}
           >
             Controls
-            {controlsExpanded ? <ChevronUp className="w-3.5 h-3.5 text-[#888]" /> : <ChevronDown className="w-3.5 h-3.5 text-[#888]" />}
+            {controlsExpanded ? <ChevronUp className="w-3.5 h-3.5 text-gray-80" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-80" />}
           </button>
           {controlsExpanded && (
-            <p className="text-[11px] text-[#999] dark:text-muted-foreground px-2 pb-2 font-regular">
+            <p className="text-[11px] text-gray-90 dark:text-muted-foreground px-2 pb-2 font-regular">
               Add conditional logic, loops, and branching to your flow.
             </p>
           )}
@@ -218,16 +218,16 @@ function CanvasPanel({
   const [zoom, setZoom] = useState(100);
 
   return (
-    <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#f8f9fb] dark:bg-app-shell-gutter">
+    <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-gray-10 dark:bg-app-shell-gutter">
       {/* Agent title pill */}
       <div className="flex justify-center pt-6 pb-2 shrink-0">
-        <div className="flex items-center gap-2.5 px-5 py-2.5 bg-[#3b4455] dark:bg-muted rounded-[10px]">
-          <div className="w-2 h-2 rounded-full bg-[#2552ED]" />
+        <div className="flex items-center gap-2.5 px-5 py-2.5 bg-gray-500 dark:bg-muted rounded-[10px]">
+          <div className="w-2 h-2 rounded-full bg-brand-color" />
           <div>
             <p className="text-[12px] text-white" style={{ fontWeight: 400 }}>
               Review response agent replying autonomously
             </p>
-            <p className="text-[10px] text-[#9ba2b0] font-regular">
+            <p className="text-[10px] text-gray-90 font-regular">
               All locations
             </p>
           </div>
@@ -236,18 +236,18 @@ function CanvasPanel({
 
       {/* Canvas toolbar */}
       <div className="flex justify-center py-2 shrink-0">
-        <div className="flex items-center gap-1 bg-white dark:bg-background border border-[#e5e9f0] dark:border-border rounded-[8px] px-1.5 py-1">
-          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-[#555] dark:text-muted-foreground">
+        <div className="flex items-center gap-1 bg-white dark:bg-background border border-new-selected-color dark:border-border rounded-[8px] px-1.5 py-1">
+          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-gray-300 dark:text-muted-foreground">
             <ArrowDown className="w-4 h-4" />
           </Button>
-          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-[#555] dark:text-muted-foreground">
+          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-gray-300 dark:text-muted-foreground">
             <ArrowRight className="w-4 h-4" />
           </Button>
           <div className="flex items-center gap-1 px-2">
-            <span className="text-[12px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>{zoom}%</span>
-            <ChevronDown className="w-3 h-3 text-[#888]" />
+            <span className="text-[12px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>{zoom}%</span>
+            <ChevronDown className="w-3 h-3 text-gray-80" />
           </div>
-          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-[#555] dark:text-muted-foreground">
+          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-gray-300 dark:text-muted-foreground">
             <Play className="w-4 h-4" />
           </Button>
         </div>
@@ -261,9 +261,9 @@ function CanvasPanel({
               {/* Connector line before (except first) */}
               {idx > 0 && (
                 <div className="flex flex-col items-center">
-                  <div className="w-[1px] h-[28px] bg-[#ccc] dark:bg-app-shell-l2-row-active" />
-                  <div className="w-[9px] h-[9px] border border-[#ccc] dark:border-[#4d5568] rounded-full bg-[#f8f9fb] dark:bg-app-shell-gutter -my-[4px] z-10" />
-                  <div className="w-[1px] h-[28px] bg-[#ccc] dark:bg-app-shell-l2-row-active" />
+                  <div className="w-[1px] h-[28px] bg-gray-60 dark:bg-app-shell-l2-row-active" />
+                  <div className="w-[9px] h-[9px] border border-gray-60 dark:border-gray-400 rounded-full bg-gray-10 dark:bg-app-shell-gutter -my-[4px] z-10" />
+                  <div className="w-[1px] h-[28px] bg-gray-60 dark:bg-app-shell-l2-row-active" />
                 </div>
               )}
 
@@ -272,21 +272,21 @@ function CanvasPanel({
                 onClick={() => onSelectNode(node.id)}
                 className={`relative w-[340px] rounded-[10px] border-2 transition-all text-left ${
                   selectedNodeId === node.id
-                    ? "border-[#2552ED] bg-white dark:bg-background shadow-[0_0_0_3px_rgba(37,82,237,0.12)]"
-                    : "border-[#e5e9f0] dark:border-border bg-white dark:bg-background hover:border-[#c0c6d4] dark:hover:border-[#4d5568]"
+                    ? "border-brand-color bg-white dark:bg-background shadow-[0_0_0_3px_rgba(37,82,237,0.12)]"
+                    : "border-new-selected-color dark:border-border bg-white dark:bg-background hover:border-gray-70 dark:hover:border-gray-400"
                 }`}
               >
                 {/* Node header */}
-                <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#f0f1f5] dark:border-border">
+                <div className="flex items-center justify-between px-4 py-2.5 border-b border-light-grayish-blue dark:border-border">
                   <div className="flex items-center gap-2">
                     {node.type === "trigger" ? (
-                      <Zap className="w-3.5 h-3.5 text-[#F59E0B]" />
+                      <Zap className="w-3.5 h-3.5 text-yellow-100" />
                     ) : (
-                      <div className="w-4 h-4 rounded-[3px] bg-[#4caf50] flex items-center justify-center">
+                      <div className="w-4 h-4 rounded-[3px] bg-green-100 flex items-center justify-center">
                         <span className="text-[9px] text-white" style={{ fontWeight: 400 }}>T</span>
                       </div>
                     )}
-                    <span className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                    <span className="text-[12px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                       {node.type === "trigger" ? "Trigger" : "Task"}
                     </span>
                   </div>
@@ -297,24 +297,24 @@ function CanvasPanel({
                         className="p-0.5"
                       >
                         {node.enabled ? (
-                          <ToggleRight className="w-5 h-5 text-[#2552ED]" />
+                          <ToggleRight className="w-5 h-5 text-brand-color" />
                         ) : (
-                          <ToggleLeft className="w-5 h-5 text-[#ccc] dark:text-muted-foreground" />
+                          <ToggleLeft className="w-5 h-5 text-gray-60 dark:text-muted-foreground" />
                         )}
                       </button>
                     )}
                     <button onClick={e => e.stopPropagation()} className="p-0.5">
-                      <MoreVertical className="w-3.5 h-3.5 text-[#888] dark:text-muted-foreground" />
+                      <MoreVertical className="w-3.5 h-3.5 text-gray-80 dark:text-muted-foreground" />
                     </button>
                   </div>
                 </div>
 
                 {/* Node body */}
                 <div className="px-4 py-3">
-                  <p className="text-[13px] text-[#212121] dark:text-foreground mb-1" style={{ fontWeight: 400 }}>
+                  <p className="text-[13px] text-gray-900 dark:text-foreground mb-1" style={{ fontWeight: 400 }}>
                     {node.stepNumber}. {node.label}
                   </p>
-                  <p className="text-[11px] text-[#888] dark:text-muted-foreground leading-[1.5] font-regular">
+                  <p className="text-[11px] text-gray-80 dark:text-muted-foreground leading-[1.5] font-regular">
                     {node.description}
                   </p>
                 </div>
@@ -324,8 +324,8 @@ function CanvasPanel({
 
           {/* Bottom connector */}
           <div className="flex flex-col items-center mt-0">
-            <div className="w-[1px] h-[28px] bg-[#ccc] dark:bg-app-shell-l2-row-active" />
-            <div className="w-[9px] h-[9px] border border-[#ccc] dark:border-[#4d5568] rounded-full bg-[#f8f9fb] dark:bg-app-shell-gutter" />
+            <div className="w-[1px] h-[28px] bg-gray-60 dark:bg-app-shell-l2-row-active" />
+            <div className="w-[9px] h-[9px] border border-gray-60 dark:border-gray-400 rounded-full bg-gray-10 dark:bg-app-shell-gutter" />
           </div>
           <div className="h-8" />
         </div>
@@ -399,17 +399,17 @@ function PropertiesPanel({
   const isTrigger = selectedNode.type === "trigger";
 
   return (
-    <div className="w-[340px] border-l border-[#e5e9f0] dark:border-border bg-white dark:bg-background flex flex-col shrink-0 overflow-hidden">
+    <div className="w-[340px] border-l border-new-selected-color dark:border-border bg-white dark:bg-background flex flex-col shrink-0 overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#e5e9f0] dark:border-border shrink-0">
-        <span className="text-[13px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+      <div className="flex items-center justify-between px-4 py-3 border-b border-new-selected-color dark:border-border shrink-0">
+        <span className="text-[13px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
           {isTrigger ? "Trigger" : "Task"}
         </span>
         <div className="flex items-center gap-1">
-          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-[#555] dark:text-muted-foreground">
+          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-gray-300 dark:text-muted-foreground">
             <Play className="w-4 h-4" />
           </Button>
-          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-[#555] dark:text-muted-foreground">
+          <Button type="button" variant="ghost" size="icon" className="rounded-[6px] text-gray-300 dark:text-muted-foreground">
             <Maximize2 className="w-4 h-4" />
           </Button>
           <Button
@@ -417,7 +417,7 @@ function PropertiesPanel({
             variant="ghost"
             size="icon"
             onClick={onClose}
-            className="rounded-[6px] text-[#555] dark:text-muted-foreground"
+            className="rounded-[6px] text-gray-300 dark:text-muted-foreground"
           >
             <X className="w-4 h-4" />
           </Button>
@@ -428,30 +428,30 @@ function PropertiesPanel({
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-5">
         {/* Trigger/Task name */}
         <div>
-          <label className="flex items-center gap-0.5 text-[12px] text-[#212121] dark:text-foreground mb-1.5" style={{ fontWeight: 400 }}>
+          <label className="flex items-center gap-0.5 text-[12px] text-gray-900 dark:text-foreground mb-1.5" style={{ fontWeight: 400 }}>
             {isTrigger ? "Trigger name" : "Task name"}
-            <span className="text-[#de1b0c]">*</span>
+            <span className="text-red-100">*</span>
           </label>
           <input
             type="text"
             value={isTrigger ? triggerName : selectedNode.label}
             onChange={e => isTrigger && setTriggerName(e.target.value)}
-            className="w-full h-[36px] px-3 bg-[#f5f5f5] dark:bg-muted border border-[#ccc] dark:border-border rounded-[8px] text-[12px] text-[#555] dark:text-muted-foreground outline-none focus:border-[#2552ED] dark:focus:border-[#2552ED] transition-colors"
+            className="w-full h-[36px] px-3 bg-gray-20 dark:bg-muted border border-gray-60 dark:border-border rounded-[8px] text-[12px] text-gray-300 dark:text-muted-foreground outline-none focus:border-brand-color dark:focus:border-brand-color transition-colors"
             style={{ fontWeight: 400 }}
           />
         </div>
 
         {/* Description */}
         <div>
-          <label className="flex items-center gap-0.5 text-[12px] text-[#212121] dark:text-foreground mb-1.5" style={{ fontWeight: 400 }}>
+          <label className="flex items-center gap-0.5 text-[12px] text-gray-900 dark:text-foreground mb-1.5" style={{ fontWeight: 400 }}>
             Description
-            <span className="text-[#de1b0c]">*</span>
+            <span className="text-red-100">*</span>
           </label>
           <textarea
             value={isTrigger ? description : selectedNode.description}
             onChange={e => isTrigger && setDescription(e.target.value)}
             rows={3}
-            className="w-full px-3 py-2 bg-white dark:bg-muted border border-[#ccc] dark:border-border rounded-[8px] text-[12px] text-[#212121] dark:text-foreground outline-none focus:border-[#2552ED] dark:focus:border-[#2552ED] transition-colors resize-none leading-[1.5]"
+            className="w-full px-3 py-2 bg-white dark:bg-muted border border-gray-60 dark:border-border rounded-[8px] text-[12px] text-gray-900 dark:text-foreground outline-none focus:border-brand-color dark:focus:border-brand-color transition-colors resize-none leading-[1.5]"
             style={{ fontWeight: 400 }}
           />
         </div>
@@ -460,22 +460,22 @@ function PropertiesPanel({
         {isTrigger && (
           <div>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[12px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>
+              <span className="text-[12px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>
                 Filter conditions
               </span>
             </div>
 
             {/* Condition blocks */}
-            <div className="bg-[#f2f4f7] dark:bg-[#1a1e25] rounded-[8px] p-3 space-y-3">
+            <div className="bg-new-hover-color dark:bg-gray-800 rounded-[8px] p-3 space-y-3">
               {conditions.map((block, bi) => (
                 <div key={block.id}>
                   {/* Logic operator between blocks */}
                   {bi > 0 && (
                     <div className="flex items-center gap-1 mb-3 mt-1">
-                      <span className="text-[11px] text-[#8f8f8f] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                      <span className="text-[11px] text-gray-90 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                         {block.logic}
                       </span>
-                      <ChevronDown className="w-3 h-3 text-[#8f8f8f] dark:text-muted-foreground" />
+                      <ChevronDown className="w-3 h-3 text-gray-90 dark:text-muted-foreground" />
                     </div>
                   )}
 
@@ -485,10 +485,10 @@ function PropertiesPanel({
                       {/* Logic within group */}
                       {gi > 0 && (
                         <div className="flex items-center gap-1 my-2">
-                          <span className="text-[11px] text-[#8f8f8f] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                          <span className="text-[11px] text-gray-90 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                             {bi === 0 ? "AND" : "AND"}
                           </span>
-                          <ChevronDown className="w-3 h-3 text-[#8f8f8f] dark:text-muted-foreground" />
+                          <ChevronDown className="w-3 h-3 text-gray-90 dark:text-muted-foreground" />
                         </div>
                       )}
                       <div className="space-y-2">
@@ -516,7 +516,7 @@ function PropertiesPanel({
               {/* Add condition */}
               <button
                 onClick={addCondition}
-                className="flex items-center gap-1.5 py-2 text-[12px] text-[#2552ED] hover:text-[#1E44CC] transition-colors"
+                className="flex items-center gap-1.5 py-2 text-[12px] text-brand-color hover:text-brand-color transition-colors"
                 style={{ fontWeight: 400 }}
               >
                 <PlusCircle className="w-4 h-4" />
@@ -529,12 +529,12 @@ function PropertiesPanel({
         {/* Preview (trigger only) */}
         {isTrigger && (
           <div>
-            <p className="text-[12px] text-[#212121] dark:text-foreground mb-1.5" style={{ fontWeight: 400 }}>
+            <p className="text-[12px] text-gray-900 dark:text-foreground mb-1.5" style={{ fontWeight: 400 }}>
               Preview
             </p>
-            <div className="bg-[#f2f4f7] dark:bg-[#1a1e25] rounded-[8px] px-3 py-2.5">
-              <p className="text-[11px] text-[#8f8f8f] dark:text-muted-foreground mb-1" style={{ fontWeight: 400 }}>IF</p>
-              <p className="text-[12px] text-[#212121] dark:text-foreground font-mono leading-[1.6]" style={{ fontWeight: 400 }}>
+            <div className="bg-new-hover-color dark:bg-gray-800 rounded-[8px] px-3 py-2.5">
+              <p className="text-[11px] text-gray-90 dark:text-muted-foreground mb-1" style={{ fontWeight: 400 }}>IF</p>
+              <p className="text-[12px] text-gray-900 dark:text-foreground font-mono leading-[1.6]" style={{ fontWeight: 400 }}>
                 {buildPreview()}
               </p>
             </div>
@@ -543,11 +543,11 @@ function PropertiesPanel({
       </div>
 
       {/* Save button */}
-      <div className="px-4 py-4 border-t border-[#e5e9f0] dark:border-border shrink-0">
+      <div className="px-4 py-4 border-t border-new-selected-color dark:border-border shrink-0">
         <Button
           type="button"
           onClick={() => toast.success("Configuration saved")}
-          className="w-full rounded-[8px] bg-[#2552ED] hover:bg-[#1E44CC] text-[13px] text-white"
+          className="w-full rounded-[8px] bg-brand-color hover:bg-brand-color text-[13px] text-white"
           style={{ fontWeight: 400 }}
         >
           Save
@@ -590,7 +590,7 @@ export function AgentsBuilderView({
 
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-white dark:bg-app-shell-gutter transition-colors duration-300">
-      <div className="shrink-0 border-b border-[#e5e9f0] bg-white dark:border-border dark:bg-background">
+      <div className="shrink-0 border-b border-new-selected-color bg-white dark:border-border dark:bg-background">
         <MainCanvasViewHeader
           title={
             <span className="flex min-w-0 items-center gap-3">
@@ -611,7 +611,7 @@ export function AgentsBuilderView({
               <Button type="button" variant="outline" size="icon" className="rounded-lg text-muted-foreground">
                 <Share2 className="size-4" />
               </Button>
-              <Button type="button" onClick={handleSave} className="rounded-lg bg-[#2552ED] px-5 text-sm text-white hover:bg-[#1E44CC]">
+              <Button type="button" onClick={handleSave} className="rounded-lg bg-brand-color px-5 text-sm text-white hover:bg-brand-color">
                 Save
               </Button>
             </div>

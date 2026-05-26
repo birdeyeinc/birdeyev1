@@ -115,7 +115,7 @@ function StarDistributionBar({ star, count, total }: { star: number; count: numb
       <span className="text-muted-foreground w-4 text-right" style={{ fontWeight: 400 }}>{star}</span>
       <Star className="w-3 h-3 fill-yellow-400 text-yellow-400 shrink-0" />
       <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
-        <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: "#f59e0b" }} />
+        <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: "var(--yellow-100)" }} />
       </div>
       <span className="text-muted-foreground w-5 text-right" style={{ fontWeight: 400 }}>{count}</span>
     </div>
@@ -448,7 +448,7 @@ export default function BusinessOverviewDashboard() {
                 formatter={(value) => <span style={{ fontWeight: 400, color: "var(--color-muted-foreground)" }}>{value}</span>}
               />
               <Bar dataKey="facebook" name="Facebook" stackId="a" fill={SOCIAL_BAR_FACEBOOK} radius={[0, 0, 0, 0]} />
-              <Bar dataKey="instagram" name="Instagram" stackId="a" fill="#E1306C" radius={[0, 0, 0, 0]} />
+              <Bar dataKey="instagram" name="Instagram" stackId="a" fill="var(--instagram-bg)" radius={[0, 0, 0, 0]} />
               <Bar dataKey="linkedin" name="LinkedIn" stackId="a" fill={SOCIAL_BAR_LINKEDIN} radius={[2, 2, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>

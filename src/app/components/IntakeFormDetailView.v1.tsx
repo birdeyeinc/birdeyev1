@@ -333,8 +333,8 @@ function ShareTab({ form }: { form: IntakeForm }) {
         {/* Embed snippet */}
         <div className="flex flex-col gap-3">
           <span className="text-[13px] font-medium text-foreground">Embed on your website</span>
-          <div className="relative rounded-xl border border-border bg-[#1e1e2e] p-4">
-            <pre className="overflow-x-auto text-[12px] text-[#cdd6f4] leading-relaxed">
+          <div className="relative rounded-xl border border-border bg-gray-800 p-4">
+            <pre className="overflow-x-auto text-[12px] text-blue-40 leading-relaxed">
               {snippet}
             </pre>
             <button

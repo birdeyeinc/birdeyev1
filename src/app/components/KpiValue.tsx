@@ -50,7 +50,7 @@ export function KpiValue({ value, change, label, large }: KpiValueProps) {
     <div className="flex flex-col gap-[2px] items-start shrink-0">
       <div className="flex gap-1 items-center">
         <p className={cn(
-          "whitespace-nowrap font-normal text-[#222] dark:text-[#e4e4e4]",
+          "whitespace-nowrap font-normal text-gray-800 dark:text-gray-50",
           large ? "text-[30px] leading-[42px]" : "text-[20px] leading-[22px]",
         )}>
           {value}
@@ -60,11 +60,11 @@ export function KpiValue({ value, change, label, large }: KpiValueProps) {
           <div className="flex items-center pt-1.5">
             {isNegative
               ? <TrendingDown size={12} strokeWidth={1.6} absoluteStrokeWidth className="text-red-500" />
-              : <TrendingUp  size={12} strokeWidth={1.6} absoluteStrokeWidth className="text-[#4eac5d]" />
+              : <TrendingUp  size={12} strokeWidth={1.6} absoluteStrokeWidth className="text-green-90" />
             }
             <p className={cn(
               "text-[13px] font-normal whitespace-nowrap ml-0.5",
-              isNegative ? "text-red-500" : "text-[#4eac5d]",
+              isNegative ? "text-red-500" : "text-green-90",
             )}>
               {change}
             </p>
@@ -75,8 +75,8 @@ export function KpiValue({ value, change, label, large }: KpiValueProps) {
       <p className={cn(
         "whitespace-nowrap text-[12px] font-normal",
         large
-          ? "text-[#555] dark:text-[#9ba2b0] leading-[18px]"
-          : "text-[#8f8f8f] dark:text-[#7d849a] leading-[16px]",
+          ? "text-gray-300 dark:text-gray-90 leading-[18px]"
+          : "text-gray-90 dark:text-gray-90 leading-[16px]",
       )}>
         {label}
       </p>

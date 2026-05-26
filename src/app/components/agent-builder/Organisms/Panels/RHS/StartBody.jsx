@@ -6,8 +6,8 @@ const font = '"Inter", arial, sans-serif';
 function FieldLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>{label}</span>
-      {required && <span style={{ color: '#de1b0c', fontSize: 12 }}>*</span>}
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
+      {required && <span style={{ color: 'var(--red-100)', fontSize: 12 }}>*</span>}
     </div>
   );
 }

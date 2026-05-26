@@ -19,10 +19,10 @@ const END_STATE_OPTIONS = [
 function FieldLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
     </div>
   );
 }
@@ -39,7 +39,7 @@ function FormField({ label, required, children }) {
 function Toggle({ checked, onChange, label }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <span style={{ fontSize: 14, lineHeight: '20px', color: '#212121', fontFamily: font }}>{label}</span>
+      <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
       <div
         onClick={() => onChange(!checked)}
         style={{
@@ -49,7 +49,7 @@ function Toggle({ checked, onChange, label }) {
       >
         <div style={{
           position: 'absolute', top: 2, left: checked ? 18 : 2,
-          width: 16, height: 16, borderRadius: '50%', background: '#fff',
+          width: 16, height: 16, borderRadius: '50%', background: 'var(--gray-0)',
           transition: 'left 0.2s', boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
         }} />
       </div>

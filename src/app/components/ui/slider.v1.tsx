@@ -38,7 +38,7 @@ function Slider({
     >
       <SliderPrimitive.Track
         data-slot="slider-track"
-        className="relative grow overflow-hidden rounded-full bg-[#e2e5ea] dark:bg-[#3a3f4a] data-[orientation=horizontal]:h-[5px] data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-[5px]"
+        className="relative grow overflow-hidden rounded-full bg-gray-40 dark:bg-gray-500 data-[orientation=horizontal]:h-[5px] data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-[5px]"
       >
         <SliderPrimitive.Range
           data-slot="slider-range"
@@ -49,7 +49,7 @@ function Slider({
         <SliderPrimitive.Thumb
           data-slot="slider-thumb"
           key={index}
-          className="block size-5 shrink-0 rounded-full border border-[#d1d5db] bg-white shadow-[0_1px_4px_rgba(0,0,0,0.18)] transition-[box-shadow] hover:shadow-[0_1px_6px_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 disabled:pointer-events-none disabled:opacity-50 dark:border-[#4a4f5e] dark:bg-[#1e2330]"
+          className="block size-5 shrink-0 rounded-full border border-gray-60 bg-white shadow-[0_1px_4px_rgba(0,0,0,0.18)] transition-[box-shadow] hover:shadow-[0_1px_6px_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-400 dark:bg-gray-800"
         />
       ))}
     </SliderPrimitive.Root>

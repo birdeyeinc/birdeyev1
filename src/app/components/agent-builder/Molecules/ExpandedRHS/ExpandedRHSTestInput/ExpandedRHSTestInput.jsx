@@ -9,7 +9,7 @@ const colHeaderStyle = {
   gap: 4,
   height: 40,
   padding: '0 16px',
-  background: '#fff',
+  background: 'var(--gray-0)',
   boxSizing: 'border-box',
   flexShrink: 0,
 };
@@ -20,7 +20,7 @@ const colHeaderLabelStyle = {
   fontWeight: 400,
   lineHeight: '18px',
   letterSpacing: '-0.24px',
-  color: '#555',
+  color: 'var(--gray-300)',
   whiteSpace: 'nowrap',
 };
 
@@ -30,7 +30,7 @@ const chevronStyle = {
   height: 16,
   lineHeight: 1,
   overflow: 'hidden',
-  color: '#555',
+  color: 'var(--gray-300)',
   fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20",
   flexShrink: 0,
   userSelect: 'none',
@@ -64,11 +64,11 @@ export default function ExpandedRHSTestInput({ fields = [], onMenuOpen }) {
             minHeight: 58,
           }}
         >
-          <div style={{ width: 186, flexShrink: 0, display: 'flex', alignItems: 'center', padding: 16, background: '#fff', boxSizing: 'border-box' }}>
+          <div style={{ width: 186, flexShrink: 0, display: 'flex', alignItems: 'center', padding: 16, background: 'var(--gray-0)', boxSizing: 'border-box' }}>
             <DataType type={field.type || 'variable'} label={field.name} />
           </div>
 
-          <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', padding: '16px 8px 16px 16px', background: '#fff', borderLeft: '1px solid #e9e9eb', boxSizing: 'border-box', gap: 8 }}>
+          <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', padding: '16px 8px 16px 16px', background: 'var(--gray-0)', borderLeft: '1px solid #e9e9eb', boxSizing: 'border-box', gap: 8 }}>
             <span style={{
               flex: 1,
               minWidth: 0,
@@ -87,7 +87,7 @@ export default function ExpandedRHSTestInput({ fields = [], onMenuOpen }) {
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 width: 24, height: 24, flexShrink: 0, background: 'none', border: 'none',
-                padding: 0, cursor: 'pointer', color: '#555', borderRadius: 4,
+                padding: 0, cursor: 'pointer', color: 'var(--gray-300)', borderRadius: 4,
                 visibility: hoveredRow === field.name ? 'visible' : 'hidden',
               }}
               aria-label={`Options for ${field.name}`}

@@ -32,7 +32,7 @@ export default function MetricCard({
             fontWeight: 400,
             lineHeight: '36px',
             letterSpacing: '-0.48px',
-            color: '#212121',
+            color: 'var(--gray-900)',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
@@ -58,7 +58,7 @@ export default function MetricCard({
             fontWeight: 400,
             lineHeight: '24px',
             letterSpacing: '-0.32px',
-            color: '#212121',
+            color: 'var(--gray-900)',
             minWidth: 0,
             overflow: 'hidden',
             textOverflow: 'ellipsis',
@@ -68,7 +68,7 @@ export default function MetricCard({
           </span>
           <span
             className="material-symbols-outlined"
-            style={{ fontSize: 16, color: '#757575', lineHeight: 1, flexShrink: 0 }}
+            style={{ fontSize: 16, color: 'var(--gray-100)', lineHeight: 1, flexShrink: 0 }}
           >
             info
           </span>
@@ -78,12 +78,12 @@ export default function MetricCard({
               display: 'inline-flex',
               alignItems: 'center',
               padding: '4px 8px',
-              background: '#f1faf0',
+              background: 'var(--green-20)',
               borderRadius: 4,
               fontSize: 12,
               fontWeight: 400,
               lineHeight: '18px',
-              color: '#377e2c',
+              color: 'var(--green-300)',
               whiteSpace: 'nowrap',
             }}>
               {dollarValue}
@@ -111,7 +111,7 @@ export default function MetricCard({
             padding: 0,
           }}
         >
-          <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#555', lineHeight: 1 }}>
+          <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-300)', lineHeight: 1 }}>
             tune
           </span>
         </button>

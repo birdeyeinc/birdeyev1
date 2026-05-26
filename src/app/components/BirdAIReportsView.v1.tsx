@@ -232,12 +232,12 @@ function MetricCard({ label, value, icon: Icon, color }: {
   label: string; value: string; icon: typeof Zap; color: string;
 }) {
   return (
-    <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-4 transition-colors">
+    <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-4 transition-colors">
       <div className="flex items-baseline gap-2 mb-1">
-        <p className="text-[24px] text-[#212121] dark:text-foreground tracking-[-0.5px]" style={{ fontWeight: 400 }}>{value}</p>
+        <p className="text-[24px] text-gray-900 dark:text-foreground tracking-[-0.5px]" style={{ fontWeight: 400 }}>{value}</p>
         <Icon className="w-4 h-4 self-center" style={{ color }} />
       </div>
-      <span className="text-[12px] text-[#888] dark:text-muted-foreground tracking-[-0.24px]" style={{ fontWeight: 400 }}>{label}</span>
+      <span className="text-[12px] text-gray-80 dark:text-muted-foreground tracking-[-0.24px]" style={{ fontWeight: 400 }}>{label}</span>
     </div>
   );
 }
@@ -245,13 +245,13 @@ function MetricCard({ label, value, icon: Icon, color }: {
 /* BirdAI Insight block */
 function InsightBlock({ text }: { text: string }) {
   return (
-    <div className="bg-[#f8f6ff] dark:bg-background border border-[#e8e0f5] dark:border-border rounded-[12px] px-5 py-4 flex items-start gap-3">
-      <div className="w-7 h-7 rounded-[8px] bg-gradient-to-br from-[#9970D7] to-[#2552ED] flex items-center justify-center shrink-0 mt-0.5">
+    <div className="bg-purple-10 dark:bg-background border border-purple-30 dark:border-border rounded-[12px] px-5 py-4 flex items-start gap-3">
+      <div className="w-7 h-7 rounded-[8px] bg-gradient-to-br from-purple-80 to-brand-color flex items-center justify-center shrink-0 mt-0.5">
         <Sparkles className="w-3.5 h-3.5 text-white" />
       </div>
       <div>
-        <p className="text-[13px] text-[#9970D7] dark:text-[#b89ce6] mb-1 tracking-[-0.26px]" style={{ fontWeight: 400 }}>BirdAI insight</p>
-        <p className="text-[13px] text-[#555] dark:text-muted-foreground font-regular">{text}</p>
+        <p className="text-[13px] text-purple-80 dark:text-purple-60 mb-1 tracking-[-0.26px]" style={{ fontWeight: 400 }}>BirdAI insight</p>
+        <p className="text-[13px] text-gray-300 dark:text-muted-foreground font-regular">{text}</p>
       </div>
     </div>
   );
@@ -260,8 +260,8 @@ function InsightBlock({ text }: { text: string }) {
 /* Chart container */
 function ChartCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-4 transition-colors">
-      <p className="text-[14px] text-[#212121] dark:text-foreground mb-4 tracking-[-0.28px]" style={{ fontWeight: 400 }}>{title}</p>
+    <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-4 transition-colors">
+      <p className="text-[14px] text-gray-900 dark:text-foreground mb-4 tracking-[-0.28px]" style={{ fontWeight: 400 }}>{title}</p>
       {children}
     </div>
   );
@@ -271,8 +271,8 @@ function ChartCard({ title, children }: { title: string; children: React.ReactNo
 function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="bg-white dark:bg-muted border border-[#E5E7EB] dark:border-border rounded-[8px] px-3 py-2 text-[12px]">
-      <p className="text-[#212121] dark:text-foreground mb-1" style={{ fontWeight: 400 }}>{label}</p>
+    <div className="bg-white dark:bg-muted border border-gray-50 dark:border-border rounded-[8px] px-3 py-2 text-[12px]">
+      <p className="text-gray-900 dark:text-foreground mb-1" style={{ fontWeight: 400 }}>{label}</p>
       {payload.map((p: any, i: number) => (
         <p key={i} style={{ color: p.color}}>{p.name}: {p.value}</p>
       ))}
@@ -288,7 +288,7 @@ function DateFilterDropdown({ value, onChange }: { value: string; onChange: (v: 
         <Button
           type="button"
           variant="outline"
-          className="gap-1.5 px-3 py-[7px] text-[13px] font-normal text-[#212121] dark:text-foreground"
+          className="gap-1.5 px-3 py-[7px] text-[13px] font-normal text-gray-900 dark:text-foreground"
         >
           {value}
           <ChevronDown className="size-3 shrink-0 text-muted-foreground" aria-hidden />
@@ -324,7 +324,7 @@ function ExecutiveImpactPage() {
         <ChartCard title="Automation trend">
           <ResponsiveContainer width="100%" height={220}>
             <AreaChart data={automationTrend}>
-              <CartesianGrid strokeDasharray="3 3" stroke="var(--tw-dark, #2e3340)" className="stroke-[#f0f0f0] dark:stroke-[#2e3340]" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--tw-dark, #2e3340)" className="stroke-gray-20 dark:stroke-gray-600" />
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
               <Tooltip content={<CustomTooltip />} />
@@ -338,14 +338,14 @@ function ExecutiveImpactPage() {
           <ResponsiveContainer width="100%" height={220}>
             <PieChart>
               <Pie data={workloadSplit} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={55} outerRadius={85} paddingAngle={4}>
-                {workloadSplit.map((_, i) => <Cell key={i} fill={i === 0 ? ACCENT : "#ddd"} className={i === 1 ? "dark:fill-[#333a47]" : ""} />)}
+                {workloadSplit.map((_, i) => <Cell key={i} fill={i === 0 ? ACCENT : "#ddd"} className={i === 1 ? "dark:fill-gray-600" : ""} />)}
               </Pie>
               <Tooltip content={<CustomTooltip />} />
               <Legend
                 verticalAlign="bottom"
                 iconType="circle"
                 iconSize={8}
-                formatter={(v: string) => <span className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">{v}</span>}
+                formatter={(v: string) => <span className="text-[12px] text-gray-80 dark:text-muted-foreground font-regular">{v}</span>}
               />
             </PieChart>
           </ResponsiveContainer>
@@ -353,22 +353,22 @@ function ExecutiveImpactPage() {
       </div>
 
       {/* Top performing agents table */}
-      <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-4 transition-colors">
-        <p className="text-[14px] text-[#212121] dark:text-foreground mb-3 tracking-[-0.28px]" style={{ fontWeight: 400 }}>Top performing agents</p>
+      <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-4 transition-colors">
+        <p className="text-[14px] text-gray-900 dark:text-foreground mb-3 tracking-[-0.28px]" style={{ fontWeight: 400 }}>Top performing agents</p>
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#f0f1f5] dark:border-border">
-              <th className="text-left text-[length:var(--table-label-size)] text-[#999] dark:text-muted-foreground pb-2 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>Agent</th>
-              <th className="text-left text-[length:var(--table-label-size)] text-[#999] dark:text-muted-foreground pb-2 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>Tasks</th>
-              <th className="text-left text-[length:var(--table-label-size)] text-[#999] dark:text-muted-foreground pb-2 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>Success rate</th>
+            <tr className="border-b border-light-grayish-blue dark:border-border">
+              <th className="text-left text-[length:var(--table-label-size)] text-gray-90 dark:text-muted-foreground pb-2 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>Agent</th>
+              <th className="text-left text-[length:var(--table-label-size)] text-gray-90 dark:text-muted-foreground pb-2 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>Tasks</th>
+              <th className="text-left text-[length:var(--table-label-size)] text-gray-90 dark:text-muted-foreground pb-2 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>Success rate</th>
             </tr>
           </thead>
           <tbody>
             {topAgents.map(a => (
-              <tr key={a.name} className="border-b border-[#f8f9fa] dark:border-[#262b35] last:border-0">
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{a.name}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums font-regular">{a.tasks}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#4caf50] text-left tabular-nums" style={{ fontWeight: 400 }}>{a.rate}</td>
+              <tr key={a.name} className="border-b border-gray-10 dark:border-gray-700 last:border-0">
+                <td className="py-2.5 text-[length:var(--font-size)] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{a.name}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-gray-80 dark:text-muted-foreground text-left tabular-nums font-regular">{a.tasks}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-green-100 text-left tabular-nums" style={{ fontWeight: 400 }}>{a.rate}</td>
               </tr>
             ))}
           </tbody>
@@ -390,7 +390,7 @@ function AgentPerformancePage() {
       <ChartCard title="Success rate trend">
         <ResponsiveContainer width="100%" height={220}>
           <AreaChart data={successTrend}>
-            <CartesianGrid strokeDasharray="3 3" className="stroke-[#f0f0f0] dark:stroke-[#2e3340]" />
+            <CartesianGrid strokeDasharray="3 3" className="stroke-gray-20 dark:stroke-gray-600" />
             <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
             <YAxis domain={[88, 100]} tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
             <Tooltip content={<CustomTooltip />} />
@@ -400,24 +400,24 @@ function AgentPerformancePage() {
       </ChartCard>
 
       {/* Performance table */}
-      <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-4 transition-colors">
-        <p className="text-[14px] text-[#212121] dark:text-foreground mb-3 tracking-[-0.28px]" style={{ fontWeight: 400 }}>Agent breakdown</p>
+      <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-4 transition-colors">
+        <p className="text-[14px] text-gray-900 dark:text-foreground mb-3 tracking-[-0.28px]" style={{ fontWeight: 400 }}>Agent breakdown</p>
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#f0f1f5] dark:border-border">
+            <tr className="border-b border-light-grayish-blue dark:border-border">
               {["Agent", "Success", "Volume", "Failures", "Avg time"].map(h => (
-                <th key={h} className="text-left text-[length:var(--table-label-size)] text-[#999] dark:text-muted-foreground pb-2 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>{h}</th>
+                <th key={h} className="text-left text-[length:var(--table-label-size)] text-gray-90 dark:text-muted-foreground pb-2 tracking-[0.5px] uppercase" style={{ fontWeight: 400 }}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {agentPerfTable.map(row => (
-              <tr key={row.agent} className="border-b border-[#f8f9fa] dark:border-[#262b35] last:border-0">
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{row.agent}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#4caf50] text-left tabular-nums" style={{ fontWeight: 400 }}>{row.success}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums font-regular">{row.volume}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#ef5350] text-left tabular-nums font-regular">{row.failures}</td>
-                <td className="py-2.5 text-[length:var(--font-size)] text-[#888] dark:text-muted-foreground text-left tabular-nums font-regular">{row.avgTime}</td>
+              <tr key={row.agent} className="border-b border-gray-10 dark:border-gray-700 last:border-0">
+                <td className="py-2.5 text-[length:var(--font-size)] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{row.agent}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-green-100 text-left tabular-nums" style={{ fontWeight: 400 }}>{row.success}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-gray-80 dark:text-muted-foreground text-left tabular-nums font-regular">{row.volume}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-red-80 text-left tabular-nums font-regular">{row.failures}</td>
+                <td className="py-2.5 text-[length:var(--font-size)] text-gray-80 dark:text-muted-foreground text-left tabular-nums font-regular">{row.avgTime}</td>
               </tr>
             ))}
           </tbody>
@@ -451,7 +451,7 @@ function WorkflowPerformancePage() {
       <ChartCard title="Workflow runs — last 4 weeks">
         <ResponsiveContainer width="100%" height={220}>
           <BarChart data={workflowRuns}>
-            <CartesianGrid strokeDasharray="3 3" className="stroke-[#f0f0f0] dark:stroke-[#2e3340]" />
+            <CartesianGrid strokeDasharray="3 3" className="stroke-gray-20 dark:stroke-gray-600" />
             <XAxis dataKey="week" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
             <Tooltip content={<CustomTooltip />} />
@@ -473,21 +473,21 @@ function AttentionRiskPage() {
         {attentionMetrics.map(m => <MetricCard key={m.label} {...m} />)}
       </div>
 
-      <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-4 transition-colors">
-        <p className="text-[14px] text-[#212121] dark:text-foreground mb-3 tracking-[-0.28px]" style={{ fontWeight: 400 }}>Items requiring attention</p>
+      <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-4 transition-colors">
+        <p className="text-[14px] text-gray-900 dark:text-foreground mb-3 tracking-[-0.28px]" style={{ fontWeight: 400 }}>Items requiring attention</p>
         <div className="space-y-0">
           {attentionItems.map((item, i) => (
-            <div key={i} className="flex items-center gap-3 py-3 border-b border-[#f8f9fa] dark:border-[#262b35] last:border-0">
+            <div key={i} className="flex items-center gap-3 py-3 border-b border-gray-10 dark:border-gray-700 last:border-0">
               {item.severity === "warning" ? (
-                <AlertTriangle className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                <AlertTriangle className="w-4 h-4 text-yellow-100 shrink-0" />
               ) : (
-                <XCircle className="w-4 h-4 text-[#ef5350] shrink-0" />
+                <XCircle className="w-4 h-4 text-red-80 shrink-0" />
               )}
               <div className="flex-1 min-w-0">
-                <p className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>{item.agent}</p>
-                <p className="text-[12px] text-[#888] dark:text-muted-foreground mt-0.5 font-regular">{item.issue}</p>
+                <p className="text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>{item.agent}</p>
+                <p className="text-[12px] text-gray-80 dark:text-muted-foreground mt-0.5 font-regular">{item.issue}</p>
               </div>
-              <button className="text-[12px] text-[#2552ED] dark:text-[#6b9bff] hover:underline shrink-0" style={{ fontWeight: 400 }}>
+              <button className="text-[12px] text-brand-color dark:text-blue-70 hover:underline shrink-0" style={{ fontWeight: 400 }}>
                 View in monitor
               </button>
             </div>
@@ -510,7 +510,7 @@ function AdoptionUsagePage() {
       <ChartCard title="AI adoption over time">
         <ResponsiveContainer width="100%" height={220}>
           <AreaChart data={adoptionTrend}>
-            <CartesianGrid strokeDasharray="3 3" className="stroke-[#f0f0f0] dark:stroke-[#2e3340]" />
+            <CartesianGrid strokeDasharray="3 3" className="stroke-gray-20 dark:stroke-gray-600" />
             <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
             <YAxis yAxisId="left" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
             <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
@@ -622,8 +622,8 @@ export function BirdAIReportsView() {
                 onClick={() => setProductSubTab(st.id)}
                 className={`px-3 py-1.5 text-[12px] rounded-[8px] border transition-colors tracking-[-0.24px] ${
                   productSubTab === st.id
-                    ? "text-[#2552ED] dark:text-[#6b9bff] bg-[#f0f4ff] dark:bg-[#1e2d5e] border-[#2552ED]/20 dark:border-[#2552ED]/30"
-                    : "text-[#888] dark:text-muted-foreground bg-white dark:bg-background border-[#e5e9f0] dark:border-border hover:bg-[#f5f5f5] dark:hover:bg-muted"
+                    ? "text-brand-color dark:text-blue-70 bg-blue-10 dark:bg-blue-300 border-brand-color/20 dark:border-brand-color/30"
+                    : "text-gray-80 dark:text-muted-foreground bg-white dark:bg-background border-new-selected-color dark:border-border hover:bg-gray-20 dark:hover:bg-muted"
                 }`}
                 style={{ fontWeight: 400 }}
               >

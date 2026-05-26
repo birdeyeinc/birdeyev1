@@ -62,7 +62,7 @@ function CollapsibleSection({ title, defaultOpen = false, children }) {
           width: '100%', padding: '12px 16px', background: 'none', border: 'none', cursor: 'pointer',
         }}
       >
-        <span style={{ fontSize: 14, fontWeight: 500, color: '#212121', fontFamily: font }}>{title}</span>
+        <span style={{ fontSize: 14, fontWeight: 500, color: 'var(--gray-900)', fontFamily: font }}>{title}</span>
         <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#616161', transform: open ? 'rotate(90deg)' : 'none', transition: 'transform 0.2s' }}>chevron_right</span>
       </button>
       {open && <div style={{ padding: '0 16px 16px' }}>{children}</div>}
@@ -101,7 +101,7 @@ function AllowlistField({ hosts = [], onChange }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{ fontSize: 14, color: '#212121', fontFamily: font }}>Allowlist</span>
+        <span style={{ fontSize: 14, color: 'var(--gray-900)', fontFamily: font }}>Allowlist</span>
         <Button variant="outline" size="sm" onClick={() => setShowInput(true)}>Add host</Button>
       </div>
       {showInput && (
@@ -116,7 +116,7 @@ function AllowlistField({ hosts = [], onChange }) {
         </div>
       )}
       {hosts.length === 0 ? (
-        <div style={{ background: '#fce4ec', border: '1px solid #f8bbd0', borderRadius: 6, padding: '10px 14px' }}>
+        <div style={{ background: 'var(--red-20)', border: '1px solid #f8bbd0', borderRadius: 6, padding: '10px 14px' }}>
           <span style={{ fontSize: 13, color: '#b71c1c', fontFamily: font }}>
             No allowlist specified. Any host will be able to connect to this agent. We strongly recommend setting up an allowlist when using overrides.
           </span>
@@ -124,9 +124,9 @@ function AllowlistField({ hosts = [], onChange }) {
       ) : (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           {hosts.map((host, i) => (
-            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#f5f5f5', borderRadius: 4, padding: '4px 10px', fontSize: 13, fontFamily: font, color: '#212121' }}>
+            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--gray-20)', borderRadius: 4, padding: '4px 10px', fontSize: 13, fontFamily: font, color: 'var(--gray-900)' }}>
               {host}
-              <button type="button" onClick={() => remove(i)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 1, color: '#757575', fontSize: 16 }}>×</button>
+              <button type="button" onClick={() => remove(i)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 1, color: 'var(--gray-100)', fontSize: 16 }}>×</button>
             </span>
           ))}
         </div>
@@ -137,14 +137,14 @@ function AllowlistField({ hosts = [], onChange }) {
 
 function GuardrailPanelShell({ title, onClose, children }) {
   return (
-    <div style={{ position: 'absolute', inset: 0, background: '#fff', zIndex: 10, display: 'flex', flexDirection: 'column', fontFamily: font }}>
+    <div style={{ position: 'absolute', inset: 0, background: 'var(--gray-0)', zIndex: 10, display: 'flex', flexDirection: 'column', fontFamily: font }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '16px 24px', flexShrink: 0 }}>
         <button type="button" onClick={onClose} className="adv-back-btn">
           <span className="material-symbols-outlined">arrow_back</span>
         </button>
         <span style={{ fontSize: 16, fontWeight: 400, color: '#1f2328' }}>{title}</span>
       </div>
-      <div style={{ height: 1, background: '#e5e9f0', flexShrink: 0 }} />
+      <div style={{ height: 1, background: 'var(--new-selected-color)', flexShrink: 0 }} />
       <div style={{ flex: 1, overflowY: 'auto', padding: 24, display: 'flex', flexDirection: 'column', gap: 20 }}>
         {children}
       </div>
@@ -207,8 +207,8 @@ export function ContentGuardrailPanel({ values, onChange, onClose }) {
         </Select>
       </div>
       <div style={{ display: 'flex', border: '1px solid #e0e0e0', borderRadius: 6, overflow: 'hidden' }}>
-        <button type="button" onClick={enableAll} style={{ flex: 1, padding: '8px', background: '#f5f5f5', border: 'none', cursor: 'pointer', fontSize: 13, fontFamily: font, color: '#212121' }}>All</button>
-        <button type="button" onClick={disableAll} style={{ flex: 1, padding: '8px', background: '#f5f5f5', border: 'none', borderLeft: '1px solid #e0e0e0', cursor: 'pointer', fontSize: 13, fontFamily: font, color: '#212121' }}>None</button>
+        <button type="button" onClick={enableAll} style={{ flex: 1, padding: '8px', background: 'var(--gray-20)', border: 'none', cursor: 'pointer', fontSize: 13, fontFamily: font, color: 'var(--gray-900)' }}>All</button>
+        <button type="button" onClick={disableAll} style={{ flex: 1, padding: '8px', background: 'var(--gray-20)', border: 'none', borderLeft: '1px solid #e0e0e0', cursor: 'pointer', fontSize: 13, fontFamily: font, color: 'var(--gray-900)' }}>None</button>
       </div>
       {CONTENT_CATEGORIES.map((cat) => {
         const catVals = cats[cat.key] ?? {};
@@ -216,8 +216,8 @@ export function ContentGuardrailPanel({ values, onChange, onClose }) {
           <div key={cat.key} style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12 }}>
               <div>
-                <div style={{ fontSize: 14, fontWeight: 500, color: '#212121', fontFamily: font }}>{cat.label}</div>
-                <div style={{ fontSize: 12, color: '#757575', fontFamily: font, marginTop: 2 }}>{cat.subtitle}</div>
+                <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--gray-900)', fontFamily: font }}>{cat.label}</div>
+                <div style={{ fontSize: 12, color: 'var(--gray-100)', fontFamily: font, marginTop: 2 }}>{cat.subtitle}</div>
               </div>
               <Switch checked={catVals.enabled ?? false} onCheckedChange={(val) => setCat(cat.key, 'enabled')(val)} />
             </div>
@@ -253,7 +253,7 @@ export function CustomGuardrailPanel({ values, onChange, onClose }) {
   if (showAdd) {
     return (
       <GuardrailPanelShell title="Add custom guardrail" onClose={onClose}>
-        <div style={{ background: '#f5f5f5', borderRadius: 8, padding: 14, display: 'flex', gap: 10 }}>
+        <div style={{ background: 'var(--gray-20)', borderRadius: 8, padding: 14, display: 'flex', gap: 10 }}>
           <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#616161', flexShrink: 0, marginTop: 1 }}>info</span>
           <span style={{ fontSize: 13, color: '#424242', fontFamily: font, lineHeight: '20px' }}>
             <strong>How it works:</strong> A custom guardrail uses a lightweight LLM to monitor your conversations and block responses that match your criteria.
@@ -268,7 +268,7 @@ export function CustomGuardrailPanel({ values, onChange, onClose }) {
           <FieldLabel label="Prompt*" showInfo tooltip="Describe what content this guardrail should block." />
           <Textarea name="customPrompt" value={form.prompt} onChange={(e) => setForm(f => ({ ...f, prompt: e.target.value }))} rows={4} placeholder="e.g. Block any content that provides specific financial advice..." />
         </div>
-        <span style={{ fontSize: 12, color: '#757575', fontFamily: font }}>Estimated cost: ~$0.000061/min</span>
+        <span style={{ fontSize: 12, color: 'var(--gray-100)', fontFamily: font }}>Estimated cost: ~$0.000061/min</span>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           <FieldLabel label="Execution mode" showInfo tooltip="Choose how guardrails run." />
           <Select value={form.executionMode} onValueChange={(v) => setForm(f => ({ ...f, executionMode: v }))}>
@@ -297,17 +297,17 @@ export function CustomGuardrailPanel({ values, onChange, onClose }) {
 
   return (
     <GuardrailPanelShell title="Custom guardrails" onClose={onClose}>
-      <button type="button" onClick={() => setShowAdd(true)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '10px', border: '1px solid #e0e0e0', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 14, fontFamily: font, color: '#212121', width: '100%' }}>
+      <button type="button" onClick={() => setShowAdd(true)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '10px', border: '1px solid #e0e0e0', borderRadius: 6, background: 'var(--gray-0)', cursor: 'pointer', fontSize: 14, fontFamily: font, color: 'var(--gray-900)', width: '100%' }}>
         <span className="material-symbols-outlined" style={{ fontSize: 18 }}>add</span>
         Add new guardrail
       </button>
       {customs.map((g, i) => (
         <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <span style={{ fontSize: 14, fontWeight: 500, color: '#212121', fontFamily: font }}>{g.name}</span>
+            <span style={{ fontSize: 14, fontWeight: 500, color: 'var(--gray-900)', fontFamily: font }}>{g.name}</span>
             <Switch checked={g.enabled ?? true} onCheckedChange={(val) => setCustoms(customs.map((c, j) => j === i ? { ...c, enabled: val } : c))} />
           </div>
-          {g.prompt && <span style={{ fontSize: 12, color: '#757575', fontFamily: font }}>{g.prompt}</span>}
+          {g.prompt && <span style={{ fontSize: 12, color: 'var(--gray-100)', fontFamily: font }}>{g.prompt}</span>}
           <button type="button" style={{ alignSelf: 'flex-start', display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: '1px solid #e0e0e0', borderRadius: 4, padding: '4px 10px', cursor: 'pointer', fontSize: 13, fontFamily: font, color: '#424242' }}>
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>edit</span>Edit
           </button>
@@ -346,7 +346,7 @@ export default function CrossChannelTab({ values, onChange, onOpenGuardrailPanel
               <input type="checkbox" checked={values.adjustLLMTemperature ?? false}
                 onChange={(e) => set('adjustLLMTemperature')(e.target.checked)}
                 style={{ accentColor: '#1976d2', width: 16, height: 16, flexShrink: 0 }} />
-              <span style={{ fontSize: 14, color: '#212121', fontFamily: font }}>Adjust LLM temperature</span>
+              <span style={{ fontSize: 14, color: 'var(--gray-900)', fontFamily: font }}>Adjust LLM temperature</span>
             </label>
             {values.adjustLLMTemperature && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -389,7 +389,7 @@ export default function CrossChannelTab({ values, onChange, onOpenGuardrailPanel
             showInfo tooltip="Blocks attempts to bypass or override system instructions." />
           {[{ key: 'content', label: 'Content guardrails' }, { key: 'custom', label: 'Custom guardrails' }].map((item) => (
             <div key={item.key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: 14, color: '#212121', fontFamily: font }}>{item.label}</span>
+              <span style={{ fontSize: 14, color: 'var(--gray-900)', fontFamily: font }}>{item.label}</span>
               <Button variant="outline" size="sm" onClick={() => onOpenGuardrailPanel(item.key)}>Edit</Button>
             </div>
           ))}
@@ -402,7 +402,7 @@ export default function CrossChannelTab({ values, onChange, onOpenGuardrailPanel
             const checked = values.overrides?.[opt.key] ?? (opt.key === 'textOnly');
             return (
               <div key={opt.key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '4px 0' }}>
-                <span style={{ fontSize: 14, color: '#212121', fontFamily: font }}>{opt.label}</span>
+                <span style={{ fontSize: 14, color: 'var(--gray-900)', fontFamily: font }}>{opt.label}</span>
                 <Switch checked={checked} onCheckedChange={(val) => set('overrides')({ ...values.overrides, [opt.key]: val })} />
               </div>
             );
@@ -416,11 +416,11 @@ export default function CrossChannelTab({ values, onChange, onOpenGuardrailPanel
             checked={values.fetchInitiationClientData ?? false} onChange={set('fetchInitiationClientData')} />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: 14, color: '#212121', fontFamily: font }}>Post-call webhook</span>
+              <span style={{ fontSize: 14, color: 'var(--gray-900)', fontFamily: font }}>Post-call webhook</span>
               <Button variant="outline" size="sm" onClick={() => {}}>Create Webhook</Button>
             </div>
             <div style={{ border: '1px solid #e0e0e0', borderRadius: 6, padding: '16px', textAlign: 'center' }}>
-              <span style={{ fontSize: 13, color: '#9e9e9e', fontFamily: font }}>No post-call webhook configured.</span>
+              <span style={{ fontSize: 13, color: 'var(--gray-90)', fontFamily: font }}>No post-call webhook configured.</span>
             </div>
           </div>
         </div>

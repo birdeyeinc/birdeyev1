@@ -202,7 +202,7 @@ export function ResizableRightChatPanel({
           "flex h-full min-h-0 w-full flex-col bg-white dark:bg-app-shell-rail",
           workspaceExpanded
             ? ""
-            : "rounded-tl-lg border-l border-t border-[#e5e9f0] dark:border-border",
+            : "rounded-tl-lg border-l border-t border-new-selected-color dark:border-border",
         ].join(" ")}
         style={{ transform: closedTransform("right") }}
       >

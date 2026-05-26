@@ -39,7 +39,7 @@
   font-weight: 500 !important;
   text-transform: none !important;
   letter-spacing: -0.28px !important;
-  color: #212121 !important;
+  color: var(--gray-900) !important;
   margin: 0 !important;
   line-height: 20px !important;
   text-align: left !important;
@@ -51,7 +51,7 @@
 
 .node-type-accordion .accordionIcon {
   font-size: 20px !important;
-  color: #212121 !important;
+  color: var(--gray-900) !important;
   transition: transform 0.2s ease !important;
 }
 

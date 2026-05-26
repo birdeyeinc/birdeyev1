@@ -166,7 +166,7 @@ export function Page4_ImpressionsReach(props: ReportPageProps) {
             <div key={m.label} className="rounded p-1.5" style={{ backgroundColor: props.cardBg, border: `1px solid ${props.borderColor}` }}>
               <p style={{ fontSize: fs(8, props.fontScale), fontFamily: ff, color: props.bodyColor, opacity: 0.7 }}>{m.label}</p>
               <p style={{ fontSize: fs(14, props.fontScale), fontFamily: ff, fontWeight: 400, color: props.titleColor }}>{m.value}</p>
-              <span style={{ fontSize: fs(8, props.fontScale), color: "#4caf50" }}>{m.change}</span>
+              <span style={{ fontSize: fs(8, props.fontScale), color: "var(--green-100)" }}>{m.change}</span>
             </div>
           ))}
         </div>
@@ -272,12 +272,12 @@ export function Page6_PostPerformance(props: ReportPageProps) {
           <div className="rounded p-1.5" style={{ backgroundColor: props.cardBg, border: `1px solid ${props.borderColor}` }}>
             <p style={{ fontSize: fs(8, props.fontScale), fontFamily: ff, color: props.bodyColor, opacity: 0.7 }}>Best performing</p>
             <p style={{ fontSize: fs(11, props.fontScale), fontFamily: ff, fontWeight: 400, color: props.titleColor }}>Reels</p>
-            <span style={{ fontSize: fs(8, props.fontScale), color: "#4caf50" }}>17.7% avg rate</span>
+            <span style={{ fontSize: fs(8, props.fontScale), color: "var(--green-100)" }}>17.7% avg rate</span>
           </div>
           <div className="rounded p-1.5" style={{ backgroundColor: props.cardBg, border: `1px solid ${props.borderColor}` }}>
             <p style={{ fontSize: fs(8, props.fontScale), fontFamily: ff, color: props.bodyColor, opacity: 0.7 }}>Total posts</p>
             <p style={{ fontSize: fs(11, props.fontScale), fontFamily: ff, fontWeight: 400, color: props.titleColor }}>7</p>
-            <span style={{ fontSize: fs(8, props.fontScale), color: "#4caf50" }}>+40% vs prior</span>
+            <span style={{ fontSize: fs(8, props.fontScale), color: "var(--green-100)" }}>+40% vs prior</span>
           </div>
         </div>
       </div>

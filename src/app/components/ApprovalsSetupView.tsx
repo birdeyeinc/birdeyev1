@@ -49,7 +49,7 @@ interface Workflow {
 const WORKFLOWS: Workflow[] = buildApprovalWorkflowRows(31, 24);
 
 const ALL_APPROVERS: Approver[] = [
-  { id: 'u1', name: 'Aaron Blake',    initials: 'AB', color: '#1976d2', locationType: 'partial', locations: ['Boston, MA','Culver City, CA','Corvallis, OR','Fremont, CA','Kansas City, MO','Manchester, LA','Springfield, IL','Tampa, FL','Tucson, AZ','Austin, TX'] },
+  { id: 'u1', name: 'Aaron Blake',    initials: 'AB', color: 'var(--blue-100)', locationType: 'partial', locations: ['Boston, MA','Culver City, CA','Corvallis, OR','Fremont, CA','Kansas City, MO','Manchester, LA','Springfield, IL','Tampa, FL','Tucson, AZ','Austin, TX'] },
   { id: 'u2', name: 'Brian Carter',   initials: 'BC', color: '#e67e22', locationType: 'partial', locations: ['Boston, MA','Culver City, CA'] },
   { id: 'u3', name: 'Daniel Foster',  initials: 'DF', color: '#27ae60', locationType: 'all',     locations: [] },
   { id: 'u4', name: 'Michael Turner', initials: 'MT', color: '#8e44ad', locationType: 'partial', locations: ['Boston, MA','Culver City, CA','Corvallis, OR','Fremont, CA','Kansas City, MO'] },
@@ -75,7 +75,7 @@ const DEFAULT_STEPS: Step[] = [
 function Avatar({ initials, color, size = 24 }: { initials: string; color: string; size?: number }) {
   return (
     <div
-      style={{ width: size, height: size, backgroundColor: color, borderRadius: '50%', flexShrink: 0, fontSize: size * 0.38, fontWeight: 500, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      style={{ width: size, height: size, backgroundColor: color, borderRadius: '50%', flexShrink: 0, fontSize: size * 0.38, fontWeight: 500, color: 'var(--gray-0)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       className="font-medium "
     >
       {initials}
@@ -87,22 +87,22 @@ function Avatar({ initials, color, size = 24 }: { initials: string; color: strin
 
 function LocationLabel({ approver }: { approver: Approver }) {
   if (approver.locationType === 'all') {
-    return <span className="text-[12px] text-[#1976d2] dark:text-[#5b9cf6] ">All locations</span>;
+    return <span className="text-[12px] text-blue-100 dark:text-blue-80 ">All locations</span>;
   }
-  return <span className="text-[12px] text-[#555] dark:text-[#9ba2b0] ">{approver.locations.length} location{approver.locations.length !== 1 ? 's' : ''}</span>;
+  return <span className="text-[12px] text-gray-300 dark:text-gray-90 ">{approver.locations.length} location{approver.locations.length !== 1 ? 's' : ''}</span>;
 }
 
 // ─── Approver Chip (inline in the input box) ────────────────────────────────────
 
 function ApproverChip({ approver, onRemove }: { approver: Approver; onRemove: () => void }) {
   return (
-    <div className="inline-flex items-center gap-[6px] h-[28px] pl-[4px] pr-[6px] rounded-[4px] border border-[#e5e9f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] shrink-0">
+    <div className="inline-flex items-center gap-[6px] h-[28px] pl-[4px] pr-[6px] rounded-[4px] border border-new-selected-color dark:border-gray-600 bg-white dark:bg-gray-700 shrink-0">
       <Avatar initials={approver.initials} color={approver.color} size={20} />
-      <span className="text-[13px] text-[#212121] dark:text-[#e4e8f0] whitespace-nowrap">{approver.name}</span>
-      <button className="text-[#aaa] dark:text-[#6b7a94] hover:text-[#555] dark:hover:text-[#9ba2b0] flex items-center" onClick={e => { e.stopPropagation(); }}>
+      <span className="text-[13px] text-gray-900 dark:text-gray-2000 whitespace-nowrap">{approver.name}</span>
+      <button className="text-gray-80 dark:text-gray-90 hover:text-gray-300 dark:hover:text-gray-90 flex items-center" onClick={e => { e.stopPropagation(); }}>
         <Info size={14} />
       </button>
-      <button className="text-[#aaa] dark:text-[#6b7a94] hover:text-[#555] dark:hover:text-[#9ba2b0] flex items-center" onClick={e => { e.stopPropagation(); onRemove(); }}>
+      <button className="text-gray-80 dark:text-gray-90 hover:text-gray-300 dark:hover:text-gray-90 flex items-center" onClick={e => { e.stopPropagation(); onRemove(); }}>
         <X size={13} />
       </button>
     </div>
@@ -113,12 +113,12 @@ function ApproverChip({ approver, onRemove }: { approver: Approver; onRemove: ()
 
 function LocationPopover({ locations }: { locations: string[] }) {
   return (
-    <div className="absolute left-full top-0 ml-[4px] z-30 bg-white dark:bg-[#1e2229] border border-[#e5e9f0] dark:border-[#2e3340] rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.4)] w-[200px] py-[8px]">
+    <div className="absolute left-full top-0 ml-[4px] z-30 bg-white dark:bg-gray-700 border border-new-selected-color dark:border-gray-600 rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.4)] w-[200px] py-[8px]">
       <div className="px-[16px] pb-[6px]">
-        <span className="font-medium text-[12px] text-[#757575] dark:text-[#6b7a94] uppercase tracking-[0.5px]">Locations</span>
+        <span className="font-medium text-[12px] text-gray-100 dark:text-gray-90 uppercase tracking-[0.5px]">Locations</span>
       </div>
       {locations.slice(0, 6).map(loc => (
-        <div key={loc} className="px-[16px] py-[5px] text-[13px] text-[#212121] dark:text-[#e4e8f0] hover:bg-[#f5f7ff] dark:hover:bg-[#252a35] cursor-default">{loc}</div>
+        <div key={loc} className="px-[16px] py-[5px] text-[13px] text-gray-900 dark:text-gray-2000 hover:bg-blue-10 dark:hover:bg-gray-700 cursor-default">{loc}</div>
       ))}
     </div>
   );
@@ -153,12 +153,12 @@ function ApproverDropdown({
   const hoveredApprover = filtered.find(a => a.id === hoveredId);
 
   return (
-    <div ref={ref} className="absolute top-full left-0 mt-[4px] z-20 bg-white dark:bg-[#1e2229] border border-[#e5e9f0] dark:border-[#2e3340] rounded-[8px] shadow-[0_4px_20px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]" style={{ width: 460 }}>
+    <div ref={ref} className="absolute top-full left-0 mt-[4px] z-20 bg-white dark:bg-gray-700 border border-new-selected-color dark:border-gray-600 rounded-[8px] shadow-[0_4px_20px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]" style={{ width: 460 }}>
       {/* Filter header */}
       <div className="flex items-center gap-[4px] px-[16px] pt-[12px] pb-[8px]">
-        <span className="text-[13px] text-[#555] dark:text-[#9ba2b0]">Filter users</span>
+        <span className="text-[13px] text-gray-300 dark:text-gray-90">Filter users</span>
         <button
-          className="inline-flex items-center gap-[2px] text-[13px] text-[#1976d2] dark:text-[#5b9cf6]"
+          className="inline-flex items-center gap-[2px] text-[13px] text-blue-100 dark:text-blue-80"
           onClick={() => setLocationFilter(locationFilter === 'all' ? 'partial' : 'all')}
         >
           {locationFilter === 'all' ? 'All locations' : 'Specific locations'}
@@ -168,44 +168,44 @@ function ApproverDropdown({
 
       {/* Search */}
       <div className="relative px-[8px] pb-[8px]">
-        <Search size={14} className="absolute left-[20px] top-[50%] -translate-y-1/2 text-[#aaa] dark:text-[#6b7a94] pointer-events-none" />
+        <Search size={14} className="absolute left-[20px] top-[50%] -translate-y-1/2 text-gray-80 dark:text-gray-90 pointer-events-none" />
         <input
           autoFocus
           type="text"
           placeholder="Search"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="w-full h-[36px] pl-[34px] pr-[12px] border border-[#e5e9f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] rounded-[6px] text-[13px] text-[#212121] dark:text-[#e4e8f0] outline-none focus:border-[#1976d2] dark:focus:border-[#5b9cf6] placeholder-[#aaa] dark:placeholder:text-[#6b7a94]"
+          className="w-full h-[36px] pl-[34px] pr-[12px] border border-new-selected-color dark:border-gray-600 bg-white dark:bg-gray-700 rounded-[6px] text-[13px] text-gray-900 dark:text-gray-2000 outline-none focus:border-blue-100 dark:focus:border-blue-80 placeholder-gray-80 dark:placeholder:text-gray-90"
         />
       </div>
 
       {/* User list */}
       <div className="max-h-[240px] overflow-y-auto">
         {filtered.length === 0 ? (
-          <div className="px-[16px] py-[12px] text-[13px] text-[#aaa] dark:text-[#6b7a94]">No users found</div>
+          <div className="px-[16px] py-[12px] text-[13px] text-gray-80 dark:text-gray-90">No users found</div>
         ) : (() => {
           const allLoc   = filtered.filter(a => a.locationType === 'all');
           const partial  = filtered.filter(a => a.locationType === 'partial');
           const renderRow = (approver: Approver) => (
             <div
               key={approver.id}
-              className="relative flex items-center gap-[10px] px-[12px] py-[8px] cursor-pointer hover:bg-[#f5f7ff] dark:hover:bg-[#252a35]"
+              className="relative flex items-center gap-[10px] px-[12px] py-[8px] cursor-pointer hover:bg-blue-10 dark:hover:bg-gray-700"
               onClick={() => { onAdd(approver); onClose(); }}
               onMouseEnter={() => setHoveredId(approver.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
               <Avatar initials={approver.initials} color={approver.color} size={28} />
               <div className="flex flex-col flex-1 min-w-0">
-                <span className="text-[13px] text-[#212121] dark:text-[#e4e8f0]">{approver.name}</span>
+                <span className="text-[13px] text-gray-900 dark:text-gray-2000">{approver.name}</span>
                 <div className="flex items-center gap-[4px]">
                   {approver.locationType === 'all' ? (
-                    <span className="text-[12px] text-[#1976d2] dark:text-[#5b9cf6]">All locations</span>
+                    <span className="text-[12px] text-blue-100 dark:text-blue-80">All locations</span>
                   ) : (
                     <>
-                      <span className="text-[12px] text-[#555] dark:text-[#9ba2b0]">
+                      <span className="text-[12px] text-gray-300 dark:text-gray-90">
                         {approver.locations.length} location{approver.locations.length !== 1 ? 's' : ''}
                       </span>
-                      <ChevronDown size={13} className="text-[#555] dark:text-[#9ba2b0]" />
+                      <ChevronDown size={13} className="text-gray-300 dark:text-gray-90" />
                     </>
                   )}
                 </div>
@@ -221,11 +221,11 @@ function ApproverDropdown({
                 <>
                   {/* Recommended section label — subtle */}
                   <div className="px-[12px] pt-[6px] pb-[2px] flex items-center gap-[4px]">
-                    <span className="font-medium text-[11px] text-[#1976d2] dark:text-[#5b9cf6] uppercase tracking-[0.5px]">Recommended</span>
-                    <span className="text-[11px] text-[#aaa] dark:text-[#6b7a94]">· covers all locations</span>
+                    <span className="font-medium text-[11px] text-blue-100 dark:text-blue-80 uppercase tracking-[0.5px]">Recommended</span>
+                    <span className="text-[11px] text-gray-80 dark:text-gray-90">· covers all locations</span>
                   </div>
                   {allLoc.map(renderRow)}
-                  {partial.length > 0 && <div className="mx-[12px] my-[4px] border-t border-[#f0f0f0] dark:border-[#2e3340]" />}
+                  {partial.length > 0 && <div className="mx-[12px] my-[4px] border-t border-gray-20 dark:border-gray-600" />}
                 </>
               )}
               {partial.map(renderRow)}
@@ -272,7 +272,7 @@ function StepCard({
   };
 
   return (
-    <div className="bg-white dark:bg-[#1e2229] border border-[#e5e9f0] dark:border-[#2e3340] rounded-[8px] overflow-visible">
+    <div className="bg-white dark:bg-gray-700 border border-new-selected-color dark:border-gray-600 rounded-[8px] overflow-visible">
       {/* Step header */}
       <div className="flex items-center gap-[10px] px-[20px] pt-[20px] pb-[12px]">
         {/* Status circle — green when covered, amber when not */}
@@ -295,24 +295,24 @@ function StepCard({
             onChange={e => setNameValue(e.target.value)}
             onBlur={finishEditName}
             onKeyDown={e => { if (e.key === 'Enter') finishEditName(); }}
-            className="font-medium text-[16px] text-[#212121] dark:text-[#e4e8f0] border-b border-[#1976d2] dark:border-[#5b9cf6] outline-none bg-transparent"
+            className="font-medium text-[16px] text-gray-900 dark:text-gray-2000 border-b border-blue-100 dark:border-blue-80 outline-none bg-transparent"
             style={{ fontVariationSettings: "'wdth' 100" }}
           />
         ) : (
-          <span className="font-medium text-[16px] text-[#212121] dark:text-[#e4e8f0]" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <span className="font-medium text-[16px] text-gray-900 dark:text-gray-2000" style={{ fontVariationSettings: "'wdth' 100" }}>
             {step.name}
           </span>
         )}
 
         <button
-          className="text-[#aaa] dark:text-[#6b7a94] hover:text-[#1976d2] dark:hover:text-[#5b9cf6]"
+          className="text-gray-80 dark:text-gray-90 hover:text-blue-100 dark:hover:text-blue-80"
           onClick={() => { setEditingName(true); setTimeout(() => inputRef.current?.focus(), 0); }}
         >
           <Pencil size={15} />
         </button>
 
         {canDelete && (
-          <button className="ml-auto text-[#aaa] dark:text-[#6b7a94] hover:text-[#de1b0c]" onClick={onDelete}>
+          <button className="ml-auto text-gray-80 dark:text-gray-90 hover:text-red-100" onClick={onDelete}>
             <X size={16} />
           </button>
         )}
@@ -320,25 +320,25 @@ function StepCard({
 
       {/* Require mode row */}
       <div className="px-[20px] pb-[12px] flex items-center gap-[6px]">
-        <span className="text-[13px] text-[#555] dark:text-[#9ba2b0]">Require approval from</span>
-        <button className="inline-flex items-center gap-[2px] text-[13px] text-[#1976d2] dark:text-[#5b9cf6]">
+        <span className="text-[13px] text-gray-300 dark:text-gray-90">Require approval from</span>
+        <button className="inline-flex items-center gap-[2px] text-[13px] text-blue-100 dark:text-blue-80">
           {step.requireMode === 'any' ? 'any' : 'all'}
           <ChevronDown size={14} />
         </button>
-        <span className="text-[13px] text-[#555] dark:text-[#9ba2b0]">of these approvers</span>
+        <span className="text-[13px] text-gray-300 dark:text-gray-90">of these approvers</span>
       </div>
 
       {/* Approvers label + chip input box */}
       <div className="px-[20px] pb-[20px]">
         <div className="mb-[6px]">
-          <span className="text-[12px] text-[#757575] dark:text-[#6b7a94]">Approvers<span className="text-[#de1b0c]">*</span></span>
+          <span className="text-[12px] text-gray-100 dark:text-gray-90">Approvers<span className="text-red-100">*</span></span>
         </div>
 
         {/* Chip input area */}
         <div className="relative">
           <div
             ref={chipAreaRef}
-            className="flex flex-wrap items-center gap-[6px] min-h-[44px] px-[8px] py-[6px] border border-[#e5e9f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] rounded-[6px] cursor-text focus-within:border-[#1976d2] dark:focus-within:border-[#5b9cf6] transition-colors"
+            className="flex flex-wrap items-center gap-[6px] min-h-[44px] px-[8px] py-[6px] border border-new-selected-color dark:border-gray-600 bg-white dark:bg-gray-700 rounded-[6px] cursor-text focus-within:border-blue-100 dark:focus-within:border-blue-80 transition-colors"
             onClick={() => { if (!showDropdown && available.length > 0) setShowDropdown(true); }}
           >
             {step.approvers.map(a => (
@@ -347,7 +347,7 @@ function StepCard({
             {/* Blinking cursor input */}
             <input
               type="text"
-              className="outline-none border-none bg-transparent text-[13px] text-[#212121] dark:text-[#e4e8f0] placeholder-[#bbb] dark:placeholder:text-[#6b7a94] min-w-[40px] flex-1"
+              className="outline-none border-none bg-transparent text-[13px] text-gray-900 dark:text-gray-2000 placeholder-gray-70 dark:placeholder:text-gray-90 min-w-[40px] flex-1"
               placeholder={step.approvers.length === 0 ? 'Aa' : ''}
               onFocus={() => { if (available.length > 0) setShowDropdown(true); }}
               readOnly
@@ -366,11 +366,11 @@ function StepCard({
 
         {/* Approvers left + subtle coverage hint */}
         <div className="mt-[6px] flex items-center justify-between">
-          <span className="text-[12px] text-[#aaa] dark:text-[#6b7a94]">
+          <span className="text-[12px] text-gray-80 dark:text-gray-90">
             {approversLeft} approver{approversLeft !== 1 ? 's' : ''} left
           </span>
           {!covered && step.approvers.length > 0 && (
-            <span className="flex items-center gap-[4px] text-[12px] text-[#f59e0b]">
+            <span className="flex items-center gap-[4px] text-[12px] text-yellow-100">
               <AlertTriangle size={12} />
               Add an all-locations approver to avoid unattended posts
             </span>
@@ -419,19 +419,19 @@ function WorkflowEditor({ workflow, onBack }: { workflow: Workflow; onBack: () =
   };
 
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-[#1e2229] transition-colors duration-300">
+    <div className="flex flex-col h-full bg-white dark:bg-gray-700 transition-colors duration-300">
       {/* Breadcrumb + header row */}
-      <div className="border-b border-[#eaeaea] dark:border-[#2e3340] px-[24px] shrink-0">
+      <div className="border-b border-comparison-0-star dark:border-gray-600 px-[24px] shrink-0">
         {/* Breadcrumb */}
         <div className="flex items-center gap-[6px] pt-[12px] pb-[4px]">
           <button
             onClick={onBack}
-            className="text-[13px] text-[#1976d2] dark:text-[#5b9cf6] hover:underline"
+            className="text-[13px] text-blue-100 dark:text-blue-80 hover:underline"
           >
             Approvals
           </button>
-          <ChevronDown size={13} className="text-[#aaa] dark:text-[#6b7a94] -rotate-90" />
-          <span className="text-[13px] text-[#1976d2] dark:text-[#5b9cf6]">{name}</span>
+          <ChevronDown size={13} className="text-gray-80 dark:text-gray-90 -rotate-90" />
+          <span className="text-[13px] text-blue-100 dark:text-blue-80">{name}</span>
         </div>
 
         {/* Title + actions */}
@@ -445,19 +445,19 @@ function WorkflowEditor({ workflow, onBack }: { workflow: Workflow; onBack: () =
                 onChange={e => setName(e.target.value)}
                 onBlur={() => setEditingName(false)}
                 onKeyDown={e => { if (e.key === 'Enter') setEditingName(false); }}
-                className="font-normal text-[22px] text-[#212121] dark:text-[#e4e8f0] border-b-2 border-[#1976d2] dark:border-[#5b9cf6] outline-none bg-transparent"
+                className="font-normal text-[22px] text-gray-900 dark:text-gray-2000 border-b-2 border-blue-100 dark:border-blue-80 outline-none bg-transparent"
                 style={{ fontVariationSettings: "'wdth' 100" }}
               />
             ) : (
               <h1
-                className="font-normal text-[22px] text-[#212121] dark:text-[#e4e8f0] tracking-[-0.44px]"
+                className="font-normal text-[22px] text-gray-900 dark:text-gray-2000 tracking-[-0.44px]"
                 style={{ fontVariationSettings: "'wdth' 100" }}
               >
                 {name}
               </h1>
             )}
             <button
-              className="text-[#aaa] dark:text-[#6b7a94] hover:text-[#1976d2] dark:hover:text-[#5b9cf6] mt-[2px]"
+              className="text-gray-80 dark:text-gray-90 hover:text-blue-100 dark:hover:text-blue-80 mt-[2px]"
               onClick={() => { setEditingName(true); setTimeout(() => nameRef.current?.focus(), 0); }}
             >
               <Pencil size={16} />
@@ -466,32 +466,32 @@ function WorkflowEditor({ workflow, onBack }: { workflow: Workflow; onBack: () =
 
           <div className="flex items-center gap-[8px]">
             {saved && (
-              <span className="text-[13px] text-[#34a853] flex items-center gap-[4px]">
+              <span className="text-[13px] text-green-100 flex items-center gap-[4px]">
                 <Check size={14} /> Saved
               </span>
             )}
             {/* Subtle coverage warning — only shown on first save attempt if gaps exist */}
             {showCoverageWarning && !saved && (
-              <span className="text-[12px] text-[#f59e0b] flex items-center gap-[4px]">
+              <span className="text-[12px] text-yellow-100 flex items-center gap-[4px]">
                 <AlertTriangle size={13} />
                 Some steps may leave posts unattended. Save anyway?
               </span>
             )}
             <button
               onClick={handleSave}
-              className="h-[36px] px-[20px] rounded-[4px] bg-[#1976d2] text-[14px] text-white hover:bg-[#1565c0] transition-colors"
+              className="h-[36px] px-[20px] rounded-[4px] bg-blue-100 text-[14px] text-white hover:bg-blue-200 transition-colors"
             >
               {showCoverageWarning ? 'Save anyway' : 'Save'}
             </button>
-            <button className="h-[36px] w-[36px] flex items-center justify-center rounded-[4px] border border-[#e5e9f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] hover:bg-[#f5f5f5] dark:hover:bg-[#2e3340]">
-              <MoreVertical size={16} className="text-[#555] dark:text-[#9ba2b0]" />
+            <button className="h-[36px] w-[36px] flex items-center justify-center rounded-[4px] border border-new-selected-color dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-gray-20 dark:hover:bg-gray-600">
+              <MoreVertical size={16} className="text-gray-300 dark:text-gray-90" />
             </button>
           </div>
         </div>
       </div>
 
       {/* Steps */}
-      <div className="flex-1 overflow-y-auto px-[24px] py-[20px] bg-[#fafafa] dark:bg-[#181b22]">
+      <div className="flex-1 overflow-y-auto px-[24px] py-[20px] bg-gray-10 dark:bg-gray-800">
         <div className="max-w-[860px] mx-auto flex flex-col gap-[12px]">
           {steps.map((step, i) => (
             <StepCard
@@ -508,9 +508,9 @@ function WorkflowEditor({ workflow, onBack }: { workflow: Workflow; onBack: () =
           {steps.length < 10 && (
             <button
               onClick={addStep}
-              className="flex items-center gap-[10px] w-full px-[20px] py-[14px] border border-dashed border-[#d0d0d0] dark:border-[#2e3340] rounded-[8px] text-[#1976d2] dark:text-[#5b9cf6] hover:border-[#1976d2] dark:hover:border-[#5b9cf6] hover:bg-[#f0f7ff] dark:hover:bg-[#1a2d4a] transition-colors"
+              className="flex items-center gap-[10px] w-full px-[20px] py-[14px] border border-dashed border-gray-60 dark:border-gray-600 rounded-[8px] text-blue-100 dark:text-blue-80 hover:border-blue-100 dark:hover:border-blue-80 hover:bg-blue-10 dark:hover:bg-blue-500 transition-colors"
             >
-              <div className="w-[22px] h-[22px] rounded-full border-2 border-[#1976d2] dark:border-[#5b9cf6] flex items-center justify-center shrink-0">
+              <div className="w-[22px] h-[22px] rounded-full border-2 border-blue-100 dark:border-blue-80 flex items-center justify-center shrink-0">
                 <Plus size={13} strokeWidth={2.5} />
               </div>
               <span className="text-[14px]">Add step</span>

@@ -181,7 +181,7 @@ function PostCard({ postId, status, platforms, time, caption, image, actionType,
 
         {/* Expiry row */}
         {expiryDate && (
-          <p className={cn('text-xs', isExpired ? 'text-muted-foreground' : 'text-[#c69204] dark:text-[#f0b429]')}>
+          <p className={cn('text-xs', isExpired ? 'text-muted-foreground' : 'text-yellow-200 dark:text-yellow-90')}>
             {isExpired ? 'Expired' : 'Expires'} {fmtExpiry(expiryDate)}
           </p>
         )}
@@ -255,7 +255,7 @@ export function CalendarView({ onPostClick, onActivityClick, onViewExpiredPosts,
           style={{ transform: 'translateX(-50%)', minWidth: 280 }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="shrink-0">
-            <circle cx="12" cy="12" r="10" fill="#4caf50" />
+            <circle cx="12" cy="12" r="10" fill="var(--green-100)" />
             <path d="M7 12.5l3.5 3.5L17 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <p className="text-sm text-foreground">{visibleToast}</p>
@@ -297,7 +297,7 @@ export function CalendarView({ onPostClick, onActivityClick, onViewExpiredPosts,
 
             {/* AI button */}
             <Button variant="outline" size="icon">
-              <Sparkles className="size-5 text-[#6834B7]" />
+              <Sparkles className="size-5 text-purple-100" />
             </Button>
 
             {/* More dropdown */}

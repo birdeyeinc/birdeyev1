@@ -36,17 +36,17 @@ function FieldChip({ name, index }) {
     <div style={{
       display: 'flex', alignItems: 'center', gap: 2,
       border: '1px solid #d1e5f9', borderRadius: 4,
-      background: '#fff', flexShrink: 0,
+      background: 'var(--gray-0)', flexShrink: 0,
     }}>
       <div style={{
-        background: '#ecf5fd', borderRight: '1px solid #d1e5f9',
+        background: 'var(--blue-20)', borderRight: '1px solid #d1e5f9',
         height: 24, width: 25, display: 'flex', alignItems: 'center', justifyContent: 'center',
         flexShrink: 0,
       }}>
-        <span className="material-symbols-outlined" style={{ fontSize: 14, color: '#1976d2' }}>data_object</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 14, color: 'var(--blue-100)' }}>data_object</span>
       </div>
       <span style={{
-        fontSize: 12, lineHeight: '16px', color: '#555555',
+        fontSize: 12, lineHeight: '16px', color: 'var(--gray-300)',
         fontFamily: font, whiteSpace: 'nowrap', paddingRight: 9,
       }}>
         {index + 1}. {name}
@@ -78,7 +78,7 @@ export default function FieldPickerModal({ onClose, onSelectField }) {
       <DialogContent style={{ padding: 0, maxWidth: 480, width: 480 }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', padding: '24px 24px 12px' }}>
-          <span style={{ fontSize: 16, fontWeight: 400, lineHeight: '24px', letterSpacing: '-0.32px', color: '#212121', fontFamily: font }}>
+          <span style={{ fontSize: 16, fontWeight: 400, lineHeight: '24px', letterSpacing: '-0.32px', color: 'var(--gray-900)', fontFamily: font }}>
             Fields
           </span>
         </div>
@@ -87,7 +87,7 @@ export default function FieldPickerModal({ onClose, onSelectField }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '0 24px 24px' }}>
 
           {/* Tabs */}
-          <div style={{ display: 'flex', gap: 8, background: '#fff' }}>
+          <div style={{ display: 'flex', gap: 8, background: 'var(--gray-0)' }}>
             {[{ key: 'system', label: 'System' }, { key: 'local', label: 'Local' }].map(({ key, label }) => (
               <div
                 key={key}
@@ -95,14 +95,14 @@ export default function FieldPickerModal({ onClose, onSelectField }) {
                 onClick={() => setActiveTab(key)}
               >
                 <button style={tabLabelStyle(key)}>{label}</button>
-                <div style={{ height: 1, width: '100%', background: '#1976d2', opacity: activeTab === key ? 1 : 0 }} />
+                <div style={{ height: 1, width: '100%', background: 'var(--blue-100)', opacity: activeTab === key ? 1 : 0 }} />
               </div>
             ))}
           </div>
 
           {/* Search */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, height: 36, border: '1px solid #e0e0e0', borderRadius: 4, padding: '0 12px', boxSizing: 'border-box', width: '100%' }}>
-            <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#757575', flexShrink: 0 }}>search</span>
+            <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--gray-100)', flexShrink: 0 }}>search</span>
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -113,7 +113,7 @@ export default function FieldPickerModal({ onClose, onSelectField }) {
                 }
               }}
               placeholder="Search"
-              style={{ flex: 1, border: 'none', outline: 'none', fontSize: 14, lineHeight: '20px', color: '#212121', fontFamily: font, background: 'transparent' }}
+              style={{ flex: 1, border: 'none', outline: 'none', fontSize: 14, lineHeight: '20px', color: 'var(--gray-900)', fontFamily: font, background: 'transparent' }}
             />
           </div>
 
@@ -137,10 +137,10 @@ export default function FieldPickerModal({ onClose, onSelectField }) {
                     <span style={{ flex: 1, fontSize: 12, lineHeight: '18px', fontFamily: font, color: isSelected ? '#212121' : '#555555', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textAlign: 'left' }}>
                       {node.label}
                     </span>
-                    <span style={{ fontSize: 12, lineHeight: '18px', color: '#8f8f8f', fontFamily: font, flexShrink: 0 }}>
+                    <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--gray-90)', fontFamily: font, flexShrink: 0 }}>
                       {node.fields.length}
                     </span>
-                    <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', flexShrink: 0 }}>chevron_right</span>
+                    <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', flexShrink: 0 }}>chevron_right</span>
                   </button>
                 );
               })}

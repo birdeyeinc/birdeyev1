@@ -1,7 +1,7 @@
 .canvas-node {
   width: 400px;
   padding: 20px;
-  background: #fff;
+  background: var(--gray-0);
   border-radius: 8px;
   border: 1.5px solid transparent;
   box-shadow: 0px 2px 12px 0px rgba(33, 33, 33, 0.06);
@@ -33,6 +33,6 @@
 }
 
 .canvas-node--test-fail {
-  border-color: #e53935;
+  border-color: var(--red-90);
   box-shadow: 0px 0px 0px 3px rgba(229, 57, 53, 0.16), 0px 2px 12px 0px rgba(33, 33, 33, 0.06);
 }

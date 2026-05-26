@@ -43,11 +43,11 @@ const LANGUAGE_OPTIONS = [
 function FieldLabel({ label, required, showInfo }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
-      {showInfo && <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer' }}>info</span>}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
+      {showInfo && <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer' }}>info</span>}
     </div>
   );
 }
@@ -81,18 +81,18 @@ function ChannelMultiSelect({ options, selected, onChange, placeholder }) {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           width: '100%', height: 36, padding: '0 12px',
           border: '1px solid #ccc', borderRadius: 4,
-          background: '#fff', cursor: 'pointer', fontSize: 14, fontFamily: font,
+          background: 'var(--gray-0)', cursor: 'pointer', fontSize: 14, fontFamily: font,
         }}
       >
         <span style={{ color: selected.length ? '#212121' : '#9e9e9e', flex: 1, textAlign: 'left' }}>
           {selected.length ? selected.join(', ') : placeholder}
         </span>
-        <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f' }}>expand_more</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)' }}>expand_more</span>
       </button>
       {open && (
-        <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, zIndex: 100, background: '#fff', border: '1px solid #ccc', borderRadius: 4, boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}>
+        <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, zIndex: 100, background: 'var(--gray-0)', border: '1px solid #ccc', borderRadius: 4, boxShadow: '0 2px 8px rgba(0,0,0,0.12)' }}>
           {options.map((opt) => (
-            <label key={opt.value} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', cursor: 'pointer', fontSize: 14, fontFamily: font, color: '#212121' }}>
+            <label key={opt.value} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', cursor: 'pointer', fontSize: 14, fontFamily: font, color: 'var(--gray-900)' }}>
               <input type="checkbox" checked={selected.includes(opt.value)} onChange={() => toggle(opt.value)} style={{ accentColor: '#1976d2' }} />
               {opt.label}
             </label>
@@ -141,8 +141,8 @@ function VoiceConfig({ values, onChange, onAdvancedClick }) {
         onClick={onAdvancedClick}
         style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, alignSelf: 'flex-start' }}
       >
-        <span style={{ fontSize: 13, fontWeight: 500, color: '#1976d2', fontFamily: font }}>Advanced config</span>
-        <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#1976d2' }}>chevron_right</span>
+        <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--blue-100)', fontFamily: font }}>Advanced config</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--blue-100)' }}>chevron_right</span>
       </button>
     </>
   );

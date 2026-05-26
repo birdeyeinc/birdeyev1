@@ -55,7 +55,7 @@ function TimeDropdown({ value, onChange }) {
         style={{
           width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: '6px 10px', border: '1px solid var(--border-onlightsurface-default, #e5e9f0)',
-          borderRadius: 4, background: '#fff', cursor: 'pointer', fontFamily: font, fontSize: 13,
+          borderRadius: 4, background: 'var(--gray-0)', cursor: 'pointer', fontFamily: font, fontSize: 13,
           color: 'var(--text-onlightsurface-primary, #212121)',
         }}
       >
@@ -65,7 +65,7 @@ function TimeDropdown({ value, onChange }) {
       {open && (
         <ul style={{
           position: 'absolute', top: 'calc(100% + 2px)', left: 0, zIndex: 200, margin: 0, padding: '4px 0',
-          listStyle: 'none', background: '#fff', border: '1px solid #e5e9f0',
+          listStyle: 'none', background: 'var(--gray-0)', border: '1px solid #e5e9f0',
           borderRadius: 4, boxShadow: '0 4px 8px rgba(33,33,33,0.18)',
           maxHeight: 220, overflowY: 'auto', minWidth: '100%',
         }}>
@@ -76,7 +76,7 @@ function TimeDropdown({ value, onChange }) {
               style={{
                 padding: '7px 14px', cursor: 'pointer', fontSize: 13, fontFamily: font,
                 background: opt.value === value ? '#f0f4ff' : 'transparent',
-                color: '#212121',
+                color: 'var(--gray-900)',
               }}
             >
               {opt.label}
@@ -117,7 +117,7 @@ function BusinessHoursSchedule({ schedule, onChange }) {
         return (
           <div key={day} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4, width: 80, flexShrink: 0 }}>
-              <span style={{ fontSize: 13, fontFamily: font, fontWeight: 500, color: '#212121', lineHeight: '20px' }}>{day}</span>
+              <span style={{ fontSize: 13, fontFamily: font, fontWeight: 500, color: 'var(--gray-900)', lineHeight: '20px' }}>{day}</span>
               <label style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', userSelect: 'none' }}>
                 <input type="checkbox" checked={closed} onChange={() => toggleClosed(day)} style={{ accentColor: '#1976d2', width: 13, height: 13 }} />
                 <span style={{ fontSize: 11, fontFamily: font, color: '#616161' }}>Closed</span>
@@ -152,7 +152,7 @@ function BusinessHoursSchedule({ schedule, onChange }) {
 function TimeConditionSelect({ value, onTimeChange, onConfigureCustom }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         Select time
       </span>
       <Select value={value || ''} onValueChange={(v) => onTimeChange(v)}>
@@ -169,7 +169,7 @@ function TimeConditionSelect({ value, onTimeChange, onConfigureCustom }) {
         <button
           type="button"
           onClick={onConfigureCustom}
-          style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontSize: 12, fontFamily: font, color: '#1976d2', textDecoration: 'underline' }}
+          style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontSize: 12, fontFamily: font, color: 'var(--blue-100)', textDecoration: 'underline' }}
         >
           Set schedule
         </button>
@@ -200,8 +200,8 @@ export default function InboxTriggerBody({ channel = 'Voice', initialValues = {}
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
-          Trigger <span style={{ color: '#de1b0c' }}>*</span>
+        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
+          Trigger <span style={{ color: 'var(--red-100)' }}>*</span>
         </span>
         <Select value={initialValues.triggerName || ''} onValueChange={(v) => onChange?.('triggerName', v)}>
           <SelectTrigger>
@@ -215,7 +215,7 @@ export default function InboxTriggerBody({ channel = 'Voice', initialValues = {}
         </Select>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>Description</span>
+        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>Description</span>
         <Textarea
           name="description"
           placeholder="Enter description"

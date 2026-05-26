@@ -9,7 +9,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  color: #212121;
+  color: var(--gray-900);
   margin: 0;
 }
 
@@ -44,12 +44,12 @@
   padding: 0 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background: #fff;
+  background: var(--gray-0);
   flex-shrink: 0;
 }
 
 .tsd-search__icon {
-  color: #8f8f8f;
+  color: var(--gray-90);
   font-size: 20px !important;
   width: 20px;
   height: 20px;
@@ -64,12 +64,12 @@
   outline: none;
   font-family: var(--font-family-brand), Inter, arial, sans-serif;
   font-size: 14px;
-  color: #212121;
+  color: var(--gray-900);
   background: transparent;
 }
 
 .tsd-search__input::placeholder {
-  color: #8f8f8f;
+  color: var(--gray-90);
 }
 
 /* ─── Tabs row ─── */
@@ -103,12 +103,12 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #1976d2;
+  color: var(--blue-100);
   white-space: nowrap;
 }
 
 .tsd-section-header__chevron {
-  color: #1976d2;
+  color: var(--blue-100);
   font-size: 20px !important;
   width: 20px;
   height: 20px;
@@ -138,7 +138,7 @@
   align-items: center;
   gap: 8px;
   padding: 14px 20px;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #e8ebed;
   border-radius: 4px;
   width: 100%;
@@ -149,7 +149,7 @@
 }
 
 .tsd-card:hover {
-  background: #fafafa;
+  background: var(--gray-10);
 }
 
 /* Icon wrap: 41px wide to allow -6% left offset like Figma */
@@ -169,15 +169,15 @@
   top: 0;
 }
 
-.tsd-card__icon-circle--blue { background: #1976d2; }
-.tsd-card__icon-circle--gray { background: #757575; }
+.tsd-card__icon-circle--blue { background: var(--blue-100); }
+.tsd-card__icon-circle--gray { background: var(--gray-100); }
 
 .tsd-card__icon {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--gray-0);
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
 }
 
@@ -211,7 +211,7 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #212121;
+  color: var(--gray-900);
   white-space: nowrap;
 }
 
@@ -221,7 +221,7 @@
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.24px;
-  color: #555;
+  color: var(--gray-300);
 }
 
 /* ─── External tool card ─── */
@@ -230,7 +230,7 @@
   align-items: center;
   gap: 15px;
   padding: 14px 20px;
-  background: #fff;
+  background: var(--gray-0);
   border: 1px solid #e8ebed;
   border-radius: 4px;
   width: 100%;
@@ -260,7 +260,7 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.28px;
-  color: #212121;
+  color: var(--gray-900);
   white-space: nowrap;
 }
 
@@ -270,7 +270,7 @@
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.24px;
-  color: #555;
+  color: var(--gray-300);
 }
 
 .tsd-ext-card__status {
@@ -284,7 +284,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4cae3d;
+  background: var(--green-100);
   flex-shrink: 0;
 }
 
@@ -293,6 +293,6 @@
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -0.24px;
-  color: #555;
+  color: var(--gray-300);
   white-space: nowrap;
 }

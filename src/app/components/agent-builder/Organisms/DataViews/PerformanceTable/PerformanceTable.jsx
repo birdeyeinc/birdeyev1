@@ -22,12 +22,12 @@ const DEFAULT_ROWS = [
 
 export default function PerformanceTable({ rows = DEFAULT_ROWS }) {
   return (
-    <div style={{ background: '#fff', overflowX: 'auto' }} className="performance-table">
+    <div style={{ background: 'var(--gray-0)', overflowX: 'auto' }} className="performance-table">
       <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: '"Inter", arial, sans-serif', fontSize: 13 }}>
         <thead>
           <tr style={{ borderBottom: '1px solid #e5e9f0' }}>
             {COLUMNS.map((col) => (
-              <th key={col.key} style={{ width: col.width, padding: '10px 12px', textAlign: 'left', fontSize: 12, fontWeight: 500, color: '#555', whiteSpace: 'nowrap' }}>
+              <th key={col.key} style={{ width: col.width, padding: '10px 12px', textAlign: 'left', fontSize: 12, fontWeight: 500, color: 'var(--gray-300)', whiteSpace: 'nowrap' }}>
                 {col.label}
               </th>
             ))}
@@ -36,11 +36,11 @@ export default function PerformanceTable({ rows = DEFAULT_ROWS }) {
         <tbody>
           {rows.map((row, i) => (
             <tr key={i} style={{ borderBottom: '1px solid #f0f0f0' }}>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{row.location}</td>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{row.reviewsResponded}</td>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{row.responseRate}</td>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{row.avgResponseTime}</td>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{row.timeSaved}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{row.location}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{row.reviewsResponded}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{row.responseRate}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{row.avgResponseTime}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{row.timeSaved}</td>
             </tr>
           ))}
         </tbody>

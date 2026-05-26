@@ -9,7 +9,7 @@ export default function ExpandedRHSHeader({ title = 'Title', onClose }) {
       position: 'sticky',
       top: 0,
       zIndex: 10,
-      background: '#ffffff',
+      background: 'var(--gray-0)',
       borderRadius: '8px 8px 0 0',
       borderBottom: '1px solid #e5e9f0',
       padding: '0 24px',
@@ -25,7 +25,7 @@ export default function ExpandedRHSHeader({ title = 'Title', onClose }) {
         fontWeight: 400,
         lineHeight: '26px',
         letterSpacing: '-0.36px',
-        color: '#212121',
+        color: 'var(--gray-900)',
         fontFamily: font,
       }}>
         {title}

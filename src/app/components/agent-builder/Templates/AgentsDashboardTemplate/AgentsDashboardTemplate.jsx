@@ -89,7 +89,7 @@ export default function AgentsDashboardTemplate({
 
         <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
           <div className={`h-[48px] flex items-center px-4 shrink-0 rounded-tr-lg ${APP_SHELL_RAIL_SURFACE_CLASS}`}>
-            <p className="text-[16px] text-[#212121] dark:text-[#e4e4e4] tracking-[-0.31px] font-normal">Reviews AI</p>
+            <p className="text-[16px] text-gray-900 dark:text-gray-50 tracking-[-0.31px] font-normal">Reviews AI</p>
           </div>
 
           <div className={`flex-1 flex min-h-0 overflow-hidden pr-[10px] pb-[10px] pl-0 ${APP_SHELL_GUTTER_SURFACE_CLASS}`}>

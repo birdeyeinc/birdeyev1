@@ -29,18 +29,18 @@ const LLM_MODEL_OPTIONS = [
 function FieldLabel({ label, required, showInfo }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font, whiteSpace: 'nowrap' }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font, whiteSpace: 'nowrap' }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
-      {showInfo && <i className="icon_phoenix-info" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer' }} />}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
+      {showInfo && <i className="icon_phoenix-info" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer' }} />}
     </div>
   );
 }
 
 function RichInputBox({ value, onChange, inputRef, placeholder, children }) {
   return (
-    <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', background: '#fff' }}>
+    <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', background: 'var(--gray-0)' }}>
       <VariableRichInput
         ref={inputRef}
         value={value}
@@ -60,8 +60,8 @@ function RichInputBox({ value, onChange, inputRef, placeholder, children }) {
 function AddBtn({ onClick, label }) {
   return (
     <button onClick={onClick} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-      <i className="icon_phoenix-add_circle" style={{ fontSize: 20, color: '#1976d2' }} />
-      <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: '#1976d2', fontFamily: font }}>{label ?? 'Add'}</span>
+      <i className="icon_phoenix-add_circle" style={{ fontSize: 20, color: 'var(--blue-100)' }} />
+      <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--blue-100)', fontFamily: font }}>{label ?? 'Add'}</span>
     </button>
   );
 }
@@ -178,7 +178,7 @@ export default function LLMTaskBody({ initialValues = {}, onChange }) {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         <FieldLabel label="User prompt" required />
-        <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e9f0', borderRadius: 4, boxSizing: 'border-box', background: '#fff', width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e9f0', borderRadius: 4, boxSizing: 'border-box', background: 'var(--gray-0)', width: '100%' }}>
           <VariableRichInput
             ref={userPromptRef}
             value={values.userPrompt}
@@ -199,16 +199,16 @@ export default function LLMTaskBody({ initialValues = {}, onChange }) {
         <RichInputBox inputRef={outputFieldsRef} value={values.outputFields} onChange={setFromEvent('outputFields')}>
           {generateOutputState === 'idle' ? (
             <>
-              <div style={{ width: 1, height: 16, background: '#e5e9f0', flexShrink: 0 }} />
+              <div style={{ width: 1, height: 16, background: 'var(--new-selected-color)', flexShrink: 0 }} />
               <button onClick={handleGenerateOutput} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
                 <img src={AiWandIcon} alt="Generate" style={{ width: 20, height: 20 }} />
-                <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: '#8f8f8f', fontFamily: font }}>Generate from prompt</span>
+                <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-90)', fontFamily: font }}>Generate from prompt</span>
               </button>
             </>
           ) : (
             <>
               <Spinner />
-              <span style={{ fontSize: 11, color: '#212121', opacity: 0.3, fontFamily: font }}>Generating…</span>
+              <span style={{ fontSize: 11, color: 'var(--gray-900)', opacity: 0.3, fontFamily: font }}>Generating…</span>
             </>
           )}
         </RichInputBox>

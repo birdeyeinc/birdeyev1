@@ -53,7 +53,7 @@ export function WorkspacePlaceholderSkeleton({ caption }: WorkspacePlaceholderSk
             <SkeletonBlock className="h-7 w-28 bg-black/5 dark:bg-white/5" />
           </div>
           <div className="flex h-48 items-center justify-center rounded-lg bg-gradient-to-br from-black/[0.03] to-black/[0.06] dark:from-white/[0.03] dark:to-white/[0.06]">
-            <span className="select-none text-[13px] text-[#999] dark:text-[#555]">{caption}</span>
+            <span className="select-none text-[13px] text-gray-90 dark:text-gray-300">{caption}</span>
           </div>
         </div>
 

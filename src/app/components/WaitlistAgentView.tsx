@@ -140,7 +140,7 @@ function LHSPanel() {
 
         {tab === "ai" && (
           <div style={{ width: "100%", flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 0" }}>
-            <p style={{ fontSize: 14, color: "#555", textAlign: "center", lineHeight: "20px" }}>Describe your agent and AI will build the workflow for you.</p>
+            <p style={{ fontSize: 14, color: "var(--gray-300)", textAlign: "center", lineHeight: "20px" }}>Describe your agent and AI will build the workflow for you.</p>
           </div>
         )}
       </div>
@@ -170,13 +170,13 @@ function GraphControls({ zoom, onZoomSelect, onFitView, orientation, onOrientati
   }, []);
 
   return (
-    <div style={{ display: "flex", gap: 8, padding: 8, background: "#fff", border: "1px solid #e5e9f0", borderRadius: 8 }}>
+    <div style={{ display: "flex", gap: 8, padding: 8, background: "var(--gray-0)", border: "1px solid #e5e9f0", borderRadius: 8 }}>
       {/* Orientation */}
-      <div style={{ display: "flex", gap: 4, background: "#fff", border: "1px solid #e5e9f0", borderRadius: 4, padding: 4, height: 36, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 4, background: "var(--gray-0)", border: "1px solid #e5e9f0", borderRadius: 4, padding: 4, height: 36, alignItems: "center" }}>
         {(["vertical", "horizontal"] as const).map(o => (
           <button key={o} type="button"
             onClick={() => onOrientationChange(o)}
-            style={{ width: 24, height: 24, display: "flex", alignItems: "center", justifyContent: "center", background: orientation === o ? "#e5e9f0" : "transparent", border: "none", borderRadius: 4, cursor: "pointer", color: "#555" }}
+            style={{ width: 24, height: 24, display: "flex", alignItems: "center", justifyContent: "center", background: orientation === o ? "#e5e9f0" : "transparent", border: "none", borderRadius: 4, cursor: "pointer", color: "var(--gray-300)" }}
           >
             <Icon name={o === "vertical" ? "arrow_downward" : "arrow_forward"} size={18} />
           </button>
@@ -186,21 +186,21 @@ function GraphControls({ zoom, onZoomSelect, onFitView, orientation, onOrientati
       {/* Zoom dropdown */}
       <div ref={ref} style={{ position: "relative" }}>
         <button type="button" onClick={() => setOpen(v => !v)}
-          style={{ display: "flex", alignItems: "center", gap: 8, height: 36, padding: "0 8px 0 12px", background: "#fff", border: "1px solid #e5e9f0", borderRadius: 4, cursor: "pointer", fontSize: 14, color: "#555", whiteSpace: "nowrap" }}
+          style={{ display: "flex", alignItems: "center", gap: 8, height: 36, padding: "0 8px 0 12px", background: "var(--gray-0)", border: "1px solid #e5e9f0", borderRadius: 4, cursor: "pointer", fontSize: 14, color: "var(--gray-300)", whiteSpace: "nowrap" }}
         >
           <span style={{ minWidth: 36, textAlign: "left" }}>{Math.round(zoom)}%</span>
           <Icon name="expand_more" size={18} />
         </button>
         {open && (
-          <div style={{ position: "absolute", top: "calc(100% + 4px)", left: 0, background: "#fff", border: "1px solid #e5e9f0", borderRadius: 4, boxShadow: "0 4px 12px rgba(0,0,0,0.1)", zIndex: 100, minWidth: "100%", padding: 4 }}>
+          <div style={{ position: "absolute", top: "calc(100% + 4px)", left: 0, background: "var(--gray-0)", border: "1px solid #e5e9f0", borderRadius: 4, boxShadow: "0 4px 12px rgba(0,0,0,0.1)", zIndex: 100, minWidth: "100%", padding: 4 }}>
             {ZOOM_PRESETS.map(p => (
               <button key={p} type="button" onClick={() => { onZoomSelect(p / 100); setOpen(false); }}
-                style={{ display: "block", width: "100%", textAlign: "left", padding: "6px 12px", background: Math.round(zoom) === p ? "#e5e9f0" : "transparent", border: "none", borderRadius: 4, cursor: "pointer", fontSize: 13, fontWeight: Math.round(zoom) === p ? 500 : 400, color: "#333" }}
+                style={{ display: "block", width: "100%", textAlign: "left", padding: "6px 12px", background: Math.round(zoom) === p ? "#e5e9f0" : "transparent", border: "none", borderRadius: 4, cursor: "pointer", fontSize: 13, fontWeight: Math.round(zoom) === p ? 500 : 400, color: "var(--gray-500)" }}
               >{p}%</button>
             ))}
-            <div style={{ height: 1, background: "#e5e9f0", margin: "4px 0" }} />
+            <div style={{ height: 1, background: "var(--new-selected-color)", margin: "4px 0" }} />
             <button type="button" onClick={() => { onFitView(); setOpen(false); }}
-              style={{ display: "block", width: "100%", textAlign: "left", padding: "6px 12px", background: "transparent", border: "none", borderRadius: 4, cursor: "pointer", fontSize: 13, color: "#333" }}
+              style={{ display: "block", width: "100%", textAlign: "left", padding: "6px 12px", background: "transparent", border: "none", borderRadius: 4, cursor: "pointer", fontSize: 13, color: "var(--gray-500)" }}
             >Fit view</button>
           </div>
         )}
@@ -208,7 +208,7 @@ function GraphControls({ zoom, onZoomSelect, onFitView, orientation, onOrientati
 
       {/* Run */}
       <button type="button"
-        style={{ width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", background: "#fff", border: "1px solid #e5e9f0", borderRadius: 4, cursor: "pointer", color: "#555" }}
+        style={{ width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", background: "var(--gray-0)", border: "1px solid #e5e9f0", borderRadius: 4, cursor: "pointer", color: "var(--gray-300)" }}
       >
         <Icon name="play_arrow" />
       </button>
@@ -445,7 +445,7 @@ function CanvasInner({
         nodesConnectable={false}
         panOnScroll
         zoomOnScroll
-        style={{ background: "#f4f6f7" }}
+        style={{ background: "var(--light-grayish-blue)" }}
       >
         <Background variant={BackgroundVariant.Dots} gap={24} size={1} color="#d4d9e8" />
       </ReactFlow>
@@ -526,7 +526,7 @@ export function WaitlistAgentView({ onBack }: { onBack: () => void }) {
 
   const handleSaveEdit = useCallback((id: string, label: string, description: string) => {
     setNodes(prev => prev.map(n => n.id === id ? { ...n, data: { ...n.data, label, description } } : n));
-    toast("Changes saved.", { icon: <span style={{ color: "#22c55e", fontSize: 16 }}>✓</span> });
+    toast("Changes saved.", { icon: <span style={{ color: "var(--green-90)", fontSize: 16 }}>✓</span> });
   }, []);
 
   const selectedNode = nodes.find(n => n.id === selectedId && n.type === "canvas");

@@ -537,7 +537,7 @@ export function PaymentsView({ statusFilter }: PaymentsViewProps) {
               {searchOpen ? (
                 <div className="relative h-[var(--button-height)] w-[min(100%,240px)] min-w-[200px] shrink">
                   <Search
-                    className="pointer-events-none absolute top-1/2 left-2 size-[14px] -translate-y-1/2 text-[#303030] dark:text-muted-foreground"
+                    className="pointer-events-none absolute top-1/2 left-2 size-[14px] -translate-y-1/2 text-gray-600 dark:text-muted-foreground"
                     strokeWidth={1.6}
                     absoluteStrokeWidth
                     aria-hidden
@@ -557,7 +557,7 @@ export function PaymentsView({ statusFilter }: PaymentsViewProps) {
                     }}
                     autoFocus
                     placeholder="Search transactions"
-                    className="h-full w-full rounded-[8px] border border-[#e5e9f0] bg-white py-0 pr-2 pl-8 text-[14px] text-[#212121] outline-none transition-colors placeholder:text-[#757575] focus:border-[#2552ED] focus:ring-1 focus:ring-[#2552ED] dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-[#8b92a5]"
+                    className="h-full w-full rounded-[8px] border border-new-selected-color bg-white py-0 pr-2 pl-8 text-[14px] text-gray-900 outline-none transition-colors placeholder:text-gray-100 focus:border-brand-color focus:ring-1 focus:ring-brand-color dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-gray-90"
                     aria-label="Search transactions"
                   />
                 </div>
@@ -571,7 +571,7 @@ export function PaymentsView({ statusFilter }: PaymentsViewProps) {
                   onClick={() => setSearchOpen(true)}
                 >
                   <Search
-                    className="size-[14px] text-[#303030] dark:text-muted-foreground"
+                    className="size-[14px] text-gray-600 dark:text-muted-foreground"
                     strokeWidth={1.6}
                     absoluteStrokeWidth
                     aria-hidden

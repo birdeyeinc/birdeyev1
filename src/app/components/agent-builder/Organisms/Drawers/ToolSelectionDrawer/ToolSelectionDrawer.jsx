@@ -22,7 +22,7 @@ const EXTERNAL_TOOLS = [
   { id: 'servicenow', name: 'ServiceNow',  desc: 'Create and manage support tickets seamlessly in Servicenow.',                        connected: true,  color: '#62d84e', initials: 'SN' },
   { id: 'dentrix',    name: 'Dentrix',     desc: 'Schedule and manage dental appointments in Dentrix from support tickets.',           connected: true,  color: '#e8571b', initials: 'Dx' },
   { id: 'zendesk',    name: 'Zendesk',     desc: 'Create and manage support tickets seamlessly in Zendesk.',                          connected: true,  color: '#03363d', initials: 'Z'  },
-  { id: 'gmail',      name: 'Gmail',       desc: 'Trigger actions when a new email is received or labeled in Gmail.',                 connected: true,  color: '#ea4335', initials: 'G'  },
+  { id: 'gmail',      name: 'Gmail',       desc: 'Trigger actions when a new email is received or labeled in Gmail.',                 connected: true,  color: 'var(--google-brand-bg)', initials: 'G'  },
   { id: 'quickbooks', name: 'Quick books', desc: 'Create invoices or log payments directly in QuickBooks from ticket actions.',        connected: false, color: '#2ca01c', initials: 'QB' },
   { id: 'salesforce', name: 'Salesforce',  desc: 'Trigger actions when a new lead or contact is created in Salesforce.',              connected: false, color: '#00a1e0', initials: 'SF' },
 ];
@@ -54,7 +54,7 @@ function ExternalLogo({ color, initials }) {
         y="20"
         dominantBaseline="central"
         textAnchor="middle"
-        fill="#fff"
+        fill="var(--gray-0)"
         fontSize={initials.length > 1 ? '11' : '14'}
         fontFamily="Inter, Arial, sans-serif"
         fontWeight="600"

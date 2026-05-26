@@ -75,8 +75,8 @@ export const KNOWLEDGE_SOURCES: KnowledgeSrc[] = [
 
 /* ─── Integrations ──────────────────────────────────────────────────── */
 export const INTEGRATIONS: Integration[] = [
-  { id:"google",     color:"#3186e9", abbr:"G",  name:"Google Business", desc:"Reviews & Q&A sync",          state:"connected"  },
-  { id:"facebook",   color:"#1877f2", abbr:"f",  name:"Facebook Pages",  desc:"Recommendations & DMs",       state:"connected"  },
+  { id:"google",     color:"var(--google-bg)", abbr:"G",  name:"Google Business", desc:"Reviews & Q&A sync",          state:"connected"  },
+  { id:"facebook",   color:"var(--fb-bg)", abbr:"f",  name:"Facebook Pages",  desc:"Recommendations & DMs",       state:"connected"  },
   { id:"yelp",       color:"#d32323", abbr:"Y",  name:"Yelp",            desc:"Review monitoring",            state:"issue"      },
   { id:"slack",      color:"#611f69", abbr:"S",  name:"Slack",           desc:"Review queue notifications",   state:"connected"  },
   { id:"salesforce", color:"#00a1e0", abbr:"SF", name:"Salesforce CRM",  desc:"Customer data enrichment",    state:"connected"  },

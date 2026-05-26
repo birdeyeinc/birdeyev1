@@ -54,8 +54,8 @@ interface Appointment {
 /* ─── Mock data ─── */
 const PROVIDERS: Provider[] = [
   // sorted A → Z by last name
-  { id: "p5",  name: "Dr. Ana Alvarado",   specialty: "Pediatric Dentistry",    color: "#dc2626", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
-  { id: "p1",  name: "Dr. Sarah Chen",     specialty: "General Dentistry",      color: "#4f46e5", avatar: "https://randomuser.me/api/portraits/women/25.jpg" },
+  { id: "p5",  name: "Dr. Ana Alvarado",   specialty: "Pediatric Dentistry",    color: "var(--red-90)", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
+  { id: "p1",  name: "Dr. Sarah Chen",     specialty: "General Dentistry",      color: "var(--purple-100)", avatar: "https://randomuser.me/api/portraits/women/25.jpg" },
   { id: "p7",  name: "Dr. Diana Cruz",     specialty: "Endodontics",            color: "#be185d", avatar: "https://randomuser.me/api/portraits/women/67.jpg" },
   { id: "p6",  name: "Dr. Ben Foster",     specialty: "Periodontics",           color: "#7c3aed", avatar: "https://randomuser.me/api/portraits/men/32.jpg"   },
   { id: "p9",  name: "Dr. Carlos Gutierrez", specialty: "Oral Medicine",        color: "#0369a1", avatar: "https://randomuser.me/api/portraits/men/55.jpg"   },
@@ -1034,7 +1034,7 @@ export function AppointmentsView({
               {searchOpen ? (
                 <div className="relative h-[var(--button-height)] w-[min(100%,240px)] min-w-[200px] shrink">
                   <Search
-                    className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-[#303030] dark:text-muted-foreground"
+                    className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-gray-600 dark:text-muted-foreground"
                     strokeWidth={L1_STRIP_ICON_STROKE_PX}
                     absoluteStrokeWidth
                     aria-hidden
@@ -1055,7 +1055,7 @@ export function AppointmentsView({
                     }}
                     autoFocus
                     placeholder="Doctor, patient, or service"
-                    className="h-full w-full rounded-[8px] border border-[#e5e9f0] bg-white py-0 pr-2 pl-8 text-[14px] text-[#212121] outline-none transition-colors placeholder:text-[#757575] focus:border-[#2552ED] focus:ring-1 focus:ring-[#2552ED] dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-[#8b92a5]"
+                    className="h-full w-full rounded-[8px] border border-new-selected-color bg-white py-0 pr-2 pl-8 text-[14px] text-gray-900 outline-none transition-colors placeholder:text-gray-100 focus:border-brand-color focus:ring-1 focus:ring-brand-color dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-gray-90"
                     aria-label="Search appointments by doctor, patient, or service"
                   />
                 </div>
@@ -1070,7 +1070,7 @@ export function AppointmentsView({
                   onClick={() => setSearchOpen(true)}
                 >
                   <Search
-                    className="size-[14px] text-[#303030] dark:text-muted-foreground"
+                    className="size-[14px] text-gray-600 dark:text-muted-foreground"
                     strokeWidth={L1_STRIP_ICON_STROKE_PX}
                     absoluteStrokeWidth
                     aria-hidden

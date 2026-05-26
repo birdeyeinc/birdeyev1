@@ -27,7 +27,7 @@ export default {
 export const CanvasPreview = {
   render: () => (
     <div style={{
-      background: '#fff',
+      background: 'var(--gray-0)',
       border: '1px solid #ccd5e4',
       borderRadius: 6,
       padding: '6px 12px',
@@ -36,7 +36,7 @@ export const CanvasPreview = {
       gap: 6,
       minWidth: 160,
       fontSize: 13,
-      color: '#1a2b4a',
+      color: 'var(--blue-500)',
       whiteSpace: 'nowrap',
       fontFamily: '"Inter", arial, sans-serif',
     }}>

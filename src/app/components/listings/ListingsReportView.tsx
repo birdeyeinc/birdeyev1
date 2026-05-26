@@ -93,7 +93,7 @@ function LegendDot({ color, label }: { color: string; label: string }) {
   return (
     <div className="flex items-center gap-1.5 shrink-0">
       <div className="size-3 rounded-full shrink-0" style={{ backgroundColor: color }} />
-      <p className="text-[11px] text-[#8a8a8a] dark:text-muted-foreground whitespace-nowrap font-normal">{label}</p>
+      <p className="text-[11px] text-gray-90 dark:text-muted-foreground whitespace-nowrap font-normal">{label}</p>
     </div>
   );
 }
@@ -138,7 +138,7 @@ function ChartWidget({ title, kpis, data, series, tableHeaders, tableRows }: Cha
   const chartId = useId();
 
   return (
-    <div className="flex w-full flex-col items-stretch gap-6 rounded-lg border border-[#e5e9f0] bg-white px-6 pb-6 transition-colors duration-300 dark:border-[#333a47] dark:bg-[#1e2229]">
+    <div className="flex w-full flex-col items-stretch gap-6 rounded-lg border border-new-selected-color bg-white px-6 pb-6 transition-colors duration-300 dark:border-gray-600 dark:bg-gray-700">
       <WidgetHeader title={title} />
 
       {/* KPIs */}
@@ -160,7 +160,7 @@ function ChartWidget({ title, kpis, data, series, tableHeaders, tableRows }: Cha
                 </linearGradient>
               ))}
             </defs>
-            <CartesianGrid horizontal vertical={false} stroke="#eaeaea" />
+            <CartesianGrid horizontal vertical={false} stroke="var(--comparison-0-star)" />
             <XAxis
               dataKey="month"
               tick={{ fontSize: 11, fill: "#555" }}
@@ -223,8 +223,8 @@ const listingsChartWidgets: ChartWidgetProps[] = [
     ],
     data: profileCompletenessData,
     series: [
-      { key: "allSites", color: "#2552ED", label: "All sites" },
-      { key: "google",   color: "#4285F4", label: "Google" },
+      { key: "allSites", color: "var(--brand-color)", label: "All sites" },
+      { key: "google",   color: "var(--google-bg)", label: "Google" },
     ],
     tableHeaders: ["Profile completeness"],
     tableRows: [
@@ -242,8 +242,8 @@ const listingsChartWidgets: ChartWidgetProps[] = [
     ],
     data: fieldAccuracyData,
     series: [
-      { key: "allSites", color: "#2552ED", label: "All sites" },
-      { key: "google",   color: "#4285F4", label: "Google" },
+      { key: "allSites", color: "var(--brand-color)", label: "All sites" },
+      { key: "google",   color: "var(--google-bg)", label: "Google" },
     ],
     tableHeaders: ["Field accuracy"],
     tableRows: [
@@ -260,8 +260,8 @@ const listingsChartWidgets: ChartWidgetProps[] = [
     ],
     data: fieldHealthData,
     series: [
-      { key: "allSites", color: "#2552ED", label: "All sites" },
-      { key: "google",   color: "#4285F4", label: "Google" },
+      { key: "allSites", color: "var(--brand-color)", label: "All sites" },
+      { key: "google",   color: "var(--google-bg)", label: "Google" },
     ],
     tableHeaders: ["Field health"],
     tableRows: [
@@ -396,7 +396,7 @@ export function ListingsReportView() {
       {/* Scrollable content */}
       <div className="flex flex-1 flex-col gap-6 px-8 pb-8 pt-0">
         {/* Performance summary */}
-        <div className="flex w-full flex-col items-stretch gap-6 rounded-lg border border-[#e5e9f0] bg-white px-6 pb-6 transition-colors duration-300 dark:border-[#333a47] dark:bg-[#1e2229]">
+        <div className="flex w-full flex-col items-stretch gap-6 rounded-lg border border-new-selected-color bg-white px-6 pb-6 transition-colors duration-300 dark:border-gray-600 dark:bg-gray-700">
           <div className="flex w-full items-start justify-between py-4">
             <div className="flex min-w-0 flex-col gap-1">
               <h3 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "font-normal")}>Performance summary</h3>

@@ -35,36 +35,36 @@ function FieldTypeDropdown({ value, onChange }) {
         style={{
           width: '100%', height: 36, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: '0 8px 0 12px', border: '1px solid #e0e0e0', borderRadius: 4,
-          background: '#fff', cursor: 'pointer', boxSizing: 'border-box',
+          background: 'var(--gray-0)', cursor: 'pointer', boxSizing: 'border-box',
         }}
       >
         <span style={{ fontSize: 14, lineHeight: '20px', letterSpacing: '-0.28px', fontFamily: font, color: value ? '#212121' : '#9e9e9e' }}>
           {value || 'Select'}
         </span>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ transition: 'transform 0.15s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)', flexShrink: 0 }}>
-          <path d="M5 7.5L10 12.5L15 7.5" stroke="#212121" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M5 7.5L10 12.5L15 7.5" stroke="var(--gray-900)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
 
       {open && (
         <div style={{
           position: 'absolute', top: '100%', left: 0, right: 0, zIndex: 10,
-          background: '#fff', borderRadius: 4,
+          background: 'var(--gray-0)', borderRadius: 4,
           boxShadow: '0px 4px 8px 0px rgba(33,33,33,0.18)',
           paddingBottom: 12,
         }}>
           <div style={{ padding: '8px 20px 8px 16px' }}>
-            <span style={{ fontSize: 12, fontWeight: 500, lineHeight: '18px', letterSpacing: '-0.24px', color: '#757575', fontFamily: font }}>Field type</span>
+            <span style={{ fontSize: 12, fontWeight: 500, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-100)', fontFamily: font }}>Field type</span>
           </div>
           <div style={{ padding: '0 16px 4px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, height: 36, border: '1px solid #e0e0e0', borderRadius: 4, padding: '0 12px', boxSizing: 'border-box' }}>
-              <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#757575', flexShrink: 0, lineHeight: 1 }}>search</span>
+              <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--gray-100)', flexShrink: 0, lineHeight: 1 }}>search</span>
               <input
                 autoFocus
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search"
-                style={{ flex: 1, border: 'none', outline: 'none', fontSize: 14, lineHeight: '20px', letterSpacing: '-0.28px', color: '#212121', fontFamily: font, background: 'transparent' }}
+                style={{ flex: 1, border: 'none', outline: 'none', fontSize: 14, lineHeight: '20px', letterSpacing: '-0.28px', color: 'var(--gray-900)', fontFamily: font, background: 'transparent' }}
               />
             </div>
           </div>
@@ -83,9 +83,9 @@ function FieldTypeDropdown({ value, onChange }) {
                     background: selected ? '#f5f5f5' : '#fff', textAlign: 'left',
                   }}
                 >
-                  <span style={{ fontSize: 14, lineHeight: '20px', letterSpacing: '-0.28px', fontFamily: font, color: '#212121' }}>{opt}</span>
+                  <span style={{ fontSize: 14, lineHeight: '20px', letterSpacing: '-0.28px', fontFamily: font, color: 'var(--gray-900)' }}>{opt}</span>
                   {selected && (
-                    <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#212121', flexShrink: 0, lineHeight: 1 }}>check</span>
+                    <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--gray-900)', flexShrink: 0, lineHeight: 1 }}>check</span>
                   )}
                 </button>
               );
@@ -122,8 +122,8 @@ export default function AddOutputFieldModal({ onClose, onAdd }) {
           {/* Field name */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>Field name</span>
-              <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>
+              <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>Field name</span>
+              <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>
             </div>
             <input
               type="text"
@@ -133,7 +133,7 @@ export default function AddOutputFieldModal({ onClose, onAdd }) {
               style={{
                 width: '100%', height: 36, border: '1px solid #e0e0e0', borderRadius: 4,
                 padding: '0 12px', fontSize: 14, lineHeight: '20px', letterSpacing: '-0.28px',
-                color: '#212121', fontFamily: font, outline: 'none', boxSizing: 'border-box', background: '#fff',
+                color: 'var(--gray-900)', fontFamily: font, outline: 'none', boxSizing: 'border-box', background: 'var(--gray-0)',
               }}
             />
           </div>
@@ -141,16 +141,16 @@ export default function AddOutputFieldModal({ onClose, onAdd }) {
           {/* Field type */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>Field type</span>
-              <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>
+              <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>Field type</span>
+              <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>
             </div>
             <FieldTypeDropdown value={fieldType} onChange={setFieldType} />
           </div>
 
           {/* Description */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-            <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>Description</span>
-            <div style={{ position: 'relative', border: '1px solid #e0e0e0', borderRadius: 4, height: 120, background: '#fff' }}>
+            <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>Description</span>
+            <div style={{ position: 'relative', border: '1px solid #e0e0e0', borderRadius: 4, height: 120, background: 'var(--gray-0)' }}>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -158,11 +158,11 @@ export default function AddOutputFieldModal({ onClose, onAdd }) {
                 style={{
                   width: '100%', height: '100%', border: 'none', outline: 'none', resize: 'none',
                   padding: '8px 12px 32px', fontSize: 14, lineHeight: '20px', letterSpacing: '-0.28px',
-                  color: '#212121', fontFamily: font, boxSizing: 'border-box', background: 'transparent',
+                  color: 'var(--gray-900)', fontFamily: font, boxSizing: 'border-box', background: 'transparent',
                 }}
               />
               <div style={{ position: 'absolute', bottom: 8, left: 11 }}>
-                <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#555', cursor: 'pointer', lineHeight: 1 }}>data_object</span>
+                <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-300)', cursor: 'pointer', lineHeight: 1 }}>data_object</span>
               </div>
             </div>
           </div>

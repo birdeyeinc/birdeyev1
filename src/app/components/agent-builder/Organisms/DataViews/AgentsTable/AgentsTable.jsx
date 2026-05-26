@@ -11,9 +11,9 @@ const STATUS_VARIANT = {
 };
 
 const STATUS_COLOR = {
-  Running: { background: '#e8f5e9', color: '#2e7d32' },
+  Running: { background: 'var(--green-20)', color: 'var(--green-200)' },
   Paused:  { background: '#fff8e1', color: '#f57f17' },
-  Draft:   { background: '#f5f5f5', color: '#616161' },
+  Draft:   { background: 'var(--gray-20)', color: '#616161' },
 };
 
 function StatusCell({ status }) {
@@ -28,14 +28,14 @@ function StatusCell({ status }) {
 function LocationCell({ count }) {
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-      <span style={{ fontSize: 13, color: '#212121' }}>{count}</span>
+      <span style={{ fontSize: 13, color: 'var(--gray-900)' }}>{count}</span>
       <span
         className="material-symbols-outlined"
         style={{
           fontFamily: "'Material Symbols Outlined'",
           fontStyle: 'normal',
           fontSize: 16,
-          color: '#555',
+          color: 'var(--gray-300)',
           lineHeight: 1,
           fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20",
         }}
@@ -93,7 +93,7 @@ export function ActionsCell({ agent, onAction }) {
             fontFamily: "'Material Symbols Outlined'",
             fontStyle: 'normal',
             fontSize: 20,
-            color: '#555',
+            color: 'var(--gray-300)',
             lineHeight: 1,
             fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20",
           }}
@@ -155,12 +155,12 @@ const COLUMNS = [
 
 export default function AgentsTable({ agents = DEFAULT_AGENTS, onRowClick, onAction }) {
   return (
-    <div style={{ background: '#fff', overflowX: 'auto' }} className="agents-table">
+    <div style={{ background: 'var(--gray-0)', overflowX: 'auto' }} className="agents-table">
       <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: '"Inter", arial, sans-serif', fontSize: 13 }}>
         <thead>
           <tr style={{ borderBottom: '1px solid #e5e9f0' }}>
             {COLUMNS.map((col) => (
-              <th key={col.key} style={{ width: col.width, padding: '10px 12px', textAlign: 'left', fontSize: 12, fontWeight: 500, color: '#555', whiteSpace: 'nowrap' }}>
+              <th key={col.key} style={{ width: col.width, padding: '10px 12px', textAlign: 'left', fontSize: 12, fontWeight: 500, color: 'var(--gray-300)', whiteSpace: 'nowrap' }}>
                 {col.label}
               </th>
             ))}
@@ -173,12 +173,12 @@ export default function AgentsTable({ agents = DEFAULT_AGENTS, onRowClick, onAct
               style={{ borderBottom: '1px solid #f0f0f0', cursor: onRowClick ? 'pointer' : 'default' }}
               onClick={() => onRowClick?.(agent)}
             >
-              <td style={{ padding: '12px 12px', color: '#212121', maxWidth: 320, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{agent.name}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)', maxWidth: 320, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{agent.name}</td>
               <td style={{ padding: '12px 12px' }}><StatusCell status={agent.status} /></td>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{agent.reviewsResponded}</td>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{agent.responseRate}</td>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{agent.avgResponseTime}</td>
-              <td style={{ padding: '12px 12px', color: '#212121' }}>{agent.timeSaved}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{agent.reviewsResponded}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{agent.responseRate}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{agent.avgResponseTime}</td>
+              <td style={{ padding: '12px 12px', color: 'var(--gray-900)' }}>{agent.timeSaved}</td>
               <td style={{ padding: '12px 12px' }}><LocationCell count={agent.locations} /></td>
               <td style={{ padding: '12px 4px' }} onClick={(e) => e.stopPropagation()}>
                 <ActionsCell agent={agent} onAction={onAction} />

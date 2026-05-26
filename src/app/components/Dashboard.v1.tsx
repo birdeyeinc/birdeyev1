@@ -78,7 +78,7 @@ function QuestionIcon() {
       </svg>
       <div className="absolute inset-[12.5%]">
         <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 12 12">
-          <path clipRule="evenodd" d={svgPaths.p2fb1e00} fill="#8F8F8F" fillRule="evenodd" />
+          <path clipRule="evenodd" d={svgPaths.p2fb1e00} fill="var(--gray-90)" fillRule="evenodd" />
         </svg>
       </div>
     </div>
@@ -89,7 +89,7 @@ function EqualizerIcon() {
   return (
     <div className="relative shrink-0 size-[14px]">
       <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16 16">
-        <path d={svgPaths.p3f857700} className="fill-[#212121] dark:fill-[#c0c6d4]" />
+        <path d={svgPaths.p3f857700} className="fill-gray-900 dark:fill-gray-70" />
       </svg>
     </div>
   );
@@ -101,7 +101,7 @@ function ThreeDotIcon() {
       <div className="absolute flex inset-[14.81%_42.24%_14.88%_42.24%] items-center justify-center">
         <div className="flex-none h-[2.484px] rotate-90 w-[11.25px]">
           <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 11.25 2.48438">
-            <path clipRule="evenodd" d={svgPaths.p23a25380} className="fill-[#212121] dark:fill-[#c0c6d4]" fillRule="evenodd" />
+            <path clipRule="evenodd" d={svgPaths.p23a25380} className="fill-gray-900 dark:fill-gray-70" fillRule="evenodd" />
           </svg>
         </div>
       </div>
@@ -118,7 +118,7 @@ function LegendDot({ color, label }: { color: string; label: string }) {
           <circle cx="6" cy="6" fill={color} r="6" />
         </svg>
       </div>
-      <p className="text-[11px] text-[#8a8a8a] dark:text-muted-foreground whitespace-nowrap" style={{ fontWeight: 400 }}>{label}</p>
+      <p className="text-[11px] text-gray-90 dark:text-muted-foreground whitespace-nowrap" style={{ fontWeight: 400 }}>{label}</p>
     </div>
   );
 }
@@ -173,7 +173,7 @@ function ChartWidget({ title, kpis, data, series, yDomain, yTickFormatter, table
   const formatter = yTickFormatter || defaultFormatter;
 
   return (
-    <div className="flex w-full flex-col items-stretch gap-6 rounded-lg border border-[#e5e9f0] bg-white px-6 pb-6 transition-colors duration-300 dark:border-[#333a47] dark:bg-[#1e2229]">
+    <div className="flex w-full flex-col items-stretch gap-6 rounded-lg border border-new-selected-color bg-white px-6 pb-6 transition-colors duration-300 dark:border-gray-600 dark:bg-gray-700">
       <WidgetHeader title={title} />
 
       {/* KPIs */}
@@ -196,7 +196,7 @@ function ChartWidget({ title, kpis, data, series, yDomain, yTickFormatter, table
                   </linearGradient>
                 ))}
               </defs>
-              <CartesianGrid key="grid" horizontal={true} vertical={false} stroke="#eaeaea" />
+              <CartesianGrid key="grid" horizontal={true} vertical={false} stroke="var(--comparison-0-star)" />
               <XAxis
                 key="xaxis"
                 dataKey="day"
@@ -262,8 +262,8 @@ const chartWidgets: ChartWidgetProps[] = [
     ],
     data: audienceData,
     series: [
-      { key: "youtube", color: "#FF6A4D", label: "YouTube" },
-      { key: "linkedin", color: "#0A66C2", label: "LinkedIn" },
+      { key: "youtube", color: "var(--default-carrot)", label: "YouTube" },
+      { key: "linkedin", color: "var(--fb-bg)", label: "LinkedIn" },
     ],
     tableHeaders: ["Total audience", "Net audience growth"],
     tableRows: [
@@ -279,8 +279,8 @@ const chartWidgets: ChartWidgetProps[] = [
     ],
     data: messagingData,
     series: [
-      { key: "youtube", color: "#FF6A4D", label: "YouTube" },
-      { key: "linkedin", color: "#0A66C2", label: "LinkedIn" },
+      { key: "youtube", color: "var(--default-carrot)", label: "YouTube" },
+      { key: "linkedin", color: "var(--fb-bg)", label: "LinkedIn" },
     ],
     tableHeaders: ["Messages received", "Messages sent"],
     tableRows: [
@@ -295,8 +295,8 @@ const chartWidgets: ChartWidgetProps[] = [
     ],
     data: impressionsData,
     series: [
-      { key: "youtube", color: "#FF6A4D", label: "YouTube" },
-      { key: "linkedin", color: "#0A66C2", label: "LinkedIn" },
+      { key: "youtube", color: "var(--default-carrot)", label: "YouTube" },
+      { key: "linkedin", color: "var(--fb-bg)", label: "LinkedIn" },
     ],
     tableHeaders: ["Impressions"],
     tableRows: [
@@ -311,8 +311,8 @@ const chartWidgets: ChartWidgetProps[] = [
     ],
     data: engagementData,
     series: [
-      { key: "youtube", color: "#FF6A4D", label: "YouTube" },
-      { key: "linkedin", color: "#0A66C2", label: "LinkedIn" },
+      { key: "youtube", color: "var(--default-carrot)", label: "YouTube" },
+      { key: "linkedin", color: "var(--fb-bg)", label: "LinkedIn" },
     ],
     tableHeaders: ["Engagement"],
     tableRows: [
@@ -327,8 +327,8 @@ const chartWidgets: ChartWidgetProps[] = [
     ],
     data: engagementRateData,
     series: [
-      { key: "youtube", color: "#FF6A4D", label: "YouTube" },
-      { key: "linkedin", color: "#0A66C2", label: "LinkedIn" },
+      { key: "youtube", color: "var(--default-carrot)", label: "YouTube" },
+      { key: "linkedin", color: "var(--fb-bg)", label: "LinkedIn" },
     ],
     yDomain: [0, 100],
     yTickFormatter: (v: number) => `${v}%`,
@@ -345,8 +345,8 @@ const chartWidgets: ChartWidgetProps[] = [
     ],
     data: videoViewsData,
     series: [
-      { key: "youtube", color: "#FF6A4D", label: "YouTube" },
-      { key: "linkedin", color: "#0A66C2", label: "LinkedIn" },
+      { key: "youtube", color: "var(--default-carrot)", label: "YouTube" },
+      { key: "linkedin", color: "var(--fb-bg)", label: "LinkedIn" },
     ],
     tableHeaders: ["Video views"],
     tableRows: [
@@ -361,8 +361,8 @@ const chartWidgets: ChartWidgetProps[] = [
     ],
     data: publishedPostsData,
     series: [
-      { key: "youtube", color: "#FF6A4D", label: "YouTube" },
-      { key: "linkedin", color: "#0A66C2", label: "LinkedIn" },
+      { key: "youtube", color: "var(--default-carrot)", label: "YouTube" },
+      { key: "linkedin", color: "var(--fb-bg)", label: "LinkedIn" },
     ],
     tableHeaders: ["Published posts"],
     tableRows: [
@@ -455,7 +455,7 @@ export function Dashboard({ aiPanelOpen, onAiPanelChange, editingDraft }: { aiPa
       {/* Content — px-8 matches header band override so titles and cards share one inset */}
       <div className="flex flex-1 flex-col gap-6 px-8 pb-8 pt-0">
         {/* Performance Summary */}
-        <div className="flex w-full flex-col items-stretch gap-6 rounded-lg border border-[#e5e9f0] bg-white px-6 pb-6 transition-colors duration-300 dark:border-[#333a47] dark:bg-[#1e2229]">
+        <div className="flex w-full flex-col items-stretch gap-6 rounded-lg border border-new-selected-color bg-white px-6 pb-6 transition-colors duration-300 dark:border-gray-600 dark:bg-gray-700">
           <WidgetHeader title="Performance summary" showActions={false} />
           <div className="flex w-full flex-wrap items-start gap-[80px_80px]">
             {[

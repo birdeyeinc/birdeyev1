@@ -14,7 +14,7 @@ export const Default = {
   },
   decorators: [
     (Story) => (
-      <div style={{ height: '100vh', display: 'flex', background: '#f4f6f7' }}>
+      <div style={{ height: '100vh', display: 'flex', background: 'var(--light-grayish-blue)' }}>
         <Story />
       </div>
     ),

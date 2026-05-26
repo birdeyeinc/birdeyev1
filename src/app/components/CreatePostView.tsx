@@ -78,7 +78,7 @@ function ChevronUpIcon() {
         style={{ maskImage: `url('${imgHelp}')` }}
       >
         <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 9.02811 5.01367">
-          <path d={svgPaths.pddafd00} fill="#303030" />
+          <path d={svgPaths.pddafd00} fill="var(--gray-600)" />
         </svg>
       </div>
     </div>
@@ -106,14 +106,14 @@ function PlatformChip({ platform, onRemove }: { platform: Platform; onRemove: ()
   const icon = platform === 'facebook' ? <FacebookIcon /> : platform === 'instagram' ? <InstagramIcon /> : <LinkedInIcon />;
   const label = platform === 'facebook' ? 'Facebook' : platform === 'instagram' ? 'Instagram' : 'LinkedIn';
   return (
-    <div className="content-stretch flex gap-[6px] items-center bg-white dark:bg-[#252a35] relative shrink-0" style={{ border: '1px solid var(--s-border-subtle)', borderRadius: 4, padding: '4px 8px', height: 28 }}>
+    <div className="content-stretch flex gap-[6px] items-center bg-white dark:bg-gray-700 relative shrink-0" style={{ border: '1px solid var(--s-border-subtle)', borderRadius: 4, padding: '4px 8px', height: 28 }}>
       <div className="shrink-0 size-[16px]">{icon}</div>
-      <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#212121] dark:text-[#e4e8f0] text-[13px] tracking-[-0.26px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+      <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-gray-900 dark:text-gray-2000 text-[13px] tracking-[-0.26px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
         {label}
       </p>
       <button
         onClick={onRemove}
-        className="flex items-center justify-center text-[#888] dark:text-[#6b7a94] hover:text-[#212121] dark:hover:text-[#e4e8f0] ml-[2px]"
+        className="flex items-center justify-center text-gray-80 dark:text-gray-90 hover:text-gray-900 dark:hover:text-gray-2000 ml-[2px]"
       >
         <X size={11} strokeWidth={2} />
       </button>
@@ -125,10 +125,10 @@ function PlatformChip({ platform, onRemove }: { platform: Platform; onRemove: ()
 function TagChip({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
     <div className="content-stretch flex gap-[4px] items-center relative shrink-0" style={{ border: '1px solid var(--s-border-subtle)', borderRadius: 4, padding: '2px 8px', height: 24, backgroundColor: 'var(--s-bg-primary)' }}>
-      <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#212121] dark:text-[#e4e8f0] text-[13px] tracking-[-0.26px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+      <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-gray-900 dark:text-gray-2000 text-[13px] tracking-[-0.26px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
         {label}
       </p>
-      <button onClick={onRemove} className="flex items-center justify-center text-[#888] dark:text-[#6b7a94] hover:text-[#212121] dark:hover:text-[#e4e8f0]">
+      <button onClick={onRemove} className="flex items-center justify-center text-gray-80 dark:text-gray-90 hover:text-gray-900 dark:hover:text-gray-2000">
         <X size={10} strokeWidth={2} />
       </button>
     </div>
@@ -140,13 +140,13 @@ function CustomCheckbox({ checked, onClick }: { checked: boolean; onClick?: () =
   return (
     <button onClick={onClick} className="flex items-center justify-center" type="button">
       {checked ? (
-        <div className="w-[18px] h-[18px] rounded-[3px] flex items-center justify-center shadow-[0_1px_2px_rgba(0,0,0,0.1)]" style={{ backgroundColor: '#1976d2' }}>
+        <div className="w-[18px] h-[18px] rounded-[3px] flex items-center justify-center shadow-[0_1px_2px_rgba(0,0,0,0.1)]" style={{ backgroundColor: 'var(--blue-100)' }}>
           <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
             <path d="M1.5 5l2.5 2.5L8.5 2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
       ) : (
-        <div className="w-[18px] h-[18px] rounded-[3px] border-[1.5px] border-[#a0a0a0] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)]"></div>
+        <div className="w-[18px] h-[18px] rounded-[3px] border-[1.5px] border-gray-80 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)]"></div>
       )}
     </button>
   );
@@ -164,7 +164,7 @@ function RadioButton({ selected }: { selected: boolean }) {
         transition: 'all 0.1s'
       }}
     >
-      {selected && <div className="rounded-full" style={{ width: 8, height: 8, backgroundColor: '#1976d2' }} />}
+      {selected && <div className="rounded-full" style={{ width: 8, height: 8, backgroundColor: 'var(--blue-100)' }} />}
     </div>
   );
 }
@@ -184,13 +184,13 @@ const PickClockIcon = () => (
 function NativePicker({ type, value, onChange, icon, width = 160, hasError = false, min }: { type: 'date'|'time', value: string, onChange: (v: string) => void, icon: React.ReactNode, width?: number, hasError?: boolean, min?: string }) {
   return (
     <div
-      className="relative flex items-center gap-[8px] focus-within:border-[#1976d2] dark:focus-within:border-[#5b9cf6] transition-colors"
+      className="relative flex items-center gap-[8px] focus-within:border-blue-100 dark:focus-within:border-blue-80 transition-colors"
       style={{
         border: `1px solid ${hasError ? '#de1b0c' : 'var(--s-border-subtle)'}`, borderRadius: 4,
         padding: '0 10px', height: 34, backgroundColor: 'var(--s-bg-input)', width
       }}
     >
-      <div className="shrink-0 flex items-center justify-center text-[#555] dark:text-[#9ba2b0] pointer-events-none">
+      <div className="shrink-0 flex items-center justify-center text-gray-300 dark:text-gray-90 pointer-events-none">
         {icon}
       </div>
       <input
@@ -240,8 +240,8 @@ function MediaGridItem({
             onClick={(e) => { e.stopPropagation(); /* TODO Edit file */ }}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-              <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="var(--gray-300)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="var(--gray-300)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
           {/* Delete icon */}
@@ -250,7 +250,7 @@ function MediaGridItem({
             style={{ backgroundColor: 'rgba(255,255,255,0.9)', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}
             onClick={(e) => { e.stopPropagation(); onDelete(); }}
           >
-            <Trash2 size={12} className="text-[#de1b0c]" />
+            <Trash2 size={12} className="text-red-100" />
           </button>
         </div>
       )}
@@ -298,7 +298,7 @@ function UploadCell({ onFilesAdded, disabled }: { onFilesAdded: (f: File[]) => v
         }}
       />
       {/* Simple Plus icon */}
-      <Plus size={24} className="text-[#555]" strokeWidth={1.5} />
+      <Plus size={24} className="text-gray-300" strokeWidth={1.5} />
     </div>
   );
 }
@@ -367,14 +367,14 @@ function MediaSection({ mediaItems, setMediaItems }: {
   const label = count === 0 ? 'No attached images' : count === 1 ? '1 attached image' : `${count} attached images`;
 
   return (
-    <div className="border border-[#eaeaea] dark:border-[#2e3340] rounded-[8px] overflow-hidden bg-white dark:bg-[#1e2229] transition-colors duration-300">
+    <div className="border border-comparison-0-star dark:border-gray-600 rounded-[8px] overflow-hidden bg-white dark:bg-gray-700 transition-colors duration-300">
       {/* Section header */}
       <div
-        className="w-full flex items-center justify-between bg-[#fafafa] dark:bg-[#181b22] px-[16px] py-[12px]"
+        className="w-full flex items-center justify-between bg-gray-10 dark:bg-gray-800 px-[16px] py-[12px]"
       >
         <div className="flex items-center gap-[8px]">
-          <Camera size={18} className="text-[#555] dark:text-[#9ba2b0]" />
-          <p className="font-['Roboto:Medium',sans-serif] font-normal leading-[20px] text-[#212121] dark:text-[#e4e8f0] text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100", cursor: 'pointer' }} onClick={() => setExpanded(v => !v)}>
+          <Camera size={18} className="text-gray-300 dark:text-gray-90" />
+          <p className="font-['Roboto:Medium',sans-serif] font-normal leading-[20px] text-gray-900 dark:text-gray-2000 text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100", cursor: 'pointer' }} onClick={() => setExpanded(v => !v)}>
             {label}
           </p>
           <input 
@@ -449,8 +449,8 @@ function MediaSection({ mediaItems, setMediaItems }: {
                 <button onClick={() => setSelectedIds(new Set())} style={{ color: 'var(--s-blue)', fontSize: 14, fontFamily: 'Roboto, sans-serif', fontWeight: 500 }}>
                   Cancel
                 </button>
-                <button onClick={handleBulkDelete} className="flex items-center gap-[6px] px-[12px] py-[6px] rounded-[4px] hover:bg-[#f4f6f7] dark:hover:bg-[#2e3340] transition-colors shadow-sm" style={{ border: '1px solid var(--s-border)', backgroundColor: 'var(--s-bg-primary)', color: 'var(--s-text-primary)', fontSize: 13, fontFamily: 'Roboto, sans-serif', fontWeight: 500 }}>
-                  <Trash2 size={13} className="text-[#555] dark:text-[#9ba2b0]" />
+                <button onClick={handleBulkDelete} className="flex items-center gap-[6px] px-[12px] py-[6px] rounded-[4px] hover:bg-light-grayish-blue dark:hover:bg-gray-600 transition-colors shadow-sm" style={{ border: '1px solid var(--s-border)', backgroundColor: 'var(--s-bg-primary)', color: 'var(--s-text-primary)', fontSize: 13, fontFamily: 'Roboto, sans-serif', fontWeight: 500 }}>
+                  <Trash2 size={13} className="text-gray-300 dark:text-gray-90" />
                   Delete
                 </button>
               </div>
@@ -480,11 +480,11 @@ function MediaSection({ mediaItems, setMediaItems }: {
                 ))}
                 {count === 0 && (
                   <div className="flex flex-col items-center justify-center py-[24px] w-full gap-[10px]">
-                    <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center" style={{ backgroundColor: '#f0f0f0' }}>
-                      <Upload size={18} className="text-[#aaa]" />
+                    <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--gray-20)' }}>
+                      <Upload size={18} className="text-gray-80" />
                     </div>
-                    <p style={{ fontSize: 13, color: '#888', fontFamily: 'Roboto, sans-serif' }}>Drag & drop or click to add up to {MAX_MEDIA} images</p>
-                    <label className="flex items-center gap-[5px] text-white text-[13px] font-medium px-[12px] py-[6px] rounded-[4px] cursor-pointer transition-colors" style={{ backgroundColor: '#1976d2', fontFamily: 'Roboto, sans-serif' }}>
+                    <p style={{ fontSize: 13, color: 'var(--gray-80)', fontFamily: 'Roboto, sans-serif' }}>Drag & drop or click to add up to {MAX_MEDIA} images</p>
+                    <label className="flex items-center gap-[5px] text-white text-[13px] font-medium px-[12px] py-[6px] rounded-[4px] cursor-pointer transition-colors" style={{ backgroundColor: 'var(--blue-100)', fontFamily: 'Roboto, sans-serif' }}>
                       <Upload size={12} />
                       Upload images
                       <input type="file" accept="image/*" multiple className="hidden" onChange={e => { const f = Array.from(e.target.files || []).filter(f => f.type.startsWith('image/')); if (f.length) handleFilesAdded(f); e.target.value = ''; }} />
@@ -497,7 +497,7 @@ function MediaSection({ mediaItems, setMediaItems }: {
                 <div className="flex items-center justify-start mt-[16px]">
                   <button
                     onClick={() => setVisibleCount(count)}
-                    className="flex items-center gap-[6px] hover:bg-[#f4f6f7] dark:hover:bg-[#2e3340] transition-colors px-[8px] py-[6px] -ml-[8px] rounded-[4px]"
+                    className="flex items-center gap-[6px] hover:bg-light-grayish-blue dark:hover:bg-gray-600 transition-colors px-[8px] py-[6px] -ml-[8px] rounded-[4px]"
                     style={{ color: 'var(--s-blue)', fontSize: 14, fontFamily: 'Roboto, sans-serif', fontWeight: 500 }}
                   >
                     Show all media
@@ -510,7 +510,7 @@ function MediaSection({ mediaItems, setMediaItems }: {
                 <div className="flex justify-start mt-[16px]">
                   <button
                     onClick={() => setVisibleCount(GRID_PAGE_SIZE)}
-                    className="flex items-center gap-[6px] hover:bg-[#f4f6f7] dark:hover:bg-[#2e3340] transition-colors px-[8px] py-[6px] -ml-[8px] rounded-[4px]"
+                    className="flex items-center gap-[6px] hover:bg-light-grayish-blue dark:hover:bg-gray-600 transition-colors px-[8px] py-[6px] -ml-[8px] rounded-[4px]"
                     style={{ color: 'var(--s-blue)', fontSize: 14, fontFamily: 'Roboto, sans-serif', fontWeight: 500 }}
                   >
                     Show less media
@@ -526,9 +526,9 @@ function MediaSection({ mediaItems, setMediaItems }: {
             <div style={{ border: '1px solid var(--s-border)', borderRadius: 4, overflow: 'hidden' }}>
               {count === 0 ? (
                 <div className="flex flex-col items-center justify-center py-[24px] gap-[8px]">
-                  <Upload size={18} className="text-[#aaa]" />
-                  <p style={{ fontSize: 13, color: '#888', fontFamily: 'Roboto, sans-serif' }}>No images added</p>
-                  <label className="flex items-center gap-[5px] text-white text-[13px] px-[12px] py-[6px] rounded-[4px] cursor-pointer" style={{ backgroundColor: '#1976d2', fontFamily: 'Roboto, sans-serif' }}>
+                  <Upload size={18} className="text-gray-80" />
+                  <p style={{ fontSize: 13, color: 'var(--gray-80)', fontFamily: 'Roboto, sans-serif' }}>No images added</p>
+                  <label className="flex items-center gap-[5px] text-white text-[13px] px-[12px] py-[6px] rounded-[4px] cursor-pointer" style={{ backgroundColor: 'var(--blue-100)', fontFamily: 'Roboto, sans-serif' }}>
                     <Upload size={12} />
                     Upload images
                     <input type="file" accept="image/*" multiple className="hidden" onChange={e => { const f = Array.from(e.target.files || []).filter(f => f.type.startsWith('image/')); if (f.length) handleFilesAdded(f); e.target.value = ''; }} />
@@ -567,7 +567,7 @@ function MediaSection({ mediaItems, setMediaItems }: {
                           <td style={{ padding: '8px', fontSize: 12, color: 'var(--s-text-muted)', fontFamily: 'Roboto, sans-serif' }}>{item.dateAdded}</td>
                           {selectedIds.size === 0 && (
                             <td style={{ padding: '8px' }}>
-                              <button onClick={() => handleDelete(item.id)} className="text-[#aaa] hover:text-[#de1b0c] transition-colors">
+                              <button onClick={() => handleDelete(item.id)} className="text-gray-80 hover:text-red-100 transition-colors">
                                 <Trash2 size={13} />
                               </button>
                             </td>
@@ -588,7 +588,7 @@ function MediaSection({ mediaItems, setMediaItems }: {
                         Show all media ({count - visibleCount} remaining)
                       </button>
                     ) : (
-                      <span style={{ fontSize: 12, color: '#aaa', fontFamily: 'Roboto, sans-serif' }}>{count} of {count} images</span>
+                      <span style={{ fontSize: 12, color: 'var(--gray-80)', fontFamily: 'Roboto, sans-serif' }}>{count} of {count} images</span>
                     )}
                     <label className="flex items-center gap-[5px] cursor-pointer font-medium" style={{ color: 'var(--s-blue)', fontSize: 13, fontFamily: 'Roboto, sans-serif' }}>
                       <Plus size={13} />
@@ -615,7 +615,7 @@ function PreviewPanel({ content, mediaItems }: { content: string; mediaItems: Me
       {/* Header */}
       <div className="px-[20px] pt-[20px] pb-[12px]">
         <div className="flex items-center gap-[6px] mb-[8px]">
-          <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[24px] text-[#212121] dark:text-[#e4e8f0] text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[24px] text-gray-900 dark:text-gray-2000 text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             Preview
           </p>
         </div>
@@ -623,7 +623,7 @@ function PreviewPanel({ content, mediaItems }: { content: string; mediaItems: Me
           <div className="shrink-0 mt-[2px]">
             <InfoIcon />
           </div>
-          <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[18px] text-[#555] dark:text-[#9ba2b0] text-[12px] tracking-[-0.24px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[18px] text-gray-300 dark:text-gray-90 text-[12px] tracking-[-0.24px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             Preview approximates how your content will display when published. Tests and updates by social networks may affect the final appearance.
           </p>
         </div>
@@ -643,10 +643,10 @@ function PreviewPanel({ content, mediaItems }: { content: string; mediaItems: Me
                 <FacebookIcon />
               </div>
               <div className="flex items-center gap-[6px]">
-                <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-[#212121] dark:text-[#e4e8f0] text-[14px] tracking-[-0.28px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-gray-900 dark:text-gray-2000 text-[14px] tracking-[-0.28px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                   Facebook
                 </p>
-                <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-[#555] dark:text-[#9ba2b0] text-[13px] tracking-[-0.26px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-gray-300 dark:text-gray-90 text-[13px] tracking-[-0.26px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                   3 Pages
                 </p>
               </div>
@@ -665,28 +665,28 @@ function PreviewPanel({ content, mediaItems }: { content: string; mediaItems: Me
                   </p>
                 </div>
                 <div>
-                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#212121] dark:text-[#e4e8f0] text-[14px] leading-[20px] tracking-[-0.28px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: 600 }}>
+                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-900 dark:text-gray-2000 text-[14px] leading-[20px] tracking-[-0.28px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: 600 }}>
                     Motto mortgage - Holidays
                   </p>
-                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#555] dark:text-[#9ba2b0] text-[12px] leading-[normal]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-300 dark:text-gray-90 text-[12px] leading-[normal]" style={{ fontVariationSettings: "'wdth' 100" }}>
                     Just now · 🌐
                   </p>
                 </div>
               </div>
 
               {/* Post body */}
-              <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#212121] dark:text-[#e4e8f0] text-[13px] leading-[20px] tracking-[-0.26px] mb-[6px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-900 dark:text-gray-2000 text-[13px] leading-[20px] tracking-[-0.26px] mb-[6px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                 {content
                   ? content.length > 280 ? content.substring(0, 280) + '...' : content
                   : 'So, how can a homebuyer show the current homeowner they are serious about buying? Meet Ernest. Well, earnest money actually. 😄'}
               </p>
-              <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#555] dark:text-[#9ba2b0] text-[13px] leading-[20px] mb-[6px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-300 dark:text-gray-90 text-[13px] leading-[20px] mb-[6px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                 Earnest money is a deposit given to the seller when a buyer submits an offer on a home. It demonstrates their commitment to the purchase and is typically credited toward down payment or closing costs.
               </p>
-              <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#555] dark:text-[#9ba2b0] text-[13px] leading-[20px] mb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-300 dark:text-gray-90 text-[13px] leading-[20px] mb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                 Questions about earnest money? Reach out for details.
               </p>
-              <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#1976d2] dark:text-[#5b9cf6] text-[13px] leading-[18px] mb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <p className="font-['Roboto:Regular',sans-serif] font-normal text-blue-100 dark:text-blue-80 text-[13px] leading-[18px] mb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                 #EarnestMoney #SeriousBuyer #HomeBuyingTips #RealEstateAdvice #HomeownershipJourney #CommitmentToBuy #DownPayment #ClosingCosts #HomeGoals #TrustedAdvisor #StartYourJourney #HomeBuyingJourney
               </p>
               {/* Post image */}
@@ -882,7 +882,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
         <div className="flex items-center gap-[10px]">
           <NativePicker type="date" value={scheduleDate} onChange={setScheduleDate} icon={<PickCalendarIcon />} width={160} />
           <NativePicker type="time" value={scheduleTime} onChange={setScheduleTime} icon={<PickClockIcon />} width={120} />
-          <p className="font-['Roboto:Regular',sans-serif] text-[11px] text-[#aaa] shrink-0" style={{ fontVariationSettings: "'wdth' 100" }}>Your local time</p>
+          <p className="font-['Roboto:Regular',sans-serif] text-[11px] text-gray-80 shrink-0" style={{ fontVariationSettings: "'wdth' 100" }}>Your local time</p>
         </div>
       )}
 
@@ -897,7 +897,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                 <div className="shrink-0" style={{ width: 18, height: 18 }}>
                   {platform === 'facebook' ? <FacebookIcon /> : platform === 'instagram' ? <InstagramIcon /> : <LinkedInIcon />}
                 </div>
-                <span className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#555] dark:text-[#9ba2b0] shrink-0" style={{ fontVariationSettings: "'wdth' 100", minWidth: 64 }}>{label}</span>
+                <span className="font-['Roboto:Regular',sans-serif] text-[12px] text-gray-300 dark:text-gray-90 shrink-0" style={{ fontVariationSettings: "'wdth' 100", minWidth: 64 }}>{label}</span>
                 <NativePicker type="date" value={cs.date} onChange={v => updateChannelSchedule(platform, 'date', v)} icon={<PickCalendarIcon />} width={150} />
                 <NativePicker type="time" value={cs.time} onChange={v => updateChannelSchedule(platform, 'time', v)} icon={<PickClockIcon />} width={110} />
               </div>
@@ -931,7 +931,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
         <div className="flex items-center gap-[10px]">
           <button
             onClick={onBack}
-            className="flex items-center justify-center rounded-[6px] hover:bg-[#f0f0f0] dark:hover:bg-[#2e3340] transition-colors"
+            className="flex items-center justify-center rounded-[6px] hover:bg-gray-20 dark:hover:bg-gray-600 transition-colors"
             style={{ width: 32, height: 32 }}
             aria-label="Back"
           >
@@ -963,7 +963,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                 </svg>
               )}
             </div>
-            <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-[#212121] dark:text-[#e4e8f0] text-[14px] tracking-[-0.28px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-gray-900 dark:text-gray-2000 text-[14px] tracking-[-0.28px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
               Add to post library
             </p>
             <div className="flex items-center">
@@ -973,8 +973,8 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
 
           {/* Schedule post — opens timing modal */}
           <button
-            className="flex items-center justify-center hover:bg-[#1565c0] transition-colors"
-            style={{ backgroundColor: '#1976d2', color: 'white', height: 36, padding: '0 20px', borderRadius: '4px', fontFamily: 'Roboto, sans-serif', fontSize: 14, fontWeight: 500, letterSpacing: '-0.28px' }}
+            className="flex items-center justify-center hover:bg-blue-200 transition-colors"
+            style={{ backgroundColor: 'var(--blue-100)', color: 'white', height: 36, padding: '0 20px', borderRadius: '4px', fontFamily: 'Roboto, sans-serif', fontSize: 14, fontWeight: 500, letterSpacing: '-0.28px' }}
             onClick={() => setTimingModalOpen(true)}
           >
             Schedule post
@@ -986,13 +986,13 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
       <div className="flex flex-1" style={{ overflow: 'hidden' }}>
 
         {/* ── Left Form Panel ── */}
-        <div className="overflow-y-auto bg-white dark:bg-[#1e2229]" style={{ flex: '0 0 62%', borderRight: '1px solid var(--s-border)', minWidth: 0 }}>
+        <div className="overflow-y-auto bg-white dark:bg-gray-700" style={{ flex: '0 0 62%', borderRight: '1px solid var(--s-border)', minWidth: 0 }}>
           <div style={{ padding: '20px 30px' }} className="flex flex-col gap-[16px]">
 
             {/* ── Post Content Card ── */}
-            <div className="border border-[#eaeaea] dark:border-[#2e3340] rounded-[8px] overflow-hidden bg-white dark:bg-[#1e2229]">
-              <div className="w-full flex items-center justify-between bg-[#fafafa] dark:bg-[#181b22] px-[16px] py-[12px]">
-                <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#212121] dark:text-[#e4e8f0] text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <div className="border border-comparison-0-star dark:border-gray-600 rounded-[8px] overflow-hidden bg-white dark:bg-gray-700">
+              <div className="w-full flex items-center justify-between bg-gray-10 dark:bg-gray-800 px-[16px] py-[12px]">
+                <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-900 dark:text-gray-2000 text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                   Post content
                 </p>
               </div>
@@ -1079,7 +1079,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
 
                     {/* Personalize link */}
                     <div className="flex items-center gap-[4px] cursor-pointer">
-                      <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-[#1976d2] text-[13px] tracking-[-0.26px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+                      <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-blue-100 text-[13px] tracking-[-0.26px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
                         Personalize
                       </p>
                       <ChevronDownIcon color="#1976d2" />
@@ -1101,16 +1101,16 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
             <MediaSection mediaItems={mediaItems} setMediaItems={setMediaItems} />
 
             {/* ── Tags Section ── */}
-            <div className="border border-[#eaeaea] dark:border-[#2e3340] rounded-[8px] overflow-hidden bg-white dark:bg-[#1e2229]">
-              <div className="w-full flex items-center justify-between bg-[#fafafa] dark:bg-[#181b22] px-[16px] py-[12px]">
+            <div className="border border-comparison-0-star dark:border-gray-600 rounded-[8px] overflow-hidden bg-white dark:bg-gray-700">
+              <div className="w-full flex items-center justify-between bg-gray-10 dark:bg-gray-800 px-[16px] py-[12px]">
                 <div className="flex items-center gap-[5px]">
-                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#212121] dark:text-[#e4e8f0] text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-900 dark:text-gray-2000 text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                     Tags
                   </p>
                   <InfoIcon />
                 </div>
                 <button>
-                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#1976d2] dark:text-[#5b9cf6] text-[13px] tracking-[-0.26px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-blue-100 dark:text-blue-80 text-[13px] tracking-[-0.26px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
                     Manage tags
                   </p>
                 </button>
@@ -1121,7 +1121,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                     <TagChip key={tag.id} label={tag.label} onRemove={() => setTags(prev => prev.filter(t => t.id !== tag.id))} />
                   ))}
                   {tags.length > 0 && (
-                    <button onClick={() => setTags([])} className="flex items-center justify-center" style={{ color: '#888', width: 20, height: 20 }}>
+                    <button onClick={() => setTags([])} className="flex items-center justify-center" style={{ color: 'var(--gray-80)', width: 20, height: 20 }}>
                       <X size={14} strokeWidth={1.5} />
                     </button>
                   )}
@@ -1130,10 +1130,10 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
             </div>
 
             {/* ── Approvals Section ── */}
-            <div className="border border-[#eaeaea] dark:border-[#2e3340] rounded-[8px] overflow-hidden bg-white dark:bg-[#1e2229]">
-              <div className="w-full flex items-center justify-between bg-[#fafafa] dark:bg-[#181b22] px-[16px] py-[12px]">
+            <div className="border border-comparison-0-star dark:border-gray-600 rounded-[8px] overflow-hidden bg-white dark:bg-gray-700">
+              <div className="w-full flex items-center justify-between bg-gray-10 dark:bg-gray-800 px-[16px] py-[12px]">
                 <div className="flex items-center gap-[5px]">
-                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#212121] dark:text-[#e4e8f0] text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                  <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-900 dark:text-gray-2000 text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                     Approvals
                   </p>
                   <InfoIcon />
@@ -1158,13 +1158,13 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                   </button>
                   {approvalOpen && (
                     <div
-                      className="absolute left-0 right-0 bg-white dark:bg-[#1e2229] z-20"
+                      className="absolute left-0 right-0 bg-white dark:bg-gray-700 z-20"
                       style={{ top: '100%', marginTop: 2, border: '1px solid var(--s-border)', borderRadius: 4, boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
                     >
                       {APPROVAL_OPTIONS.map(opt => (
                         <button
                           key={opt}
-                          className="w-full text-left hover:bg-[#f5f5f5] dark:hover:bg-[#2e3340] transition-colors"
+                          className="w-full text-left hover:bg-gray-20 dark:hover:bg-gray-600 transition-colors"
                           style={{ padding: '9px 12px', fontSize: 14, fontFamily: 'Roboto, sans-serif', color: 'var(--s-text-primary)', letterSpacing: '-0.28px' }}
                           onClick={() => { setSelectedApproval(opt); setApprovalOpen(false); }}
                         >
@@ -1178,12 +1178,12 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
             </div>
 
             {/* ── Posting checklist ── */}
-            <div className="border border-[#eaeaea] dark:border-[#2e3340] rounded-[8px] overflow-hidden bg-white dark:bg-[#1e2229] mb-[24px]">
+            <div className="border border-comparison-0-star dark:border-gray-600 rounded-[8px] overflow-hidden bg-white dark:bg-gray-700 mb-[24px]">
               <div
-                className="w-full flex items-center justify-between bg-[#fafafa] dark:bg-[#181b22] px-[16px] py-[12px] hover:bg-[#f2f4f7] dark:hover:bg-[#2e3340] transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between bg-gray-10 dark:bg-gray-800 px-[16px] py-[12px] hover:bg-new-hover-color dark:hover:bg-gray-600 transition-colors cursor-pointer"
                 onClick={() => setChecklistExpanded(v => !v)}
               >
-                <p className="font-['Roboto:Regular',sans-serif] font-normal text-[#212121] dark:text-[#e4e8f0] text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                <p className="font-['Roboto:Regular',sans-serif] font-normal text-gray-900 dark:text-gray-2000 text-[16px] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                   Posting checklist
                 </p>
                 {checklistExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
@@ -1194,18 +1194,18 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                   {/* Warning item 1 */}
                   <div className="flex items-start gap-[10px]">
                     <div className="shrink-0 mt-[1px]">
-                      <Lightbulb size={15} style={{ color: '#f59e0b' }} />
+                      <Lightbulb size={15} style={{ color: 'var(--yellow-100)' }} />
                     </div>
-                    <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-[#555] dark:text-[#9ba2b0] text-[13px] tracking-[-0.26px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                    <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-gray-300 dark:text-gray-90 text-[13px] tracking-[-0.26px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                       Instagram's daily limit for sharing posts, reels, and stories combined is 50.
                     </p>
                   </div>
                   {/* Warning item 2 */}
                   <div className="flex items-start gap-[10px]">
                     <div className="shrink-0 mt-[1px]">
-                      <Lightbulb size={15} style={{ color: '#f59e0b' }} />
+                      <Lightbulb size={15} style={{ color: 'var(--yellow-100)' }} />
                     </div>
-                    <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-[#555] dark:text-[#9ba2b0] text-[13px] tracking-[-0.26px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                    <p className="font-['Roboto:Regular',sans-serif] font-normal leading-[20px] text-gray-300 dark:text-gray-90 text-[13px] tracking-[-0.26px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                       The{' '}
                       <span style={{ color: 'var(--s-blue)', cursor: 'pointer' }}>Facebook</span>
                       {' '}or{' '}
@@ -1233,18 +1233,18 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
           onClick={() => setTimingModalOpen(false)}
         >
           <div
-            className="bg-white dark:bg-[#1e2229] flex flex-col"
+            className="bg-white dark:bg-gray-700 flex flex-col"
             style={{ width: 580, maxHeight: '82vh', borderRadius: 8, boxShadow: '0 8px 32px rgba(0,0,0,0.18)' }}
             onClick={e => e.stopPropagation()}
           >
             {/* Modal header */}
             <div className="flex items-center justify-between px-[20px] py-[14px] shrink-0" style={{ borderBottom: '1px solid var(--s-border)' }}>
-              <p className="font-['Roboto:Regular',sans-serif] text-[16px] text-[#212121] dark:text-[#e4e8f0] tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: 500 }}>
+              <p className="font-['Roboto:Regular',sans-serif] text-[16px] text-gray-900 dark:text-gray-2000 tracking-[-0.32px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: 500 }}>
                 Post timing
               </p>
               <button
                 onClick={() => setTimingModalOpen(false)}
-                className="flex items-center justify-center rounded-[4px] hover:bg-[#f4f6f7] dark:hover:bg-[#2e3340] transition-colors"
+                className="flex items-center justify-center rounded-[4px] hover:bg-light-grayish-blue dark:hover:bg-gray-600 transition-colors"
                 style={{ width: 28, height: 28 }}
               >
                 <X size={16} color="var(--s-text-secondary)" />
@@ -1260,16 +1260,16 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                 <label className="flex items-start gap-[10px] cursor-pointer" onClick={() => handlePublishMode('now')}>
                   <div className="mt-[1px]"><RadioButton selected={publishMode === 'now'} /></div>
                   <div>
-                    <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0] leading-[18px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: publishMode === 'now' ? 500 : 400 }}>Publish now</p>
-                    <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#888] dark:text-[#6b7a94]" style={{ fontVariationSettings: "'wdth' 100" }}>Goes live immediately</p>
+                    <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-gray-900 dark:text-gray-2000 leading-[18px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: publishMode === 'now' ? 500 : 400 }}>Publish now</p>
+                    <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-gray-80 dark:text-gray-90" style={{ fontVariationSettings: "'wdth' 100" }}>Goes live immediately</p>
                   </div>
                 </label>
 
                 <label className="flex items-start gap-[10px] cursor-pointer" onClick={() => handlePublishMode('scheduled')}>
                   <div className="mt-[1px]"><RadioButton selected={publishMode === 'scheduled'} /></div>
                   <div>
-                    <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0] leading-[18px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: publishMode === 'scheduled' ? 500 : 400 }}>Schedule for later</p>
-                    <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#888] dark:text-[#6b7a94]" style={{ fontVariationSettings: "'wdth' 100" }}>Pick a date &amp; time</p>
+                    <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-gray-900 dark:text-gray-2000 leading-[18px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: publishMode === 'scheduled' ? 500 : 400 }}>Schedule for later</p>
+                    <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-gray-80 dark:text-gray-90" style={{ fontVariationSettings: "'wdth' 100" }}>Pick a date &amp; time</p>
                   </div>
                 </label>
 
@@ -1280,8 +1280,8 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                 <label className="flex items-start gap-[10px] cursor-pointer" onClick={() => handlePublishMode('draft')}>
                   <div className="mt-[1px]"><RadioButton selected={publishMode === 'draft'} /></div>
                   <div>
-                    <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0] leading-[18px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: publishMode === 'draft' ? 500 : 400 }}>Save as draft</p>
-                    <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#888] dark:text-[#6b7a94]" style={{ fontVariationSettings: "'wdth' 100" }}>Save now, publish or schedule later</p>
+                    <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-gray-900 dark:text-gray-2000 leading-[18px]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: publishMode === 'draft' ? 500 : 400 }}>Save as draft</p>
+                    <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-gray-80 dark:text-gray-90" style={{ fontVariationSettings: "'wdth' 100" }}>Save now, publish or schedule later</p>
                   </div>
                 </label>
 
@@ -1290,8 +1290,8 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                     <div className="flex flex-col gap-[10px] rounded-[8px] px-[12px] py-[10px]" style={{ backgroundColor: 'var(--s-bg-muted)' }}>
                       <div className="flex items-start justify-between gap-[12px]">
                         <div>
-                          <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: 500 }}>Add to calendar</p>
-                          <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#888] dark:text-[#6b7a94]" style={{ fontVariationSettings: "'wdth' 100" }}>Show this draft on the calendar at a set time</p>
+                          <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-gray-900 dark:text-gray-2000" style={{ fontVariationSettings: "'wdth' 100", fontWeight: 500 }}>Add to calendar</p>
+                          <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-gray-80 dark:text-gray-90" style={{ fontVariationSettings: "'wdth' 100" }}>Show this draft on the calendar at a set time</p>
                         </div>
                         <button
                           onClick={() => setDraftCalendarEnabled(v => !v)}
@@ -1305,7 +1305,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                         <div className="flex items-center gap-[10px]">
                           <NativePicker type="date" value={scheduleDate} onChange={setScheduleDate} icon={<PickCalendarIcon />} width={160} />
                           <NativePicker type="time" value={scheduleTime} onChange={setScheduleTime} icon={<PickClockIcon />} width={120} />
-                          <p className="font-['Roboto:Regular',sans-serif] text-[11px] text-[#aaa] shrink-0" style={{ fontVariationSettings: "'wdth' 100" }}>Draft won't publish automatically</p>
+                          <p className="font-['Roboto:Regular',sans-serif] text-[11px] text-gray-80 shrink-0" style={{ fontVariationSettings: "'wdth' 100" }}>Draft won't publish automatically</p>
                         </div>
                       )}
                     </div>
@@ -1314,7 +1314,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
               </div>
 
               {/* ── Divider ── */}
-              <div className="border-t border-[#f0f0f0] dark:border-[#2e3340]" style={{ margin: '16px 0' }} />
+              <div className="border-t border-gray-20 dark:border-gray-600" style={{ margin: '16px 0' }} />
 
               {/* ── Set Expiry ── */}
               <div
@@ -1323,8 +1323,8 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
               >
                 <div className="flex items-start justify-between gap-[16px]">
                   <div>
-                    <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-[#212121] dark:text-[#e4e8f0]" style={{ fontVariationSettings: "'wdth' 100", fontWeight: 500 }}>Set expiry</p>
-                    <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#888] dark:text-[#6b7a94]" style={{ fontVariationSettings: "'wdth' 100" }}>Post will be removed after this time</p>
+                    <p className="font-['Roboto:Regular',sans-serif] text-[13px] text-gray-900 dark:text-gray-2000" style={{ fontVariationSettings: "'wdth' 100", fontWeight: 500 }}>Set expiry</p>
+                    <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-gray-80 dark:text-gray-90" style={{ fontVariationSettings: "'wdth' 100" }}>Post will be removed after this time</p>
                   </div>
                   <button
                     onClick={() => handleToggleExpiry(!expiryEnabled)}
@@ -1341,14 +1341,14 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                       <NativePicker type="date" value={expiryDate} onChange={setExpiryDate} min={publishMode === 'scheduled' && scheduleDate ? scheduleDate : new Date().toISOString().slice(0, 10)} icon={<PickCalendarIcon />} width={160} hasError={expiryBeforePublish || expiryInPast} />
                       <NativePicker type="time" value={expiryTime} onChange={setExpiryTime} icon={<PickClockIcon />} width={120} hasError={expiryBeforePublish || expiryInPast} />
                     </div>
-                    {expiryInPast && <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#de1b0c]" style={{ fontVariationSettings: "'wdth' 100" }}>Expiry must be in the future</p>}
-                    {!expiryInPast && expiryEqualsPublish && <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#de1b0c]" style={{ fontVariationSettings: "'wdth' 100" }}>Expiry can't be the same as publish time</p>}
-                    {!expiryInPast && !expiryEqualsPublish && expiryBeforePublish && <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-[#de1b0c]" style={{ fontVariationSettings: "'wdth' 100" }}>Expiry must be after the publish time</p>}
-                    <p className="font-['Roboto:Regular',sans-serif] text-[11px] text-[#aaa]" style={{ fontVariationSettings: "'wdth' 100" }}>Some platforms may not support automatic removal</p>
+                    {expiryInPast && <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-red-100" style={{ fontVariationSettings: "'wdth' 100" }}>Expiry must be in the future</p>}
+                    {!expiryInPast && expiryEqualsPublish && <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-red-100" style={{ fontVariationSettings: "'wdth' 100" }}>Expiry can't be the same as publish time</p>}
+                    {!expiryInPast && !expiryEqualsPublish && expiryBeforePublish && <p className="font-['Roboto:Regular',sans-serif] text-[12px] text-red-100" style={{ fontVariationSettings: "'wdth' 100" }}>Expiry must be after the publish time</p>}
+                    <p className="font-['Roboto:Regular',sans-serif] text-[11px] text-gray-80" style={{ fontVariationSettings: "'wdth' 100" }}>Some platforms may not support automatic removal</p>
 
                     {timelinePublishISO && expiryISO && timingValid && (
                       <div className="flex flex-col gap-[8px]">
-                        <p className="font-['Roboto:Regular',sans-serif] text-[11px] text-[#888]" style={{ fontVariationSettings: "'wdth' 100", textTransform: 'uppercase', letterSpacing: '0.06em' }}>Post lifecycle</p>
+                        <p className="font-['Roboto:Regular',sans-serif] text-[11px] text-gray-80" style={{ fontVariationSettings: "'wdth' 100", textTransform: 'uppercase', letterSpacing: '0.06em' }}>Post lifecycle</p>
                         {/* Track row: dots + lines all on the same items-center axis */}
                         <div className="flex items-center">
                           <div className="w-[8px] h-[8px] rounded-full shrink-0" style={{ backgroundColor: 'var(--s-blue)', boxShadow: '0 0 0 2px #c7ddf8' }} />
@@ -1361,11 +1361,11 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
                         <div className="flex items-start justify-between">
                           <div>
                             <p className="font-['Roboto:Regular',sans-serif] text-[10px]" style={{ fontVariationSettings: "'wdth' 100", color: 'var(--s-blue)', fontWeight: 500, whiteSpace: 'nowrap' }}>{publishMode === 'now' ? 'Now' : fmtDateTime(timelinePublishISO)}</p>
-                            <p className="font-['Roboto:Regular',sans-serif] text-[9px] text-[#aaa]" style={{ fontVariationSettings: "'wdth' 100", whiteSpace: 'nowrap' }}>Publish</p>
+                            <p className="font-['Roboto:Regular',sans-serif] text-[9px] text-gray-80" style={{ fontVariationSettings: "'wdth' 100", whiteSpace: 'nowrap' }}>Publish</p>
                           </div>
                           <div className="text-right">
                             <p className="font-['Roboto:Regular',sans-serif] text-[10px]" style={{ fontVariationSettings: "'wdth' 100", color: 'var(--s-text-secondary)', fontWeight: 500, whiteSpace: 'nowrap' }}>{fmtDateTime(expiryISO)}</p>
-                            <p className="font-['Roboto:Regular',sans-serif] text-[9px] text-[#aaa]" style={{ fontVariationSettings: "'wdth' 100", whiteSpace: 'nowrap' }}>Expires</p>
+                            <p className="font-['Roboto:Regular',sans-serif] text-[9px] text-gray-80" style={{ fontVariationSettings: "'wdth' 100", whiteSpace: 'nowrap' }}>Expires</p>
                           </div>
                         </div>
                       </div>
@@ -1379,7 +1379,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
             <div className="flex items-center justify-end gap-[8px] px-[20px] py-[14px] shrink-0" style={{ borderTop: '1px solid var(--s-border)' }}>
               <button
                 onClick={() => setTimingModalOpen(false)}
-                className="hover:bg-[#f4f6f7] dark:hover:bg-[#2e3340] transition-colors"
+                className="hover:bg-light-grayish-blue dark:hover:bg-gray-600 transition-colors"
                 style={{ height: 36, padding: '0 16px', borderRadius: 4, border: '1px solid var(--s-border-subtle)', fontFamily: 'Roboto, sans-serif', fontSize: 14, color: 'var(--s-text-primary)', fontWeight: 400 }}
               >
                 Cancel
@@ -1387,7 +1387,7 @@ export function CreatePostView({ onBack, onPublish }: CreatePostViewProps) {
               <button
                 onClick={() => { onPublish?.(publishMode === 'now' ? 'publish' : publishMode === 'scheduled' ? 'schedule' : 'draft', expiryISO || undefined); setTimingModalOpen(false); }}
                 className="hover:opacity-90 transition-opacity"
-                style={{ height: 36, padding: '0 20px', borderRadius: 4, backgroundColor: '#1976d2', fontFamily: 'Roboto, sans-serif', fontSize: 14, color: 'white', fontWeight: 500 }}
+                style={{ height: 36, padding: '0 20px', borderRadius: 4, backgroundColor: 'var(--blue-100)', fontFamily: 'Roboto, sans-serif', fontSize: 14, color: 'white', fontWeight: 500 }}
               >
                 {publishMode === 'now' ? 'Publish now' : publishMode === 'scheduled' ? 'Schedule post' : 'Save as draft'}
               </button>

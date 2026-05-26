@@ -14,8 +14,8 @@ const DEFAULT_TIME = { hours: '12', minutes: '00', meridiem: 'am' };
 function FieldLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>{label}</span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
     </div>
   );
 }
@@ -30,7 +30,7 @@ function TimePicker({ time, onChange }) {
         <SelectTrigger style={{ width: 80 }}><SelectValue /></SelectTrigger>
         <SelectContent>{hours.map((h) => <SelectItem key={h} value={h}>{h}</SelectItem>)}</SelectContent>
       </Select>
-      <span style={{ fontFamily: font, color: '#212121' }}>:</span>
+      <span style={{ fontFamily: font, color: 'var(--gray-900)' }}>:</span>
       <Select value={time.minutes} onValueChange={(v) => onChange({ ...time, minutes: v })}>
         <SelectTrigger style={{ width: 80 }}><SelectValue /></SelectTrigger>
         <SelectContent>{minutes.map((m) => <SelectItem key={m} value={m}>{m}</SelectItem>)}</SelectContent>
@@ -60,15 +60,15 @@ export function ScheduleBasedBody({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>
-          Trigger name <span style={{ color: '#de1b0c' }}>*</span>
+        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>
+          Trigger name <span style={{ color: 'var(--red-100)' }}>*</span>
         </label>
         <Input name="triggerName" type="text" value="Schedule based" readOnly required />
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>
-          Description <span style={{ color: '#de1b0c' }}>*</span>
+        <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>
+          Description <span style={{ color: 'var(--red-100)' }}>*</span>
         </label>
         <Textarea name="description" value="Runs the workflow on a set schedule" readOnly required rows={3} style={{ resize: 'none' }} />
       </div>
@@ -117,7 +117,7 @@ export default function ScheduleBased({
   const [time, setTime] = useState(defaultTime ?? DEFAULT_TIME);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: 390, height: '100%', background: '#ffffff', borderLeft: '1px solid #e5e9f0', fontFamily: font }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: 390, height: '100%', background: 'var(--gray-0)', borderLeft: '1px solid #e5e9f0', fontFamily: font }}>
       <RHSPanelHeader title="Trigger" showActions onPreview={onPreview} onExpand={onExpand} onClose={onClose} />
       <div style={{ flex: 1, overflowY: 'auto', padding: '16px 15px', boxSizing: 'border-box' }}>
         <ScheduleBasedBody

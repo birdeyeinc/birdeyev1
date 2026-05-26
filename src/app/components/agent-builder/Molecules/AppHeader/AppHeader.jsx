@@ -33,7 +33,7 @@ export default function AppHeader({
       alignItems: 'center',
       justifyContent: 'flex-end',
       padding: '12px 24px',
-      background: '#ffffff',
+      background: 'var(--gray-0)',
       borderBottom: '1px solid #e9e9eb',
       width: '100%',
       boxSizing: 'border-box',

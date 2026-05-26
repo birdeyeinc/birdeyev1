@@ -38,13 +38,13 @@ const makeCondition = (id) => ({
 });
 
 const font = '"Inter", arial, sans-serif';
-const helpTextStyle = { fontSize: 11, lineHeight: '16px', color: '#8f8f8f', fontFamily: font };
+const helpTextStyle = { fontSize: 11, lineHeight: '16px', color: 'var(--gray-90)', fontFamily: font };
 
 function FieldLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>{label}</span>
-      {required && <span style={{ color: '#de1b0c', fontSize: 12 }}>*</span>}
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
+      {required && <span style={{ color: 'var(--red-100)', fontSize: 12 }}>*</span>}
     </div>
   );
 }
@@ -117,8 +117,8 @@ export default function BranchBody({ initialValues = {}, onValuesChange }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {initialValues.parentFieldName && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <span style={{ fontSize: 12, color: '#8f8f8f', fontFamily: font }}>Field</span>
-              <span style={{ fontSize: 14, color: '#212121', fontFamily: font }}>{initialValues.parentFieldName}</span>
+              <span style={{ fontSize: 12, color: 'var(--gray-90)', fontFamily: font }}>Field</span>
+              <span style={{ fontSize: 14, color: 'var(--gray-900)', fontFamily: font }}>{initialValues.parentFieldName}</span>
             </div>
           )}
           <FormField label="Field value" required>
@@ -135,7 +135,7 @@ export default function BranchBody({ initialValues = {}, onValuesChange }) {
 
       {basedOn === 'percentage' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <span style={{ fontSize: 12, color: '#212121', fontFamily: font }}>Percentage</span>
+          <span style={{ fontSize: 12, color: 'var(--gray-900)', fontFamily: font }}>Percentage</span>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <Input
               name="percentage"
@@ -145,7 +145,7 @@ export default function BranchBody({ initialValues = {}, onValuesChange }) {
               min="0"
               max="100"
             />
-            <span style={{ fontSize: 13, color: '#555', fontFamily: font }}>%</span>
+            <span style={{ fontSize: 13, color: 'var(--gray-300)', fontFamily: font }}>%</span>
           </div>
         </div>
       )}

@@ -44,7 +44,7 @@ function MultiSelectDropdown({ options, selected = [], onChange, placeholder = '
         style={{
           width: '100%', height: 36, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: '0 12px', border: '1px solid #ccc', borderRadius: 4,
-          background: '#fff', cursor: 'pointer', fontFamily: font, fontSize: 14,
+          background: 'var(--gray-0)', cursor: 'pointer', fontFamily: font, fontSize: 14,
           color: triggerLabel ? '#212121' : '#9e9e9e',
         }}
       >
@@ -54,26 +54,26 @@ function MultiSelectDropdown({ options, selected = [], onChange, placeholder = '
             <span
               className="material-symbols-outlined"
               onClick={(e) => { e.stopPropagation(); onChange([]); }}
-              style={{ fontSize: 16, color: '#9e9e9e', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 18, height: 18, borderRadius: 2, cursor: 'pointer' }}
+              style={{ fontSize: 16, color: 'var(--gray-90)', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 18, height: 18, borderRadius: 2, cursor: 'pointer' }}
               onMouseEnter={(e) => { e.currentTarget.style.color = '#616161'; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = '#9e9e9e'; }}
             >
               close
             </span>
           )}
-          <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#757575', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 18, height: 18 }}>
+          <span className="material-symbols-outlined" style={{ fontSize: 18, color: 'var(--gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 18, height: 18 }}>
             {open ? 'expand_less' : 'expand_more'}
           </span>
         </div>
       </button>
       {open && (
-        <div style={{ position: 'absolute', top: 'calc(100% + 4px)', left: 0, right: 0, zIndex: 200, background: '#fff', border: '1px solid #e0e0e0', borderRadius: 6, boxShadow: '0 4px 12px rgba(33,33,33,0.12)', padding: '4px 0' }}>
+        <div style={{ position: 'absolute', top: 'calc(100% + 4px)', left: 0, right: 0, zIndex: 200, background: 'var(--gray-0)', border: '1px solid #e0e0e0', borderRadius: 6, boxShadow: '0 4px 12px rgba(33,33,33,0.12)', padding: '4px 0' }}>
           {options.map((opt) => {
             const checked = selected.includes(opt.value);
             return (
               <label
                 key={opt.value}
-                style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 14px', cursor: 'pointer', fontSize: 14, fontFamily: font, color: '#212121' }}
+                style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 14px', cursor: 'pointer', fontSize: 14, fontFamily: font, color: 'var(--gray-900)' }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = '#f5f5f5'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; }}
               >
@@ -101,15 +101,15 @@ const FALLBACK_OPTIONS = [
 function FieldLabel({ label, required, tooltip }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
       {tooltip && (
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer', lineHeight: 1 }}>info</span>
+              <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer', lineHeight: 1 }}>info</span>
             </TooltipTrigger>
             <TooltipContent side="top">{tooltip}</TooltipContent>
           </Tooltip>
@@ -142,20 +142,20 @@ function ToggleSwitch({ selected = false, onChange }) {
       onClick={() => onChange && onChange(!selected)}
       style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', width: 32, height: 16, borderRadius: 8, background: selected ? '#1976d2' : '#ccc', border: 'none', padding: 0, cursor: 'pointer', flexShrink: 0, transition: 'background 0.15s' }}
     >
-      <span style={{ position: 'absolute', top: 2, left: selected ? 18 : 2, width: 12, height: 12, borderRadius: '50%', background: '#fff', transition: 'left 0.15s' }} />
+      <span style={{ position: 'absolute', top: 2, left: selected ? 18 : 2, width: 12, height: 12, borderRadius: '50%', background: 'var(--gray-0)', transition: 'left 0.15s' }} />
     </button>
   );
 }
 
 function TextInput({ value, onChange, placeholder }) {
   return (
-    <div style={{ background: '#fff', border: '1px solid #ccc', borderRadius: 4, height: 36, display: 'flex', alignItems: 'center', padding: '0 12px' }}>
+    <div style={{ background: 'var(--gray-0)', border: '1px solid #ccc', borderRadius: 4, height: 36, display: 'flex', alignItems: 'center', padding: '0 12px' }}>
       <input
         type="text"
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        style={{ flex: 1, border: 'none', outline: 'none', background: 'transparent', fontSize: 14, fontWeight: 400, lineHeight: '20px', color: '#212121', fontFamily: font }}
+        style={{ flex: 1, border: 'none', outline: 'none', background: 'transparent', fontSize: 14, fontWeight: 400, lineHeight: '20px', color: 'var(--gray-900)', fontFamily: font }}
       />
     </div>
   );
@@ -165,12 +165,12 @@ function CharTextArea({ value, onChange, maxLength = 300 }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <div style={{ display: 'flex', justifyContent: 'flex-end', height: 18 }}>
-        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#8f8f8f', fontFamily: font }}>{(value || '').length}/{maxLength}</span>
+        <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-90)', fontFamily: font }}>{(value || '').length}/{maxLength}</span>
       </div>
       <textarea
         value={value || ''}
         onChange={(e) => onChange(e.target.value.slice(0, maxLength))}
-        style={{ height: 80, border: '1px solid #ccc', borderRadius: 4, padding: '6px 12px', fontSize: 14, fontWeight: 400, lineHeight: '20px', color: '#212121', fontFamily: font, resize: 'none', outline: 'none', boxSizing: 'border-box', width: '100%' }}
+        style={{ height: 80, border: '1px solid #ccc', borderRadius: 4, padding: '6px 12px', fontSize: 14, fontWeight: 400, lineHeight: '20px', color: 'var(--gray-900)', fontFamily: font, resize: 'none', outline: 'none', boxSizing: 'border-box', width: '100%' }}
       />
     </div>
   );
@@ -220,12 +220,12 @@ function PickerInputField({ label, selected, placeholder, onClick }) {
       <button
         type="button"
         onClick={onClick}
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 36, padding: '0 12px', border: '1px solid #ccc', borderRadius: 4, background: '#fff', cursor: 'pointer', width: '100%', textAlign: 'left', overflow: 'hidden' }}
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 36, padding: '0 12px', border: '1px solid #ccc', borderRadius: 4, background: 'var(--gray-0)', cursor: 'pointer', width: '100%', textAlign: 'left', overflow: 'hidden' }}
       >
         <span style={{ fontSize: 14, fontFamily: font, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: selected ? '#212121' : '#9e9e9e' }}>
           {selected || placeholder}
         </span>
-        <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', flexShrink: 0, lineHeight: 1 }}>chevron_right</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', flexShrink: 0, lineHeight: 1 }}>chevron_right</span>
       </button>
     </div>
   );
@@ -245,15 +245,15 @@ function VoiceInputField({ label, selected, placeholder, onClick }) {
       <button
         type="button"
         onClick={onClick}
-        style={{ display: 'flex', alignItems: 'center', gap: 8, height: 36, padding: '0 12px', border: '1px solid #ccc', borderRadius: 4, background: '#fff', cursor: 'pointer', width: '100%', textAlign: 'left', overflow: 'hidden' }}
+        style={{ display: 'flex', alignItems: 'center', gap: 8, height: 36, padding: '0 12px', border: '1px solid #ccc', borderRadius: 4, background: 'var(--gray-0)', cursor: 'pointer', width: '100%', textAlign: 'left', overflow: 'hidden' }}
       >
         {selected && (
-          <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#1976d2', flexShrink: 0, lineHeight: 1 }} onClick={(e) => e.stopPropagation()}>play_arrow</span>
+          <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--blue-100)', flexShrink: 0, lineHeight: 1 }} onClick={(e) => e.stopPropagation()}>play_arrow</span>
         )}
         <span style={{ fontSize: 14, fontFamily: font, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: selected ? '#212121' : '#9e9e9e' }}>
           {selected || placeholder}
         </span>
-        <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#8f8f8f', flexShrink: 0, lineHeight: 1 }}>chevron_right</span>
+        <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--gray-90)', flexShrink: 0, lineHeight: 1 }}>chevron_right</span>
       </button>
     </div>
   );
@@ -377,8 +377,8 @@ export default function ChannelConfig({
           onClick={() => onAdvancedConfig?.()}
           style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, alignSelf: 'flex-start', marginTop: 4 }}
         >
-          <span style={{ fontSize: 13, fontWeight: 500, color: '#1976d2', fontFamily: font }}>Advanced config</span>
-          <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#1976d2', lineHeight: 1 }}>chevron_right</span>
+          <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--blue-100)', fontFamily: font }}>Advanced config</span>
+          <span className="material-symbols-outlined" style={{ fontSize: 16, color: 'var(--blue-100)', lineHeight: 1 }}>chevron_right</span>
         </button>
       )}
     </div>

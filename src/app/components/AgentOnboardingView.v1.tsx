@@ -146,7 +146,7 @@ function OnboardingSidebar({ current }: { current: OnboardingStep }) {
     >
       <div className="flex flex-col gap-2 px-6 pt-7">
         {/* Title */}
-        <p className="text-[14px] text-[#212121] dark:text-foreground tracking-[-0.28px] mb-1" style={{ fontWeight: 400 }}>
+        <p className="text-[14px] text-gray-900 dark:text-foreground tracking-[-0.28px] mb-1" style={{ fontWeight: 400 }}>
           Agent setup
         </p>
 
@@ -161,10 +161,10 @@ function OnboardingSidebar({ current }: { current: OnboardingStep }) {
               <div
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] shrink-0 transition-all ${
                   isCompleted
-                    ? "bg-[#2552ED] text-white"
+                    ? "bg-brand-color text-white"
                     : isCurrent
-                    ? "border-2 border-[#2552ED] text-[#6b9bff]"
-                    : "border border-[#d0d5dd] dark:border-border text-[#999] dark:text-muted-foreground"
+                    ? "border-2 border-brand-color text-blue-70"
+                    : "border border-gray-60 dark:border-border text-gray-90 dark:text-muted-foreground"
                 }`}
                 style={{ fontWeight: 400 }}
               >
@@ -174,10 +174,10 @@ function OnboardingSidebar({ current }: { current: OnboardingStep }) {
               <span
                 className={`text-[12px] transition-colors ${
                   isCurrent
-                    ? "text-[#212121] dark:text-foreground"
+                    ? "text-gray-900 dark:text-foreground"
                     : isCompleted
-                    ? "text-[#2552ED] dark:text-[#6b9bff]"
-                    : "text-[#999] dark:text-muted-foreground"
+                    ? "text-brand-color dark:text-blue-70"
+                    : "text-gray-90 dark:text-muted-foreground"
                 }`}
                 style={{ fontWeight: 400 }}
               >
@@ -209,10 +209,10 @@ function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => voi
         {/* AI sparkle icon */}
         <div className="flex justify-center mb-6">
           <div
-            className="w-16 h-16 rounded-[16px] flex items-center justify-center border border-[#2552ED]/20"
+            className="w-16 h-16 rounded-[16px] flex items-center justify-center border border-brand-color/20"
             style={{ background: "linear-gradient(135deg, rgba(37, 82, 237, 0.2) 0%, rgba(37, 82, 237, 0.05) 100%)" }}
           >
-            <Sparkles className="w-7 h-7 text-[#2552ED]" />
+            <Sparkles className="w-7 h-7 text-brand-color" />
           </div>
         </div>
 
@@ -220,25 +220,25 @@ function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => voi
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-2 text-center")}>
           Meet your AI agents
         </h1>
-        <p className="text-[15px] text-[#888] dark:text-muted-foreground text-center mb-8 mx-auto max-w-[366px] font-regular">
+        <p className="text-[15px] text-gray-80 dark:text-muted-foreground text-center mb-8 mx-auto max-w-[366px] font-regular">
           Tell us what you'd like help with, and we'll set up the right agents for you.
         </p>
 
         {/* Capabilities card */}
-        <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-6 pt-5 pb-5 mb-8">
-          <p className="text-[13px] text-[#888] dark:text-muted-foreground mb-3" style={{ fontWeight: 400 }}>
+        <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-6 pt-5 pb-5 mb-8">
+          <p className="text-[13px] text-gray-80 dark:text-muted-foreground mb-3" style={{ fontWeight: 400 }}>
             These agents can:
           </p>
           <div className="flex flex-col gap-2.5">
             {capabilities.map((cap) => (
               <div key={cap} className="flex items-center gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-[#2552ED]/20 flex items-center justify-center shrink-0">
+                <div className="w-5 h-5 rounded-full bg-brand-color/20 flex items-center justify-center shrink-0">
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 12 12">
-                    <circle cx="6" cy="6" r="5" stroke="#2552ED" strokeWidth="1" />
-                    <path d="M4.5 6L5.5 7L7.5 5" stroke="#2552ED" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" />
+                    <circle cx="6" cy="6" r="5" stroke="var(--brand-color)" strokeWidth="1" />
+                    <path d="M4.5 6L5.5 7L7.5 5" stroke="var(--brand-color)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" />
                   </svg>
                 </div>
-                <span className="text-[13px] text-[#212121] dark:text-foreground font-regular">
+                <span className="text-[13px] text-gray-900 dark:text-foreground font-regular">
                   {cap}
                 </span>
               </div>
@@ -251,7 +251,7 @@ function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => voi
           <Button
             type="button"
             onClick={onNext}
-            className="w-full gap-2 rounded-[8px] bg-[#2552ED] hover:bg-[#1E44CC] text-[14px] text-white"
+            className="w-full gap-2 rounded-[8px] bg-brand-color hover:bg-brand-color text-[14px] text-white"
             style={{ fontWeight: 400 }}
           >
             Get started
@@ -261,7 +261,7 @@ function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => voi
             type="button"
             variant="ghost"
             onClick={onSkip}
-            className="text-[13px] text-[#999] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#8b92a5] hover:bg-transparent"
+            className="text-[13px] text-gray-90 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-90 hover:bg-transparent"
 
           >
             Skip for now
@@ -292,7 +292,7 @@ function ChooseStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-1")}>
           What would you like AI to help with?
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6 font-regular">
+        <p className="text-[14px] text-gray-80 dark:text-muted-foreground mb-6 font-regular">
           Select the areas where you'd like to deploy agents. You can change this later.
         </p>
 
@@ -305,32 +305,32 @@ function ChooseStep({
                 onClick={() => onToggle(p.id)}
                 className={`w-full flex items-center gap-4 px-4 py-3.5 rounded-[10px] border text-left transition-all ${
                   isSelected
-                    ? "border-[#2552ED] bg-[#2552ED]/5 dark:bg-[#2552ED]/10"
-                    : "border-[#E5E7EB] dark:border-border hover:border-[#c0c6d4] dark:hover:border-[#4d5568] bg-white dark:bg-background"
+                    ? "border-brand-color bg-brand-color/5 dark:bg-brand-color/10"
+                    : "border-gray-50 dark:border-border hover:border-gray-70 dark:hover:border-gray-400 bg-white dark:bg-background"
                 }`}
               >
                 <div
                   className={`w-9 h-9 rounded-[8px] flex items-center justify-center shrink-0 transition-colors ${
                     isSelected
-                      ? "bg-[#2552ED]/10 dark:bg-[#2552ED]/20"
-                      : "bg-[#f0f1f5] dark:bg-muted"
+                      ? "bg-brand-color/10 dark:bg-brand-color/20"
+                      : "bg-light-grayish-blue dark:bg-muted"
                   }`}
                 >
-                  <p.icon className={`w-4 h-4 ${isSelected ? "text-[#2552ED]" : "text-[#888] dark:text-muted-foreground"}`} />
+                  <p.icon className={`w-4 h-4 ${isSelected ? "text-brand-color" : "text-gray-80 dark:text-muted-foreground"}`} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className={`text-[14px] tracking-[-0.28px] ${isSelected ? "text-[#2552ED] dark:text-[#6b9bff]" : "text-[#212121] dark:text-foreground"}`} style={{ fontWeight: 400 }}>
+                  <p className={`text-[14px] tracking-[-0.28px] ${isSelected ? "text-brand-color dark:text-blue-70" : "text-gray-900 dark:text-foreground"}`} style={{ fontWeight: 400 }}>
                     {p.label}
                   </p>
-                  <p className="text-[12px] text-[#888] dark:text-muted-foreground mt-0.5 font-regular">
+                  <p className="text-[12px] text-gray-80 dark:text-muted-foreground mt-0.5 font-regular">
                     {p.description}
                   </p>
                 </div>
                 <div
                   className={`w-5 h-5 rounded-[4px] border-2 flex items-center justify-center shrink-0 transition-all ${
                     isSelected
-                      ? "bg-[#2552ED] border-[#2552ED]"
-                      : "border-[#d0d5dd] dark:border-[#4d5568]"
+                      ? "bg-brand-color border-brand-color"
+                      : "border-gray-60 dark:border-gray-400"
                   }`}
                 >
                   {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-white" />}
@@ -345,7 +345,7 @@ function ChooseStep({
             type="button"
             variant="outline"
             onClick={onBack}
-            className="gap-1.5 rounded-[8px] px-4 text-[13px] text-[#555] dark:text-muted-foreground"
+            className="gap-1.5 rounded-[8px] px-4 text-[13px] text-gray-300 dark:text-muted-foreground"
             style={{ fontWeight: 400 }}
           >
             <ChevronLeft className="w-3.5 h-3.5" />
@@ -355,7 +355,7 @@ function ChooseStep({
             type="button"
             onClick={onNext}
             disabled={selected.size === 0}
-            className="gap-1.5 rounded-[8px] px-5 bg-[#2552ED] hover:bg-[#1E44CC] text-[13px] text-white disabled:opacity-40 disabled:cursor-not-allowed"
+            className="gap-1.5 rounded-[8px] px-5 bg-brand-color hover:bg-brand-color text-[13px] text-white disabled:opacity-40 disabled:cursor-not-allowed"
             style={{ fontWeight: 400 }}
           >
             Continue
@@ -392,7 +392,7 @@ function ContextStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-1")}>
           A few quick questions
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6 font-regular">
+        <p className="text-[14px] text-gray-80 dark:text-muted-foreground mb-6 font-regular">
           Help us configure the right settings for your agents.
         </p>
 
@@ -402,15 +402,15 @@ function ContextStep({
             return (
               <div
                 key={q.problemId}
-                className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-4"
+                className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-4"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  {problem && <problem.icon className="w-3.5 h-3.5 text-[#2552ED]" />}
-                  <span className="text-[12px] text-[#2552ED] dark:text-[#6b9bff]" style={{ fontWeight: 400 }}>
+                  {problem && <problem.icon className="w-3.5 h-3.5 text-brand-color" />}
+                  <span className="text-[12px] text-brand-color dark:text-blue-70" style={{ fontWeight: 400 }}>
                     {problem?.agentName}
                   </span>
                 </div>
-                <p className="text-[14px] text-[#212121] dark:text-foreground mb-3 tracking-[-0.28px]" style={{ fontWeight: 400 }}>
+                <p className="text-[14px] text-gray-900 dark:text-foreground mb-3 tracking-[-0.28px]" style={{ fontWeight: 400 }}>
                   {q.question}
                 </p>
                 <div className="space-y-2">
@@ -422,19 +422,19 @@ function ContextStep({
                         onClick={() => onAnswer(q.problemId, opt.id)}
                         className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-[8px] border text-left transition-all ${
                           isSelected
-                            ? "border-[#2552ED] bg-[#2552ED]/5 dark:bg-[#2552ED]/10"
-                            : "border-[#E5E7EB] dark:border-border hover:border-[#c0c6d4] dark:hover:border-[#4d5568]"
+                            ? "border-brand-color bg-brand-color/5 dark:bg-brand-color/10"
+                            : "border-gray-50 dark:border-border hover:border-gray-70 dark:hover:border-gray-400"
                         }`}
                       >
                         <div
                           className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
-                            isSelected ? "border-[#2552ED]" : "border-[#d0d5dd] dark:border-[#4d5568]"
+                            isSelected ? "border-brand-color" : "border-gray-60 dark:border-gray-400"
                           }`}
                         >
-                          {isSelected && <div className="w-2 h-2 rounded-full bg-[#2552ED]" />}
+                          {isSelected && <div className="w-2 h-2 rounded-full bg-brand-color" />}
                         </div>
                         <span
-                          className={`text-[13px] ${isSelected ? "text-[#212121] dark:text-foreground" : "text-[#555] dark:text-muted-foreground"}`}
+                          className={`text-[13px] ${isSelected ? "text-gray-900 dark:text-foreground" : "text-gray-300 dark:text-muted-foreground"}`}
 
                         >
                           {opt.label}
@@ -453,7 +453,7 @@ function ContextStep({
             type="button"
             variant="outline"
             onClick={onBack}
-            className="gap-1.5 rounded-[8px] px-4 text-[13px] text-[#555] dark:text-muted-foreground"
+            className="gap-1.5 rounded-[8px] px-4 text-[13px] text-gray-300 dark:text-muted-foreground"
             style={{ fontWeight: 400 }}
           >
             <ChevronLeft className="w-3.5 h-3.5" />
@@ -463,7 +463,7 @@ function ContextStep({
             type="button"
             onClick={onNext}
             disabled={!allAnswered}
-            className="gap-1.5 rounded-[8px] px-5 bg-[#2552ED] hover:bg-[#1E44CC] text-[13px] text-white disabled:opacity-40 disabled:cursor-not-allowed"
+            className="gap-1.5 rounded-[8px] px-5 bg-brand-color hover:bg-brand-color text-[13px] text-white disabled:opacity-40 disabled:cursor-not-allowed"
             style={{ fontWeight: 400 }}
           >
             Continue
@@ -497,7 +497,7 @@ function RecommendStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-1")}>
           We've prepared these agents for you
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6 font-regular">
+        <p className="text-[14px] text-gray-80 dark:text-muted-foreground mb-6 font-regular">
           Review your configured agents and enable the ones you'd like to activate.
         </p>
 
@@ -507,21 +507,21 @@ function RecommendStep({
               key={agent.id}
               className={`border rounded-[12px] px-5 py-4 transition-all ${
                 agent.enabled
-                  ? "border-[#2552ED]/40 bg-[#2552ED]/[0.03] dark:bg-[#2552ED]/[0.06]"
-                  : "border-[#E5E7EB] dark:border-border bg-white dark:bg-background"
+                  ? "border-brand-color/40 bg-brand-color/[0.03] dark:bg-brand-color/[0.06]"
+                  : "border-gray-50 dark:border-border bg-white dark:bg-background"
               }`}
             >
               <div className="flex items-start gap-4">
                 <div
                   className={`w-9 h-9 rounded-[8px] flex items-center justify-center shrink-0 ${
-                    agent.enabled ? "bg-[#2552ED]/10 dark:bg-[#2552ED]/20" : "bg-[#f0f1f5] dark:bg-muted"
+                    agent.enabled ? "bg-brand-color/10 dark:bg-brand-color/20" : "bg-light-grayish-blue dark:bg-muted"
                   }`}
                 >
-                  <agent.icon className={`w-4 h-4 ${agent.enabled ? "text-[#2552ED]" : "text-[#888] dark:text-muted-foreground"}`} />
+                  <agent.icon className={`w-4 h-4 ${agent.enabled ? "text-brand-color" : "text-gray-80 dark:text-muted-foreground"}`} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-[14px] text-[#212121] dark:text-foreground tracking-[-0.28px]" style={{ fontWeight: 400 }}>
+                    <h3 className="text-[14px] text-gray-900 dark:text-foreground tracking-[-0.28px]" style={{ fontWeight: 400 }}>
                       {agent.name}
                     </h3>
                     <Button
@@ -531,15 +531,15 @@ function RecommendStep({
                       onClick={() => onToggleAgent(agent.id)}
                       className={`rounded-[6px] px-3 text-[12px] ${
                         agent.enabled
-                          ? "bg-[#2552ED] border-[#2552ED] text-white hover:bg-[#1E44CC]"
-                          : "text-[#555] dark:text-muted-foreground"
+                          ? "bg-brand-color border-brand-color text-white hover:bg-brand-color"
+                          : "text-gray-300 dark:text-muted-foreground"
                       }`}
                       style={{ fontWeight: 400 }}
                     >
                       {agent.enabled ? "Enabled" : "Enable"}
                     </Button>
                   </div>
-                  <p className="text-[12px] text-[#888] dark:text-muted-foreground mb-2.5 font-regular">
+                  <p className="text-[12px] text-gray-80 dark:text-muted-foreground mb-2.5 font-regular">
                     {agent.description}
                   </p>
                   {agent.settings.length > 0 && (
@@ -547,7 +547,7 @@ function RecommendStep({
                       {agent.settings.map((s, i) => (
                         <span
                           key={i}
-                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] bg-[#f5f5f5] dark:bg-muted text-[#555] dark:text-muted-foreground border border-[#e5e9f0] dark:border-border"
+                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] bg-gray-20 dark:bg-muted text-gray-300 dark:text-muted-foreground border border-new-selected-color dark:border-border"
 
                         >
                           <Zap className="w-2.5 h-2.5" />
@@ -567,21 +567,21 @@ function RecommendStep({
             type="button"
             variant="outline"
             onClick={onBack}
-            className="gap-1.5 rounded-[8px] px-4 text-[13px] text-[#555] dark:text-muted-foreground"
+            className="gap-1.5 rounded-[8px] px-4 text-[13px] text-gray-300 dark:text-muted-foreground"
             style={{ fontWeight: 400 }}
           >
             <ChevronLeft className="w-3.5 h-3.5" />
             Back
           </Button>
           <div className="flex items-center gap-3">
-            <span className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">
+            <span className="text-[12px] text-gray-80 dark:text-muted-foreground font-regular">
               {enabledCount} of {agents.length} enabled
             </span>
             <Button
               type="button"
               onClick={onNext}
               disabled={enabledCount === 0}
-              className="gap-1.5 rounded-[8px] px-5 bg-[#2552ED] hover:bg-[#1E44CC] text-[13px] text-white disabled:opacity-40 disabled:cursor-not-allowed"
+              className="gap-1.5 rounded-[8px] px-5 bg-brand-color hover:bg-brand-color text-[13px] text-white disabled:opacity-40 disabled:cursor-not-allowed"
               style={{ fontWeight: 400 }}
             >
               Continue
@@ -625,39 +625,39 @@ function TestStep({
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-1")}>
           Test your agents
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-6 font-regular">
+        <p className="text-[14px] text-gray-80 dark:text-muted-foreground mb-6 font-regular">
           See how your agents respond in real scenarios before going live.
         </p>
 
         {reviewAgent ? (
-          <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-5 mb-5">
+          <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-5 mb-5">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-[6px] bg-[#2552ED]/10 dark:bg-[#2552ED]/20 flex items-center justify-center">
-                <MessageSquare className="w-3.5 h-3.5 text-[#2552ED]" />
+              <div className="w-7 h-7 rounded-[6px] bg-brand-color/10 dark:bg-brand-color/20 flex items-center justify-center">
+                <MessageSquare className="w-3.5 h-3.5 text-brand-color" />
               </div>
-              <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>
+              <span className="text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>
                 Review response agent
               </span>
             </div>
 
-            <div className="bg-[#fafbfc] dark:bg-muted border border-[#e5e9f0] dark:border-border rounded-[8px] p-4 mb-4">
+            <div className="bg-gray-10 dark:bg-muted border border-new-selected-color dark:border-border rounded-[8px] p-4 mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[12px] text-[#555] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+                <span className="text-[12px] text-gray-300 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
                   {sampleReview.platform}
                 </span>
                 <div className="flex items-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-3 h-3 ${i < sampleReview.rating ? "text-[#F59E0B] fill-[#F59E0B]" : "text-[#d0d5dd] dark:text-[#333a47]"}`}
+                      className={`w-3 h-3 ${i < sampleReview.rating ? "text-yellow-100 fill-yellow-100" : "text-gray-60 dark:text-gray-600"}`}
                     />
                   ))}
                 </div>
-                <span className="text-[11px] text-[#999] dark:text-muted-foreground font-regular">
+                <span className="text-[11px] text-gray-90 dark:text-muted-foreground font-regular">
                   — {sampleReview.author}
                 </span>
               </div>
-              <p className="text-[13px] text-[#212121] dark:text-foreground font-regular">
+              <p className="text-[13px] text-gray-900 dark:text-foreground font-regular">
                 "{sampleReview.text}"
               </p>
             </div>
@@ -667,10 +667,10 @@ function TestStep({
                 type="button"
                 variant="outline"
                 onClick={handleTest}
-                className="gap-2 rounded-[8px] px-4 bg-white dark:bg-muted text-[13px] text-[#212121] dark:text-foreground"
+                className="gap-2 rounded-[8px] px-4 bg-white dark:bg-muted text-[13px] text-gray-900 dark:text-foreground"
                 style={{ fontWeight: 400 }}
               >
-                <Play className="w-3.5 h-3.5 text-[#2552ED]" />
+                <Play className="w-3.5 h-3.5 text-brand-color" />
                 Test with this review
               </Button>
             )}
@@ -678,45 +678,45 @@ function TestStep({
             {isGenerating && (
               <div className="flex items-center gap-2 py-3">
                 <div className="flex gap-1">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#2552ED] animate-bounce" style={{ animationDelay: "0ms" }} />
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#2552ED] animate-bounce" style={{ animationDelay: "150ms" }} />
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#2552ED] animate-bounce" style={{ animationDelay: "300ms" }} />
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-color animate-bounce" style={{ animationDelay: "0ms" }} />
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-color animate-bounce" style={{ animationDelay: "150ms" }} />
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-color animate-bounce" style={{ animationDelay: "300ms" }} />
                 </div>
-                <span className="text-[12px] text-[#888] dark:text-muted-foreground font-regular">
+                <span className="text-[12px] text-gray-80 dark:text-muted-foreground font-regular">
                   Generating response...
                 </span>
               </div>
             )}
 
             {showAiResponse && (
-              <div className="border border-[#2552ED]/30 bg-[#2552ED]/[0.03] dark:bg-[#2552ED]/[0.06] rounded-[8px] p-4">
+              <div className="border border-brand-color/30 bg-brand-color/[0.03] dark:bg-brand-color/[0.06] rounded-[8px] p-4">
                 <div className="flex items-center gap-1.5 mb-2">
-                  <Sparkles className="w-3 h-3 text-[#2552ED]" />
-                  <span className="text-[11px] text-[#2552ED] dark:text-[#6b9bff]" style={{ fontWeight: 400 }}>
+                  <Sparkles className="w-3 h-3 text-brand-color" />
+                  <span className="text-[11px] text-brand-color dark:text-blue-70" style={{ fontWeight: 400 }}>
                     AI-generated response
                   </span>
                 </div>
-                <p className="text-[13px] text-[#212121] dark:text-foreground font-regular">
+                <p className="text-[13px] text-gray-900 dark:text-foreground font-regular">
                   {sampleReview.aiResponse}
                 </p>
               </div>
             )}
           </div>
         ) : (
-          <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-8 mb-5 text-center">
-            <Bot className="w-8 h-8 text-[#888] dark:text-muted-foreground mx-auto mb-3" />
-            <p className="text-[14px] text-[#555] dark:text-muted-foreground mb-1" style={{ fontWeight: 400 }}>
+          <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-8 mb-5 text-center">
+            <Bot className="w-8 h-8 text-gray-80 dark:text-muted-foreground mx-auto mb-3" />
+            <p className="text-[14px] text-gray-300 dark:text-muted-foreground mb-1" style={{ fontWeight: 400 }}>
               Agent testing available after deployment
             </p>
-            <p className="text-[12px] text-[#999] dark:text-muted-foreground font-regular">
+            <p className="text-[12px] text-gray-90 dark:text-muted-foreground font-regular">
               Your enabled agents will begin processing tasks as soon as they're activated.
             </p>
           </div>
         )}
 
         {agents.filter((a) => a.enabled && a.slug !== "review-response").length > 0 && (
-          <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-4 mb-8">
-            <p className="text-[12px] text-[#888] dark:text-muted-foreground mb-3" style={{ fontWeight: 400 }}>
+          <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-4 mb-8">
+            <p className="text-[12px] text-gray-80 dark:text-muted-foreground mb-3" style={{ fontWeight: 400 }}>
               Other agents ready to activate
             </p>
             <div className="space-y-2">
@@ -724,13 +724,13 @@ function TestStep({
                 .filter((a) => a.enabled && a.slug !== "review-response")
                 .map((a) => (
                   <div key={a.id} className="flex items-center gap-2.5">
-                    <div className="w-6 h-6 rounded-[6px] bg-[#f0f1f5] dark:bg-muted flex items-center justify-center">
-                      <a.icon className="w-3 h-3 text-[#2552ED]" />
+                    <div className="w-6 h-6 rounded-[6px] bg-light-grayish-blue dark:bg-muted flex items-center justify-center">
+                      <a.icon className="w-3 h-3 text-brand-color" />
                     </div>
-                    <span className="text-[13px] text-[#212121] dark:text-foreground font-regular">
+                    <span className="text-[13px] text-gray-900 dark:text-foreground font-regular">
                       {a.name}
                     </span>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#4caf50] ml-auto" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-green-100 ml-auto" />
                   </div>
                 ))}
             </div>
@@ -742,7 +742,7 @@ function TestStep({
             type="button"
             variant="outline"
             onClick={onBack}
-            className="gap-1.5 rounded-[8px] px-4 text-[13px] text-[#555] dark:text-muted-foreground"
+            className="gap-1.5 rounded-[8px] px-4 text-[13px] text-gray-300 dark:text-muted-foreground"
             style={{ fontWeight: 400 }}
           >
             <ChevronLeft className="w-3.5 h-3.5" />
@@ -751,7 +751,7 @@ function TestStep({
           <Button
             type="button"
             onClick={onNext}
-            className="gap-1.5 rounded-[8px] px-5 bg-[#2552ED] hover:bg-[#1E44CC] text-[13px] text-white"
+            className="gap-1.5 rounded-[8px] px-5 bg-brand-color hover:bg-brand-color text-[13px] text-white"
             style={{ fontWeight: 400 }}
           >
             Activate agents
@@ -778,26 +778,26 @@ function DoneStep({
   return (
     <div className="flex-1 flex items-center justify-center px-6">
       <div className="max-w-[480px] text-center">
-        <div className="w-16 h-16 rounded-full bg-[#e8f5e9] dark:bg-[#1b3a2a] flex items-center justify-center mx-auto mb-5">
-          <CheckCircle2 className="w-8 h-8 text-[#4caf50]" />
+        <div className="w-16 h-16 rounded-full bg-green-20 dark:bg-green-400 flex items-center justify-center mx-auto mb-5">
+          <CheckCircle2 className="w-8 h-8 text-green-100" />
         </div>
 
         <h1 className={cn(MAIN_VIEW_PRIMARY_HEADING_CLASS, "mb-2 text-center")}>
           Your AI team is ready
         </h1>
-        <p className="text-[14px] text-[#888] dark:text-muted-foreground mb-8 font-regular">
+        <p className="text-[14px] text-gray-80 dark:text-muted-foreground mb-8 font-regular">
           {enabledAgents.length} agent{enabledAgents.length !== 1 ? "s" : ""} activated and running. You'll see activity in the monitor shortly.
         </p>
 
-        <div className="bg-white dark:bg-background border border-[#E5E7EB] dark:border-border rounded-[12px] px-5 py-4 mb-8 text-left">
+        <div className="bg-white dark:bg-background border border-gray-50 dark:border-border rounded-[12px] px-5 py-4 mb-8 text-left">
           <div className="space-y-2.5">
             {enabledAgents.map((a) => (
               <div key={a.id} className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#4caf50] shrink-0" />
-                <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 400 }}>
+                <CheckCircle2 className="w-4 h-4 text-green-100 shrink-0" />
+                <span className="text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 400 }}>
                   {a.name}
                 </span>
-                <span className="text-[11px] text-[#4caf50] ml-auto font-regular">
+                <span className="text-[11px] text-green-100 ml-auto font-regular">
                   Enabled
                 </span>
               </div>
@@ -809,7 +809,7 @@ function DoneStep({
           <Button
             type="button"
             onClick={onGoToMonitor}
-            className="gap-2 rounded-[8px] px-6 bg-[#2552ED] hover:bg-[#1E44CC] text-[14px] text-white"
+            className="gap-2 rounded-[8px] px-6 bg-brand-color hover:bg-brand-color text-[14px] text-white"
             style={{ fontWeight: 400 }}
           >
             Go to monitor
@@ -900,7 +900,7 @@ export function AgentOnboardingView({ onComplete, onSkip, onGoToMonitor }: Agent
               variant="ghost"
               size="icon"
               onClick={onSkip}
-              className="rounded-[6px] text-[#888] dark:text-muted-foreground"
+              className="rounded-[6px] text-gray-80 dark:text-muted-foreground"
             >
               <X className="w-4 h-4" />
             </Button>

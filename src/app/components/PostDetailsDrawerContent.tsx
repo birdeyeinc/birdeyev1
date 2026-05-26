@@ -35,19 +35,19 @@ type ActiveTab = "overview" | "activity";
 const RV = { fontVariationSettings: "'wdth' 100" } as const;
 
 const statusConfig: Record<StatusType, { bg: string; color: string; label: string }> = {
-  published:      { bg: "#edf8ef", color: "#2f7d32",  label: "Published" },
-  draft:          { bg: "#eef1f5", color: "#4f5d75",  label: "Draft" },
-  rejected:       { bg: "#fff1f0", color: "#d14334",  label: "Rejected" },
-  awaiting:       { bg: "#fff4da", color: "#b67a00",  label: "Awaiting approval" },
-  scheduled:      { bg: "#ebf4ff", color: "#1565b4",  label: "Scheduled" },
-  "ai-suggested": { bg: "#f3ecff", color: "#6b36b7",  label: "AI Suggested" },
-  expired:        { bg: "#eef1f5", color: "#6b7280",  label: "Expired" },
+  published:      { bg: "#edf8ef", color: "var(--green-200)",  label: "Published" },
+  draft:          { bg: "#eef1f5", color: "var(--gray-300)",  label: "Draft" },
+  rejected:       { bg: "#fff1f0", color: "var(--red-100)",  label: "Rejected" },
+  awaiting:       { bg: "#fff4da", color: "var(--yellow-300)",  label: "Awaiting approval" },
+  scheduled:      { bg: "#ebf4ff", color: "var(--blue-200)",  label: "Scheduled" },
+  "ai-suggested": { bg: "#f3ecff", color: "var(--purple-100)",  label: "AI Suggested" },
+  expired:        { bg: "#eef1f5", color: "var(--gray-100)",  label: "Expired" },
 };
 
 const platformMeta: Record<Platform, { label: string; color: string }> = {
-  facebook:  { label: "Facebook",  color: "#1877F2" },
-  instagram: { label: "Instagram", color: "#E1306C" },
-  linkedin:  { label: "LinkedIn",  color: "#0A66C2" },
+  facebook:  { label: "Facebook",  color: "var(--fb-bg)" },
+  instagram: { label: "Instagram", color: "var(--instagram-bg)" },
+  linkedin:  { label: "LinkedIn",  color: "var(--fb-bg)" },
 };
 
 const publishedInsights: Record<string, {
@@ -109,7 +109,7 @@ function Avatar({ name, size = 40 }: { name: string; size?: number }) {
         height: size,
         fontSize: size * 0.34,
         backgroundImage: "linear-gradient(135deg, rgb(211,220,255) 0%, rgb(236,227,252) 100%)",
-        color: "#4a3f8a",
+        color: "var(--purple-300)",
         fontWeight: 500,
         ...RV,
       }}
@@ -134,7 +134,7 @@ function PlatformIcon({ platform }: { platform: Platform }) {
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div className="space-y-3">
-      <p className="text-[10px] font-medium uppercase tracking-[0.09em] text-[#9aa3b2] dark:text-[#6b7a94]" style={RV}>
+      <p className="text-[10px] font-medium uppercase tracking-[0.09em] text-gray-90 dark:text-gray-90" style={RV}>
         {title}
       </p>
       {children}
@@ -145,9 +145,9 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 /** Metric tile — flat bg, no border, clear type hierarchy. */
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-[6px] bg-[#f8f9fb] dark:bg-[#252a35] px-3.5 py-3">
-      <p className="text-[10px] font-medium uppercase tracking-[0.06em] text-[#9aa3b2] dark:text-[#6b7a94]" style={RV}>{label}</p>
-      <p className="mt-1.5 text-[16px] font-medium tracking-[-0.3px] text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>{value}</p>
+    <div className="rounded-[6px] bg-gray-10 dark:bg-gray-700 px-3.5 py-3">
+      <p className="text-[10px] font-medium uppercase tracking-[0.06em] text-gray-90 dark:text-gray-90" style={RV}>{label}</p>
+      <p className="mt-1.5 text-[16px] font-medium tracking-[-0.3px] text-gray-800 dark:text-gray-2000" style={RV}>{value}</p>
     </div>
   );
 }
@@ -174,24 +174,24 @@ function PageList({
       {visible.map((page) => (
         <div
           key={page.id}
-          className="flex items-center justify-between gap-3 rounded-[6px] border border-[#eef1f6] dark:border-[#2e3340] bg-[#f8f9fb] dark:bg-[#252a35] px-3.5 py-2.5"
+          className="flex items-center justify-between gap-3 rounded-[6px] border border-gray-20 dark:border-gray-600 bg-gray-10 dark:bg-gray-700 px-3.5 py-2.5"
         >
           <div className="min-w-0">
-            <p className="truncate text-[13px] font-medium text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>
+            <p className="truncate text-[13px] font-medium text-gray-800 dark:text-gray-2000" style={RV}>
               {page.name}
             </p>
             {page.city ? (
-              <p className="mt-0.5 text-[11px] text-[#9aa3b2] dark:text-[#6b7a94]" style={RV}>{page.city}</p>
+              <p className="mt-0.5 text-[11px] text-gray-90 dark:text-gray-90" style={RV}>{page.city}</p>
             ) : null}
           </div>
           {page.statusText ? (
             <span
               className={`shrink-0 rounded-[99px] px-2.5 py-0.5 text-[11px] ${
                 page.tone === "success"
-                  ? "bg-[#edf8ef] text-[#2f7d32] dark:bg-[#1a3d1f] dark:text-[#6fcf74]"
+                  ? "bg-green-20 text-green-200 dark:bg-green-400 dark:text-green-80"
                   : page.tone === "danger"
-                  ? "bg-[#fff1f0] text-[#d14334] dark:bg-[#3d1a18] dark:text-[#f08080]"
-                  : "bg-[#eef2f6] text-[#475467] dark:bg-[#252a35] dark:text-[#9ba2b0]"
+                  ? "bg-red-10 text-red-100 dark:bg-red-400 dark:text-red-70"
+                  : "bg-gray-20 text-gray-200 dark:bg-gray-700 dark:text-gray-90"
               }`}
               style={RV}
             >
@@ -203,7 +203,7 @@ function PageList({
       {hasMore && (
         <button
           onClick={() => setShowAll((v) => !v)}
-          className="mt-1 w-full rounded-[6px] border border-[#e4e9f2] dark:border-[#2e3340] bg-white dark:bg-[#1e2229] py-2 text-[12px] font-medium text-[#1f78d1] dark:text-[#5b9cf6] transition-colors hover:bg-[#f4f8ff] dark:hover:bg-[#252a35]"
+          className="mt-1 w-full rounded-[6px] border border-gray-2000 dark:border-gray-600 bg-white dark:bg-gray-700 py-2 text-[12px] font-medium text-blue-100 dark:text-blue-80 transition-colors hover:bg-blue-10 dark:hover:bg-gray-700"
           style={RV}
         >
           {showAll ? "Show less" : `See all ${pages.length} pages`}
@@ -255,11 +255,11 @@ function PostSummary({ post, createdBy, approvalLocations }: PostSummaryProps) {
       {/* Creator + date — single inline row */}
       <div className="flex items-center gap-2">
         <Avatar name={createdBy} size={22} />
-        <span className="text-[12.5px] font-medium text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>
+        <span className="text-[12.5px] font-medium text-gray-800 dark:text-gray-2000" style={RV}>
           {createdBy}
         </span>
-        <span className="text-[#d0d5de] dark:text-[#3a404e] select-none">·</span>
-        <span className="text-[12px] text-[#9aa3b2] dark:text-[#6b7a94]" style={RV}>
+        <span className="text-gray-60 dark:text-gray-500 select-none">·</span>
+        <span className="text-[12px] text-gray-90 dark:text-gray-90" style={RV}>
           {post.date}{post.time ? ` · ${post.time}` : ""}
         </span>
       </div>
@@ -269,7 +269,7 @@ function PostSummary({ post, createdBy, approvalLocations }: PostSummaryProps) {
         {post.platforms.map((p) => (
           <span
             key={p}
-            className="inline-flex items-center gap-[5px] rounded-[5px] border border-[#e4e9f2] dark:border-[#2e3340] bg-[#f6f8fb] dark:bg-[#22262f] px-2 py-[4px] text-[11.5px] text-[#4b5568] dark:text-[#9ba2b0]"
+            className="inline-flex items-center gap-[5px] rounded-[5px] border border-gray-2000 dark:border-gray-600 bg-gray-10 dark:bg-gray-800 px-2 py-[4px] text-[11.5px] text-gray-400 dark:text-gray-90"
             style={RV}
           >
             <span
@@ -285,19 +285,19 @@ function PostSummary({ post, createdBy, approvalLocations }: PostSummaryProps) {
       {approvalLocations && (approved > 0 || pending > 0 || rejected > 0) && (
         <div className="flex flex-wrap gap-1.5">
           {approved > 0 && (
-            <span className="inline-flex items-center gap-[5px] rounded-[5px] border border-[#c6e8c8] dark:border-[#1d4a20] bg-[#edf8ef] dark:bg-[#162618] px-2 py-[4px] text-[11.5px] text-[#2f7d32] dark:text-[#6fcf74]" style={RV}>
+            <span className="inline-flex items-center gap-[5px] rounded-[5px] border border-green-40 dark:border-green-300 bg-green-20 dark:bg-green-500 px-2 py-[4px] text-[11.5px] text-green-200 dark:text-green-80" style={RV}>
               <CheckCircle2 size={11} />
               {approved} Approved
             </span>
           )}
           {pending > 0 && (
-            <span className="inline-flex items-center gap-[5px] rounded-[5px] border border-[#fde4a0] dark:border-[#4a3600] bg-[#fff8e6] dark:bg-[#2a2000] px-2 py-[4px] text-[11.5px] text-[#b67a00] dark:text-[#f0b429]" style={RV}>
+            <span className="inline-flex items-center gap-[5px] rounded-[5px] border border-yellow-60 dark:border-yellow-700 bg-yellow-10 dark:bg-yellow-900 px-2 py-[4px] text-[11.5px] text-yellow-300 dark:text-yellow-90" style={RV}>
               <Clock3 size={11} />
               {pending} Pending
             </span>
           )}
           {rejected > 0 && (
-            <span className="inline-flex items-center gap-[5px] rounded-[5px] border border-[#fac9c3] dark:border-[#5c2a24] bg-[#fff1f0] dark:bg-[#2d1c1a] px-2 py-[4px] text-[11.5px] text-[#d14334] dark:text-[#f08080]" style={RV}>
+            <span className="inline-flex items-center gap-[5px] rounded-[5px] border border-red-50 dark:border-red-400 bg-red-10 dark:bg-red-500 px-2 py-[4px] text-[11.5px] text-red-100 dark:text-red-70" style={RV}>
               <XCircle size={11} />
               {rejected} Rejected
             </span>
@@ -319,9 +319,9 @@ function S({ className }: { className?: string }) {
 
 function DrawerShimmer() {
   return (
-    <div className="flex h-full min-h-0 flex-col bg-white dark:bg-[#1e2229]">
+    <div className="flex h-full min-h-0 flex-col bg-white dark:bg-gray-700">
       {/* Header */}
-      <div className="shrink-0 border-b border-[#eef1f6] dark:border-[#2e3340] px-6 py-4">
+      <div className="shrink-0 border-b border-gray-20 dark:border-gray-600 px-6 py-4">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <S className="h-9 w-9 rounded-[7px]" />
@@ -339,9 +339,9 @@ function DrawerShimmer() {
       {/* Body */}
       <div className="grid min-h-0 flex-1 grid-cols-1 xl:grid-cols-2">
         {/* Left — info */}
-        <div className="flex flex-col border-b border-[#eef1f6] dark:border-[#2e3340] bg-white dark:bg-[#1e2229] xl:border-b-0 xl:border-r xl:border-r-[#eef1f6] dark:xl:border-r-[#2e3340]">
+        <div className="flex flex-col border-b border-gray-20 dark:border-gray-600 bg-white dark:bg-gray-700 xl:border-b-0 xl:border-r xl:border-r-gray-20 dark:xl:border-r-gray-600">
           {/* Tab bar */}
-          <div className="flex shrink-0 items-center gap-6 border-b border-[#eef1f6] dark:border-[#2e3340] px-[30px] py-4">
+          <div className="flex shrink-0 items-center gap-6 border-b border-gray-20 dark:border-gray-600 px-[30px] py-4">
             <S className="h-3.5 w-16" />
             <S className="h-3.5 w-16" />
           </div>
@@ -372,13 +372,13 @@ function DrawerShimmer() {
         </div>
 
         {/* Right — preview */}
-        <div className="flex flex-col gap-4 bg-[#f6f8fb] dark:bg-[#181b22] px-[30px] py-6">
+        <div className="flex flex-col gap-4 bg-gray-10 dark:bg-gray-800 px-[30px] py-6">
           {/* Channel tabs */}
           <S className="h-10 w-full rounded-[8px]" />
           {/* Location */}
           <S className="h-3.5 w-44" />
           {/* Preview card */}
-          <div className="flex-1 rounded-[8px] border border-[#e2e8f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] p-[30px]">
+          <div className="flex-1 rounded-[8px] border border-gray-2000 dark:border-gray-600 bg-white dark:bg-gray-700 p-[30px]">
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <S className="h-11 w-11 shrink-0 rounded-full" />
@@ -458,7 +458,7 @@ export function PostDetailsDrawerContent({
   if (!post) {
     return (
       <div className="flex h-full items-center justify-center bg-white">
-        <p className="text-[#555]" >Post not found</p>
+        <p className="text-gray-300" >Post not found</p>
       </div>
     );
   }
@@ -506,33 +506,33 @@ export function PostDetailsDrawerContent({
   const headerActions = (() => {
     if (post.status === "published") return (
       <>
-        <button className="h-9 rounded-[7px] border border-[#dfe5ef] dark:border-[#2e3340] bg-white dark:bg-[#252a35] px-4 text-[13px] text-[#374151] dark:text-[#9ba2b0] transition-colors hover:bg-[#f8f9fb] dark:hover:bg-[#2e3340]" style={RV}>View live post</button>
-        <button className="h-9 rounded-[7px] bg-[#1f78d1] px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Boost post</button>
+        <button className="h-9 rounded-[7px] border border-gray-2000 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 text-[13px] text-gray-500 dark:text-gray-90 transition-colors hover:bg-gray-10 dark:hover:bg-gray-600" style={RV}>View live post</button>
+        <button className="h-9 rounded-[7px] bg-blue-100 px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Boost post</button>
       </>
     );
     if (post.status === "draft") return (
-      <button className="h-9 rounded-[7px] bg-[#1f78d1] px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Edit draft</button>
+      <button className="h-9 rounded-[7px] bg-blue-100 px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Edit draft</button>
     );
     if (post.status === "awaiting") return (
       <>
-        <button className="h-9 rounded-[7px] border border-[#f0c9c3] dark:border-[#5c2a24] bg-white dark:bg-[#252a35] px-4 text-[13px] text-[#d14334] transition-colors hover:bg-[#fff6f5] dark:hover:bg-[#2e3340]" style={RV}>Reject</button>
-        <button className="h-9 rounded-[7px] bg-[#1f78d1] px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Approve</button>
+        <button className="h-9 rounded-[7px] border border-red-40 dark:border-red-400 bg-white dark:bg-gray-700 px-4 text-[13px] text-red-100 transition-colors hover:bg-red-10 dark:hover:bg-gray-600" style={RV}>Reject</button>
+        <button className="h-9 rounded-[7px] bg-blue-100 px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Approve</button>
       </>
     );
     if (post.status === "rejected") return (
       <>
-        <button className="h-9 rounded-[7px] border border-[#dfe5ef] dark:border-[#2e3340] bg-white dark:bg-[#252a35] px-4 text-[13px] text-[#374151] dark:text-[#9ba2b0] transition-colors hover:bg-[#f8f9fb] dark:hover:bg-[#2e3340]" style={RV}>Edit post</button>
-        <button className="h-9 rounded-[7px] bg-[#1f78d1] px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Resubmit</button>
+        <button className="h-9 rounded-[7px] border border-gray-2000 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 text-[13px] text-gray-500 dark:text-gray-90 transition-colors hover:bg-gray-10 dark:hover:bg-gray-600" style={RV}>Edit post</button>
+        <button className="h-9 rounded-[7px] bg-blue-100 px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Resubmit</button>
       </>
     );
     if (post.status === "ai-suggested") return (
       <>
-        <button className="h-9 rounded-[7px] border border-[#dfe5ef] dark:border-[#2e3340] bg-white dark:bg-[#252a35] px-4 text-[13px] text-[#374151] dark:text-[#9ba2b0] transition-colors hover:bg-[#f8f9fb] dark:hover:bg-[#2e3340]" style={RV}>Customize</button>
-        <button className="h-9 rounded-[7px] bg-[#6b36b7] px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Use this post</button>
+        <button className="h-9 rounded-[7px] border border-gray-2000 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 text-[13px] text-gray-500 dark:text-gray-90 transition-colors hover:bg-gray-10 dark:hover:bg-gray-600" style={RV}>Customize</button>
+        <button className="h-9 rounded-[7px] bg-purple-100 px-4 text-[13px] text-white transition-opacity hover:opacity-90" style={RV}>Use this post</button>
       </>
     );
     if (post.status === "scheduled") return (
-      <button className="h-9 rounded-[7px] border border-[#dfe5ef] dark:border-[#2e3340] bg-white dark:bg-[#252a35] px-4 text-[13px] text-[#374151] dark:text-[#9ba2b0] transition-colors hover:bg-[#f8f9fb] dark:hover:bg-[#2e3340]" style={RV}>View post</button>
+      <button className="h-9 rounded-[7px] border border-gray-2000 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 text-[13px] text-gray-500 dark:text-gray-90 transition-colors hover:bg-gray-10 dark:hover:bg-gray-600" style={RV}>View post</button>
     );
     return null;
   })();
@@ -543,9 +543,9 @@ export function PostDetailsDrawerContent({
     if (post.status === "scheduled") {
       return [
         ...(post.expiryDate ? [
-          <div key="expiry" className="flex items-center gap-2.5 rounded-[6px] border border-[#eef1f6] dark:border-[#2e3340] bg-[#f8f9fb] dark:bg-[#252a35] px-3.5 py-2.5">
-            <Clock3 size={13} className="shrink-0 text-[#9aa3b2] dark:text-[#6b7a94]" />
-            <span className="text-[12px] text-[#667085] dark:text-[#6b7a94]" style={RV}>
+          <div key="expiry" className="flex items-center gap-2.5 rounded-[6px] border border-gray-20 dark:border-gray-600 bg-gray-10 dark:bg-gray-700 px-3.5 py-2.5">
+            <Clock3 size={13} className="shrink-0 text-gray-90 dark:text-gray-90" />
+            <span className="text-[12px] text-gray-100 dark:text-gray-90" style={RV}>
               Expires automatically on {formatExpiry(post.expiryDate)}
             </span>
           </div>,
@@ -574,21 +574,21 @@ export function PostDetailsDrawerContent({
         </Section>,
 
         <Section key="ai" title="AI Recommendation">
-          <div className="rounded-[6px] border border-[#e8edf5] dark:border-[#2e3340] bg-[#f8f9fb] dark:bg-[#252a35] px-4 py-4">
+          <div className="rounded-[6px] border border-gray-20 dark:border-gray-600 bg-gray-10 dark:bg-gray-700 px-4 py-4">
             <div className="flex items-start gap-3">
-              <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-[5px] bg-[#eef2fa] dark:bg-[#1a2d4a] text-[#4f5d75] dark:text-[#5b9cf6]">
+              <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-[5px] bg-blue-10 dark:bg-blue-500 text-gray-300 dark:text-blue-80">
                 <Bot size={13} />
               </div>
               <div>
-                <p className="text-[13px] font-medium text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>
+                <p className="text-[13px] font-medium text-gray-800 dark:text-gray-2000" style={RV}>
                   {publishedData?.recommendation || "Boost this post"}
                 </p>
-                <p className="mt-1 text-[12px] leading-[19px] text-[#667085] dark:text-[#6b7a94]" style={RV}>
+                <p className="mt-1 text-[12px] leading-[19px] text-gray-100 dark:text-gray-90" style={RV}>
                   {publishedData?.predictedPerformance || "This post is showing above-baseline engagement and is a strong candidate for amplification."}
                 </p>
                 <span
-                  className="mt-2.5 inline-block rounded-[99px] px-2.5 py-0.5 text-[11px] font-medium text-[#1565b4] dark:text-[#5b9cf6]"
-                  style={{ backgroundColor: "#ebf4ff", ...RV }}
+                  className="mt-2.5 inline-block rounded-[99px] px-2.5 py-0.5 text-[11px] font-medium text-blue-200 dark:text-blue-80"
+                  style={{ backgroundColor: "var(--blue-10)", ...RV }}
                 >
                   Suggested goal: {publishedData?.goal || "Reach"}
                 </span>
@@ -624,24 +624,24 @@ export function PostDetailsDrawerContent({
             {approvalSummary.map((step, index) => (
               <div key={step.id} className="relative flex gap-3">
                 {index < approvalSummary.length - 1 && (
-                  <div className="absolute left-[15px] top-9 h-[calc(100%-10px)] w-px bg-[#eef1f6] dark:bg-[#2e3340]" />
+                  <div className="absolute left-[15px] top-9 h-[calc(100%-10px)] w-px bg-gray-20 dark:bg-gray-600" />
                 )}
-                <div className="relative z-[1] mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#eef1f6] dark:border-[#2e3340] bg-white dark:bg-[#252a35]">
+                <div className="relative z-[1] mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-20 dark:border-gray-600 bg-white dark:bg-gray-700">
                   {step.status === "complete" ? (
-                    <CheckCircle2 size={14} className="text-[#2f7d32]" />
+                    <CheckCircle2 size={14} className="text-green-200" />
                   ) : step.status === "rejected" ? (
-                    <XCircle size={14} className="text-[#d14334]" />
+                    <XCircle size={14} className="text-red-100" />
                   ) : (
-                    <Clock3 size={14} className={step.status === "current" ? "text-[#1f78d1] dark:text-[#5b9cf6]" : "text-[#c1c8d4] dark:text-[#6b7a94]"} />
+                    <Clock3 size={14} className={step.status === "current" ? "text-blue-100 dark:text-blue-80" : "text-gray-60 dark:text-gray-90"} />
                   )}
                 </div>
                 <div className={`min-w-0 flex-1 pb-1 ${
                   step.status === "current"
-                    ? "rounded-r-[6px] border-l-2 border-[#1f78d1] dark:border-[#5b9cf6] bg-[#f4f8ff] dark:bg-[#1a2d4a] pl-3 pr-3 py-2.5"
+                    ? "rounded-r-[6px] border-l-2 border-blue-100 dark:border-blue-80 bg-blue-10 dark:bg-blue-500 pl-3 pr-3 py-2.5"
                     : "py-0.5 pl-1"
                 }`}>
-                  <p className="text-[13px] font-medium text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>{step.title}</p>
-                  <p className="mt-0.5 text-[11px] leading-[17px] text-[#9aa3b2] dark:text-[#6b7a94]" style={RV}>
+                  <p className="text-[13px] font-medium text-gray-800 dark:text-gray-2000" style={RV}>{step.title}</p>
+                  <p className="mt-0.5 text-[11px] leading-[17px] text-gray-90 dark:text-gray-90" style={RV}>
                     {step.pending.length
                       ? `Pending: ${step.pending.join(", ")}`
                       : `Completed by ${step.resolved.join(", ") || "reviewers"}`}
@@ -677,10 +677,10 @@ export function PostDetailsDrawerContent({
     if (post.status === "rejected") {
       return [
         <Section key="reason" title="Rejection Reason">
-          <div className="rounded-[6px] border border-[#fad3cf] dark:border-[#5c2a24] bg-[#fff7f6] dark:bg-[#2d1c1a] px-4 py-3.5">
+          <div className="rounded-[6px] border border-red-40 dark:border-red-400 bg-red-10 dark:bg-red-500 px-4 py-3.5">
             <div className="flex items-start gap-2.5">
-              <XCircle size={15} className="mt-0.5 shrink-0 text-[#d14334]" />
-              <p className="text-[13px] leading-[20px] text-[#9f2f25] dark:text-[#f08080]" style={RV}>
+              <XCircle size={15} className="mt-0.5 shrink-0 text-red-100" />
+              <p className="text-[13px] leading-[20px] text-red-200 dark:text-red-70" style={RV}>
                 {rejectionReason || "This post needs revision before it can be approved."}
               </p>
             </div>
@@ -714,10 +714,10 @@ export function PostDetailsDrawerContent({
 
       return [
         <Section key="why" title="Why This Is Suggested">
-          <div className="rounded-[6px] border border-[#e4d9f8] dark:border-[#4a2a7a] bg-[#faf8ff] dark:bg-[#281d3a] px-4 py-3.5">
+          <div className="rounded-[6px] border border-purple-30 dark:border-purple-400 bg-purple-10 dark:bg-purple-900 px-4 py-3.5">
             <div className="flex items-start gap-2.5">
-              <Sparkles size={14} className="mt-0.5 shrink-0 text-[#6b36b7] dark:text-[#b48ae0]" />
-              <p className="text-[13px] leading-[20px] text-[#3d2475] dark:text-[#c4a3ef]" style={RV}>
+              <Sparkles size={14} className="mt-0.5 shrink-0 text-purple-100 dark:text-purple-70" />
+              <p className="text-[13px] leading-[20px] text-purple-400 dark:text-purple-60" style={RV}>
                 {ai.reason}
               </p>
             </div>
@@ -730,19 +730,19 @@ export function PostDetailsDrawerContent({
             <Stat label="Reach estimate"    value={ai.reachEstimate} />
             <Stat label="Confidence"        value={ai.confidence} />
           </div>
-          <p className="text-[12px] leading-[19px] text-[#667085] dark:text-[#6b7a94]" style={RV}>{ai.benefit}</p>
+          <p className="text-[12px] leading-[19px] text-gray-100 dark:text-gray-90" style={RV}>{ai.benefit}</p>
         </Section>,
 
         <Section key="action" title="Suggested Action">
           <div className="flex gap-2">
             <button
-              className="flex-1 rounded-[7px] border border-[#e0d2f5] dark:border-[#4a2a7a] bg-white dark:bg-[#252a35] py-2.5 text-[13px] font-medium text-[#6b36b7] dark:text-[#b48ae0] transition-colors hover:bg-[#faf8ff] dark:hover:bg-[#2e3340]"
+              className="flex-1 rounded-[7px] border border-purple-40 dark:border-purple-400 bg-white dark:bg-gray-700 py-2.5 text-[13px] font-medium text-purple-100 dark:text-purple-70 transition-colors hover:bg-purple-10 dark:hover:bg-gray-600"
               style={RV}
             >
               Customize before publishing
             </button>
             <button
-              className="flex-1 rounded-[7px] bg-[#6b36b7] py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-90"
+              className="flex-1 rounded-[7px] bg-purple-100 py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-90"
               style={RV}
             >
               Use this post
@@ -827,21 +827,21 @@ export function PostDetailsDrawerContent({
           <div className="flex items-center gap-2">
             {/* Prev / counter / Next */}
             {postTotal !== undefined && postTotal > 1 && (
-              <div className="flex items-center rounded-[7px] border border-[#e8ecf2] dark:border-[#2e3340] bg-white dark:bg-[#252a35] overflow-hidden">
+              <div className="flex items-center rounded-[7px] border border-gray-20 dark:border-gray-600 bg-white dark:bg-gray-700 overflow-hidden">
                 <button
                   disabled={!hasPrev}
                   onClick={onPrev}
-                  className="flex h-9 w-8 items-center justify-center text-[#374151] dark:text-[#9ba2b0] transition-colors hover:bg-[#f4f6fa] dark:hover:bg-[#2e3340] disabled:opacity-30 disabled:cursor-default"
+                  className="flex h-9 w-8 items-center justify-center text-gray-500 dark:text-gray-90 transition-colors hover:bg-light-grayish-blue dark:hover:bg-gray-600 disabled:opacity-30 disabled:cursor-default"
                 >
                   <ChevronLeft size={15} />
                 </button>
-                <span className="border-x border-[#e8ecf2] dark:border-[#2e3340] px-2.5 text-[12px] tabular-nums text-[#667085] dark:text-[#6b7a94]" style={RV}>
+                <span className="border-x border-gray-20 dark:border-gray-600 px-2.5 text-[12px] tabular-nums text-gray-100 dark:text-gray-90" style={RV}>
                   {postIndex} / {postTotal}
                 </span>
                 <button
                   disabled={!hasNext}
                   onClick={onNext}
-                  className="flex h-9 w-8 items-center justify-center text-[#374151] dark:text-[#9ba2b0] transition-colors hover:bg-[#f4f6fa] dark:hover:bg-[#2e3340] disabled:opacity-30 disabled:cursor-default"
+                  className="flex h-9 w-8 items-center justify-center text-gray-500 dark:text-gray-90 transition-colors hover:bg-light-grayish-blue dark:hover:bg-gray-600 disabled:opacity-30 disabled:cursor-default"
                 >
                   <ChevronRight size={15} />
                 </button>
@@ -871,8 +871,8 @@ export function PostDetailsDrawerContent({
                   onClick={() => switchTab(key)}
                   className={`-mb-px border-b-2 py-3.5 pr-4 text-[13px] transition-colors ${
                     activeTab === key
-                      ? "border-[#1f78d1] dark:border-[#5b9cf6] font-medium text-[#1f78d1] dark:text-[#5b9cf6]"
-                      : "border-transparent text-[#9aa3b2] dark:text-[#6b7a94] hover:text-[#374151] dark:hover:text-[#9ba2b0]"
+                      ? "border-blue-100 dark:border-blue-80 font-medium text-blue-100 dark:text-blue-80"
+                      : "border-transparent text-gray-90 dark:text-gray-90 hover:text-gray-500 dark:hover:text-gray-90"
                   }`}
                   style={RV}
                 >
@@ -917,15 +917,15 @@ export function PostDetailsDrawerContent({
 
             {/* 1. Channel switcher — full row */}
             {post.platforms.length > 1 ? (
-              <div className="mb-4 flex items-center gap-1 rounded-[8px] border border-[#e4e9f2] dark:border-[#2e3340] bg-white dark:bg-[#1e2229] p-1">
+              <div className="mb-4 flex items-center gap-1 rounded-[8px] border border-gray-2000 dark:border-gray-600 bg-white dark:bg-gray-700 p-1">
                 {post.platforms.map((platform) => (
                   <button
                     key={platform}
                     onClick={() => switchPlatform(platform)}
                     className={`flex flex-1 items-center justify-center gap-2 rounded-[6px] px-3 py-2 text-[12px] transition-all duration-200 ${
                       selectedPlatform === platform
-                        ? "bg-[#f0f5ff] dark:bg-[#1a2d4a] font-medium text-[#1f78d1] dark:text-[#5b9cf6]"
-                        : "text-[#9aa3b2] dark:text-[#6b7a94] hover:bg-[#f8f9fb] dark:hover:bg-[#252a35] hover:text-[#374151] dark:hover:text-[#9ba2b0]"
+                        ? "bg-blue-10 dark:bg-blue-500 font-medium text-blue-100 dark:text-blue-80"
+                        : "text-gray-90 dark:text-gray-90 hover:bg-gray-10 dark:hover:bg-gray-700 hover:text-gray-500 dark:hover:text-gray-90"
                     }`}
                     style={RV}
                   >
@@ -943,20 +943,20 @@ export function PostDetailsDrawerContent({
                 className="flex items-center gap-1.5 rounded-[6px] px-0 py-1 transition-colors hover:opacity-80"
                 style={RV}
               >
-                <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-[#9aa3b2] dark:text-[#6b7a94]">
+                <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-gray-90 dark:text-gray-90">
                   Preview for
                 </span>
-                <span className="text-[12px] font-medium text-[#374151] dark:text-[#9ba2b0]">
+                <span className="text-[12px] font-medium text-gray-500 dark:text-gray-90">
                   {selectedPage?.name ?? `Motto Mortgage ${post.location}`}
                 </span>
                 <ChevronDown
                   size={12}
-                  className={`text-[#9aa3b2] transition-transform duration-150 ${locationDropdownOpen ? "rotate-180" : ""}`}
+                  className={`text-gray-90 transition-transform duration-150 ${locationDropdownOpen ? "rotate-180" : ""}`}
                 />
               </button>
 
               {locationDropdownOpen && (
-                <div className="absolute left-0 top-full z-50 mt-1.5 w-[280px] overflow-hidden rounded-[8px] border border-[#e8ecf2] dark:border-[#2e3340] bg-white dark:bg-[#1e2229] shadow-[0_8px_24px_rgba(15,23,42,0.10)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
+                <div className="absolute left-0 top-full z-50 mt-1.5 w-[280px] overflow-hidden rounded-[8px] border border-gray-20 dark:border-gray-600 bg-white dark:bg-gray-700 shadow-[0_8px_24px_rgba(15,23,42,0.10)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
                   <div className="max-h-[220px] overflow-y-auto py-1">
                     {allPages.map((page) => {
                       const isActive = page.id === (selectedPage?.id ?? allPages[0]?.id);
@@ -965,17 +965,17 @@ export function PostDetailsDrawerContent({
                         <button
                           key={page.id}
                           onClick={() => selectPage(page.id)}
-                          className={`flex w-full items-center gap-3 px-3 py-2.5 text-left transition-colors hover:bg-[#f8f9fb] dark:hover:bg-[#252a35] ${isActive ? "bg-[#f4f8ff] dark:bg-[#1a2d4a]" : ""}`}
+                          className={`flex w-full items-center gap-3 px-3 py-2.5 text-left transition-colors hover:bg-gray-10 dark:hover:bg-gray-700 ${isActive ? "bg-blue-10 dark:bg-blue-500" : ""}`}
                           style={RV}
                         >
                           <div
-                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[10px] font-medium text-[#4a3f8a]"
+                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[10px] font-medium text-purple-300"
                             style={{ backgroundImage: "linear-gradient(135deg, rgb(211,220,255) 0%, rgb(236,227,252) 100%)" }}
                           >
                             {initials}
                           </div>
-                          <p className="flex-1 truncate text-[13px] text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>{page.name}</p>
-                          {isActive && <CheckCircle2 size={14} className="shrink-0 text-[#1f78d1] dark:text-[#5b9cf6]" />}
+                          <p className="flex-1 truncate text-[13px] text-gray-800 dark:text-gray-2000" style={RV}>{page.name}</p>
+                          {isActive && <CheckCircle2 size={14} className="shrink-0 text-blue-100 dark:text-blue-80" />}
                         </button>
                       );
                     })}
@@ -985,7 +985,7 @@ export function PostDetailsDrawerContent({
             </div>
 
             {/* 3. Preview card */}
-            <div className="rounded-[8px] border border-[#e2e8f0] dark:border-[#2e3340] bg-white dark:bg-[#252a35] shadow-[0_2px_12px_rgba(15,23,42,0.06)] dark:shadow-none">
+            <div className="rounded-[8px] border border-gray-2000 dark:border-gray-600 bg-white dark:bg-gray-700 shadow-[0_2px_12px_rgba(15,23,42,0.06)] dark:shadow-none">
               <div
                 className={`space-y-5 px-[30px] py-[30px] transition-opacity duration-200 ${previewVisible ? "opacity-100" : "opacity-0"}`}
               >
@@ -993,10 +993,10 @@ export function PostDetailsDrawerContent({
                 <div className="flex items-center gap-3">
                   <Avatar name={selectedPage?.name ?? `Motto Mortgage ${post.location}`} size={44} />
                   <div className="min-w-0">
-                    <p className="truncate text-[15px] font-medium text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>
+                    <p className="truncate text-[15px] font-medium text-gray-800 dark:text-gray-2000" style={RV}>
                       {selectedPage?.name ?? `Motto Mortgage ${post.location}`}
                     </p>
-                    <p className="mt-0.5 text-[12px] text-[#9aa3b2] dark:text-[#6b7a94]" style={RV}>
+                    <p className="mt-0.5 text-[12px] text-gray-90 dark:text-gray-90" style={RV}>
                       {post.date}{post.time ? ` · ${post.time}` : ""}
                     </p>
                   </div>
@@ -1005,14 +1005,14 @@ export function PostDetailsDrawerContent({
                 {/* Caption — no container box */}
                 <div>
                   <p
-                    className="whitespace-pre-wrap text-[14px] leading-[22px] text-[#1e2530] dark:text-[#e4e8f0]"
+                    className="whitespace-pre-wrap text-[14px] leading-[22px] text-gray-800 dark:text-gray-2000"
                     style={{ ...RV }}
                   >
                     {post.caption}
                   </p>
                   {post.hashtags ? (
                     <p
-                      className="mt-3 text-[14px] leading-[22px] text-[#1f78d1] dark:text-[#5b9cf6]"
+                      className="mt-3 text-[14px] leading-[22px] text-blue-100 dark:text-blue-80"
                       style={{ ...RV }}
                     >
                       {post.hashtags}
@@ -1022,18 +1022,18 @@ export function PostDetailsDrawerContent({
 
                 {/* Image */}
                 {post.image ? (
-                  <div className="overflow-hidden rounded-[6px] border border-[#e0e7f0] dark:border-[#2e3340]">
+                  <div className="overflow-hidden rounded-[6px] border border-gray-2000 dark:border-gray-600">
                     <img src={post.image} alt="Post preview" className="h-auto w-full object-cover" />
                   </div>
                 ) : null}
 
                 {/* Expired notice */}
                 {post.expiryDate && post.status === "expired" ? (
-                  <div className="flex items-start gap-3 rounded-[6px] border border-[#e6e9ef] dark:border-[#2e3340] bg-[#f6f7f9] dark:bg-[#252a35] px-4 py-3">
-                    <Clock3 size={14} className="mt-0.5 shrink-0 text-[#9aa3b2] dark:text-[#6b7a94]" />
+                  <div className="flex items-start gap-3 rounded-[6px] border border-gray-40 dark:border-gray-600 bg-gray-10 dark:bg-gray-700 px-4 py-3">
+                    <Clock3 size={14} className="mt-0.5 shrink-0 text-gray-90 dark:text-gray-90" />
                     <div>
-                      <p className="text-[13px] font-medium text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>Expired automatically</p>
-                      <p className="mt-0.5 text-[12px] text-[#667085] dark:text-[#6b7a94]" style={RV}>
+                      <p className="text-[13px] font-medium text-gray-800 dark:text-gray-2000" style={RV}>Expired automatically</p>
+                      <p className="mt-0.5 text-[12px] text-gray-100 dark:text-gray-90" style={RV}>
                         Removed on {formatExpiry(post.expiryDate)} where supported.
                       </p>
                     </div>

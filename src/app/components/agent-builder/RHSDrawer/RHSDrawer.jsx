@@ -45,8 +45,8 @@ export default function RHSDrawer({
 
       <div className="rhs-drawer__body">
         <div className="rhs-drawer__field">
-          <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', marginBottom: 4, display: 'block' }}>
-            Agent name <span style={{ color: '#de1b0c' }}>*</span>
+          <label style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', marginBottom: 4, display: 'block' }}>
+            Agent name <span style={{ color: 'var(--red-100)' }}>*</span>
           </label>
           <Input
             name="agentName"

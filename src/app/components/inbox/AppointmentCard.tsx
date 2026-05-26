@@ -33,8 +33,8 @@ export function AppointmentCard({
       className={cn(
         "w-[300px] rounded-2xl overflow-hidden",
         isRescheduled
-          ? "bg-[#fdf8ec] dark:bg-[#3a2e10]"
-          : "bg-[#f0f0f0] dark:bg-[#1e2533]",
+          ? "bg-yellow-10 dark:bg-yellow-800"
+          : "bg-gray-20 dark:bg-gray-800",
         className
       )}
     >
@@ -42,19 +42,19 @@ export function AppointmentCard({
       <div className="flex items-center gap-2 px-4 pt-3 pb-2">
         {isRescheduled ? (
           <History
-            className="h-[14px] w-[14px] shrink-0 text-[#212121] dark:text-foreground"
+            className="h-[14px] w-[14px] shrink-0 text-gray-900 dark:text-foreground"
             strokeWidth={1.6}
             absoluteStrokeWidth
           />
         ) : (
           <CircleCheck
-            className="h-[14px] w-[14px] shrink-0 text-[#212121] dark:text-foreground"
+            className="h-[14px] w-[14px] shrink-0 text-gray-900 dark:text-foreground"
             strokeWidth={1.6}
             absoluteStrokeWidth
           />
         )}
         <span
-          className="text-[13px] text-[#212121] dark:text-foreground"
+          className="text-[13px] text-gray-900 dark:text-foreground"
           style={{ fontWeight: 500 }}
         >
           {isRescheduled ? "Appointment rescheduled" : "Appointment booked"}
@@ -62,20 +62,20 @@ export function AppointmentCard({
       </div>
 
       {/* Dashed divider */}
-      <div className="mx-4 border-b border-dashed border-[#d0d5dd] dark:border-[#3d4555]" />
+      <div className="mx-4 border-b border-dashed border-gray-60 dark:border-gray-500" />
 
       {/* Content */}
       <div className="flex flex-col gap-3 px-4 py-3">
         {/* Patient row */}
         <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#d0d5dd] dark:bg-[#3d4555] text-[12px] text-[#475467] dark:text-muted-foreground" style={{ fontWeight: 500 }}>
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gray-60 dark:bg-gray-500 text-[12px] text-gray-200 dark:text-muted-foreground" style={{ fontWeight: 500 }}>
             {data.patientInitials}
           </div>
           <div className="flex flex-col">
-            <span className="text-[13px] font-medium text-[#212121] dark:text-foreground">
+            <span className="text-[13px] font-medium text-gray-900 dark:text-foreground">
               {data.patientName}
             </span>
-            <span className="text-[12px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+            <span className="text-[12px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
               {data.category}
             </span>
           </div>
@@ -83,20 +83,20 @@ export function AppointmentCard({
 
         {/* Appointment type */}
         <div className="flex flex-col gap-0.5">
-          <span className="text-[11px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+          <span className="text-[11px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
             Appointment type
           </span>
-          <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 500 }}>
+          <span className="text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 500 }}>
             {data.appointmentType}
           </span>
         </div>
 
         {/* Booking datetime */}
         <div className="flex flex-col gap-0.5">
-          <span className="text-[11px] text-[#888] dark:text-muted-foreground" style={{ fontWeight: 400 }}>
+          <span className="text-[11px] text-gray-80 dark:text-muted-foreground" style={{ fontWeight: 400 }}>
             Booking date and time
           </span>
-          <span className="text-[13px] text-[#212121] dark:text-foreground" style={{ fontWeight: 500 }}>
+          <span className="text-[13px] text-gray-900 dark:text-foreground" style={{ fontWeight: 500 }}>
             {data.bookingDatetime}
           </span>
         </div>
@@ -108,7 +108,7 @@ export function AppointmentCard({
           <button
             type="button"
             onClick={onReschedule}
-            className="flex items-center gap-1 text-[13px] text-[#2552ED] dark:text-[#6b9bff] hover:opacity-75 transition-opacity"
+            className="flex items-center gap-1 text-[13px] text-brand-color dark:text-blue-70 hover:opacity-75 transition-opacity"
             style={{ fontWeight: 400 }}
           >
             <History className="h-[13px] w-[13px]" strokeWidth={1.6} absoluteStrokeWidth />
@@ -117,7 +117,7 @@ export function AppointmentCard({
           <button
             type="button"
             onClick={onConfirm}
-            className="flex items-center gap-1 text-[13px] text-[#2552ED] dark:text-[#6b9bff] hover:opacity-75 transition-opacity"
+            className="flex items-center gap-1 text-[13px] text-brand-color dark:text-blue-70 hover:opacity-75 transition-opacity"
             style={{ fontWeight: 400 }}
           >
             <CircleCheck className="h-[13px] w-[13px]" strokeWidth={1.6} absoluteStrokeWidth />
@@ -125,7 +125,7 @@ export function AppointmentCard({
           </button>
           <button
             type="button"
-            className="ml-auto text-[#888] dark:text-muted-foreground hover:opacity-75 transition-opacity"
+            className="ml-auto text-gray-80 dark:text-muted-foreground hover:opacity-75 transition-opacity"
           >
             <MoreHorizontal className="h-[14px] w-[14px]" strokeWidth={1.6} absoluteStrokeWidth />
           </button>

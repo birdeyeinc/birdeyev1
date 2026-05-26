@@ -78,9 +78,9 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
 
   /* ── Page footer ── */
   const PageFooter = ({ pageNum, label }: { pageNum?: number; label?: string }) => (
-    <div className="flex justify-between items-center px-2.5 py-1 border-t border-[#f0f0f0] dark:border-border mt-auto shrink-0">
-      <span className="font-['Inter',sans-serif] text-[4px] text-[#bbb] dark:text-muted-foreground">Profile performance report</span>
-      <span className="font-['Inter',sans-serif] text-[4px] text-[#bbb] dark:text-muted-foreground">{label || `Page ${pageNum}`}</span>
+    <div className="flex justify-between items-center px-2.5 py-1 border-t border-gray-20 dark:border-border mt-auto shrink-0">
+      <span className="font-['Inter',sans-serif] text-[4px] text-gray-70 dark:text-muted-foreground">Profile performance report</span>
+      <span className="font-['Inter',sans-serif] text-[4px] text-gray-70 dark:text-muted-foreground">{label || `Page ${pageNum}`}</span>
     </div>
   );
 
@@ -105,24 +105,24 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
         type="button"
         variant="outline"
         onClick={onToggle}
-        className="w-full justify-between rounded-lg border-[#eceef2] bg-white px-3 font-normal hover:border-[#d0d5dd] dark:border-border dark:bg-background dark:hover:border-[#3d4555]"
+        className="w-full justify-between rounded-lg border-gray-20 bg-white px-3 font-normal hover:border-gray-60 dark:border-border dark:bg-background dark:hover:border-gray-500"
       >
         <div className="flex items-center gap-2">
           {icon}
-          <span className="text-[12px] text-[#333] dark:text-foreground font-['Inter',sans-serif]">{value}</span>
+          <span className="text-[12px] text-gray-500 dark:text-foreground font-['Inter',sans-serif]">{value}</span>
         </div>
-        <ChevronDown className={`w-4 h-4 text-[#aaa] dark:text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""}`} />
+        <ChevronDown className={`w-4 h-4 text-gray-80 dark:text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </Button>
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-background border border-[#eceef2] dark:border-border rounded-lg shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.3)] z-30 py-1 overflow-hidden max-h-[200px] overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-background border border-gray-20 dark:border-border rounded-lg shadow-[0_6px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.3)] z-30 py-1 overflow-hidden max-h-[200px] overflow-y-auto">
           {options.map(opt => (
             <button
               key={opt}
               onClick={() => { onSelect(opt); onToggle(); }}
               className={`w-full text-left px-3 py-2 text-[12px] font-['Inter',sans-serif] transition-colors ${
                 value === opt
-                  ? "bg-[#e8effe] dark:bg-[#1e2d5e] text-[#2552ED] dark:text-[#6b9bff]"
-                  : "text-[#333] dark:text-foreground hover:bg-[#f8f9fb] dark:hover:bg-muted"
+                  ? "bg-blue-10 dark:bg-blue-300 text-brand-color dark:text-blue-70"
+                  : "text-gray-500 dark:text-foreground hover:bg-gray-10 dark:hover:bg-muted"
               }`}
             >
               {opt}
@@ -146,12 +146,12 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
           }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-5 pt-4 pb-3 shrink-0 border-b border-[#f0f0f0] dark:border-border">
+          <div className="flex items-center justify-between px-5 pt-4 pb-3 shrink-0 border-b border-gray-20 dark:border-border">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${accentColor}14` }}>
                 <Clock className="w-[14px] h-[14px]" style={{ color: accentColor }} />
               </div>
-              <h2 className="font-['Inter',sans-serif] text-[15px] text-[#111] dark:text-foreground tracking-[-0.3px]" style={{ fontWeight: 400 }}>
+              <h2 className="font-['Inter',sans-serif] text-[15px] text-gray-900 dark:text-foreground tracking-[-0.3px]" style={{ fontWeight: 400 }}>
                 Schedule report
               </h2>
             </div>
@@ -160,7 +160,7 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
               variant="ghost"
               size="icon"
               onClick={onClose}
-              className="rounded-lg text-[#aaa] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#e4e4e4]"
+              className="rounded-lg text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-50"
             >
               <X className="w-[14px] h-[14px]" />
             </Button>
@@ -171,21 +171,21 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
             <div className="flex flex-col gap-4">
               {/* Frequency */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Frequency</label>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Frequency</label>
                 <SelectDropdown
                   value={frequency}
                   options={frequencyOptions}
                   isOpen={frequencyOpen}
                   onToggle={() => { setFrequencyOpen(!frequencyOpen); setDayOpen(false); setTimeOpen(false); }}
                   onSelect={setFrequency}
-                  icon={<Calendar className="w-3.5 h-3.5 text-[#b0b0b0] dark:text-muted-foreground" />}
+                  icon={<Calendar className="w-3.5 h-3.5 text-gray-70 dark:text-muted-foreground" />}
                 />
               </div>
 
               {/* Day & Time row */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Day</label>
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Day</label>
                   <SelectDropdown
                     value={day}
                     options={dayOptions}
@@ -195,21 +195,21 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Time</label>
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Time</label>
                   <SelectDropdown
                     value={time}
                     options={timeOptions}
                     isOpen={timeOpen}
                     onToggle={() => { setTimeOpen(!timeOpen); setFrequencyOpen(false); setDayOpen(false); }}
                     onSelect={setTime}
-                    icon={<Clock className="w-3.5 h-3.5 text-[#b0b0b0] dark:text-muted-foreground" />}
+                    icon={<Clock className="w-3.5 h-3.5 text-gray-70 dark:text-muted-foreground" />}
                   />
                 </div>
               </div>
 
               {/* File format */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>File format</label>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>File format</label>
                 <div className="flex gap-2">
                   {fileFormats.map(f => (
                     <button
@@ -217,8 +217,8 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                       onClick={() => setSelectedFormat(f.label)}
                       className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all ${
                         selectedFormat === f.label
-                          ? "border-[#2552ED] dark:border-[#5580e0] bg-[#e8effe] dark:bg-[#1e2d5e]"
-                          : "border-[#eceef2] dark:border-border bg-white dark:bg-background hover:bg-[#f8f9fb] dark:hover:bg-muted"
+                          ? "border-brand-color dark:border-blue-80 bg-blue-10 dark:bg-blue-300"
+                          : "border-gray-20 dark:border-border bg-white dark:bg-background hover:bg-gray-10 dark:hover:bg-muted"
                       }`}
                     >
                       <div
@@ -227,18 +227,18 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                       >
                         <img src={f.icon} alt={f.label} className="w-[14px] h-[14px] object-contain" />
                       </div>
-                      <span className="text-[12px] text-[#333] dark:text-foreground font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>{f.label}</span>
+                      <span className="text-[12px] text-gray-500 dark:text-foreground font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>{f.label}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
               {/* Separator */}
-              <div className="h-px bg-[#f0f0f0] dark:bg-muted" />
+              <div className="h-px bg-gray-20 dark:bg-muted" />
 
               {/* Recipients */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>
                   <span className="flex items-center gap-1">
                     <Users className="w-3 h-3" />
                     Recipients
@@ -249,13 +249,13 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                   value={recipients}
                   onChange={e => setRecipients(e.target.value)}
                   placeholder="Enter email addresses, separated by commas"
-                  className="w-full h-[36px] px-3 text-[12px] text-[#333] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                  className="w-full h-[36px] px-3 text-[12px] text-gray-500 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                 />
               </div>
 
               {/* Subject */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>
                   <span className="flex items-center gap-1">
                     <Type className="w-3 h-3" />
                     Subject
@@ -265,13 +265,13 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                   type="text"
                   value={subject}
                   onChange={e => setSubject(e.target.value)}
-                  className="w-full h-[36px] px-3 text-[12px] text-[#333] dark:text-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                  className="w-full h-[36px] px-3 text-[12px] text-gray-500 dark:text-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                 />
               </div>
 
               {/* Body */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>
                   <span className="flex items-center gap-1">
                     <Mail className="w-3 h-3" />
                     Message body
@@ -281,19 +281,19 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                   value={body}
                   onChange={e => setBody(e.target.value)}
                   rows={4}
-                  className="w-full px-3 py-2 text-[12px] text-[#333] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none resize-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                  className="w-full px-3 py-2 text-[12px] text-gray-500 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none resize-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                 />
               </div>
             </div>
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between px-5 py-3 border-t border-[#f0f0f0] dark:border-border shrink-0">
+          <div className="flex items-center justify-between px-5 py-3 border-t border-gray-20 dark:border-border shrink-0">
             <Button
               type="button"
               variant="ghost"
               onClick={() => setStep("configure")}
-              className="px-3 text-[12px] text-[#666] dark:text-muted-foreground rounded-lg font-['Inter',sans-serif] font-normal"
+              className="px-3 text-[12px] text-gray-200 dark:text-muted-foreground rounded-lg font-['Inter',sans-serif] font-normal"
             >
               Back
             </Button>
@@ -302,7 +302,7 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                 type="button"
                 variant="ghost"
                 onClick={onClose}
-                className="px-3 text-[12px] text-[#666] dark:text-muted-foreground rounded-lg font-['Inter',sans-serif] font-normal"
+                className="px-3 text-[12px] text-gray-200 dark:text-muted-foreground rounded-lg font-['Inter',sans-serif] font-normal"
               >
                 Cancel
               </Button>
@@ -340,7 +340,7 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
           <div className="flex items-center justify-between px-5 pt-4 pb-0 shrink-0">
             <div className="flex items-center gap-2">
               <h2
-                className="font-['Inter',sans-serif] text-[15px] text-[#111] dark:text-foreground tracking-[-0.3px]"
+                className="font-['Inter',sans-serif] text-[15px] text-gray-900 dark:text-foreground tracking-[-0.3px]"
                 style={{ fontWeight: 400 }}
               >
                 Schedule report
@@ -351,7 +351,7 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
               variant="ghost"
               size="icon"
               onClick={onClose}
-              className="rounded-lg text-[#aaa] dark:text-muted-foreground hover:text-[#555] dark:hover:text-[#e4e4e4]"
+              className="rounded-lg text-gray-80 dark:text-muted-foreground hover:text-gray-300 dark:hover:text-gray-50"
             >
               <X className="w-[14px] h-[14px]" />
             </Button>
@@ -359,37 +359,37 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
 
           {/* Schedule info summary */}
           <div className="px-5 pt-3 pb-2.5 shrink-0">
-            <div className="flex items-center gap-2 px-3 py-2 bg-[#f8f9fb] dark:bg-muted rounded-lg border border-[#eceef2] dark:border-border">
-              <Clock className="w-3.5 h-3.5 text-[#b0b0b0] dark:text-muted-foreground shrink-0" />
-              <span className="text-[11px] text-[#888] dark:text-muted-foreground font-['Inter',sans-serif]">
+            <div className="flex items-center gap-2 px-3 py-2 bg-gray-10 dark:bg-muted rounded-lg border border-gray-20 dark:border-border">
+              <Clock className="w-3.5 h-3.5 text-gray-70 dark:text-muted-foreground shrink-0" />
+              <span className="text-[11px] text-gray-80 dark:text-muted-foreground font-['Inter',sans-serif]">
                 {frequency} on {day} at {time} &middot; {selectedFormat} format
               </span>
             </div>
           </div>
 
           {/* Separator */}
-          <div className="h-px bg-[#f0f0f0] dark:bg-muted mx-5 shrink-0" />
+          <div className="h-px bg-gray-20 dark:bg-muted mx-5 shrink-0" />
 
           {/* Content area */}
           <div className="flex-1 min-h-0 overflow-y-auto px-5 py-4">
             <div className="flex flex-col gap-4">
               {/* Frequency */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Frequency</label>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Frequency</label>
                 <SelectDropdown
                   value={frequency}
                   options={frequencyOptions}
                   isOpen={frequencyOpen}
                   onToggle={() => { setFrequencyOpen(!frequencyOpen); setDayOpen(false); setTimeOpen(false); }}
                   onSelect={setFrequency}
-                  icon={<Calendar className="w-3.5 h-3.5 text-[#b0b0b0] dark:text-muted-foreground" />}
+                  icon={<Calendar className="w-3.5 h-3.5 text-gray-70 dark:text-muted-foreground" />}
                 />
               </div>
 
               {/* Day & Time */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Day</label>
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Day</label>
                   <SelectDropdown
                     value={day}
                     options={dayOptions}
@@ -399,21 +399,21 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Time</label>
+                  <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Time</label>
                   <SelectDropdown
                     value={time}
                     options={timeOptions}
                     isOpen={timeOpen}
                     onToggle={() => { setTimeOpen(!timeOpen); setFrequencyOpen(false); setDayOpen(false); }}
                     onSelect={setTime}
-                    icon={<Clock className="w-3.5 h-3.5 text-[#b0b0b0] dark:text-muted-foreground" />}
+                    icon={<Clock className="w-3.5 h-3.5 text-gray-70 dark:text-muted-foreground" />}
                   />
                 </div>
               </div>
 
               {/* File format */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>File format</label>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>File format</label>
                 <div className="flex gap-2 flex-wrap">
                   {fileFormats.map(f => (
                     <button
@@ -421,63 +421,63 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                       onClick={() => setSelectedFormat(f.label)}
                       className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all ${
                         selectedFormat === f.label
-                          ? "border-[#2552ED] dark:border-[#5580e0] bg-[#e8effe] dark:bg-[#1e2d5e]"
-                          : "border-[#eceef2] dark:border-border bg-white dark:bg-background hover:bg-[#f8f9fb] dark:hover:bg-muted"
+                          ? "border-brand-color dark:border-blue-80 bg-blue-10 dark:bg-blue-300"
+                          : "border-gray-20 dark:border-border bg-white dark:bg-background hover:bg-gray-10 dark:hover:bg-muted"
                       }`}
                     >
                       <div className="w-6 h-6 rounded flex items-center justify-center shrink-0" style={{ backgroundColor: f.bg }}>
                         <img src={f.icon} alt={f.label} className="w-[14px] h-[14px] object-contain" />
                       </div>
-                      <span className="text-[12px] text-[#333] dark:text-foreground font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>{f.label}</span>
+                      <span className="text-[12px] text-gray-500 dark:text-foreground font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>{f.label}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
               {/* Separator */}
-              <div className="h-px bg-[#f0f0f0] dark:bg-muted" />
+              <div className="h-px bg-gray-20 dark:bg-muted" />
 
               {/* Recipients */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Recipients</label>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Recipients</label>
                 <input
                   type="text"
                   value={recipients}
                   onChange={e => setRecipients(e.target.value)}
                   placeholder="Enter email addresses, separated by commas"
-                  className="w-full h-[36px] px-3 text-[12px] text-[#333] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                  className="w-full h-[36px] px-3 text-[12px] text-gray-500 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                 />
               </div>
 
               {/* Subject */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Subject</label>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Subject</label>
                 <input
                   type="text"
                   value={subject}
                   onChange={e => setSubject(e.target.value)}
-                  className="w-full h-[36px] px-3 text-[12px] text-[#333] dark:text-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                  className="w-full h-[36px] px-3 text-[12px] text-gray-500 dark:text-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                 />
               </div>
 
               {/* Body */}
               <div>
-                <label className="block text-[11px] text-[#888] dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Message body</label>
+                <label className="block text-[11px] text-gray-80 dark:text-muted-foreground mb-1.5" style={{ fontWeight: 400 }}>Message body</label>
                 <textarea
                   value={body}
                   onChange={e => setBody(e.target.value)}
                   rows={3}
-                  className="w-full px-3 py-2 text-[12px] text-[#333] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-muted-foreground border border-[#eceef2] dark:border-border rounded-lg bg-white dark:bg-background outline-none resize-none font-['Inter',sans-serif] focus:border-[#7BA3F5] dark:focus:border-[#5580e0] focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
+                  className="w-full px-3 py-2 text-[12px] text-gray-500 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-muted-foreground border border-gray-20 dark:border-border rounded-lg bg-white dark:bg-background outline-none resize-none font-['Inter',sans-serif] focus:border-blue-70 dark:focus:border-blue-80 focus:shadow-[0_0_0_3px_rgba(37,82,237,0.08)] dark:focus:shadow-[0_0_0_3px_rgba(37,82,237,0.2)] transition-all"
                 />
               </div>
             </div>
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between px-5 py-3 border-t border-[#f0f0f0] dark:border-border shrink-0">
+          <div className="flex items-center justify-between px-5 py-3 border-t border-gray-20 dark:border-border shrink-0">
             <button
               onClick={onCustomize}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-[#f5f3ff] dark:hover:bg-[#1e2d5e] transition-colors group"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-purple-20 dark:hover:bg-blue-300 transition-colors group"
             >
               <svg width="13" height="13" viewBox="0 0 10 12.1053" fill="none" className="shrink-0">
                 <path d={aiAgentSvg.p266794f0} fill="url(#ai-grad-sched)" />
@@ -487,7 +487,7 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                   </linearGradient>
                 </defs>
               </svg>
-              <span className="text-[11px] text-[#6d28d9] dark:text-[#a78bfa] group-hover:text-[#5b21b6] dark:group-hover:text-[#c4b5fd] font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>
+              <span className="text-[11px] text-purple-100 dark:text-purple-70 group-hover:text-purple-100 dark:group-hover:text-purple-50 font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>
                 Customise with BirdAI
               </span>
             </button>
@@ -496,7 +496,7 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                 type="button"
                 variant="ghost"
                 onClick={onClose}
-                className="px-3 text-[12px] text-[#666] dark:text-muted-foreground rounded-lg font-['Inter',sans-serif] font-normal"
+                className="px-3 text-[12px] text-gray-200 dark:text-muted-foreground rounded-lg font-['Inter',sans-serif] font-normal"
               >
                 Cancel
               </Button>
@@ -515,13 +515,13 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
         </div>
 
         {/* ═══ RIGHT PANEL — 55% · Preview ═══ */}
-        <div className="w-[55%] bg-[#f2f4f7] dark:bg-app-shell-gutter border-l border-[#ebebeb] dark:border-border flex flex-col min-h-0 overflow-hidden transition-colors duration-300">
+        <div className="w-[55%] bg-new-hover-color dark:bg-app-shell-gutter border-l border-gray-40 dark:border-border flex flex-col min-h-0 overflow-hidden transition-colors duration-300">
           {/* Preview header */}
           <div className="flex items-center justify-between px-4 h-[38px] shrink-0">
-            <span className="text-[10px] text-[#b0b0b0] dark:text-muted-foreground uppercase tracking-[0.5px] font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>
+            <span className="text-[10px] text-gray-70 dark:text-muted-foreground uppercase tracking-[0.5px] font-['Inter',sans-serif]" style={{ fontWeight: 400 }}>
               Preview
             </span>
-            <span className="text-[10px] text-[#ccc] dark:text-muted-foreground font-['Inter',sans-serif]">
+            <span className="text-[10px] text-gray-60 dark:text-muted-foreground font-['Inter',sans-serif]">
               {totalPages} pages
             </span>
           </div>
@@ -544,24 +544,24 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                   <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4">
                     <svg className="w-[50px] h-auto mb-3" viewBox="0 0 199.768 41.4" fill="none">
                       <path clipRule="evenodd" d={reportSvg.p2cc68880} fill={accentColor} fillRule="evenodd" />
-                      <path d={reportSvg.pfe99e80} fill="#212121" />
-                      <path d={reportSvg.p36edaf80} fill="#212121" />
-                      <path d={reportSvg.pa24ff80} fill="#212121" />
-                      <path d={reportSvg.p33cce400} fill="#212121" />
-                      <path d={reportSvg.p16db6100} fill="#212121" />
-                      <path d={reportSvg.p2b617580} fill="#212121" />
-                      <path d={reportSvg.p11bbd0f1} fill="#212121" />
-                      <path d={reportSvg.p3b3711e0} fill="#212121" />
+                      <path d={reportSvg.pfe99e80} fill="var(--gray-900)" />
+                      <path d={reportSvg.p36edaf80} fill="var(--gray-900)" />
+                      <path d={reportSvg.pa24ff80} fill="var(--gray-900)" />
+                      <path d={reportSvg.p33cce400} fill="var(--gray-900)" />
+                      <path d={reportSvg.p16db6100} fill="var(--gray-900)" />
+                      <path d={reportSvg.p2b617580} fill="var(--gray-900)" />
+                      <path d={reportSvg.p11bbd0f1} fill="var(--gray-900)" />
+                      <path d={reportSvg.p3b3711e0} fill="var(--gray-900)" />
                     </svg>
-                    <p className="font-['Inter',sans-serif] text-[8px] text-[#111] tracking-[-0.2px] mb-0.5" style={{ fontWeight: 400 }}>
+                    <p className="font-['Inter',sans-serif] text-[8px] text-gray-900 tracking-[-0.2px] mb-0.5" style={{ fontWeight: 400 }}>
                       Profile performance report
                     </p>
-                    <p className="font-['Inter',sans-serif] text-[5px] text-[#888] mb-2">
+                    <p className="font-['Inter',sans-serif] text-[5px] text-gray-80 mb-2">
                       Social media analytics overview
                     </p>
                     <div className="flex flex-col items-center gap-0.5">
-                      <span className="font-['Inter',sans-serif] text-[4px] text-[#888]">July 10, 2025</span>
-                      <span className="font-['Inter',sans-serif] text-[4px] text-[#888]">30 locations</span>
+                      <span className="font-['Inter',sans-serif] text-[4px] text-gray-80">July 10, 2025</span>
+                      <span className="font-['Inter',sans-serif] text-[4px] text-gray-80">30 locations</span>
                     </div>
                   </div>
                   <div className="relative z-10">
@@ -589,10 +589,10 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                           <span className="font-['Inter',sans-serif]" style={{ fontSize: 6, fontWeight: 400, color: accentColor }}>Birdeye</span>
                         </div>
                       </div>
-                      <h3 className="font-['Inter',sans-serif] text-[8px] text-[#111] mb-1" style={{ fontWeight: 400 }}>
+                      <h3 className="font-['Inter',sans-serif] text-[8px] text-gray-900 mb-1" style={{ fontWeight: 400 }}>
                         Executive Summary
                       </h3>
-                      <p className="font-['Inter',sans-serif] text-[5px] text-[#888] mb-2 leading-[1.6]">
+                      <p className="font-['Inter',sans-serif] text-[5px] text-gray-80 mb-2 leading-[1.6]">
                         Comprehensive overview of your social media profile performance over the last 30 days.
                       </p>
                       <div className="grid grid-cols-2 gap-1 mb-2">
@@ -602,10 +602,10 @@ export function ScheduleModal({ open, onClose, onCustomize, themeColor, showSumm
                           { label: "Eng. Rate", value: "13.2%", change: "+6.3%" },
                           { label: "Link Clicks", value: "0", change: "" },
                         ].map(m => (
-                          <div key={m.label} className="bg-[#f8f9fb] border border-[#f0f0f0] rounded p-1.5">
-                            <p className="font-['Inter',sans-serif] text-[4px] text-[#aaa] mb-0.5">{m.label}</p>
-                            <p className="font-['Inter',sans-serif] text-[8px] text-[#111]" style={{ fontWeight: 400 }}>{m.value}</p>
-                            {m.change && <span className="font-['Inter',sans-serif] text-[4px] text-[#22c55e]">{m.change}</span>}
+                          <div key={m.label} className="bg-gray-10 border border-gray-20 rounded p-1.5">
+                            <p className="font-['Inter',sans-serif] text-[4px] text-gray-80 mb-0.5">{m.label}</p>
+                            <p className="font-['Inter',sans-serif] text-[8px] text-gray-900" style={{ fontWeight: 400 }}>{m.value}</p>
+                            {m.change && <span className="font-['Inter',sans-serif] text-[4px] text-green-90">{m.change}</span>}
                           </div>
                         ))}
                       </div>

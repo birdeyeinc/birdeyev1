@@ -32,7 +32,7 @@ export function SocialButton({
           <KeyRound
             className={cn(
               "size-5",
-              disabled || isLoading ? "text-[#B0B0B0]" : "text-[#5e5e5e]",
+              disabled || isLoading ? "text-gray-70" : "text-gray-200",
             )}
           />
         );

@@ -145,32 +145,32 @@ function getIconConfig(type: Activity['type']): { icon: React.ReactNode; bg: str
   const s = { size: 13, strokeWidth: 2 };
   switch (type) {
     case 'created':
-      return { icon: <Sparkles {...s} />, bg: '#f3ecff', color: '#6b36b7' };
+      return { icon: <Sparkles {...s} />, bg: '#f3ecff', color: 'var(--purple-100)' };
     case 'ai_generated':
-      return { icon: <Sparkles {...s} />, bg: '#f3ecff', color: '#6b36b7' };
+      return { icon: <Sparkles {...s} />, bg: '#f3ecff', color: 'var(--purple-100)' };
     case 'edited':
     case 'caption_edited':
-      return { icon: <Edit3 {...s} />, bg: '#f0f3f8', color: '#4f5d75' };
+      return { icon: <Edit3 {...s} />, bg: '#f0f3f8', color: 'var(--gray-300)' };
     case 'scheduled':
     case 'rescheduled':
-      return { icon: <Clock3 {...s} />, bg: '#ebf4ff', color: '#1f78d1' };
+      return { icon: <Clock3 {...s} />, bg: '#ebf4ff', color: 'var(--blue-100)' };
     case 'media_updated':
     case 'image_changed':
-      return { icon: <ImageIcon {...s} />, bg: '#f0f3f8', color: '#4f5d75' };
+      return { icon: <ImageIcon {...s} />, bg: '#f0f3f8', color: 'var(--gray-300)' };
     case 'location_added':
-      return { icon: <MapPin {...s} />, bg: '#edf8ef', color: '#2f7d32' };
+      return { icon: <MapPin {...s} />, bg: '#edf8ef', color: 'var(--green-200)' };
     case 'location_removed':
-      return { icon: <MapPin {...s} />, bg: '#fff1f0', color: '#d14334' };
+      return { icon: <MapPin {...s} />, bg: '#fff1f0', color: 'var(--red-100)' };
     case 'approved':
     case 'partial_approval':
-      return { icon: <CheckCircle2 {...s} />, bg: '#edf8ef', color: '#2f7d32' };
+      return { icon: <CheckCircle2 {...s} />, bg: '#edf8ef', color: 'var(--green-200)' };
     case 'rejected':
-      return { icon: <XCircle {...s} />, bg: '#fff1f0', color: '#d14334' };
+      return { icon: <XCircle {...s} />, bg: '#fff1f0', color: 'var(--red-100)' };
     case 'multi_location_edit':
     case 'bulk_edit':
-      return { icon: <RefreshCw {...s} />, bg: '#fff4da', color: '#b67a00' };
+      return { icon: <RefreshCw {...s} />, bg: '#fff4da', color: 'var(--yellow-300)' };
     default:
-      return { icon: <Edit3 {...s} />, bg: '#f0f3f8', color: '#4f5d75' };
+      return { icon: <Edit3 {...s} />, bg: '#f0f3f8', color: 'var(--gray-300)' };
   }
 }
 
@@ -203,14 +203,14 @@ export function ActivityFeed({ postId }: { postId?: string }) {
         <div key={date}>
           {/* Date group header — matches Section title style */}
           <p
-            className="mb-3 text-[10px] font-medium uppercase tracking-[0.09em] text-[#9aa3b2] dark:text-[#6b7a94]"
+            className="mb-3 text-[10px] font-medium uppercase tracking-[0.09em] text-gray-90 dark:text-gray-90"
             style={RV}
           >
             {date}
           </p>
 
           {/* Activity rows */}
-          <div className="divide-y divide-[#f0f3f8] dark:divide-[#2e3340]">
+          <div className="divide-y divide-gray-20 dark:divide-gray-600">
             {items.map((activity) => {
               const { icon, bg, color } = getIconConfig(activity.type);
               const isExpanded = expandedItems.has(activity.id);
@@ -229,15 +229,15 @@ export function ActivityFeed({ postId }: { postId?: string }) {
                     {/* Content */}
                     <div className="min-w-0 flex-1">
                       {/* Timestamp */}
-                      <p className="text-[11px] text-[#9aa3b2] dark:text-[#6b7a94]" style={RV}>
+                      <p className="text-[11px] text-gray-90 dark:text-gray-90" style={RV}>
                         {activity.timestamp}
                       </p>
 
                       {/* User + description */}
-                      <p className="mt-0.5 text-[13px] leading-[20px] text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>
+                      <p className="mt-0.5 text-[13px] leading-[20px] text-gray-800 dark:text-gray-2000" style={RV}>
                         <span className="font-medium">{activity.user.name}</span>
                         {' '}
-                        <span className="text-[#667085] dark:text-[#6b7a94]">{activity.description}</span>
+                        <span className="text-gray-100 dark:text-gray-90">{activity.description}</span>
                       </p>
 
                       {/* Detail blocks */}
@@ -247,25 +247,25 @@ export function ActivityFeed({ postId }: { postId?: string }) {
                           {/* Caption / schedule before → after */}
                           {(activity.type === 'caption_edited' || activity.type === 'bulk_edit' || activity.type === 'rescheduled') &&
                             activity.details.before && activity.details.after && (
-                            <div className="rounded-[6px] border border-[#eef1f6] dark:border-[#2e3340] bg-[#f8f9fb] dark:bg-[#252a35] px-3.5 py-3">
+                            <div className="rounded-[6px] border border-gray-20 dark:border-gray-600 bg-gray-10 dark:bg-gray-700 px-3.5 py-3">
                               <p
-                                className="mb-2 text-[10px] font-medium uppercase tracking-[0.06em] text-[#9aa3b2] dark:text-[#6b7a94]"
+                                className="mb-2 text-[10px] font-medium uppercase tracking-[0.06em] text-gray-90 dark:text-gray-90"
                                 style={RV}
                               >
                                 {activity.type === 'rescheduled' ? 'Schedule' : 'Caption'}
                               </p>
                               <div className="space-y-2">
-                                <p className="text-[12px] leading-[18px] text-[#9aa3b2] dark:text-[#6b7a94] line-through" style={RV}>
+                                <p className="text-[12px] leading-[18px] text-gray-90 dark:text-gray-90 line-through" style={RV}>
                                   {activity.details.before}
                                 </p>
                                 <div className="flex items-center gap-1.5">
-                                  <div className="h-px flex-1 bg-[#e4e9f2] dark:bg-[#2e3340]" />
-                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0 text-[#9aa3b2] dark:text-[#6b7a94]">
+                                  <div className="h-px flex-1 bg-gray-2000 dark:bg-gray-600" />
+                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0 text-gray-90 dark:text-gray-90">
                                     <path d="M6 2v8M6 10l-3-3M6 10l3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                   </svg>
-                                  <div className="h-px flex-1 bg-[#e4e9f2] dark:bg-[#2e3340]" />
+                                  <div className="h-px flex-1 bg-gray-2000 dark:bg-gray-600" />
                                 </div>
-                                <p className="text-[12px] leading-[18px] text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>
+                                <p className="text-[12px] leading-[18px] text-gray-800 dark:text-gray-2000" style={RV}>
                                   {activity.details.after}
                                 </p>
                               </div>
@@ -275,32 +275,32 @@ export function ActivityFeed({ postId }: { postId?: string }) {
                           {/* Image before → after */}
                           {activity.type === 'image_changed' &&
                             activity.details.beforeImage && activity.details.afterImage && (
-                            <div className="rounded-[6px] border border-[#eef1f6] dark:border-[#2e3340] bg-[#f8f9fb] dark:bg-[#252a35] px-3.5 py-3">
+                            <div className="rounded-[6px] border border-gray-20 dark:border-gray-600 bg-gray-10 dark:bg-gray-700 px-3.5 py-3">
                               <p
-                                className="mb-2.5 text-[10px] font-medium uppercase tracking-[0.06em] text-[#9aa3b2] dark:text-[#6b7a94]"
+                                className="mb-2.5 text-[10px] font-medium uppercase tracking-[0.06em] text-gray-90 dark:text-gray-90"
                                 style={RV}
                               >
                                 Image
                               </p>
                               <div className="flex items-center gap-2.5">
-                                <div className="flex-1 overflow-hidden rounded-[5px] border border-[#eef1f6] dark:border-[#2e3340]">
+                                <div className="flex-1 overflow-hidden rounded-[5px] border border-gray-20 dark:border-gray-600">
                                   <img
                                     src={activity.details.beforeImage}
                                     alt="Before"
                                     className="h-[100px] w-full object-cover opacity-60 grayscale"
                                   />
-                                  <p className="py-1 text-center text-[10px] text-[#9aa3b2] dark:text-[#6b7a94]" style={RV}>Before</p>
+                                  <p className="py-1 text-center text-[10px] text-gray-90 dark:text-gray-90" style={RV}>Before</p>
                                 </div>
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 text-[#c1c8d4] dark:text-[#6b7a94]">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 text-gray-60 dark:text-gray-90">
                                   <path d="M4 7H10M10 7L7 4M10 7L7 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
-                                <div className="flex-1 overflow-hidden rounded-[5px] border border-[#c8dcf5] dark:border-[#2e3340]">
+                                <div className="flex-1 overflow-hidden rounded-[5px] border border-blue-30 dark:border-gray-600">
                                   <img
                                     src={activity.details.afterImage}
                                     alt="After"
                                     className="h-[100px] w-full object-cover"
                                   />
-                                  <p className="py-1 text-center text-[10px] text-[#1f78d1] dark:text-[#5b9cf6]" style={RV}>After</p>
+                                  <p className="py-1 text-center text-[10px] text-blue-100 dark:text-blue-80" style={RV}>After</p>
                                 </div>
                               </div>
                             </div>
@@ -308,15 +308,15 @@ export function ActivityFeed({ postId }: { postId?: string }) {
 
                           {/* Multi-location platform badge */}
                           {activity.type === 'multi_location_edit' && activity.details.locations && (
-                            <div className="rounded-[6px] border border-[#eef1f6] dark:border-[#2e3340] bg-[#f8f9fb] dark:bg-[#252a35] px-3.5 py-3">
+                            <div className="rounded-[6px] border border-gray-20 dark:border-gray-600 bg-gray-10 dark:bg-gray-700 px-3.5 py-3">
                               <p
-                                className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.06em] text-[#9aa3b2] dark:text-[#6b7a94]"
+                                className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.06em] text-gray-90 dark:text-gray-90"
                                 style={RV}
                               >
                                 Platform
                               </p>
                               <span
-                                className="inline-block rounded-[99px] bg-[#eef2f6] dark:bg-[#252a35] px-2.5 py-0.5 text-[11px] text-[#475467] dark:text-[#9ba2b0]"
+                                className="inline-block rounded-[99px] bg-gray-20 dark:bg-gray-700 px-2.5 py-0.5 text-[11px] text-gray-200 dark:text-gray-90"
                                 style={RV}
                               >
                                 {activity.details.locations[0]}
@@ -331,7 +331,7 @@ export function ActivityFeed({ postId }: { postId?: string }) {
                             <div>
                               <button
                                 onClick={() => toggleItem(activity.id)}
-                                className="flex items-center gap-1 text-[12px] font-medium text-[#1f78d1] dark:text-[#5b9cf6] transition-opacity hover:opacity-75"
+                                className="flex items-center gap-1 text-[12px] font-medium text-blue-100 dark:text-blue-80 transition-opacity hover:opacity-75"
                                 style={RV}
                               >
                                 {isExpanded ? 'Hide' : 'View'} {activity.details.locations.length} location{activity.details.locations.length > 1 ? 's' : ''}
@@ -345,16 +345,16 @@ export function ActivityFeed({ postId }: { postId?: string }) {
                               </button>
 
                               {isExpanded && (
-                                <div className="mt-2 space-y-1.5 rounded-[6px] border border-[#eef1f6] dark:border-[#2e3340] bg-[#f8f9fb] dark:bg-[#252a35] px-3.5 py-3">
+                                <div className="mt-2 space-y-1.5 rounded-[6px] border border-gray-20 dark:border-gray-600 bg-gray-10 dark:bg-gray-700 px-3.5 py-3">
                                   {activity.details.locations.map((loc, idx) => (
                                     <div key={idx} className="flex items-center gap-2.5">
                                       <div
-                                        className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[8px] font-medium text-[#4a3f8a]"
+                                        className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[8px] font-medium text-purple-300"
                                         style={{ backgroundImage: 'linear-gradient(135deg, rgb(211,220,255) 0%, rgb(236,227,252) 100%)' }}
                                       >
                                         {loc.slice(0, 1).toUpperCase()}
                                       </div>
-                                      <p className="text-[12px] text-[#1e2530] dark:text-[#e4e8f0]" style={RV}>{loc}</p>
+                                      <p className="text-[12px] text-gray-800 dark:text-gray-2000" style={RV}>{loc}</p>
                                     </div>
                                   ))}
                                 </div>
@@ -365,7 +365,7 @@ export function ActivityFeed({ postId }: { postId?: string }) {
                           {/* Media updated badge */}
                           {activity.type === 'media_updated' && activity.details.count && (
                             <span
-                              className="inline-block rounded-[99px] bg-[#ebf4ff] dark:bg-[#1a2d4a] px-2.5 py-0.5 text-[11px] text-[#1f78d1] dark:text-[#5b9cf6]"
+                              className="inline-block rounded-[99px] bg-blue-10 dark:bg-blue-500 px-2.5 py-0.5 text-[11px] text-blue-100 dark:text-blue-80"
                               style={RV}
                             >
                               Updated for {activity.details.count} locations
@@ -375,7 +375,7 @@ export function ActivityFeed({ postId }: { postId?: string }) {
                           {/* Location removed badge */}
                           {activity.type === 'location_removed' && activity.details.locations && (
                             <span
-                              className="inline-block rounded-[99px] bg-[#fff1f0] dark:bg-[#2d1c1a] px-2.5 py-0.5 text-[11px] text-[#d14334]"
+                              className="inline-block rounded-[99px] bg-red-10 dark:bg-red-500 px-2.5 py-0.5 text-[11px] text-red-100"
                               style={RV}
                             >
                               {activity.details.locations[0]}
@@ -388,21 +388,21 @@ export function ActivityFeed({ postId }: { postId?: string }) {
                             <div className="space-y-2">
                               {activity.details.locations && (
                                 <span
-                                  className="inline-block rounded-[99px] bg-[#fff1f0] dark:bg-[#2d1c1a] px-2.5 py-0.5 text-[11px] text-[#d14334]"
+                                  className="inline-block rounded-[99px] bg-red-10 dark:bg-red-500 px-2.5 py-0.5 text-[11px] text-red-100"
                                   style={RV}
                                 >
                                   {activity.details.locations[0]}
                                 </span>
                               )}
                               {activity.details.rejectionReason && (
-                                <div className="rounded-[6px] border border-[#fad3cf] dark:border-[#5c2a24] bg-[#fff7f6] dark:bg-[#2d1c1a] px-3.5 py-3">
+                                <div className="rounded-[6px] border border-red-40 dark:border-red-400 bg-red-10 dark:bg-red-500 px-3.5 py-3">
                                   <p
-                                    className="mb-1 text-[10px] font-medium uppercase tracking-[0.06em] text-[#d14334]"
+                                    className="mb-1 text-[10px] font-medium uppercase tracking-[0.06em] text-red-100"
                                     style={RV}
                                   >
                                     Reason
                                   </p>
-                                  <p className="text-[12px] leading-[18px] text-[#9f2f25] dark:text-[#f08080]" style={RV}>
+                                  <p className="text-[12px] leading-[18px] text-red-200 dark:text-red-70" style={RV}>
                                     {activity.details.rejectionReason}
                                   </p>
                                 </div>

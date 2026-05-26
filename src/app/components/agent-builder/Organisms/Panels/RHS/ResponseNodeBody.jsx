@@ -16,11 +16,11 @@ const font = '"Inter", arial, sans-serif';
 function FieldLabel({ label, required, showInfo }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
-      {showInfo && <i className="icon_phoenix-info" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer' }} />}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
+      {showInfo && <i className="icon_phoenix-info" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer' }} />}
     </div>
   );
 }
@@ -54,7 +54,7 @@ function EmojiPicker({ onSelect }) {
       {open && (
         <div style={{
           position: 'absolute', bottom: 'calc(100% + 6px)', left: 0, zIndex: 200,
-          background: '#fff', border: '1px solid #e5e9f0', borderRadius: 6,
+          background: 'var(--gray-0)', border: '1px solid #e5e9f0', borderRadius: 6,
           boxShadow: '0px 4px 12px rgba(33,33,33,0.18)',
           padding: 8, display: 'grid', gridTemplateColumns: 'repeat(10, 24px)', gap: 2,
           width: 272,
@@ -88,7 +88,7 @@ function ConversationalGoalInput({ value, onChange, onFieldIconClick, onToolClic
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <FieldLabel label="User prompt" required />
-      <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e9f0', borderRadius: 4, boxSizing: 'border-box', background: '#fff', width: '100%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e9f0', borderRadius: 4, boxSizing: 'border-box', background: 'var(--gray-0)', width: '100%' }}>
         <VariableRichInput
           ref={richRef}
           value={value}
@@ -111,7 +111,7 @@ function ConversationalGoalInput({ value, onChange, onFieldIconClick, onToolClic
 
 function ContextInput({ value, onChange, onAdd, inputRef }) {
   return (
-    <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', background: '#fff' }}>
+    <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', background: 'var(--gray-0)' }}>
       <VariableRichInput
         ref={inputRef}
         value={value}
@@ -121,8 +121,8 @@ function ContextInput({ value, onChange, onAdd, inputRef }) {
       />
       <div style={{ padding: '0 10px 8px' }}>
         <button onClick={onAdd} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-          <i className="icon_phoenix-add_circle" style={{ fontSize: 20, color: '#1976d2' }} />
-          <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: '#1976d2', fontFamily: font }}>Add</span>
+          <i className="icon_phoenix-add_circle" style={{ fontSize: 20, color: 'var(--blue-100)' }} />
+          <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--blue-100)', fontFamily: font }}>Add</span>
         </button>
       </div>
     </div>
@@ -205,7 +205,7 @@ export default function ConversationNodeBody({ initialValues = {}, onValuesChang
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           <FieldLabel label="Input fields" showInfo />
-          <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', background: '#fff' }}>
+          <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', background: 'var(--gray-0)' }}>
             <VariableRichInput
               ref={inputFieldsRef}
               value={values.inputFields}
@@ -234,7 +234,7 @@ export default function ConversationNodeBody({ initialValues = {}, onValuesChang
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           <FieldLabel label="Output fields" showInfo />
-          <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', background: '#fff' }}>
+          <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', background: 'var(--gray-0)' }}>
             <VariableRichInput
               ref={outputFieldsRef}
               value={values.outputFields}
@@ -254,13 +254,13 @@ export default function ConversationNodeBody({ initialValues = {}, onValuesChang
                   }, 2000);
                 }} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
                   <img src={AiWandIcon} alt="Generate" style={{ width: 20, height: 20 }} />
-                  <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: '#8f8f8f', fontFamily: font }}>Generate from prompt</span>
+                  <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-90)', fontFamily: font }}>Generate from prompt</span>
                 </button>
               ) : (
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                   <div style={{ width: 16, height: 16, borderRadius: '50%', border: '2px solid #e5e9f0', borderTopColor: '#6d36bf', animation: 'resp-spin 0.8s linear infinite', flexShrink: 0 }} />
                   <style>{`@keyframes resp-spin{to{transform:rotate(360deg)}}`}</style>
-                  <span style={{ fontSize: 11, color: '#212121', opacity: 0.3, fontFamily: font }}>Generating…</span>
+                  <span style={{ fontSize: 11, color: 'var(--gray-900)', opacity: 0.3, fontFamily: font }}>Generating…</span>
                 </div>
               )}
             </div>

@@ -164,7 +164,7 @@ function FieldLabel({ children }: { children: React.ReactNode }) {
 // ─── Status helpers ───────────────────────────────────────────────────────────
 
 const STATUS_CONFIG: Record<string, { dot: string; label: string; text: string; description: string }> = {
-  active:       { dot: "bg-[#377e2c]",       label: "Active",       text: "text-[#377e2c]",        description: "Number is live and ready to make or receive calls."                                             },
+  active:       { dot: "bg-green-300",       label: "Active",       text: "text-green-300",        description: "Number is live and ready to make or receive calls."                                             },
   provisioning: { dot: "bg-amber-500",        label: "Provisioning", text: "text-amber-600",        description: "Number was just purchased and is being activated by the carrier. Usually takes a few minutes." },
   failed:       { dot: "bg-destructive",      label: "Failed",       text: "text-destructive",      description: "Provisioning failed. The number could not be activated. Contact support."                      },
   inactive:     { dot: "bg-muted-foreground", label: "Inactive",     text: "text-muted-foreground", description: "Number exists but is not currently in use. No calls will be routed."                           },
@@ -827,7 +827,7 @@ export function PhoneNumbersView({ initialRows = PHONE_NUMBER_ROWS }: PhoneNumbe
             {searchOpen ? (
               <div className="relative h-[var(--button-height)] w-[240px]">
                 <Search
-                  className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-[#303030] dark:text-muted-foreground"
+                  className="pointer-events-none absolute left-2 top-1/2 size-[14px] -translate-y-1/2 text-gray-600 dark:text-muted-foreground"
                   strokeWidth={1.6} absoluteStrokeWidth aria-hidden
                 />
                 <input
@@ -838,7 +838,7 @@ export function PhoneNumbersView({ initialRows = PHONE_NUMBER_ROWS }: PhoneNumbe
                   onKeyDown={(e) => { if (e.key === "Escape") { setSearch(""); setSearchOpen(false); } }}
                   autoFocus
                   placeholder="Search phone numbers"
-                  className="h-full w-full rounded-[8px] border border-[#e5e9f0] bg-white py-0 pr-8 pl-8 text-[14px] text-[#212121] outline-none transition-colors placeholder:text-[#757575] focus:border-[#2552ED] focus:ring-1 focus:ring-[#2552ED] dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-[#8b92a5]"
+                  className="h-full w-full rounded-[8px] border border-new-selected-color bg-white py-0 pr-8 pl-8 text-[14px] text-gray-900 outline-none transition-colors placeholder:text-gray-100 focus:border-brand-color focus:ring-1 focus:ring-brand-color dark:border-border dark:bg-muted dark:text-foreground dark:placeholder:text-gray-90"
                   aria-label="Search phone numbers"
                 />
                 {search && (
@@ -857,7 +857,7 @@ export function PhoneNumbersView({ initialRows = PHONE_NUMBER_ROWS }: PhoneNumbe
                 aria-label="Search" title="Search phone numbers"
                 onClick={() => setSearchOpen(true)}
               >
-                <Search className="size-[14px] text-[#303030] dark:text-muted-foreground" strokeWidth={1.6} absoluteStrokeWidth aria-hidden />
+                <Search className="size-[14px] text-gray-600 dark:text-muted-foreground" strokeWidth={1.6} absoluteStrokeWidth aria-hidden />
               </Button>
             )}
 

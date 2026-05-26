@@ -30,10 +30,10 @@ function TemplateListView({ templates, onUseTemplate, onTemplateClick }) {
   return (
     <div style={{ width: '100%', fontFamily: font }}>
       {/* Header */}
-      <div style={{ display: 'flex', alignItems: 'center', height: 48, padding: '0 4px', borderBottom: '1px solid #e9e9eb', background: '#fff' }}>
+      <div style={{ display: 'flex', alignItems: 'center', height: 48, padding: '0 4px', borderBottom: '1px solid #e9e9eb', background: 'var(--gray-0)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 2, flex: 1 }}>
-          <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#555' }}>Name</span>
-          <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#555', lineHeight: 1 }}>expand_more</span>
+          <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-300)' }}>Name</span>
+          <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--gray-300)', lineHeight: 1 }}>expand_more</span>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ function TemplateListView({ templates, onUseTemplate, onTemplateClick }) {
               </span>
               <span style={{
                 fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px',
-                color: '#8f8f8f',
+                color: 'var(--gray-90)',
                 whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
               }}>
                 {t.description}
@@ -77,12 +77,12 @@ function TemplateListView({ templates, onUseTemplate, onTemplateClick }) {
             </div>
             <div style={{ position: 'relative', flexShrink: 0, opacity: isHovered || isMenuOpen ? 1 : 0 }} ref={isMenuOpen ? menuRef : null}>
               <Button variant="ghost" size="icon" onClick={() => setOpenMenuId(isMenuOpen ? null : t.id)}>
-                <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#555', lineHeight: 1 }}>more_vert</span>
+                <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--gray-300)', lineHeight: 1 }}>more_vert</span>
               </Button>
               {isMenuOpen && (
                 <div style={{
                   position: 'absolute', right: 0, top: '100%', zIndex: 100,
-                  background: '#fff',
+                  background: 'var(--gray-0)',
                   boxShadow: '0px 4px 8px 0px rgba(33,33,33,0.18)',
                   borderRadius: 4,
                   width: 240,
@@ -95,7 +95,7 @@ function TemplateListView({ templates, onUseTemplate, onTemplateClick }) {
                       background: 'none', border: 'none', cursor: 'pointer',
                       padding: '8px 16px',
                       fontSize: 14, fontWeight: 400, lineHeight: '20px',
-                      letterSpacing: '-0.28px', color: '#555',
+                      letterSpacing: '-0.28px', color: 'var(--gray-300)',
                       fontFamily: font,
                     }}
                     onMouseEnter={e => e.currentTarget.style.background = '#f2f4f7'}
@@ -154,7 +154,7 @@ export default function TemplateLibrary({
             cursor: 'pointer',
             fontSize: 14,
             fontFamily: font,
-            color: '#1976d2',
+            color: 'var(--blue-100)',
             letterSpacing: '-0.28px',
             lineHeight: '20px',
           }}

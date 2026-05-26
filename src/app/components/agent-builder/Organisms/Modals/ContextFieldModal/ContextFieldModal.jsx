@@ -62,18 +62,18 @@ function TabBar({ tabs, activeTab, onTabSelect }) {
 
 function SearchInput({ value, onChange, onClear, placeholder }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 8, height: 36, border: '1px solid #e0e0e0', borderRadius: 4, padding: '0 12px', background: '#fff' }}>
-      <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#757575', flexShrink: 0 }}>search</span>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, height: 36, border: '1px solid #e0e0e0', borderRadius: 4, padding: '0 12px', background: 'var(--gray-0)' }}>
+      <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--gray-100)', flexShrink: 0 }}>search</span>
       <input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        style={{ flex: 1, border: 'none', outline: 'none', fontSize: 14, fontFamily: font, background: 'transparent', color: '#212121' }}
+        style={{ flex: 1, border: 'none', outline: 'none', fontSize: 14, fontFamily: font, background: 'transparent', color: 'var(--gray-900)' }}
       />
       {value && (
         <button type="button" onClick={onClear} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex' }}>
-          <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#757575' }}>close</span>
+          <span className="material-symbols-outlined" style={{ fontSize: 18, color: 'var(--gray-100)' }}>close</span>
         </button>
       )}
     </div>

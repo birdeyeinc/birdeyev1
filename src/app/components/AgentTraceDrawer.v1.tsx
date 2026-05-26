@@ -24,7 +24,7 @@ const STEP_DOT: Record<TraceStepKind, { dot: string; label: string }> = {
   warn:   { dot: "bg-amber-400",    label: "WARN"   },
   ai:     { dot: "bg-violet-500",   label: "AI"     },
   policy: { dot: "bg-blue-500",     label: "POLICY" },
-  system: { dot: "bg-[#999]",       label: "SYSTEM" },
+  system: { dot: "bg-gray-90",       label: "SYSTEM" },
 };
 
 function TraceStepRow({ step, isLast }: { step: typeof TRACE_STEPS[0]; isLast: boolean }) {
@@ -35,8 +35,8 @@ function TraceStepRow({ step, isLast }: { step: typeof TRACE_STEPS[0]; isLast: b
     <div className="flex gap-3">
       {/* Vertical line + dot */}
       <div className="flex flex-col items-center">
-        <div className={cn("mt-1 size-2.5 shrink-0 rounded-full ring-2 ring-white dark:ring-[#1e2229]", s.dot)} />
-        {!isLast && <div className="mt-1 w-px flex-1 bg-[#eaeaea] dark:bg-muted" />}
+        <div className={cn("mt-1 size-2.5 shrink-0 rounded-full ring-2 ring-white dark:ring-gray-700", s.dot)} />
+        {!isLast && <div className="mt-1 w-px flex-1 bg-comparison-0-star dark:bg-muted" />}
       </div>
 
       {/* Content */}
@@ -49,21 +49,21 @@ function TraceStepRow({ step, isLast }: { step: typeof TRACE_STEPS[0]; isLast: b
           <div className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
               <span className={cn("text-[9px] font-bold uppercase tracking-widest", s.dot.replace("bg-", "text-"))}>{s.label}</span>
-              <span className="text-[13px] font-medium text-[#212121] dark:text-foreground">{step.name}</span>
+              <span className="text-[13px] font-medium text-gray-900 dark:text-foreground">{step.name}</span>
             </div>
-            <span className="text-[11px] leading-snug text-[#666] dark:text-muted-foreground">{step.detail}</span>
+            <span className="text-[11px] leading-snug text-gray-200 dark:text-muted-foreground">{step.detail}</span>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            <span className="font-mono text-[10px] text-[#999]">{step.time}</span>
-            <ChevronRight className={cn("size-3 text-[#ccc] transition-transform", open && "rotate-90")} />
+            <span className="font-mono text-[10px] text-gray-90">{step.time}</span>
+            <ChevronRight className={cn("size-3 text-gray-60 transition-transform", open && "rotate-90")} />
           </div>
         </button>
 
         {open && step.kv && (
-          <div className="mt-2 rounded-md bg-[#f5f6f8] dark:bg-app-shell-gutter px-3 py-2 font-mono text-[11px] text-[#444] dark:text-muted-foreground">
+          <div className="mt-2 rounded-md bg-gray-10 dark:bg-app-shell-gutter px-3 py-2 font-mono text-[11px] text-gray-400 dark:text-muted-foreground">
             {Object.entries(step.kv).map(([k, v]) => (
               <div key={k} className="flex gap-2">
-                <span className="text-[#999] dark:text-muted-foreground">{k}:</span>
+                <span className="text-gray-90 dark:text-muted-foreground">{k}:</span>
                 <span>{v}</span>
               </div>
             ))}
@@ -95,7 +95,7 @@ function RubricRow({ label, value, onChange }: { label: string; value: RubricSco
   };
   return (
     <div className="flex items-center justify-between">
-      <span className="text-[13px] text-[#212121] dark:text-foreground">{label}</span>
+      <span className="text-[13px] text-gray-900 dark:text-foreground">{label}</span>
       <div className="flex gap-1">
         {opts.map((o) => (
           <button
@@ -106,7 +106,7 @@ function RubricRow({ label, value, onChange }: { label: string; value: RubricSco
               "cursor-pointer rounded px-2.5 py-1 text-[12px] font-medium capitalize transition-colors",
               value === o
                 ? cn("border-0", colors[o])
-                : "border border-[#eaeaea] dark:border-border text-[#666] dark:text-muted-foreground hover:bg-[#f0f1f5] dark:hover:bg-muted",
+                : "border border-comparison-0-star dark:border-border text-gray-200 dark:text-muted-foreground hover:bg-light-grayish-blue dark:hover:bg-muted",
             )}
           >
             {o}
@@ -122,7 +122,7 @@ function Stars({ rating }: { rating: number }) {
   return (
     <span className="text-[13px] tracking-[-1px]">
       {Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className={i < rating ? "text-amber-400" : "text-[#ddd] dark:text-[#444]"}>★</span>
+        <span key={i} className={i < rating ? "text-amber-400" : "text-gray-50 dark:text-gray-400"}>★</span>
       ))}
     </span>
   );
@@ -218,10 +218,10 @@ export function AgentTraceDrawer({
 
             {/* Incoming review */}
             <section>
-              <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#999] dark:text-muted-foreground">
+              <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-gray-90 dark:text-muted-foreground">
                 Incoming Review
               </p>
-              <div className="rounded-xl border border-[#eaeaea] dark:border-border bg-white dark:bg-background p-4">
+              <div className="rounded-xl border border-comparison-0-star dark:border-border bg-white dark:bg-background p-4">
                 <div className="mb-2 flex items-center gap-2">
                   <div
                     className="flex size-7 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold text-white"
@@ -231,19 +231,19 @@ export function AgentTraceDrawer({
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-[13px] font-medium text-[#212121] dark:text-foreground">{activity.name}</span>
+                      <span className="text-[13px] font-medium text-gray-900 dark:text-foreground">{activity.name}</span>
                       <Stars rating={activity.rating} />
-                      <span className="text-[11px] text-[#999]">{activity.source}</span>
+                      <span className="text-[11px] text-gray-90">{activity.source}</span>
                     </div>
-                    <p className="text-[11px] text-[#999]">{activity.location} · {activity.when}</p>
+                    <p className="text-[11px] text-gray-90">{activity.location} · {activity.when}</p>
                   </div>
                 </div>
                 {activity.draft ? (
-                  <p className="text-[13px] leading-relaxed text-[#444] dark:text-[#b0b7c3] italic">
+                  <p className="text-[13px] leading-relaxed text-gray-400 dark:text-gray-80 italic">
                     "{activity.draft.slice(0, 180)}…"
                   </p>
                 ) : (
-                  <p className="text-[13px] italic text-[#999]">Review content not available for escalated items.</p>
+                  <p className="text-[13px] italic text-gray-90">Review content not available for escalated items.</p>
                 )}
               </div>
             </section>
@@ -252,7 +252,7 @@ export function AgentTraceDrawer({
 
             {/* Execution trace */}
             <section>
-              <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#999] dark:text-muted-foreground">
+              <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-gray-90 dark:text-muted-foreground">
                 Execution Trace
               </p>
               <div className="flex flex-col">
@@ -267,12 +267,12 @@ export function AgentTraceDrawer({
             {/* Draft reply */}
             <section>
               <div className="mb-3 flex items-center justify-between">
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#999] dark:text-muted-foreground">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-90 dark:text-muted-foreground">
                   Draft Reply
                 </p>
                 <div className="flex items-center gap-1.5">
                   <Sparkles className="size-3 text-violet-500" />
-                  <span className="text-[11px] text-[#666] dark:text-muted-foreground">
+                  <span className="text-[11px] text-gray-200 dark:text-muted-foreground">
                     BirdAI · confidence{" "}
                     <span className={cn("font-semibold", confColor)}>
                       {conf > 0 ? conf.toFixed(2) : "—"}
@@ -308,8 +308,8 @@ export function AgentTraceDrawer({
 
             {/* Rubric */}
             <section>
-              <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#999] dark:text-muted-foreground">Rubric</p>
-              <div className="flex flex-col gap-2.5 rounded-xl border border-[#eaeaea] dark:border-border bg-white dark:bg-background px-4 py-3">
+              <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-gray-90 dark:text-muted-foreground">Rubric</p>
+              <div className="flex flex-col gap-2.5 rounded-xl border border-comparison-0-star dark:border-border bg-white dark:bg-background px-4 py-3">
                 <RubricRow label="Tone"     value={rubric.tone}     onChange={(v) => setRubric((r) => ({ ...r, tone: v }))}     />
                 <Separator />
                 <RubricRow label="Accuracy" value={rubric.accuracy} onChange={(v) => setRubric((r) => ({ ...r, accuracy: v }))} />
@@ -330,12 +330,12 @@ export function AgentTraceDrawer({
               </div>
               <div className="flex flex-col gap-1.5">
                 {rules.map((rule, i) => (
-                  <div key={i} className="flex items-center gap-2 rounded-lg bg-[#fafafa] dark:bg-app-shell-rail px-3 py-2">
-                    <span className="flex-1 text-[12px] text-[#444] dark:text-muted-foreground">{rule}</span>
+                  <div key={i} className="flex items-center gap-2 rounded-lg bg-gray-10 dark:bg-app-shell-rail px-3 py-2">
+                    <span className="flex-1 text-[12px] text-gray-400 dark:text-muted-foreground">{rule}</span>
                     <button
                       type="button"
                       onClick={() => setRules((rs) => rs.filter((_, j) => j !== i))}
-                      className="cursor-pointer text-[#ccc] hover:text-red-400 transition-colors"
+                      className="cursor-pointer text-gray-60 hover:text-red-400 transition-colors"
                     >
                       <XCircle className="size-3.5" />
                     </button>
@@ -352,7 +352,7 @@ export function AgentTraceDrawer({
                       }
                     }}
                     placeholder="Add a rule… (Enter to save)"
-                    className="flex-1 rounded-md border border-[#e0e4ea] dark:border-border bg-white dark:bg-background px-3 py-1.5 text-[12px] text-[#212121] dark:text-foreground placeholder:text-[#bbb] dark:placeholder:text-[#555] outline-none focus:border-[#2552ED]"
+                    className="flex-1 rounded-md border border-gray-40 dark:border-border bg-white dark:bg-background px-3 py-1.5 text-[12px] text-gray-900 dark:text-foreground placeholder:text-gray-70 dark:placeholder:text-gray-300 outline-none focus:border-brand-color"
                   />
                   <Button
                     size="sm"

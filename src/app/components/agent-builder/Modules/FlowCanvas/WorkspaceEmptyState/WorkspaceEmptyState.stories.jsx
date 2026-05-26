@@ -14,7 +14,7 @@ export const Default = {
   },
   decorators: [
     (Story) => (
-      <div style={{ height: '100vh', display: 'flex', background: '#f4f6f7' }}>
+      <div style={{ height: '100vh', display: 'flex', background: 'var(--light-grayish-blue)' }}>
         <Story />
       </div>
     ),
@@ -25,7 +25,7 @@ export const LibraryOpen = {
   render: () => {
     const [open, setOpen] = React.useState(true);
     return (
-      <div style={{ height: '100vh', display: 'flex', background: '#f4f6f7' }}>
+      <div style={{ height: '100vh', display: 'flex', background: 'var(--light-grayish-blue)' }}>
         <WorkspaceEmptyState
           onCreateFromScratch={() => {}}
           onUseTemplate={() => {}}

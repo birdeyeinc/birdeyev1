@@ -14,10 +14,10 @@ const BASED_ON_OPTIONS = [
 function SectionLabel({ label, required }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
     </div>
   );
 }
@@ -36,9 +36,9 @@ function BranchItem({ index, name, onRename, onDelete }) {
     <div style={{
       display: 'flex', alignItems: 'center',
       padding: '6px 12px', border: '1px solid #e5e9f0', borderRadius: 4,
-      background: '#fff', gap: 6,
+      background: 'var(--gray-0)', gap: 6,
     }}>
-      <span style={{ fontSize: 14, lineHeight: '20px', color: '#8f8f8f', fontFamily: font, flexShrink: 0 }}>
+      <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--gray-90)', fontFamily: font, flexShrink: 0 }}>
         {index + 1}.
       </span>
       <input
@@ -52,7 +52,7 @@ function BranchItem({ index, name, onRename, onDelete }) {
         }}
         style={{
           flex: 1, border: 'none', outline: 'none',
-          fontSize: 14, lineHeight: '20px', color: '#212121',
+          fontSize: 14, lineHeight: '20px', color: 'var(--gray-900)',
           fontFamily: font, letterSpacing: '-0.28px',
           background: 'transparent', padding: 0, minWidth: 0,
         }}
@@ -64,7 +64,7 @@ function BranchItem({ index, name, onRename, onDelete }) {
       >
         <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#bdbdbd' }}>delete</span>
       </button>
-      <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#c8d0dc', flexShrink: 0, cursor: 'grab' }}>
+      <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--gray-60)', flexShrink: 0, cursor: 'grab' }}>
         drag_indicator
       </span>
     </div>
@@ -84,12 +84,12 @@ function PercentageBranchItem({ index, name, percentage, onRename, onDelete, onC
     <div style={{
       display: 'flex', alignItems: 'center',
       padding: '6px 12px', border: '1px solid #e5e9f0', borderRadius: 4,
-      background: '#fff', gap: 6,
+      background: 'var(--gray-0)', gap: 6,
     }}>
-      <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#c8d0dc', flexShrink: 0, cursor: 'grab' }}>
+      <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--gray-60)', flexShrink: 0, cursor: 'grab' }}>
         drag_indicator
       </span>
-      <span style={{ fontSize: 14, lineHeight: '20px', color: '#8f8f8f', fontFamily: font, flexShrink: 0 }}>
+      <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--gray-90)', fontFamily: font, flexShrink: 0 }}>
         {index + 1}.
       </span>
       <input
@@ -102,7 +102,7 @@ function PercentageBranchItem({ index, name, percentage, onRename, onDelete, onC
         }}
         style={{
           flex: 1, border: 'none', outline: 'none',
-          fontSize: 14, lineHeight: '20px', color: '#212121',
+          fontSize: 14, lineHeight: '20px', color: 'var(--gray-900)',
           fontFamily: font, letterSpacing: '-0.28px',
           background: 'transparent', padding: 0, minWidth: 0,
         }}
@@ -116,7 +116,7 @@ function PercentageBranchItem({ index, name, percentage, onRename, onDelete, onC
           min="0"
           max="100"
         />
-        <span style={{ fontSize: 13, color: '#555', fontFamily: font }}>%</span>
+        <span style={{ fontSize: 13, color: 'var(--gray-300)', fontFamily: font }}>%</span>
       </div>
       <button
         onClick={() => onDelete(index)}
@@ -188,7 +188,7 @@ export default function ControlBranchBody({ initialValues = {}, onValuesChange }
             value={fieldName}
             onChange={(e) => setFieldName(e.target.value)}
           />
-          <span style={{ fontSize: 11, lineHeight: '16px', color: '#8f8f8f', fontFamily: font }}>
+          <span style={{ fontSize: 11, lineHeight: '16px', color: 'var(--gray-90)', fontFamily: font }}>
             Select the field whose value determines the branch
           </span>
         </div>
@@ -219,8 +219,8 @@ export default function ControlBranchBody({ initialValues = {}, onValuesChange }
           onClick={addBranch}
           style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', padding: '4px 0', cursor: 'pointer', alignSelf: 'flex-start' }}
         >
-          <span className="material-symbols-outlined" style={{ fontSize: 20, color: '#1976d2' }}>add_circle</span>
-          <span style={{ fontSize: 14, lineHeight: '20px', color: '#1976d2', fontFamily: font }}>Add</span>
+          <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--blue-100)' }}>add_circle</span>
+          <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--blue-100)', fontFamily: font }}>Add</span>
         </button>
       </div>
     </div>

@@ -47,11 +47,11 @@ export const THINK_MODE_OPTIONS = [
 function FieldLabel({ label, required, showInfo }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: 18 }}>
-      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: '#212121', fontFamily: font }}>
+      <span style={{ fontSize: 12, fontWeight: 400, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--gray-900)', fontFamily: font }}>
         {label}
       </span>
-      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: '#de1b0c', fontFamily: font }}>*</span>}
-      {showInfo && <i className="icon_phoenix-info" style={{ fontSize: 16, color: '#8f8f8f', cursor: 'pointer' }} />}
+      {required && <span style={{ fontSize: 12, lineHeight: '18px', color: 'var(--red-100)', fontFamily: font }}>*</span>}
+      {showInfo && <i className="icon_phoenix-info" style={{ fontSize: 16, color: 'var(--gray-90)', cursor: 'pointer' }} />}
     </div>
   );
 }
@@ -59,10 +59,10 @@ function FieldLabel({ label, required, showInfo }) {
 export function SectionDivider({ label }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-      <span style={{ fontSize: 11, fontWeight: 500, lineHeight: '16px', color: '#8f8f8f', fontFamily: font, whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+      <span style={{ fontSize: 11, fontWeight: 500, lineHeight: '16px', color: 'var(--gray-90)', fontFamily: font, whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
         {label}
       </span>
-      <div style={{ flex: 1, height: 1, background: '#e5e9f0' }} />
+      <div style={{ flex: 1, height: 1, background: 'var(--new-selected-color)' }} />
     </div>
   );
 }
@@ -86,7 +86,7 @@ function ConversationalGoalInput({ value, onChange, onFieldIconClick, onToolClic
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <FieldLabel label="Conversational goal" required />
-      <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e9f0', borderRadius: 4, boxSizing: 'border-box', background: '#fff', width: '100%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e9f0', borderRadius: 4, boxSizing: 'border-box', background: 'var(--gray-0)', width: '100%' }}>
         <textarea
           ref={textareaRef}
           value={value}
@@ -96,7 +96,7 @@ function ConversationalGoalInput({ value, onChange, onFieldIconClick, onToolClic
           style={{
             width: '100%', border: 'none', outline: 'none', resize: 'none',
             padding: '8px 12px', fontSize: 14, fontWeight: 400, lineHeight: `${LINE_HEIGHT}px`,
-            letterSpacing: '-0.28px', color: '#212121', fontFamily: font,
+            letterSpacing: '-0.28px', color: 'var(--gray-900)', fontFamily: font,
             boxSizing: 'border-box', background: 'transparent', overflowY: 'hidden',
           }}
         />
@@ -116,8 +116,8 @@ function AddBox({ onAdd, children }) {
   return (
     <div style={{ border: '1px solid #e5e9f0', borderRadius: 4, padding: '16px 10px', width: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: 24 }}>
       <button onClick={onAdd} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-        <i className="icon_phoenix-add_circle" style={{ fontSize: 20, color: '#1976d2' }} />
-        <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: '#1976d2', fontFamily: font }}>Add</span>
+        <i className="icon_phoenix-add_circle" style={{ fontSize: 20, color: 'var(--blue-100)' }} />
+        <span style={{ fontSize: 12, lineHeight: '18px', letterSpacing: '-0.24px', color: 'var(--blue-100)', fontFamily: font }}>Add</span>
       </button>
       {children}
     </div>
@@ -127,7 +127,7 @@ function AddBox({ onAdd, children }) {
 export function Toggle({ checked, onChange, label }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <span style={{ fontSize: 14, lineHeight: '20px', color: '#212121', fontFamily: font }}>{label}</span>
+      <span style={{ fontSize: 14, lineHeight: '20px', color: 'var(--gray-900)', fontFamily: font }}>{label}</span>
       <div
         onClick={() => onChange(!checked)}
         style={{
@@ -137,7 +137,7 @@ export function Toggle({ checked, onChange, label }) {
       >
         <div style={{
           position: 'absolute', top: 2, left: checked ? 18 : 2,
-          width: 16, height: 16, borderRadius: '50%', background: '#fff',
+          width: 16, height: 16, borderRadius: '50%', background: 'var(--gray-0)',
           transition: 'left 0.2s', boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
         }} />
       </div>
