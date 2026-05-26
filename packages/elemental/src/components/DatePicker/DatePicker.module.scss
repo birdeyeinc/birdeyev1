@@ -1,0 +1,463 @@
+@import 'sass/variables';
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/flexCenterBetween.scss';
+@import 'sass/mixins/flexBox.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/flexCenterVertical.scss';
+
+
+.google-datepicker {
+    z-index: 99999;
+
+    @include abs-position (calc(50% - 230px), 100%, auto, auto);
+    @include size (590px, auto);
+
+    padding: 0 5px 0 0;
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+
+    >div {
+        background: $white;
+        padding: 30px;
+
+        @include border-radius (4px);
+
+        box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .datepicker-head {
+        padding: 0;
+        margin-bottom: 23px;
+
+        @include center-between();
+
+        >div {
+            @include size (50%, auto);
+            max-width: 240px;
+        }
+
+        :global {
+            .icon_phoenix-reset {
+                @include abs-position (11px, 10px);
+                @include font-style (16px, $gray-55);
+
+                cursor: pointer;
+            }
+        }
+    }
+
+    .divider {
+        @include font-style (12px, $default-color);
+
+        margin: 0 10px;
+    }
+
+    &.el-specificity {
+        :global {
+            .react-google-flight-datepicker {
+                .dialog-date-picker {
+                    @include size (100%, auto);
+
+                    position: static;
+                    box-shadow: none;
+                    margin: 0;
+                    display: block !important;
+                    opacity: 1 !important;
+                    transform: initial !important;
+                    animation: initial !important;
+                }
+
+                .date-picker {
+                    padding: 0;
+                }
+
+                .dialog-header,
+                .dialog-footer,
+                .date-picker-input {
+                    display: none;
+                }
+
+                .dialog-content {
+                    border: 0;
+                }
+
+                .calendar-wrapper {
+                    margin: 0;
+                }
+
+                .month-calendar {
+                    @include size (50%, auto);
+
+                    max-width: 240px;
+                }
+
+                .month-name {
+                    @include font-style (15px, $default-color, 400, 1.2);
+
+                    text-align: center;
+                    margin-bottom: 23px;
+                }
+
+                .weekdays {
+                    @include font-style (11px, $gray-99);
+
+                    .weekday {
+                        @include size (24px, 13px);
+
+                        margin: 0 7px;
+                    }
+                }
+
+                .day {
+                    @include size (34px, 24px);
+
+                    margin: 7px 0 2px;
+
+                    @include font-style (13px, $gray-55);
+
+                    .background-day {
+                        display: none;
+                    }
+
+                    &.hovered {
+                        background-color: $phoenix-nav;
+
+                        &.end {
+                            background: linear-gradient(90deg, $phoenix-nav 50%, $white 0);
+                        }
+
+                        &:hover {
+                            background-color: $phoenix-nav;
+                        }
+                    }
+
+                    &:after {
+                        @include size (24px, 24px);
+                    }
+
+                    &.selected {
+                        color: $white;
+
+                        &:after {
+                            background-color: $brand-color !important;
+                        }
+
+                        &.hovered {
+                            background: linear-gradient(90deg, $white 50%, $phoenix-nav 0);
+
+                            &:after {
+                                background-color: $brand-color;
+                            }
+
+                            &.end {
+                                background: linear-gradient(90deg, $phoenix-nav 50%, $white 0);
+                            }
+
+                            &:hover {
+                                color: $white;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        &:after {
+                            border: 0;
+                        }
+                    }
+
+                    &.disabled {
+                        color: $gray-cc;
+                    }
+                }
+
+                .calendar-wrapper {
+                    min-height: 252px;
+                }
+
+                .calendar-flippers {
+                    bottom: auto;
+                }
+
+                .flipper-button {
+                    box-shadow: none;
+
+                    @include size (26px, 26px);
+
+                    display: inline-block;
+                    margin: -4px -1px;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        background-color: $pale-blue;
+                    }
+
+                    svg {
+                        fill: $gray-55;
+                        position: relative;
+                        top: 1px;
+                        left: 1px;
+                        cursor: pointer;
+                    }
+
+                    &.disabled {
+                        background-color: transparent;
+
+                        svg {
+                            fill: $gray-cc;
+                            cursor: default;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.profile-datepicker {
+        &.el-specificity {
+            &.picker-datetime {
+                top: -175px;
+            }
+
+            top: 0;
+            // top: -175px;
+            left: 0;
+            transform: none;
+            padding: 0;
+
+            @include size (320px, auto);
+
+            .datepicker-head {
+                >div {
+                    max-width: initial;
+
+                    @include size (100%, auto);
+                }
+
+                .date-picker-info {
+                    margin-top: 8px;
+
+                    @include flexbox();
+
+                    i {
+                        margin-right: 5px;
+
+                        &:before {
+                            color: $gray-99;
+                        }
+                    }
+
+                    p {
+                        @include font-style(11px, $gray-55, 400, 1.2);
+                    }
+                }
+            }
+        }
+    }
+
+    &.condition-datepicker {
+        top: 0;
+        left: -100px;
+        transform: none;
+        padding: 0;
+
+        .datepicker-head {
+            >div {
+                max-width: initial;
+
+                @include size (100%, auto);
+            }
+        }
+    }
+
+    &.time-todate-datepicker {
+        left: auto;
+        right: 0;
+    }
+
+    &.reopen-datepicker {
+        top: auto;
+        left: auto;
+        right: 30px;
+    }
+
+    .date-picker-popoup {
+        @include center-vertical;
+
+        margin-bottom: 20px;
+        justify-content: space-between;
+
+        >p {
+            @include font-style (17px, false, 500, 25.5px);
+        }
+
+        >i {
+            @include font-style(25px, false, false, false);
+
+            cursor: pointer;
+        }
+    }
+
+
+}
+
+:global {
+    .scheduling-wrapper {
+        :local {
+            .google-datepicker {
+                &.google-datepicker {
+                    right: 0;
+                    left: auto;
+                }
+            }
+        }
+    }
+}
+
+.campaign-datepicker {
+    top: calc(-100% - 90px);
+    left: calc(100% + 7px);
+    bottom: auto;
+    transform: none;
+}
+
+.profile-datepicker {
+    &.el-specificity {
+        :global {
+            .react-google-flight-datepicker {
+                .month-calendar {
+                    @include size (100%, auto);
+
+                    max-width: initial;
+                    margin: 0;
+                    padding: 0 10px;
+                }
+
+                .weekdays {
+                    @include center-between();
+                }
+            }
+        }
+    }
+}
+
+.horizontalCenter {
+    display: block;
+    text-align: center;
+
+    @include font-style(11px, $gray-55, 400, 1.18);
+}
+
+/*-----for inbox Datepicker----*/
+:global {
+    .inside-iframe {
+        :local {
+            .google-datepicker {
+                bottom: 10px !important;
+
+                >div {
+                    padding: 30px;
+                }
+
+                &.el-specificity {
+                    :global {
+                        .react-google-flight-datepicker {
+                            .month-calendar {
+                                margin-right: 43px;
+                                max-width: 240px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .filter-modal-rules {
+        :local {
+            .google-datepicker {
+                left: auto;
+                right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1149px) {
+    .campaign-datepicker {
+        left: calc(100% - 65px);
+    }
+
+    .last-activity-date {
+        right: 15px !important;
+        left: auto !important;
+    }
+
+    .last-activity-date,
+    .campaign-datepicker {
+        @include size(462px, auto);
+
+        padding: 0;
+
+        >div {
+            padding: 30px 15px;
+            margin-bottom: 20px;
+        }
+
+        &.el-specificity {
+            :global {
+                .react-google-flight-datepicker {
+                    .calendar-content {
+                        flex-flow: row;
+                    }
+
+                    .month-calendar {
+                        margin-right: 20px;
+                        max-width: 200px;
+                    }
+
+                    .calendar-flippers {
+                        display: inline-flex;
+                        top: 5px;
+                    }
+
+                    .weekdays {
+                        @include flexbox();
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    :global {
+        .inside-iframe {
+            :local {
+                .google-datepicker {
+                    &.el-specificity {
+                        :global {
+                            .react-google-flight-datepicker {
+                                .month-calendar {
+                                    margin-right: 20px;
+                                    max-width: 200px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Only style for storybook look and feel
+.story-book-style {
+    @include abs-position (auto, 0, auto, auto);
+}
+
+// Only style for storybook look and feel

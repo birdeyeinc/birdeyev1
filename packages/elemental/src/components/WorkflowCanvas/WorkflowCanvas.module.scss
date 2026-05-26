@@ -1,0 +1,29 @@
+@import "sass/master";
+
+.flow-canvas-wrap {
+    @include size(100%, 100%);
+    @include border-radius(8px);
+
+    padding: 0;
+    overflow: hidden;
+
+    div[class*="custom-base-node"] {
+        @include size(400px, auto);
+        @include border-radius(8px);
+
+        padding: 20px;
+        min-height: 64px;
+        background: white;
+        border: 2px solid transparent;
+        transition: all 300ms ease;
+    }
+
+    div[class*="react-flow__panel"] {
+        min-width: auto;
+        top: 15px;
+
+        .element-ui-tooltiptext {
+            display: none;
+        }
+    }
+}

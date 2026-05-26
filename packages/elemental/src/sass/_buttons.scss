@@ -1,0 +1,60 @@
+.ui-dialog-buttonset button {
+    margin-left: 10px;
+}
+
+.ui-button {
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 5px;
+    text-align: center;
+    text-transform: capitalize;
+    outline: 0;
+    width: 69px;
+    height: 26px;
+    border: 0;
+    border-radius: 2px;
+}
+
+.primary {
+    background: #2652ED;
+    border: 1px solid #2652ED;
+}
+
+.secondary {
+    background: transparent;
+    color: #666;
+    border: 1px solid #bbb;
+}
+
+.cancelBtn,
+%cancelBtn {
+    background-color: transparent;
+    color: $gray-66;
+    border: 1px solid $graybb;
+    margin: 1px 0.4em 0.5em 0.37em;
+    border-radius: 2px;
+    padding: 4px 10px;
+    width: 69px;
+    height: 26px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+
+.saveBtn {
+    @extend %cancelBtn;
+
+    background: $brand-color;
+    background-image: none;
+    border: 0;
+    margin-left: 0;
+    color: $white;
+}
+
+.saveBtn.disabledBtn {
+    background: $gray-cc;
+    cursor: default;
+    pointer-events: none;
+}

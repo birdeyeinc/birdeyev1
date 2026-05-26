@@ -1,0 +1,200 @@
+@import "sass/master";
+@import "sass/variables";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/placeholder.scss";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/flexCenterAll.scss";
+@import "sass/mixins/flexBox.scss";
+
+:global {
+
+    .w-full {
+        width: 100% !important;
+    }
+
+    .label-outside {
+        @include font-style(14px, $default-color, 400, 18px);
+
+        margin-bottom: 4px;
+
+        &.required {
+            &:after {
+                @include font-style(12px, $default-color, 400, 18px);
+
+                content: "*";
+                color: $red-circle;
+                margin-left: 2px;
+            }
+        }
+    }
+
+    .value-block {
+        .sub-text {
+            @include font-style(12px, $gray-light, 400, 18px);
+
+            margin-top: 4px;
+            position: relative;
+
+            &:before {
+                content: "\E900D";
+                font-family: 'icomoon' !important;
+                margin-right: 6px;
+            }
+        }
+    }
+
+    .value-wrap {
+        gap: 4px;
+        flex-wrap: wrap;
+
+        .value-block {
+            width: 49%;
+
+            div[class*="popover"] {
+                right: 30px;
+                bottom: 0;
+            }
+        }
+    }
+
+    .value-block {
+        .survey-options {
+            div {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: 180px;
+            }
+
+            span {
+                @include border-radius (4px);
+                @include font-style (12px, false, 400, 18px);
+
+                padding: 4px 8px;
+                display: inline-block;
+                margin-top: 4px;
+
+                /* stylelint-disable */
+                &.on {
+                    background: $greend4e;
+                    color: $avatar-green-text;
+                }
+
+                &.off {
+                    background: $light-grey-border;
+                    color: $gray-55;
+                }
+
+                /* stylelint-enable */
+            }
+        }
+    }
+
+    .color-picker-block {
+        div[class*="popover"] {
+            right: 30px;
+            bottom: 0;
+        }
+    }
+
+    .bg-block {
+        position: relative;
+
+        div[class*="popover"] {
+            bottom: 0;
+
+            div[class*="cover"] {
+                z-index: 1;
+            }
+        }
+
+        div[class*="color-widget-box"] {
+            margin-bottom: 0;
+            width: 100%;
+
+            p {
+                vertical-align: -6px;
+
+                @include font-style(14px, $default-color, 400, 18px);
+            }
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        p,
+        div[class*="middle-block"] {
+            margin-bottom: 0;
+            display: inline-block;
+        }
+
+        div[class*="middle-block"] {
+            float: right;
+        }
+    }
+
+    .form-dropdown {
+        position: relative;
+
+        input {
+            padding-right: 50px !important;
+        }
+
+        .form-dropdown-label {
+            @include abs-position (0, 0, false, false);
+            @include size (50px, 100%);
+
+            border-left: 1px solid rgba(33, 33, 33, 0.18);
+            padding: 12px 8px;
+            cursor: pointer;
+
+            ul {
+                @include abs-position (0, 0, false, false);
+                @include size (calc(100% + 1px), auto);
+                @include border-radius (4px);
+
+                background-color: $white;
+                box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.18);
+                z-index: 1;
+
+                li {
+                    padding: 12px 8px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $pale-blue;
+                    }
+                }
+            }
+        }
+    }
+
+    .range-input-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    input[type=range] {
+        -webkit-appearance: none;
+        /* Override default look */
+        appearance: none;
+        background: $light-pale-blue;
+        /* Remove default background */
+        border: none;
+        padding: 0px;
+        margin: 0px;
+        border-radius: 8px;
+        /* Remove default border */
+        cursor: pointer;
+        /* Set cursor to a pointer */
+        width: 100%;
+        height: 8px;
+        max-width: 200px;
+        /* Example: set a width */
+    }
+
+}

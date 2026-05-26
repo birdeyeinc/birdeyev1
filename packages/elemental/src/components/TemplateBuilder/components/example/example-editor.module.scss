@@ -1,0 +1,113 @@
+@import "sass/master";
+@import "sass/variables";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/placeholder.scss";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/flexCenterAll.scss";
+@import "sass/mixins/flexBox.scss";
+
+.w-full {
+    width: 100%;
+}
+
+.editor-main-container {
+    height: calc(100vh - 50px);
+
+
+    .template-design-section {
+        @include size (calc(100% - 360px), 100%);
+
+        border: 2px solid $pale-blue;
+        border-radius: 2px 2px 0 0;
+        overflow: hidden;
+
+        .editor-container {
+            height: calc(100% - 54px);
+            background: $pale-blue;
+            overflow: auto;
+            position: relative;
+
+            &.editor-rich-text {
+                height: calc(100% - 87px);
+            }
+
+            &.no-rich-text {
+                height: 100%;
+
+                .no-editor {
+                    overflow: visible;
+                }
+            }
+
+            .arrow {
+                @include size (40px, 40px);
+                @include border-radius (50%);
+
+                padding: 8px;
+                box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.18);
+                background-color: $white;
+                cursor: pointer;
+                z-index: 2;
+
+                &.previous {
+                    @include abs-position (50%, false, false, 40px);
+
+                    transform: translateY(-50%);
+
+                    small {
+                        @include size (8px, 8px);
+
+                        border-top: 1.5px solid $grayDark;
+                        border-left: 1.5px solid $grayDark;
+                        transform: rotate(-45deg);
+                        margin-right: -3px;
+                    }
+
+                    .tooltip {
+                        left: 0;
+                    }
+                }
+
+                &.next {
+                    @include abs-position (50%, 40px, false, false);
+
+                    transform: translateY(-50%);
+
+                    small {
+                        @include size (8px, 8px);
+
+                        border-top: 1.5px solid $grayDark;
+                        border-right: 1.5px solid $grayDark;
+                        transform: rotate(45deg);
+                        margin-left: -3px;
+                    }
+
+                    .tooltip {
+                        right: 0;
+                    }
+                }
+
+                .tooltip {
+                    @include abs-position (calc(100% + 10px), false, false, false);
+                    @include border-radius (4px);
+                    @include font-style (13px, $white, 400, 1.2, left);
+
+                    background-color: $gray-455;
+                    cursor: default;
+                    padding: 10px;
+                    display: none;
+                    min-width: max-content;
+                    max-width: 200px;
+                }
+
+                &:hover {
+                    .tooltip {
+                        display: block;
+                    }
+                }
+            }
+        } 
+    }
+}

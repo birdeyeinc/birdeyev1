@@ -1,0 +1,51 @@
+@import "sass/variables";
+@import "sass/mixins/flexBox.scss";
+@import "sass/mixins/sizeStyle.scss";
+@import 'sass/mixins/flexCenterVertical.scss';
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/positionAbsolute.scss";
+
+.calander-select-wrapper {
+    margin-top: 18px;
+    margin-bottom: 18px;
+
+    @include flexbox();
+
+    .dropdown-box {
+        margin-bottom: 0;
+    }
+
+    .filter-dropdown {
+        @include size (112px, auto);
+
+        ul {
+            .tooltip-wrapper {
+                @include size (100%, auto);
+            }
+        }
+    }
+
+    .pst-wrapper {
+        @include center-vertical();
+    }
+
+    .separator-box {
+        position: relative;
+
+        &:after {
+            content: ":";
+            display: inline-block;
+
+            @include font-style (19px, $gray-55, 500, 1.1);
+            @include abs-position(8px, -8px, false, false);
+        }
+    }
+
+    :global {
+        .icon {
+            &.icon_phoenix-checkmark {
+                @include abs-position(11px, 8px, false, false);
+            }
+        }
+    }
+}

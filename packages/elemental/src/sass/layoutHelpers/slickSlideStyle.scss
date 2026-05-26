@@ -1,0 +1,141 @@
+@import "../variables";
+
+.slick-slider-feature {
+    background: $white;
+
+    :global {
+        .icon-reset {
+            color: $white;
+        }
+    }
+
+    .new-feature-box {
+        .slide-box {
+            .inner-box {
+                .slide-image {
+                    width: 100%;
+                    vertical-align: top;
+                    min-height: 272px;
+                }
+
+                .welcome-txt {
+                    padding: 30px;
+                    text-align: center;
+
+                    h3 {
+                        font-size: 18px;
+                        font-weight: 500;
+                        margin-bottom: 18px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        line-height: 1.43;
+                        margin-bottom: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .slick-dots {
+        position: relative;
+        padding-bottom: 30px;
+        top: 0;
+
+        li {
+            margin: 0 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #dde3e6;
+
+            &:hover,
+            &.slick-active {
+                background-color: #8993a4;
+            }
+
+            button {
+                width: 10px;
+                height: 10px;
+                padding: 0;
+
+                &:before {
+                    width: 10px;
+                    height: 10px;
+                    content: '';
+                }
+            }
+        }
+    }
+}
+
+.slick-slider-feature-new {
+    background: transparent;
+
+    :global {
+        .icon-reset {
+            color: $white;
+        }
+    }
+
+    .new-feature-box {
+        .slide-box {
+            .inner-box {
+                .slide-image {
+                    width: 100%;
+                    vertical-align: top;
+                    min-height: 272px;
+                }
+
+                .welcome-txt {
+                    padding: 30px;
+                    text-align: center;
+
+                    h3 {
+                        font-size: 18px;
+                        font-weight: 500;
+                        margin-bottom: 18px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        line-height: 1.43;
+                        margin-bottom: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .slick-dots {
+        position: absolute;
+        padding-bottom: 30px;
+        top: 16px;
+
+        li {
+            margin: 0 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #dde3e6;
+
+            &:hover,
+            &.slick-active {
+                background-color: #8993a4;
+            }
+
+            button {
+                width: 10px;
+                height: 10px;
+                padding: 0;
+
+                &:before {
+                    width: 10px;
+                    height: 10px;
+                    content: '';
+                }
+            }
+        }
+    }
+}

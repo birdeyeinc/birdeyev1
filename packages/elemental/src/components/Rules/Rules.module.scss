@@ -1,0 +1,324 @@
+@import 'sass/variables';
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/flexBox.scss";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/borderRadius.scss";
+@import 'sass/mixins/textOverflow.scss';
+
+.condition-wrap {
+    @include flexbox();
+
+    align-items: center;
+    margin-bottom: 20px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.field-wrap {
+    @include flexbox();
+}
+
+.cross-btn {
+    cursor: pointer;
+    margin-left: 10px;
+
+    @include font-style (16px, $gray-55, 500);
+}
+
+// not able to see the use of this class
+// .view-mode {
+//     align-items: center;
+//     width: 100%;
+//     margin-bottom: 20px;
+
+//     .condition-details {
+//         padding: 10px 15px;
+//         border-radius: 4px;
+//         background-color: $phoenix-nav;
+//         width: calc(100% - 25px);
+
+//         @include flexbox();
+
+//         justify-content: space-between;
+
+//         > span {
+//             @include font-style (15px, $brand-color, 500, 1.2);
+//             @include text-overflow();
+
+//             display: inline-block;
+//         }
+
+//         .cross-btn {
+//             // line-height: 1.3;
+
+//             &:before {
+//                 @include font-style (16px, $gray-55, 500);
+//             }
+//         }
+
+//         &:hover {
+//             background-color: $filter-hover;
+//             cursor: pointer;
+//         }
+//     }
+// }
+// not able to see the use of this class
+
+// :global {
+//     .filter-rules {
+//         :local {
+//             .condition-wrap {
+//                 position: fixed;
+//                 height: 101px;
+//                 padding: 1px 24px 8px 15px;
+//                 border-radius: 4px;
+//                 box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.15);
+//                 background-color: $white;
+//                 z-index: 3;
+//             }
+
+//             // not able to see the use of this class
+//             // .view-mode {
+//             //     margin-bottom: 10px;
+
+//             //     .condition-details {
+//             //         width: 100%;
+//             //     }
+//             // }
+//             // not able to see the use of this class
+//         }
+//     }
+//     // Removed audience-modal class , since it was module specific
+
+//     // Review filter-modal-rules class, since it's usage is not clear
+
+//     // move style to UIweb 2.0 path src/sass/filterSelect.scss
+//     // .filter-modal-rules {
+//     //     :local {
+//     //         .field-wrap {
+//     //             > div {
+//     //                 &:global {
+//     //                     &.w-240 {
+//     //                         width: 160px;
+//     //                     }
+//     //                 }
+//     //             }
+//     //         }
+
+//     //         // not able to see the use of this class
+//     //         // .view-mode {
+//     //         //     margin-bottom: 10px;
+//     //         // }
+//     //         // not able to see the use of this class
+
+
+//     //         // not able to see the use of this class
+//     //         // .condition-details {
+//     //         //     width: 100%;
+//     //         // }
+//     //         // not able to see the use of this class
+//     //     }
+
+//     //     // question-singleselect class used gloal to use to tackle different UIweb globsl class
+//     //     :global {
+//     //         .question-singleselect {
+//     //             .ms-drop {
+//     //                 &.dropdown-popup {
+//     //                     width: 700px;
+
+//     //                     .inner {
+//     //                         position: static !important;
+//     //                     }
+//     //                 }
+//     //             }
+//     //         }
+//     //     }
+//     //     // question-singleselect class used gloal to use to tackle different UIweb globsl class
+//     // }
+//     // move style to UIweb 2.0 path src/sass/filterSelect.scss
+
+
+//     // Removed .new-filter-rules-modal class, since it was module specific
+
+//     // Review .left-filters class, since it's usage is not clear
+//     // .left-filters {
+//     //     position: relative;
+
+//     //     :local {
+//     //         .condition-wrap {
+//     //             position: absolute;
+//     //             right: 0;
+//     //             top: 0;
+//     //         }
+//     //     }
+
+//     //     &.ie-left-filter {
+//     //         :local {
+//     //             .condition-wrap {
+//     //                 min-width: 873px;
+//     //             }
+//     //         }
+//     //     }
+//     // }
+//     // not able to see the use of this class
+// }
+
+
+.datepicker-wrapper {
+    .select-button {
+        span {
+            @include text-overflow();
+        }
+    }
+}
+
+.team-select-box {
+    .team-block {
+        ul {
+            div {
+                li {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
+    &.survey-team-selectbox {
+        .team-block {
+            ul {
+                li {
+                    label {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.delay-wrap {
+    position: relative;
+
+    .delay-dropdown {
+        width: 88px;
+
+        .show-error {
+            input {
+                border-color: $error-red;
+            }
+        }
+    }
+
+    .txt {
+        @include font-style (15px, $gray-55, 400, "22px");
+    }
+
+    .error-msge {
+        font-size: 11px;
+        color: $error-red;
+        position: absolute;
+        bottom: -14px;
+        min-width: 230px;
+        font-weight: 500;
+        left: 28px;
+    }
+}
+
+.range-input-field {
+    section {
+        width: 88px;
+    }
+}
+
+.differentiator-wrap {
+    margin: 0 4px;
+    display: inline-block;
+    color: $gray-cc;
+}
+
+.appointment-time-error {
+    position: relative;
+
+    div[class*="select-box"] {
+        border: 1px solid $error-red;
+        padding: 10px 35px 8.5px 15px;
+        background: $white;
+
+        label {
+            @include font-style (15px, $gray-55, 400, "22px");
+        }
+
+        div[class*="selected-values"] {
+            @include font-style (15px, $gray-55, 400, "22px");
+        }
+
+        span[class*="reset-btn"] {
+            display: none;
+        }
+    }
+
+    .error-msge {
+        display: none;
+
+        @include font-style (15px, $white, 400, 22px);
+        @include border-radius (4px);
+        @include abs-position (85%, false, false, 50%);
+
+        transform: translateX(-35%);
+        padding: 8px 15px;
+        z-index: 1;
+        min-width: 425px;
+        background: $gray-455;
+    }
+
+    // used global for icomoon icon class
+    :global {
+        .icon_phoenix-warning-fill {
+            @include abs-position (50%, 24px, false, false);
+
+            z-index: 1;
+            transform: translateY(-50%);
+            background: $white;
+            font-size: 16px;
+
+            &:before {
+                color: $error-red;
+            }
+
+            &:hover {
+                +div {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    // used global for icomoon icon class
+}
+
+.custom-datetrigger-wrap {
+    .inline-selectbox {
+        margin-right: 4px;
+    }
+
+    .delay-dropdown {
+        @include size (auto, auto);
+
+        margin-right: 4px;
+
+        :global {
+            .valid {
+                @include size (53px, auto);
+            }
+        }
+    }
+
+    .txt {
+        margin-right: 4px;
+    }
+}
+
+// Removed audience-modal (@media query) class, since it was module specific

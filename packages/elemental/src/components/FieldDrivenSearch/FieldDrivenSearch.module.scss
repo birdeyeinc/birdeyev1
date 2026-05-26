@@ -1,0 +1,68 @@
+.field-driven-search {
+  display: flex;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+
+  .field-select {
+    flex-shrink: 0;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+
+    &:after {
+        content: "";
+        height: 70%;
+        width: 1px;
+        background-color: #CCC;
+    }
+
+    :global {
+      .el-single-select {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+
+        .select-box,
+        .default-filter,
+        .el-ss-select-box,
+        .el-ss-default-filter {
+          border: 0;
+          width: 100%;
+          display: flex;
+          align-items: center;
+        }
+
+        .dropdown-open,
+        .el-ss-dropdown-open {
+          min-height: 45px;
+          width: var(--dropdown-width);
+          border-top-right-radius: 0;
+        }
+
+        .ms-drop {
+          left: -1px;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          min-width: var(--dropdown-width);
+          width: var(--dropdown-width);
+        }
+      }
+    }
+  }
+
+  .search-input {
+    flex: 1;
+    min-width: 0;
+
+    :global {
+      .el-searchfilter {
+        border: 0;
+
+        input {
+          border: 0;
+        }
+      }
+    }
+  }
+}

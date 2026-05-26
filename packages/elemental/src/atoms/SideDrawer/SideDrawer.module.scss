@@ -1,0 +1,41 @@
+@import "sass/sideDrawerStyle";
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/flexCenterVertical.scss';
+
+.scrollable-drawer{
+    .header-button-wrapper {
+        div {
+            @include center-vertical();
+        }
+
+        i {
+            &:before {
+                @include font-style (15px, false, false, false, false);
+            }
+        }
+    }
+
+    .info-bar {
+        min-height: 40px;
+        padding: 15px;
+
+        @include border-radius(4px);
+
+        span {
+            @include center-vertical();
+
+            i{
+                margin-right: 8px;
+            }
+        }
+
+        &.optout-msg {
+            background-color: $blue20;
+        }
+
+        &.blocked-msg {
+            background-color: $red20;
+        }
+    }
+};

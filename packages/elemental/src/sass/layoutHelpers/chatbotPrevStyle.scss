@@ -1,0 +1,14 @@
+@import "../mixins/fontStyle.scss";
+@import "../variables";
+
+.chatbot-msg-prev {
+    @include font-style (15px, $default-color, false, 1.33);
+
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 40px;
+}

@@ -1,0 +1,158 @@
+// Chart Component Styles
+.chartWrapper {
+  width: 100%;
+}
+
+.chartNavigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.navButton {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  
+  &:enabled {
+    background: #007bff;
+    color: #fff;
+    
+    &:hover {
+      background: #0056b3;
+    }
+  }
+  
+  &:disabled {
+    background: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+  }
+}
+
+.navInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.chartTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.chartCounter {
+  font-size: 11px;
+  color: #666;
+}
+
+.chartContainer {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+}
+
+.expandButton {
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+  background: #434343a7;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  
+  &:hover {
+    background: #343434;
+  }
+}
+
+// Modal specific styles
+.modalNavigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.modalNavButton {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  
+  &:enabled {
+    background: #007bff;
+    color: #fff;
+    
+    &:hover {
+      background: #0056b3;
+    }
+  }
+  
+  &:disabled {
+    background: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+  }
+}
+
+.modalNavInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.modalChartTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.modalChartCounter {
+  font-size: 12px;
+  color: #666;
+}
+
+.modalContent {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chartError {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}

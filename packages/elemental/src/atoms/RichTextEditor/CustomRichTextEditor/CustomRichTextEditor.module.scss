@@ -1,0 +1,708 @@
+@import "sass/variables";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/fontStyle.scss";
+.custom-rich-text-wrapper {
+    @include size (100%, 100%);
+
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible;
+
+    .custom-toolbar-container {
+        position: absolute;
+        top: -50px;
+        left: 0;
+        flex-shrink: 0;
+        height: auto;
+        margin-bottom: 0;
+        width: fit-content;
+        background-color: $white;
+        border: 1px solid $gray2000;
+        padding: 7px 12px;
+        z-index: 50;
+        @include border-radius (8px);
+        display: flex;
+        align-items: center;
+
+        &:global {
+            &.ql-snow {
+                .ql-formats {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    vertical-align: middle;
+                    margin-right: 4px;
+                    &:last-child {
+                        margin-right: 0px;
+                    }
+                    & > * {
+                        margin-right: 4px;
+                        &:last-child {
+                            margin-right: 0px;
+                        }
+                    }
+
+                    .ql-size {
+                        @include size (70px, 28px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &.ql-expanded {
+                            .ql-picker-label {
+                                 background-color: $gray40  ;
+                            }
+                        }
+                        .ql-picker-label {
+                            padding: 2px 4px;
+                            border: 1px solid $gray40;
+                            @include border-radius (4px);
+                            position: relative;
+                            &:hover {
+                                background-color: $lightGrayColor;
+                            }
+                            &:before {
+                                @include font-style (12px,$gray900, 400, );
+                            }
+                            svg {
+                                display: none;
+                            }
+                            &:after {
+                                content: "\f1a83";        
+                                font-family: 'icomoon';  
+                                margin-left: 6px;
+                                font-size: 14px;
+                                position: absolute;
+                                top : 50%;
+                                right: 4px;
+                                transform: translateY(-50%);
+                                color: $gray90;
+                                speak: none;
+                                font-style: normal;
+                                font-weight: normal;
+                                line-height: 1;
+                            }
+
+                            &[data-value="small"] ~ .ql-picker-options .ql-picker-item[data-value="small"],
+                            &[data-value="Normal"] ~ .ql-picker-options .ql-picker-item[data-value="Normal"],
+                            &[data-value="large"] ~ .ql-picker-options .ql-picker-item[data-value="large"],
+                            &[data-value="huge"]  ~ .ql-picker-options .ql-picker-item[data-value="huge"] {
+                                 background-color: $blue20 !important;
+                                 color: $brand-color !important;
+                                &::after{
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        .ql-picker-options {
+                            @include size (240px, auto);
+                            padding: 12px 16px;
+                            box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.18);
+                            @include border-radius (4px);
+                            border: none;
+                            left: 0px;
+
+                            .ql-picker-item {
+                                padding: 8px 8px 8px 12px;
+                                margin-bottom: 4px;
+                                @include border-radius (4px);
+                                position: relative;
+                                &:last-child {
+                                    margin-bottom: 0px;
+                                }
+                                &:after {
+                                    content: "\ed993";        
+                                    font-family: 'icomoon';  
+                                    margin-left: 6px;
+                                    font-size: 16px;
+                                    position: absolute;
+                                    top : 50%;
+                                    right: 8px;
+                                    transform: translateY(-50%);
+                                    color: $brand-color;
+                                    speak: none;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    line-height: 1;
+                                    display: none;
+                                }
+                                &:hover {
+                                    background-color: $lightGrayColor;
+                                    color: $gray900;
+                                }
+
+                                &[data-value="small"] {
+                                    @include font-style (14px,$gray300, 500, 20px);
+                                    &::before {
+                                        @include font-style (14px,$gray300, 500, 20px);
+                                    }
+                                }
+                                &[data-value="Normal"] {
+                                    @include font-style (18px,$gray300, 400, 26px );
+                                    &::before {
+                                        @include font-style (18px,$gray300, 400, 26px);
+                                    }
+                                }
+                                &[data-value="large"] {
+                                    @include font-style (20px,$gray300, 400, 30px);
+                                    &::before {
+                                        @include font-style (20px,$gray300, 400, 30px);
+                                    }
+                                }
+                                &[data-value="huge"] {
+                                    @include font-style (24px,$gray300, 400, 36px);
+                                    &::before {
+                                        @include font-style (24px,$gray300, 400, 36px);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .ql-color {
+                        @include size (44px, 28px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &.ql-expanded {
+                            .ql-picker-label {
+                                    background-color: $gray40   ;
+                            }
+                        }
+                        .ql-picker-label {
+                            border: 1px solid $gray40;
+                            @include border-radius (4px);
+                            &:hover {
+                                background-color: $lightGrayColor;
+                                color: $gray900;
+                            }
+
+                            svg {
+                                width: 16px;
+                                position: absolute;
+                                top: 7px;
+                                left: 3px;
+                                .ql-stroke {
+                                    display: none;
+                                }
+                                .ql-color-label {
+                                    display: block;
+                                    opacity: 1; 
+                                    stroke: $gray900;
+                                }
+                            }
+                            &:after {
+                                content: "\f1a83";        
+                                font-family: 'icomoon';  
+                                margin-left: 6px;
+                                font-size: 14px;
+                                position: absolute;
+                                top : 50%;
+                                right: 4px;
+                                transform: translateY(-50%);
+                                color: $gray90;
+                                speak: none;
+                                font-style: normal;
+                                font-weight: normal;
+                                line-height: 1;
+                            }
+                            &:before {
+                                content: "A";        
+                                font-family: 'Inter', sans-serif;
+                                font-size: 14px;
+                                position: absolute;
+                                top : 49%;
+                                left: 5.9px;
+                                transform: translateY(-50%);
+                                color: $gray900;
+                                speak: none;
+                                font-style: normal;
+                                font-weight: normal;
+                                line-height: 1;
+                            }
+
+                            &[data-value="#303030"] ~ .ql-picker-options .ql-picker-item[data-value="#303030"],
+                            &[data-value="#4cae3d"] ~ .ql-picker-options .ql-picker-item[data-value="#4cae3d"],
+                            &[data-value="#de1b0c"] ~ .ql-picker-options .ql-picker-item[data-value="#de1b0c"],
+                            &[data-value="#8f8f8f"]  ~ .ql-picker-options .ql-picker-item[data-value="#8f8f8f"],
+                            &[data-value="#2652ED"]  ~ .ql-picker-options .ql-picker-item[data-value="#2652ED"] {
+                                border: 2px solid $white;        /* inner white line */
+                                box-shadow: 0 0 0 1px $brand-color;
+                            }
+                        }
+                        &.ql-expanded {
+                            .ql-picker-options {
+                                display: grid ;
+                            }
+                        }
+                        .ql-picker-options {
+                            @include size (128px, auto);
+                            padding: 8px;
+                            box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.18);
+                            @include border-radius (4px);
+                            border: none;
+                            left: 0px;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 8px;
+                            align-items: center;
+
+                            .ql-picker-item {
+                                @include size (28px, 28px);
+                                @include border-radius (50%);
+                                border: 1px solid transparent;
+                                cursor: pointer;
+                                padding: 0;
+                                position: relative;
+                                overflow: hidden;
+                                box-sizing: border-box;
+                            }
+                        }
+
+                        .ql-expanded {
+                            .ql-picker-options {
+                                display: grid;
+                            }
+                        }
+                    }
+
+                    .ql-align {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                         @include size (44px, 28px);
+                         &.ql-expanded {
+                            .ql-picker-label {
+                                 background-color: $gray40;
+                            }
+                            .ql-picker-options{
+                                display: grid;
+                            }
+                         }
+                        .ql-picker-label {
+                            border: 1px solid $gray40;
+                            display: flex;
+                            align-items: center;
+                            @include border-radius (4px);
+                            &:hover {
+                                background-color: $lightGrayColor;
+                                color: $gray900;
+                                svg .ql-stroke {
+                                    stroke: $gray900;
+                                }
+                            }
+
+                            svg{
+                                @include size (17px, 17px);
+                                .ql-stroke {
+                                    stroke: $gray900;
+                                }
+                            }
+
+                             &:after {
+                                content: "\f1a83";        
+                                font-family: 'icomoon';  
+                                font-size: 14px;
+                                position: absolute;
+                                top : 50%;
+                                right: 4px;
+                                transform: translateY(-50%);
+                                color: $gray90;
+                                speak: none;
+                                font-style: normal;
+                                font-weight: normal;
+                                line-height: 1;
+                            }
+
+                            &[data-value="center"] ~ .ql-picker-options .ql-picker-item[data-value="center"],
+                            &[data-value="right"] ~ .ql-picker-options .ql-picker-item[data-value="right"],
+                            &[data-value="justify"] ~ .ql-picker-options .ql-picker-item[data-value="justify"],
+                            &[data-value=""]  ~ .ql-picker-options .ql-picker-item[data-value=""] {
+                                background-color: $gray40;
+                            }
+                        }
+                        .ql-picker-options {
+                            @include size (128px, auto);
+                            padding: 8px;
+                            box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.18);
+                            @include border-radius (4px);
+                            border: none;
+                            left: 0px;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 8px;
+                            align-items: center;
+
+                            .ql-picker-item {
+                                @include size (32px, 32px);
+                                border: 1px solid transparent;
+                                cursor: pointer;
+                                padding: 6px;
+                                position: relative;
+                                overflow: hidden;
+                                box-sizing: border-box;
+                                border-radius: 4px;
+                                &:hover {
+                                    background-color: $lightGrayColor;
+                                    svg {
+                                        .ql-stroke {
+                                            stroke: $gray900;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .ql-underline,
+                    .ql-italic,
+                    .ql-bold {
+                        @include size (28px, 28px);
+                        padding: 4px;
+                        @include border-radius (4px);
+                        svg {
+                            .ql-stroke {
+                                stroke: $gray44;
+                            }
+                            .ql-fill {
+                                fill: $gray44;
+                            }
+                        }
+                        &:hover {
+                            background-color: $lightGrayColor;
+                        }
+                        &.ql-active {
+                            background-color: $gray40;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            align-items: center;
+
+            .color-option {
+                @include size (28px, 28px);
+                @include border-radius (50%);
+
+                border: 1px solid $newSelectedColor;
+                cursor: pointer;
+                padding: 0;
+                box-sizing: border-box;
+
+                &:hover {
+                    border-color: $selectedGrayColor;
+                }
+
+                &.selected {
+                    // @include size (24px, 24px);
+
+                    // position: relative;
+                    border: 2px solid #fff;
+                    box-shadow: 0 0 0 1px #2652ED;
+                    // &::before {
+                    //     content: "";
+                    //     width: 28px;
+                    //     height: 28px;
+                    //     border: 1px solid $brand-color;
+                    //     display: block;
+                    //     position: fixed;
+                    //     border-radius: 50%;
+                    //     top: auto;
+                    //     left: auto;
+                    //     transform: translate(-4px, -15px);
+                    // }
+                }
+
+                &.none-indicator {
+                    background: linear-gradient(to top right, transparent calc(50% - 1px), #d1d5db, transparent calc(50% + 1px));
+                }
+            }
+
+            .align-option {
+                @include size (28px, 28px);
+                @include border-radius (4px);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid transparent;
+                background: transparent;
+                cursor: pointer;
+                padding: 0;
+                color: $gray44;
+
+                &:hover {
+                    background-color: $lightGrayColor;
+                }
+
+                &.selected {
+                    background-color: $gray40;
+                    color: $gray900;
+                }
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        
+    }
+}
+
+.custom-rich-text-editor-container {
+    @include border-radius (8px);
+
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+
+    :global(.quill) {
+        height: 100%;
+    }
+
+    :global(.ql-container.ql-snow) {
+        @include border-radius (8px);
+
+        border: 1px solid var(--rte-border-color, #{$newSelectedColor}) !important;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        font-family: inherit;
+        font-size: 16px;
+        color: #1f2937;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    :global(.ql-editor) {
+        flex: 1;
+        overflow-y: auto;
+        margin: 20px;
+        line-height: 1.6;
+        padding: 0;
+        text-align: justify;
+
+        p {
+
+            span,
+            strong {
+                background-color: transparent !important;
+                line-height: 1.6;
+            }
+        }
+
+        // Custom scrollbar styles
+        &::-webkit-scrollbar {
+            width: 5px;
+            background-color: $white;
+        }
+
+        &::-webkit-scrollbar-track {
+            border: 1px $white solid;
+            border-radius: 2px;
+            -webkit-box-shadow: 0 0 6px $white inset;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $gray-d8;
+            border: 1px solid $white;
+            border-radius: 20px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: $gray-d8;
+            border: 1px solid $white;
+        }
+
+        &::-webkit-scrollbar-thumb:active {
+            background-color: $gray-d8;
+            border: 1px solid $white;
+        }
+    }
+
+    :global(.ql-editor.ql-blank::before) {
+        left: 20px;
+        right: 32px;
+        color: $selectedGrayColor;
+        font-style: normal;
+    }
+
+    &.vertical-align-top {
+        :global(.ql-editor) {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+
+    &.vertical-align-middle {
+        :global(.ql-editor) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &.vertical-align-bottom {
+        :global(.ql-editor) {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+    }
+
+    &.content-overflowing {
+        :global(.ql-editor) {
+            display: block !important;
+            justify-content: initial !important;
+        }
+    }
+}
+
+.custom-toolbar-btn-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    // margin-left: 2px;    
+    height: 28px;
+    vertical-align: middle;
+
+    .ql-custom-paint {
+        @include size (44px !important, 28px !important);
+        @include border-radius (4px);
+        padding: 2px 3px !important;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid $gray40 !important;
+        background: none;
+        cursor: pointer;
+        color: $gray44;
+
+        &:hover,
+        &.active {
+            background-color: $gray40;
+            i {
+                &:before {
+                    color: $gray900;
+                }
+            }
+        }
+
+        &.selected-value {
+            color: $brand-color;
+
+            svg :global(.ql-fill) {
+                fill: $brand-color;
+            }
+        }
+
+        svg {
+            @include size (16px, 16px);
+
+            stroke-width: 2;
+
+            :global(.ql-fill) {
+                fill: $gray44;
+            }
+        }
+    }
+    .ql-color-picker {
+        .ql-picker-options {
+            display: flex;
+        }
+    }
+}
+
+.icon-container {
+    &:after {
+        content: "\f1a83";        
+        font-family: 'icomoon';  
+        font-size: 14px;
+        position: absolute;
+        top : 50%;
+        right: 4px;
+        transform: translateY(-50%);
+        color: $gray90;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+    }
+
+    .paint-icon-wrapper {
+        display: flex;
+        width: 17px;
+        flex-direction: column;
+
+        i {
+            color: $gray900;
+        }
+    }
+
+    svg {
+        fill: $gray900;
+    }
+}
+
+.color-indicator {
+    @include size (16px, 3px);
+    @include border-radius (1px);
+
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    margin-top: 1px;
+}
+
+.toolbar-color-popover {
+    // @include abs-position (36px, false, false, 50%);
+    position: absolute;
+    padding: 8px;
+    box-shadow: 0 4px 8px 0 rgba(33, 33, 33, 0.18);
+    @include border-radius (4px);
+    border: none;
+    left: 0px;
+    top: 100%;
+    width: 128px;
+    background-color: $white;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+
+
+.none-indicator {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, transparent calc(50% - 1px), #d1d5db, transparent calc(50% + 1px));
+    transform: rotate(0deg);
+}
+
+.custom-jsx-container {
+    position: absolute;
+    right: 8px;
+    top: 26px;
+    transform: translateY(-50%);
+    display: flex;
+    z-index: 30;
+}
+
+.hide-trailing-line {
+    :global(.ql-editor) > p:last-child {
+        display: none !important;
+    }
+}

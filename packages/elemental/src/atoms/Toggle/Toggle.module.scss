@@ -1,0 +1,228 @@
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/positionVerticalHorizontalBoth.scss';
+@import 'sass/mixins/flexCenterAll.scss';
+@import 'sass/mixins/transformStyle.scss';
+@import 'sass/variables';
+
+.toggle-wrapper {
+    display: inline-block;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+
+    @include size (45px, 24px);
+}
+
+.switch-input {
+    opacity: 0;
+}
+
+.slider {
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    @include abs-position (0, 0, 0, 0);
+
+    background-color: $gray-cc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+
+    @include border-radius (4px);
+
+    &:before {
+        content: "";
+
+        @include abs-position (false, false, 2px, 2px);
+
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+
+        @include size (18px, 18px);
+        @include border-radius (2px);
+
+        background-color: $white;
+    }
+}
+
+.switch-label {
+    &:before,
+    &:after {
+        @include center (vertical, true);
+        @include font-style (12px, false, 500, 0.7);
+
+        cursor: pointer;
+        z-index: 1;
+        text-transform: uppercase;
+        display: none;
+    }
+
+    &:before {
+        content: attr(data-off);
+        right: 11px;
+        color: $gray-55;
+    }
+
+    &:after {
+        content: attr(data-on);
+        left: 11px;
+        color: $white;
+        opacity: 0;
+    }
+}
+
+.switch-input {
+    &:checked {
+        ~ .switch-label {
+            &:before {
+                opacity: 0;
+            }
+
+            &:after {
+                opacity: 1;
+            }
+        }
+
+        ~ .slider {
+            background-color: $brand-color;
+
+            &:before {
+                @include transform (translate(22px, 0));
+            }
+        }
+    }
+
+    &.disabled-switch-input {
+        ~ .slider {
+            background-color: $gray-cc;
+        }
+    }
+}
+
+.disabled-off {
+    .switch-label {
+        &:before {
+            color: $gray-cc;
+        }
+
+        &:after,
+        &:before {
+            cursor: default;
+        }
+    }
+
+    .slider {
+        background-color: $pale-blue;
+        cursor: default;
+        border: 1px solid $gray-e9;
+    }
+}
+
+/*-----graph toggle in reports-----*/
+.graph-toogle {
+    vertical-align: middle;
+
+    .switch {
+        @include size (82px, 38px);
+    }
+
+    .slider {
+        background-color: $pale-blue;
+
+        &:after,
+        &:before {
+            display: none;
+        }
+    }
+
+    .switch-input {
+        &:checked {
+            ~ .slider {
+                background-color: $pale-blue;
+
+                .table-wrap {
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+                    background-color: $white;
+
+                    i {
+                        &:before {
+                            color: $brand-color;
+                        }
+                    }
+                }
+
+                .chart-wrap {
+                    background-color: transparent;
+                    box-shadow: none;
+
+                    i {
+                        &:before {
+                            color: $gray-55;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.chart-wrap,
+.table-wrap {
+    @include size (36px, 28px);
+    @include abs-position (4.5px, 5px);
+
+    border-radius: 4px;
+
+    > div {
+        @include size (100%, 100%);
+        @include center-all();
+
+        i {
+            font-size: 16px;
+        }
+    }
+}
+
+.chart-wrap {
+    right: auto;
+    left: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    background-color: $white;
+
+    i {
+        &:before {
+            color: $brand-color;
+        }
+    }
+}
+
+.rounded-toggle {
+    .switch {
+        @include size(32px, 16px);
+    }
+
+    .slider {
+        @include border-radius (50px);
+
+        border: 0;
+
+        &:before {
+            @include size(12px, 12px);
+            @include abs-position (false, false, 2px, 2px);
+            @include border-radius (50%);
+        }
+    }
+
+    .switch-input {
+        &:checked {
+            ~ .slider {
+                &:before {
+                    @include transform(translate(16px, 0));
+                }
+            }
+        }
+    }
+}

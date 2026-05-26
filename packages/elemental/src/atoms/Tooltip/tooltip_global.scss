@@ -1,0 +1,94 @@
+@import "sass/master";
+
+.element-ui {
+  &-tooltiptext {
+    &.tooltip-white-insights {
+      background-color: $white;
+      box-shadow: rgba(0, 0, 0, 0.07) 0 0 10px 4px;
+
+      @include font-style(13px !important, $default-color, false, 18px, left);
+    }
+    .link-tooltip {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.custom-width-tooltip {
+  .element-ui-tooltiptext {
+    max-width: initial;
+    width: 360px;
+  }
+}
+
+.transaction-fee {
+  .element-ui-tooltiptext {
+    max-width: initial;
+    width: 250px;
+  }
+}
+
+.ReactVirtualized__Table__headerColumn {
+  .element-ui-tooltip {
+    vertical-align: text-bottom;
+    display: inline-flex;
+
+    .icon_phoenix-question-circle {
+      margin-left: 5px;
+      cursor: default;
+
+      &:before {
+        @include font-style(16px, $gray-99);
+      }
+    }
+  }
+}
+
+.report-pdf-view {
+  .element-ui-tooltip {
+    display: none;
+  }
+}
+
+.webchat-tooltip {
+  .error-tooltips {
+    .element-ui-tooltiptext {
+      margin-left: -60px !important;
+    }
+  }
+}
+
+/*-----tooltip for action box when ellipsis is shown  ----*/
+.action-wrap {
+  .no-icon-tooltip {
+    @include abs-position(0, false, false, 0);
+    @include size(100%, 100%);
+
+    .element-ui-tooltip {
+      @include size(100%, 100%);
+
+      > i {
+        @include size(100%, 100%);
+        @include abs-position(0, false, false, 0);
+      }
+    }
+  }
+}
+
+.full-label {
+  width: 100%;
+  padding: 9.5px 20px;
+
+  li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.category-media-text {
+  span {
+    @include font-style(15px, $white, 400, 22px, left);
+  }
+}

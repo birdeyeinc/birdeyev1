@@ -1,0 +1,90 @@
+@import "sass/master";
+
+.accordionContentWrap {
+  padding: 0 24px;
+  transition: transform 0.3s ease-in-out;
+  font-family: $brandFont;
+
+  li {
+    margin-bottom: 32px;
+    list-style: none;
+
+    .accordionHeadingContent {
+      @include center-vertical();
+
+      width: max-content;
+      cursor: pointer;
+
+      span {
+        margin-right: 16px;
+
+        &:before {
+          @include font-style(20px, $default-color, false, false);
+        }
+      }
+
+      h2 {
+        @include font-style(15px, $default-color, 500, false);
+      }
+
+      .el-contact-count {
+        padding: 3px 6px;
+        background: $comparison0Star;
+        border-radius: 92px;
+        margin-left: 13px;
+
+        @include font-style (11px, $gray-55, 500, 13px);
+     }
+
+      .accordionIcon {
+        margin-left: 12px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        transform: none;
+
+        &:before {
+          @include font-style(17px, $default-color, false, false);
+        }
+      }
+    }
+
+    .accordionBelowContent {
+      min-height: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all ease 0.5s;
+      .accordionInnerContent {
+        @include border-radius(4px);
+
+        margin-top: 19px;
+        padding: 24px;
+        background-color: $gray-f9f;
+        display: block;
+
+        > div {
+          @include font-style(13px, $gray-light, 400, 1.2);
+
+          strong {
+            @include font-style(15px, $default-color, 500, 1.2);
+          }
+        }
+      }
+    }
+
+    &.open {
+      .accordionBelowContent {
+        min-height: 50px;
+        max-height: 400px;
+        overflow-y: auto;
+        transition: all ease 0.5s;
+      }
+      .accordionIcon {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}

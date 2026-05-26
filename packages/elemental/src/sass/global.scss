@@ -1,0 +1,153 @@
+@import "master";
+
+body {
+    background: $white;
+    color: $default-color;
+}
+
+@import "reset";
+@import "icons";
+@import "infiniteScroll";
+@import "layoutHelpers";
+@import "form";
+@import "helperClasses";
+@import "skeletons";
+@import "confirmationModal";
+@import "buttons";
+// @import "~nprogress/nprogress";
+@import "customScroll";
+@import "tagsModal";
+@import "listviewHelpers";
+
+// Design System Foundation Classes - Available globally
+@import "uiFoundations/index";
+
+// @import "dummyIcons40";
+// @import "dummyIcons20";
+// @import "aggrIcons40";
+// @import "scoreSprite";
+// @import "aggrIcons20";
+// @import "slickSlider";
+@import "../assets/icomoon/phoenix/style";
+
+.signInBg {
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+.ReactModal__Body--open {
+    overflow: hidden;
+}
+
+//override nprogress css
+#nprogress {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 11;
+
+    .spinner {
+        display: none;
+    }
+
+    .bar {
+        height: 3px;
+        background: $yellow-fb;
+    }
+
+    .peg {
+        box-shadow: none;
+    }
+}
+
+.nprogress-busy {
+    cursor: default;
+
+    body {
+        pointer-events: none;
+
+        //Hack added for https://birdeye.atlassian.net/browse/BIRDEYE-58274 to play video atleast while page was loading
+        .play-tutes {
+            pointer-events: auto;
+        }
+    }
+}
+
+//Rules for independent layout - used inside iframe
+.inside-iframe {
+    height: 100%;
+
+    body {
+        background: transparent;
+    }
+
+    body,
+    #app {
+        height: 100%;
+    }
+
+    #nprogress {
+        .bar {
+            background: transparent;
+        }
+    }
+}
+
+.chrome-picker .flexbox-fix:last-of-type>.flexbox-fix+div {
+    display: none !important;
+}
+
+span[highlight] {
+    background-repeat: no-repeat;
+    background-size: initial;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+span[highlight=bottom-neongreen-storke] {
+    // background-image: url(images/bottom-neongreen-storke.svg);
+    background-color: #fff;
+    background-position: bottom;
+}
+
+
+@media print {
+    @page {
+        size: potrait;
+    }
+}
+
+span[highlight] {
+    background-repeat: no-repeat;
+    background-size: initial;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+span[highlight=bottom-neongreen-storke] {
+    // background-image: url(images/bottom-neongreen-storke.svg);
+    background-color: #fff;
+    background-position: bottom;
+}
+
+#storybook-root {
+    width: 100%;
+}
+
+@media print {
+    @page {
+        size: potrait;
+    }
+}
+
+//This CHack was added for BIRDEYE-89417

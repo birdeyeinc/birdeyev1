@@ -1,0 +1,138 @@
+@import "sass/master";
+@import "sass/variables";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/placeholder.scss";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/flexCenterAll.scss";
+@import "sass/mixins/flexBox.scss";
+
+ .toolbar-container {
+     padding: 8px 14px;
+     border-bottom: 2px solid $pale-blue;
+     position: relative;
+
+     .toolbar-template-title {
+         div {
+             @include font-style(14px, $default-color, 400, 20px);
+             @include text-overflow();
+
+             max-width: 300px;
+         }
+
+         span {
+             @include font-style(12px, $default-color, 400, 18px);
+             @include border-radius(4px);
+
+             // background-color: red;
+             background-color: #ebeff6; // need to change this to a variable
+             padding: 4px 8px;
+             margin-left: 8px;
+         }
+     }
+
+     .toolbar-tabs {
+         @include size (68px, 36px);
+         @include border-radius (4px);
+         @include abs-position (50%, false, false, 50%);
+
+         border: 1px solid $gray-cc;
+         padding: 5px 8px;
+         transform: translate(-50%, -50%);
+
+         .btn-link {
+             @include size (24px, 24px);
+             @include border-radius (4px);
+
+             margin-right: 4px;
+             cursor: pointer;
+
+             i {
+                 &:before {
+                     font-size: 20px;
+                 }
+
+                 /* stylelint-disable */
+                 &:global {
+                     &.icon_phoenix-mobile-new {
+                         &:before {
+                             font-size: 18px;
+                         }
+                     }
+                 }
+
+                 /* stylelint-enable */
+             }
+
+             &:last-child {
+                 margin-right: 0;
+             }
+
+             &.active {
+                 background: $pale-blue;
+
+                 /* stylelint-disable */
+                 &.active {
+                     i {
+                         &:before {
+                             color: $brand-color;
+                         }
+                     }
+                 }
+
+                 /* stylelint-enable */
+             }
+         }
+     }
+
+     .toolbar-options {
+         button {
+             @include size (36px, 36px);
+             @include border-radius (4px);
+
+             margin-right: 8px;
+             padding: 0;
+
+             span {
+                 @include size (34px, 34px);
+                 @include center-all();
+                 @include font-style (20px, $default-color, 400, 18px);
+
+                 /* stylelint-disable */
+                 i {
+                     margin-left: 0;
+                 }
+
+                 :global {
+
+                     .icon_phoenix-eye,
+                     .icon_phoenix-setting2 {
+                         &:before {
+                             @include font-style (16px, $default-color, false, false);
+                         }
+                     }
+
+                     .icon_phoenix-code {
+                         &:before {
+                             color: $default-color;
+                             font-weight: 500;
+                         }
+                     }
+                 }
+
+                 /* stylelint-enable */
+             }
+         }
+
+         :global {
+             .element-ui-tooltip {
+                 &:last-child {
+                     button {
+                         margin-right: 0;
+                     }
+                 }
+             }
+         }
+     }
+ }

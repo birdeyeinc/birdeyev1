@@ -1,0 +1,88 @@
+@import "sass/master";
+@import "sass/variables";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/placeholder.scss";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/flexCenterAll.scss";
+@import "sass/mixins/flexBox.scss";
+
+:global {
+    .content-block {
+        @include size (calc(100% / 3 - 10px), 100%);
+        @include border-radius (4px);
+
+        text-align: center;
+        background: $pale-blue;
+        margin: 0 10px 10px 0;
+        padding: 10px;
+        cursor: pointer;
+        transform: translate3d(0, 0, 0);
+
+        /* stylelint-disable */
+        .icon_phoenix-dots-lining {
+            transform: rotate(90deg);
+            display: block;
+
+            &:before {
+                color: $gray-64;
+            }
+        }
+
+        .content-icon {
+            margin: 7px 0;
+            pointer-events: none;
+
+            .icon_phoenix-quotes {
+                font-size: 8px;
+                height: 40px;
+                @include center-all();
+            }
+
+            i {
+                font-size: 40px;
+
+                &.icon_phoenix-review-star {
+                    font-size: 30px;
+                    height: 37px;
+                    display: inline-block;
+                    margin-top: 4px;
+                }
+            }
+        }
+
+        span {
+            @include font-style (12px, $gray-55, 400, 18px);
+
+            display: block;
+        }
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+
+        &:hover {
+            background: #e5e9f0;
+        }
+
+        &.dragging {
+            background: $white;
+            box-shadow: 0 10px 24px 0 rgba(33, 33, 33, 0.2);
+
+            .content-icon {
+                i {
+                    &:before {
+                        color: $brand-color;
+                    }
+                }
+            }
+
+            span {
+                color: $brand-color;
+            }
+        }
+
+        /* stylelint-enable */
+    }
+}

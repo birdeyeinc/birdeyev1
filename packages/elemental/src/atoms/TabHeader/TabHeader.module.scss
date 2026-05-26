@@ -1,0 +1,303 @@
+@import 'sass/variables';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/primitive/colors/all.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/sizeStyle.scss';
+
+@mixin count-badge() {
+    @include font-style (11px, false, 500, 13px);
+    @include border-radius (92px);
+    letter-spacing: 0;
+    text-align: center;
+    padding: 3px 6px;
+    margin-left: 5px;
+}
+
+.tabs-ul {
+    padding: 11px 0 0;
+    border-bottom: 1px solid transparent;
+
+    &.no-seperator {
+        border-bottom: 1px solid transparent;
+    }
+
+    >li {
+        display: inline-block;
+        transition: all 0.2s ease;
+        padding-bottom: 4px;
+
+        &:first-child {
+            margin-left: -7px;
+        }
+
+        >a {
+            padding: 10px 7px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+
+            @include border-radius (4px);
+
+            strong {
+                margin-left: 5px;
+                height: 18px;
+            }
+
+            strong,
+            >span {
+                position: relative;
+
+                &:before {
+                    @include abs-position (false, 0, -14px, -4px);
+
+                    margin: 0 auto;
+                    content: "";
+
+                    @include size (100%, 4px);
+
+                    background: $brand-color;
+                    opacity: 0;
+                }
+            }
+
+            strong {
+                &:before {
+                    left: -5px;
+                    width: calc(100% + 5px);
+                }
+            }
+
+            &:hover {
+                background-color: $pale-blue;
+
+                >span {
+                    @include font-style (false, $brand-color, false, false);
+                }
+            }
+
+            >span {
+                @include font-style (15px, $gray-55, 400, 1.2);
+
+                :global {
+                    .icon_phoenix-info-fill {
+                        @include font-style (17px, false, false, false);
+
+                        margin-left: 5px;
+                        vertical-align: middle;
+
+                        &:before {
+                            @include font-style (false, $blue0099, false, false);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.activeClass {
+            >a {
+                >span {
+                    &:first-child {
+                        @include font-style (false, $default-color, 500, false);
+
+                        cursor: pointer;
+                    }
+                }
+
+                &:hover {
+                    >span {
+                        @include font-style (false, $brand-color, false, false);
+                    }
+                }
+
+                strong,
+                >span {
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .icon-cheveron_open {
+                @include font-style (false, $default-color, false, false);
+            }
+        }
+
+        &.no-wrap-show-more {
+            white-space: nowrap;
+        }
+    }
+
+    &.header-tabs {
+        padding: 11px 20px 0;
+    }
+
+    &.page-tabs {
+        padding: 7px 0 0;
+        margin: 0 30px;
+    }
+
+    .more-options {
+        border: none;
+        width: auto;
+        min-width: 85px;
+        margin-bottom: 4px;
+        padding-left: 10px;
+
+        >span {
+            >ul {
+                top: 45px;
+                margin-right: 0px;
+            }
+        }
+    }
+
+    .more-options:hover {
+        background-color: $gray50;
+    }
+}
+
+.icon-style {
+    margin-right: 5px;
+}
+
+.icon-style:before {
+    @include border-radius (50%);
+    @include font-style (false, $white, false, false);
+
+    content: "\e9e06";
+    background: $start-active;
+    padding: 2px;
+}
+
+.gsr-banner,
+.choose-album {
+    @include font-style (false, $brand-color, 500, false);
+
+    float: right;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+:global {
+    .submenu-data-wrapper {
+        padding: 30px;
+
+        >ul {
+            >li {
+                &:first-child {
+                    margin-left: -7px;
+                }
+            }
+        }
+    }
+}
+
+.tab-error:empty {
+    display: none;
+}
+
+.tab-error {
+    @include font-style (11px, $white, 500, 13px);
+    @include border-radius (92px);
+
+    background: $red-circle;
+    letter-spacing: 0;
+    text-align: center;
+    padding: 3px 6px;
+    margin-left: 5px;
+}
+
+.count-badge{
+    &--gray{
+        @include font-style (false, $gray-55, false, false);
+        @include count-badge();
+        background: $gray40;
+    }
+    &--blue{
+        @include font-style (false, $white, false, false);
+        background: $brand-color;
+        @include count-badge();
+    }
+}
+
+.custom-tab-inner-text {
+    &:has(.count-badge--gray,.count-badge--blue) {
+        .tab-error-icon {
+            i {
+                &:before {
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    .tab-error-icon {
+        vertical-align: middle;
+        margin-left: 5px;
+        padding: 1px 2px;
+        font-size: 16px;
+
+        i {
+            &:before {
+                color: $error-red;
+                background-color: $white;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.tabs-ul {
+    li {
+        a {
+            padding: 10px;
+
+            span {
+                &:before {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+.l4-menu-tab {
+    .tabs-ul {
+        li {
+            a:hover {
+                background-color: $newHoverColor;
+                span {
+                    color: $default-color;
+
+                    &.count-badge--blue,
+                    &.tab-error {
+                        color: $white;
+                    }
+                }
+            }
+            &.activeClass {
+                pointer-events: none;
+
+                a {
+                    span {
+                        font-weight: 400;
+                        color: $default-color;
+
+                        &.count-badge--blue,
+                        &.tab-error {
+                            color: $white;
+                        }
+
+                        &:before {
+                            height: 2px;
+                            background-color: $brand-color;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+
+} 

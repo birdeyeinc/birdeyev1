@@ -1,0 +1,200 @@
+@import 'sass/variables';
+@import 'sass/primitive/colors/gray.scss';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/flexBox.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/mixins/textOverflow.scss';
+
+.side-panel-nav-wrapper {
+    @include size(230px, 100vh);
+    @include flexbox();
+    @include abs-position(0, null, null, 56px);
+
+    border-right: 1px solid $gray-e9;
+    border-top: 1px solid $gray-ece;
+    flex-direction: column;
+    background: $rail-nav-bg;
+    position: fixed;
+    z-index: 12;
+
+    .fadeOut {
+        animation: fadeOut 1s ease-in 3s forwards;
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            display: block;
+        }
+
+        to {
+            opacity: 0;
+            display: none;
+        }
+    }
+
+    @media only screen and (min-width: 1921px) {
+        left: auto;
+    }
+
+    &[disabled] {
+        pointer-events: none;
+    }
+
+    &:before {
+        @include abs-position(null, null, 100%, null);
+        content: '';
+        @include size(1px, 60px);
+        background-color: $light-grey-border;
+    }
+
+    &.calendar-rail-nav {
+        z-index: 12;
+    }
+
+    &.social-rail-nav {
+        .non-subgroup-content {
+            padding: 8px !important;
+        }
+    }
+
+    &.grey-bg {
+        background: $gray-f5;
+    }
+
+    .rail-nav-title {
+        @include font-style($fs18, $black, $fwRegular, $lh18);
+
+        margin: 16px 10px 20px 14px;
+
+        &[data-title-tier="sm"] {
+            font-size: $fs14;
+            line-height: $lh14;
+        }
+
+        &[data-title-tier="xs"] {
+            font-size: $fs13;
+            line-height: $lh12;
+        }
+
+        .sub-title {
+            @include font-style(12px, $gray-55, 400, 1);
+
+            margin-bottom: 2px;
+            display: -webkit-box;
+            max-width: 195px;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+
+    .side-panel-search {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .custom-filterbox {
+        position: relative;
+        margin-bottom: 15px;
+
+        input {
+            @include font-style(13px, $default-color, 400, 11px);
+            @include size(90%, 48px);
+            @include border-radius(0);
+
+            background-color: $gray10 ;
+            border: 0;
+            padding: 16px 21px 16px 29px;
+            border-bottom: 1px solid $graye5e;
+            height: 48px;
+            margin: 0 auto;
+            display: block;
+
+            &:focus {
+                border-color: $brand-color;
+            }
+        }
+
+        &::placeholder {
+            color: $gray-light;
+        }
+
+        :global {
+            .icons {
+                &:before {
+                    @include font-style(20px, $black-icon, 400, null);
+                }
+
+                &.icon_phoenix-search-glass {
+                    margin-top: 2px;
+                    margin-left: 20px;
+                }
+
+                &.icon-reset {
+                    right: 8px;
+                    transition: none;
+                }
+            }
+
+            span {
+                &.icons {
+                    &.icon_phoenix-new-search {
+                        @include abs-position(48%, null, null, 16px);
+                    }
+                }
+            }
+        }
+    }
+
+    .left-section {
+        overflow: auto;
+    }
+
+    .custom-nodatabox {
+        @include font-style(13px, $default-color, 400, 1.5, center);
+
+        margin-top: 35px;
+        padding: 0 15px;
+
+        span {
+            @include font-style(13px, $default-color, 500, 1.07);
+
+            display: block;
+            word-break: break-word;
+            margin-bottom: 10px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        &.hide-rail-nav-800 {
+            width: 0px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        &.animate-rail-nav-800 {
+            transition: all 0.3s ease;
+            width: 230px;
+            opacity: 1;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        &.hide-rail-nav-1200 {
+            width: 0px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        &.animate-rail-nav-1200 {
+            transition: all 0.3s ease;
+            width: 230px;
+            opacity: 1;
+        }
+    }
+}

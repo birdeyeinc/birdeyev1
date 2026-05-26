@@ -1,0 +1,74 @@
+@import "sass/variables.scss";
+
+.legend-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.legend-bar-container {
+    position: relative;
+    width: 200px;
+    height: 12px;
+    margin-bottom: 20px;
+}
+
+.legend-gradient-bar {
+    width: 100%;
+    height: 12px;
+    border-radius: 8px;
+    border: 1px solid $grayEAEA;
+    position: relative;
+}
+
+.legend-ticks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+.legend-tick {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.legend-tick:first-child {
+    transform: translateX(0);
+}
+
+.legend-tick:last-child {
+    transform: translateX(-100%);
+}
+
+.legend-tick-mark {
+    width: 1px;
+    height: 12px;
+    background-color: $grayEAEA;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.legend-tick:first-child .legend-tick-mark,
+.legend-tick:last-child .legend-tick-mark {
+    display: none;
+}
+
+.legend-tick-label {
+    font-size: 11px;
+    font-weight: 400;
+    color: $gray-55;
+    line-height: 1;
+    white-space: nowrap;
+    margin-top: 20px;
+}

@@ -1,0 +1,318 @@
+@import 'sass/variables';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/borderRadius.scss';
+
+// not used in code
+// .reviewList {
+//     .bf-text-review-container {
+//         min-height: auto;
+//         letter-spacing: normal;
+//         padding-bottom: 20px;
+
+//         @include font-style (14px, $default-color, false, 1.57, left);
+//     }
+// }
+// not used in code
+
+.custom-modal-field-box {
+    .field-box {
+        margin-bottom: 20px;
+
+        .formInputStyle {
+            width: 100%;
+        }
+
+        :global {
+            .label-outside {
+                display: block;
+                margin-bottom: 5px;
+
+                @include font-style (11px, $default-color, 400, 1.2, false);
+
+                sup {
+                    @include font-style (false, $red-circle, false, false, false);
+                }
+            }
+        }
+    }
+}
+
+// not used in code
+// :global {
+//     .review-table-wrapper {
+//         margin: 0 30px;
+
+//         .review-badge {
+//             margin-left: 5px;
+//             vertical-align: middle;
+//         }
+//     }
+
+//     .review-middle-sec {
+//         width: calc(100% - 230px);
+//         margin-left: 230px;
+//     }
+
+//     .banner-wrap {
+//         margin-top: -20px;
+//         margin-bottom: 30px;
+//     }
+
+//     .archive-infotext-container {
+//         .icon-reset {
+//             top: 13px;
+//         }
+
+//         @media only screen and (max-width: 1350px) {
+//             .banner-wrap {
+//                 align-items: start !important;
+//             }
+//         }
+
+//         .archive-banner-infotext {
+//             line-height: 17.58px;
+//             display: inline-block;
+//         }
+//     }
+// }
+// not used in code
+
+.suggestions-initials {
+    border: 1px solid $gray899;
+    display: inline-block;
+    vertical-align: middle;
+    background: $gray899;
+
+    @include font-style (14px, $white, 500, 32px, center);
+    @include size (35px, 35px);
+    @include border-radius (50%);
+}
+
+.suggestions-details {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+    width: calc(100% - 50px);
+
+    @include font-style (14px, false, false, false, false);
+
+    .suggestions-name {
+        color: $default-color;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .suggestions-email {
+        color: $gray-99;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .suggestions-hightlight {
+        color: $default-color;
+    }
+}
+
+// not used in code
+// .page-wrapper {
+//     padding: 30px;
+//     background-color: $white;
+//     min-height: calc(100vh - 65px);
+//     position: relative;
+
+//     .accuracy-btn {
+//         margin: 8px 15px;
+//         font-size: 13px;
+//     }
+// }
+
+// .review-subheader {
+//     background: $white;
+// }
+
+// .not-authorised {
+//     h2 {
+//         @include font-style (18px, $gray-455, false, false, false);
+
+//         margin-bottom: 24px;
+//     }
+
+//     p {
+//         @include font-style (14px, $gray-55, false, false, false);
+
+//         margin-bottom: 15px;
+
+//         &.mb-30 {
+//             margin-bottom: 30px;
+//         }
+//     }
+// }
+
+// p:has(> div.gsr-banner) {
+//     width: 100%;
+// }
+
+// .gsr-banner {
+//     display: flex;
+//     align-content: space-between;
+//     justify-content: space-between;
+//     align-items: center;
+//     margin: 20px 0;
+
+//     button {
+//         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+//         background: $brand-color;
+//         padding: 8px 20px;
+//         cursor: pointer;
+//         font-family: $inter-font;
+//         margin-right: 40px;
+//         margin-left: 10px;
+//         min-width: 115px;
+
+//         @include font-style (13px, $white, 500);
+//         @include border-radius (4px);
+
+//         border: 0;
+
+//         &:hover {
+//             background: $brand-color-hover;
+//         }
+//     }
+// }
+
+// .amp-overlay-card {
+//     position: relative;
+//     z-index: -1;
+
+//     >div {
+//         li {
+//             border-bottom: 0;
+
+//             >div {
+//                 &:first-of-type {
+//                     width: 100%;
+//                     max-width: initial;
+//                 }
+
+//                 &:nth-of-type(2) {
+//                     padding-left: 0;
+
+//                     p {
+//                         max-height: 131px;
+//                         min-height: 96px;
+//                         overflow: auto;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     :global {
+//         .amp-replybox-overlay {
+//             >div {
+//                 textarea {
+//                     height: 138px;
+//                 }
+
+//                 &:first-of-type {
+//                     margin-bottom: 25px;
+//                 }
+//             }
+
+//             .btnWrapper {
+//                 margin-top: -65px !important;
+//             }
+//         }
+
+//         .amp-review-inner {
+//             padding: 0;
+//             margin: 0;
+//         }
+//     }
+// }
+
+// .customInputWrapClassName {
+//     margin-bottom: 25px;
+//     width: 45%;
+//     margin-right: 10px;
+//     float: left;
+
+//     label {
+//         display: flex;
+//         align-items: flex-start;
+
+//         &>div {
+//             margin-left: 4px;
+//         }
+//     }
+// }
+
+// .customFormatWrapper {
+//     display: block;
+// }
+// not used in code
+
+// @media screen and (max-width: 800px) {
+//     :global {
+//         .review-middle-sec {
+//             width: calc(100% - 14px) !important;
+//             margin-left: 0;
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 1200px) {
+//     .page-wrapper {
+//         padding: 20px;
+//     }
+// }
+
+// @media only screen and (min-width: 1201px) and (max-width: 1370px) {
+//     :global {
+//         .filter-head-reviews {
+//             h3 {
+//                 font-size: 11px;
+//             }
+
+//             button {
+//                 padding: 10px;
+
+//                 &:nth-child(2) {
+//                     margin-right: -8px !important;
+//                 }
+
+//                 span {
+//                     font-size: 11px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+div[class*=review-item-enter-active],
+div[class*=review-item-appear-active] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
+
+    >li {
+        animation: slideInTop-ent 10s 1 forwards;
+        animation-timing-function: ease;
+    }
+}
+
+@keyframes slideInTop-ent {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}

@@ -1,0 +1,217 @@
+@import "./filterSelect.scss";
+@import 'sass/mixins/flexCenterVertical.scss';
+
+.form-box {
+    position: relative;
+    padding: 10px 20px;
+}
+
+.search-btn {
+    @include font-style (14px, false, false, false);
+    @include abs-position (21px, 32px, false, false);
+
+    cursor: pointer;
+}
+
+:global {
+    .invalid-error {
+        :local {
+            .default-filter {
+                border: 1px solid $error-red;
+
+                .reset-btn {
+                    display: none;
+                }
+
+                &.with-icons {
+                    .reset-btn {
+                        display: none;
+
+                        &.default-value-label {
+                            display: inline-block;
+                        }
+                    }
+
+                    &.dropdown-open {
+                        border: 1px solid transparent;
+
+                        .default-value-label {
+                            display: none !important;
+                        }
+                    }
+
+                    i {
+                        &:before {
+                            @include font-style (false, $error-red, false, false);
+                        }
+                    }
+                }
+            }
+        }
+
+        .add-token-dropdown {
+            :local {
+                .default-filter {
+                    border: 1px solid transparent;
+                }
+
+                .show-link {
+                    border: 0;
+                }
+            }
+        }
+    }
+}
+
+.dropdown-open {
+    &.error-class {
+        .alert-img {
+            display: none;
+        }
+    }
+}
+
+.error-class {
+    border-color: $error-red;
+
+    .alert-img {
+        @include abs-position (10px, 40px, false, false);
+    }
+}
+
+.no-text-transform {
+    text-transform: none;
+}
+
+:global {
+
+    // .location-tooltip {
+    //     > span {
+    //         background: $gray-455;
+    //         padding: 10px 15px;
+    //         z-index: 1;
+    //         border-radius: 4px;
+    //         min-width: 431px;
+    //         @include font-style (15px, $white, 400, 1.5);
+    //         @include border-radius (4px);
+    //         @include abs-position (98%, false, false, 4px);
+    //     }
+    // }
+    .el-single-select {
+        .no-iconhover {
+            @include abs-position (0, false, false, 0);
+            @include size (100%, 100%);
+        }
+    }
+}
+
+.list {
+    li {
+        padding: 0 10px;
+    }
+}
+
+.list-loader {
+    background: url(images/loader/loader.gif) no-repeat center $white;
+    padding: 30px 0;
+    min-height: 20px;
+    display: inline-block;
+    position: relative;
+
+    @include size (100%, auto);
+}
+
+.label-capitalize {
+    span {
+        text-transform: capitalize;
+    }
+}
+
+.option-fade {
+    opacity: 0.5;
+    pointer-events: none;
+    margin-right: 8px;
+}
+
+.no-border-style {
+    border: 0;
+    display: inline-block;
+    padding: 10px 0;
+
+    @include size (auto, auto);
+
+    &:hover {
+        background-color: $white;
+    }
+}
+
+:global {
+    .responseTemplateIcon {
+        @include font-style (16px, false, false, false);
+        @include abs-position (1.5px, false, false, false);
+
+        position: relative;
+        padding: 4px;
+
+        &:hover {
+            background-color: $light-grey-border;
+
+            @include border-radius (4px);
+        }
+    }
+
+    .custom-timedropdown {
+        :local {
+            .select-box {
+                border: 1px solid $graye5e;
+                background: $white;
+
+                .selected-values {
+                    @include font-style (15px, $gray-55, 400, 17px);
+                }
+            }
+        }
+
+        &.invalid-error {
+            :local {
+                .select-box {
+                    border: 1px solid $error-red;
+                }
+            }
+        }
+    }
+}
+
+.label-custom-image {
+    @include center-vertical();
+
+    i {
+        @include font-style (12px, false, false, 15px);
+
+        margin-left: 5px;
+        margin-top: -2px;
+
+        &:before {
+            display: inline-block;
+            line-height: 15px;
+        }
+    }
+}
+
+// CSS for singleselect dropdown shimmer loader
+div[class*="filter-dropdown"] {
+    div[class*="shimmer-wrapper"] {
+        margin-bottom: 16px;
+        padding: 0 20px;
+
+        &:first-child {
+            padding-top: 10px;
+        }
+    }
+
+    div[class*="loader-box"][class*="loader-birdeye"] {
+        padding-top: 95px;
+        padding-bottom: 100px;
+        min-height: 300px;
+    }
+}

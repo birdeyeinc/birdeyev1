@@ -1,0 +1,204 @@
+@import 'sass/variables.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/flexCenterAll.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+
+.no-score {
+    justify-content: center;
+
+    @include font-style (15px, $gray-99);
+}
+
+.sentimentScore {
+    @include size (120px, 120px);
+
+    transform-origin: 0 0;
+    transform: scale(0.15);
+}
+
+.small {
+    transform: scale(0.116);
+    margin-top: 1px;
+}
+
+.large {
+    transform: scale(0.17);
+}
+
+.xl-large {
+    transform: scale(0.225);
+}
+
+.popover-wrapper {
+    padding: 20px;
+    cursor: default;
+    position: relative;
+
+    &.loading {
+        background: url(images/loader/loader.gif) no-repeat center $white;
+
+        @include size (100%, 59px);
+    }
+
+    .title {
+        @include font-style (13px, false, 500, false);
+
+        text-transform: capitalize;
+        margin-bottom: 15px;
+
+        &.warning {
+            color: $start-active;
+        }
+
+        &.error {
+            color: $error-red;
+        }
+
+        &.success {
+            color: $positive-sentiment;
+        }
+    }
+
+    .description {
+        @include font-style (13px, $gray-55, false, 1.5);
+
+        font-weight: normal;
+        max-width: calc(100% - 20px);
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    .description-break {
+        white-space: initial;
+    }
+
+    .edit-icon {
+        @include abs-position (18px, 15px, false, false);
+    }
+}
+
+i {
+    &.icon-reset {
+        @include font-style (18px, false, 500, false);
+
+        top: 19px;
+    }
+}
+
+.edit-modal {
+    .title {
+        @include font-style (17px, $default-color, 400, 25px);
+
+        margin-bottom: 26px;
+
+        .text {
+            vertical-align: middle;
+        }
+
+        :global {
+            .icon_phoenix-question-circle {
+                @include font-style (16px, false, false, false);
+            }
+        }
+
+        .tooltip-popover {
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+    }
+
+    .score-input {
+        margin: 10px 0;
+    }
+
+    .nps-score-list {
+        margin-left: -1px;
+
+        li {
+            @include size (33px, 31px);
+            @include font-style (13px, false, false, 15px);
+            @include border-radius (6px);
+            @include center-all();
+
+            border: 1px solid transparent;
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid $light-grey-border !important;
+            }
+
+            span {
+                @include size (27px, 25px);
+                @include font-style (13px, false, 500, 15px);
+                @include border-radius (3px);
+                @include center-all();
+
+                padding: 3px;
+            }
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+
+        li:nth-child(1),
+        li:nth-child(2),
+        li:nth-child(3),
+        li:nth-child(4),
+        li:nth-child(5),
+        li:nth-child(6),
+        li:nth-child(7) {
+            span {
+                background: $orangefcd;
+            }
+        }
+
+        li:nth-child(8),
+        li:nth-child(9) {
+            span {
+                background: $yellowfde;
+            }
+        }
+
+        li:nth-child(10),
+        li:nth-child(11) {
+            span {
+                background: $greend4e;
+            }
+        }
+    }
+
+    .nps-review-sentiment {
+        margin-top: 16px;
+        // border-bottom: 1px solid $light-grey-border;
+        padding-bottom: 13px;
+
+        span {
+            @include font-style (12px, $gray-99, 400, 14px);
+        }
+
+        .sentiment-bold {
+            color: $default-color;
+            text-transform: capitalize;
+        }
+    }
+
+    .nps-btnWrapper {
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+        margin-top: 13px;
+
+        .cancel-nps {
+            margin-right: 10px;
+
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+}

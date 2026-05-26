@@ -1,0 +1,6 @@
+/node_modules
+/core
+/storybook-static
+/build
+.vscode
+.DS_Store

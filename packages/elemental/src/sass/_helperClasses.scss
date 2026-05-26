@@ -1,0 +1,138 @@
+@import "master";
+
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.brandColor {
+    color: $brand-color !important;
+}
+
+.cursorPointer {
+    cursor: pointer !important;
+}
+
+.cursorInitial {
+    cursor: initial !important;
+}
+
+/****************Check box Css***********/
+.custom-checkbox,
+.be-checkbox-custom-style {
+    position: relative;
+    float: left;
+
+    > .box {
+        background-color: $white;
+        border: 1px solid $gray-99;
+        display: block;
+        height: 16px;
+        position: relative;
+        width: 16px;
+    }
+
+    > .box > .tick {
+        position: absolute;
+        left: 2px;
+        top: 4px;
+        width: 10px;
+        height: 5px;
+        border-bottom: 2px solid $white;
+        border-left: 2px solid $white;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        display: none;
+    }
+
+    > input {
+        position: absolute;
+        outline: none;
+        left: 0;
+        top: 0;
+        padding: 0;
+        width: 16px;
+        height: 16px;
+        border: 0;
+        margin: 0;
+        opacity: 0;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    > input:checked + .box > .tick {
+        display: block;
+    }
+
+    &.checked > .box > .tick {
+        display: block;
+    }
+
+    > input:checked + .box {
+        background-color: $brand-color;
+        border: 1px solid #1565c0;
+    }
+
+    > input:active + .box {
+        border-color: $grayaa;
+        background-color: $white;
+    }
+
+    > input:disabled {
+        cursor: default;
+    }
+
+    > input:disabled + .box {
+        border-color: $gray-cc;
+    }
+}
+
+/** custom checkbox class ends **/
+
+.oldie .custom-checkbox > .box > .tick {
+    left: 1px;
+    top: -5px;
+    zoom: 1;
+}
+
+/*******Check box Css end here**********/
+.padding-top-30 {
+    padding-top: 30px;
+}
+
+.reviews-legend {
+    font-size: 12px;
+    font-weight: 400;
+    color: $gray-66;
+    border-radius: 20px;
+    background-color: $tag-bg;
+    display: inline-block;
+    padding: 3px 18px 3px 7px;
+    cursor: default;
+}
+
+[class^="icon-"] span,
+[class*=" icon-"] span {
+    font-family: 'icomoon';
+}
+
+span.notification-dismiss {
+    background-color: transparent !important;
+    color: $gray-cc !important;
+    top: 50% !important;
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    right: 10px !important;
+    margin-top: -7px;
+}
+
+.font-blue {
+    color: $blue-0d4;
+}

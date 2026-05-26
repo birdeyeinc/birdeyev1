@@ -1,0 +1,122 @@
+@import "sass/variables.scss";
+
+.heatmap-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 280px;
+}
+
+.custom-scroll-container-wrapper {
+    padding: 0px 20px 20px 20px;
+}
+
+.custom-scroll-container {
+    overflow: auto;
+    position: relative;
+}
+
+.custom-scroll-container::-webkit-scrollbar {
+    width: 5px;
+    background-color: $white;
+}
+
+/* stylelint-disable */
+.custom-scroll-container::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+/* stylelint-enable */
+.custom-scroll-container::-webkit-scrollbar-track {
+    border: 1px $white solid;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 6px $white inset; 
+}
+
+.custom-scroll-container::-webkit-scrollbar-thumb {
+    background-color: $gray-cc;
+    border: 1px solid $white;
+    border-radius: 20px;
+}
+
+.custom-scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: $gray-cc;
+    border: 1px solid $white;
+}
+
+.custom-scroll-container::-webkit-scrollbar-thumb:active {
+    background-color: $gray-cc;
+    border: 1px solid $white;
+}
+
+.sticky-x-axis {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: $white;
+    display: flex;
+}
+
+.corner-cell {
+    width: 160px;
+    height: 40px;
+    background-color: $white;
+    position: sticky;
+    left: 0;
+    z-index: 3;
+    flex-shrink: 0;
+}
+
+.time-labels-container {
+    display: flex;
+}
+
+.xAxis-label {
+    width: 72px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: $gray-55;
+    font-weight: 400;
+    background-color: $white;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.content-area {
+    display: flex;
+}
+
+.sticky-y-axis {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background-color: $white;
+    flex-shrink: 0;
+}
+
+.yAxis-label {
+    width: 160px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 20px;
+    font-size: 12px;
+    color: $default-color;
+    font-weight: 400;
+    background-color: $white;
+    text-align: right;
+    justify-content: flex-end;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.heatmap-chart-container {
+    flex-shrink: 0;
+}

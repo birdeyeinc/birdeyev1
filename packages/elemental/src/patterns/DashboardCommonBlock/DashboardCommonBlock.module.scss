@@ -1,0 +1,52 @@
+/**
+ * Shell styling for dashboard `.common-block` cards (e.g. Inbox tiles).
+ * Matches UI-web `commonBlockWrap` — design tokens with hex fallbacks.
+ */
+.card {
+  padding: 30px;
+  min-height: 185px;
+  background: #fff;
+  border-radius: var(--corner-radius-sm-default-web, 8px);
+  border: 1px solid var(--Selected---NEW, #e5e9f0);
+  box-shadow: none;
+}
+
+.tileRow {
+  display: flex;
+  gap: 0;
+  margin-top: 12px;
+}
+
+.tile {
+  flex: 1;
+  text-align: center;
+  padding: 12px 8px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  p {
+    margin: 4px 0 0;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+}
+
+.heading {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.stat {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #2563eb;
+}

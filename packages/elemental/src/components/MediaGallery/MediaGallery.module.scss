@@ -1,0 +1,273 @@
+@import 'sass/variables';
+@import "sass/mediaCarouselGallery";
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/flexCenterAll.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/flexCenterBetween.scss';
+
+.close-btn {
+    @include abs-position (15px, 15px, false, false);
+    @include size (40px, 40px);
+    @include border-radius (50%);
+
+    position: fixed;
+    z-index: 10;
+    display: block;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+
+    &:after {
+        @include abs-position (19px, 10px, false, false);
+        @include size (20px, 2px);
+        @include border-radius (10px);
+
+        content: '';
+        display: block;
+        background: $white;
+        transform: rotate(45deg);
+    }
+
+    &:before {
+        @include abs-position (19px, 10px, false, false);
+        @include size (20px, 2px);
+        @include border-radius (10px);
+
+        content: '';
+        display: block;
+        background: $white;
+        transform: rotate(-45deg);
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.4);
+    }
+}
+
+.slick-slider-info {
+    @include size (100%, false);
+
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    display: inline-block;
+    text-align: center;
+
+    span {
+        @include border-radius (40px);
+
+        padding: 0 2px;
+        color: $white;
+
+        &.counter {
+            color: $gray-99;
+        }
+    }
+
+    &.show-on-top {
+        margin-top: 5vh;
+    }
+}
+
+.file-caption {
+    @include center-all();
+    @include size (100%, false);
+
+    // position: absolute;
+    // bottom: 10vh;
+}
+
+.file-name-text,
+.file-caption-text {
+    @include font-style(14px, $white, false, false);
+}
+
+.file-caption-text {
+    // height: 14px;
+    display: inline-block;
+    overflow: hidden;
+    height: auto;
+    text-overflow: ellipsis;
+}
+
+.download-image {
+    @include size(10%, false);
+
+    // position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 18px 0;
+    background: $image-gallery-bg;
+    z-index: 1;
+    text-align: center;
+    margin-top: 10px;
+
+    a {
+        @include font-style(14px, $white, 400, 1.2);
+        @include border-radius (4px);
+
+        padding: 9px 15px;
+        background: $brand-color;
+        display: inline-block;
+        cursor: pointer;
+    }
+}
+
+.image-gallery {
+    @include abs-position (0, false, false, 0);
+    @include size(100%, 100vh);
+    @include center-between();
+
+    position: fixed;
+    z-index: 9999;
+    background: $image-gallery-bg-transparent;
+    color: $white;
+    flex-direction: column;
+    overflow: auto;
+
+    >div {
+        width: 100%;
+    }
+
+    img,
+    video {
+        // width: 392px;
+        // height: 392px;
+        @include size(100%, auto);
+
+        display: block;
+        object-fit: contain;
+        margin: 10px auto;
+    }
+}
+
+.slick-slider-feature {
+    @include size(auto, 75vh);
+
+    :global {
+        .slick-slide {
+            max-width: 80%;
+            max-height: 80%;
+
+            img {
+                margin: auto;
+            }
+        }
+
+        .slick-dots {
+            display: none !important;
+
+            li {
+                button:before {
+                    @include size(20px, 20px);
+                    @include font-style(20px, false, false, false);
+
+                    content: "\2022";
+                }
+            }
+        }
+
+        .slick-slider {
+            .slick-list {
+                @include size(80%, 75vh);
+
+                margin: auto;
+
+                .slick-track {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .slick-slide {
+                    @include size(false, 75vh);
+
+                    display: block;
+
+                    >div {
+                        @include size(false, 100%);
+
+                        >div {
+                            @include size(false, 100%);
+
+                            video,
+                            iframe,
+                            img {
+                                @include size(100%, 100%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+:global {
+    .custom-videolibrary-box {
+        &:local {
+            + .image-gallery {
+                .slick-slider-feature {
+                    @include abs-position (50%, false, false, 50%);
+
+                    transform: translate(-50%, -50%);
+
+                    :global {
+                        .slick-slide {
+                            animation: skeleton 1s linear infinite forwards;
+                            background: linear-gradient(90deg, rgba(238, 238, 238, 0.8) 8%, rgba(255, 255, 255, 0.7) 18%, rgba(238, 238, 238, 0.8) 33%);
+                            background-size: 800px 104px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .videocarousel-content {
+        :local {
+            .image-gallery {
+                .slick-slider-feature {
+                    @include abs-position (50%, false, false, 50%);
+
+                    transform: translate(-50%, -50%);
+
+                    :global {
+                        .slick-slide {
+                            animation: skeleton 1s linear infinite forwards;
+                            background: linear-gradient(90deg, rgba(238, 238, 238, 0.8) 8%, rgba(255, 255, 255, 0.7) 18%, rgba(238, 238, 238, 0.8) 33%);
+                            background-size: 800px 104px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slide {
+    @include size(100%, auto);
+    // height: 80%;
+
+    // img {
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: contain;
+    // }
+}
+
+.broken-image {
+    width: 40px !important;
+    padding: 0 200px !important;
+}
+
+@keyframes skeleton {
+    0% {
+        background-position: -468px 0;
+    }
+
+    100% {
+        background-position: 468px 0;
+    }
+}

@@ -1,0 +1,83 @@
+@import 'sass/master';
+@import 'sass/global';
+@import  'sass/variables';
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  
+    &.open {
+      display: block;
+    }
+  }
+  
+  .side-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 650px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 101;
+  
+    &.open {
+      transform: translateX(0);
+    }
+  }
+  
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+  
+    &.button-right {
+      justify-content: space-between;
+    }
+  
+    &.button-left {
+      justify-content: flex-start;
+    }
+  }
+  
+  .close-button {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 1.25em;
+    padding: 0px;
+  }
+  
+  .close-button-right {
+    i {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgb(255, 255, 255);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 500;
+  
+      &:hover {
+        background: rgb(250, 250, 250);
+      }
+    }
+  }
+  
+  .drawer-content {
+    flex-grow: 1;
+    height: 100%;
+  }
+  

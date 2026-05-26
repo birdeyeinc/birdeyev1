@@ -1,0 +1,23 @@
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/variables';
+
+.validation-errors,
+.validation-warnings {
+    overflow: hidden;
+    padding: 5px 5px 10px 0;
+
+    @include font-style (12px, $redcolor, 400, 20px);
+
+    float: left;
+    margin-top: 8px;
+    margin-left: 0;
+    border: 0;
+    outline: 0;
+
+    @include size (auto, auto);
+}
+
+.validation-warnings {
+    color: orange;
+}

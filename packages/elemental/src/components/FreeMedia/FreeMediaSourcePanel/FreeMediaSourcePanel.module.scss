@@ -1,0 +1,74 @@
+@import "sass/variables";
+@import "sass/mixins/flexBox.scss";
+@import "sass/mixins/flexCenterVertical.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/boxShadow.scss";
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/transitionFadeShow.scss";
+
+.source-panel {
+  background-color: $pale-blue;
+  @include box-shadow(-1px, 0px, 0px, $light-grey-border, true);
+  @include border-radius(4px 0 0 0);
+  z-index: 3;
+  transition: 0.3s width ease-in-out, 0.3s background-color ease-in-out,
+    0.3s box-shadow ease-in-out;
+  @include abs-position(0, false, false, 0);
+  @include size(94px, 100%);
+
+  > ul {
+    padding: 20px;
+    @include border-radius(4px 0 0 0);
+    margin: 0;
+    list-style: none;
+
+    li {
+      padding: 15px;
+      @include border-radius(2px);
+      margin-bottom: 10px;
+      @include center-vertical();
+      cursor: pointer;
+      transition: 0.3s all ease-in-out;
+      background-color: transparent;
+
+      &:hover,
+      &.active {
+        background: rgba($brand-color, 0.22);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      img {
+        @include size(24px, 24px);
+        margin-right: 10px;
+        object-fit: contain;
+      }
+
+      p {
+        @include font-style(12px, $gray33, 500, 1.2);
+        margin: 0;
+        opacity: 0;
+        transition: 0.3s opacity ease-in-out, 0.3s width ease-in-out;
+      }
+    }
+  }
+
+  &:hover {
+    @include size(220px, 100%);
+    background-color: $white;
+    box-shadow: 20px 10px 24px rgba(0, 0, 0, 0.09);
+
+    > ul {
+      li {
+        p {
+          opacity: 1;
+          @include size(50px, auto);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,177 @@
+@import 'sass/variables';
+
+.graph-toolbar-container {
+    .graph-toolbar-header {
+        display: flex;
+        padding-left: 20px;
+
+        &:first-child {
+            padding: 16px 20px;
+            justify-content: space-between;
+        }
+
+        &:nth-of-type(2) {
+            margin-bottom: 20px !important;
+        }
+
+        .graph-toolbar-title {
+            span:first-child {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 26px;
+                color: $gray-55;
+            }
+        }
+    }
+
+    .graph-toolbar-body {
+        :global {
+            .be-analytics-high-chart-box {
+                padding: 0px 20px;
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    :global {
+        .summary-filter-wrapper {
+            display: flex;
+            padding-left: 20px;
+            margin-bottom: 20px;
+
+            .custom-reviewtitle {
+                span {
+                    &:first-child {
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 26px;
+                        color: $gray-55;
+                    }
+                }
+            }
+
+            .tooltip-wrap {
+                display: flex;
+                // gap: 12px;
+
+                .element-ui-tooltip {
+                    cursor: pointer;
+                    padding: 0 12px;
+
+                    &:first-child {
+                        padding-left: 0;
+                    }
+
+                    .insights-ai-tooltip {
+                        box-shadow: 0 3px 14px 2px rgba(0, 0, 0, .15);
+                        background-color: $white;
+                        color: $default-color;
+                        padding: 12px;
+                        border-radius: 6px;
+
+                        .tooltip-parent {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            width: 190px;
+                        }
+
+                        .tooltip-data {
+                            display: flex;
+                            justify-content: space-between;
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+
+                            small {
+                                font-size: 12px;
+                                font-weight: 500;
+                            }
+
+                            .data-label {
+                                color: $gray-99;
+                                width: 130px;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+
+                            .data-label-val {
+                                color: #212121;
+                                white-space: nowrap;
+                            }
+                        }
+
+                        .kpi-tooltip {
+                            margin: 6.5px 0 10px;
+                            color: $gray-55;
+                            font-size: 12px;
+                            font-weight: 500;
+                            width: 180px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        hr {
+                            border: .5px;
+                            border-style: ridge;
+                            margin: 13px 0;
+                        }
+                    }
+                }
+            }
+
+            .custom-detailreviewbox {
+                .custom-ratingcontent {
+                    .custom-ratingtext {
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 18px;
+                        color: $gray80;
+                    }
+
+                    .custom-ratingdata {
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 18px;
+                        color: $gray-55;
+
+                        .rating-text {
+                            font-size: 18px;
+                            font-weight: 500;
+                            line-height: 26px;
+                            color: $default-color;
+
+                        }
+                        .subRating-text {
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 26px;
+                            color: $default-color;
+
+                        }
+
+                        .positive {
+                            color: $positive-sentiment;
+                        }
+
+                        .negative {
+                            color: $error-red;
+                        }
+                    }
+                }
+            }
+        }
+
+        .insigts-ai-graph {
+            padding: 0 20px;
+            margin-bottom: 12px;
+        }
+
+        .insights-ai-gtm-legend-container {
+            padding: 0 20px 20px;
+        }
+    }
+}

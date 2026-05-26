@@ -1,0 +1,6 @@
+@mixin bg-cover($url, $bg: false ) {
+    background: url($url) no-repeat center center fixed;
+    @if $bg {
+        background-size: cover;
+    }
+  }

@@ -1,0 +1,120 @@
+@import "sass/master";
+@import "sass/variables";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/placeholder.scss";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/flexCenterAll.scss";
+@import "sass/mixins/flexBox.scss";
+
+.chat-section {
+    width: 360px;
+    padding: 0 24px 0 0;
+    overflow: hidden;
+    height: 100%;
+
+    .manual-editor-container {
+        @include size (100%, calc(100% - 62px));
+
+        overflow: auto;
+
+        &:global {
+            &.h-100 {
+                height: 100%;
+            }
+        }
+
+        :global {
+            .dynamic-accordion-container {
+                padding: 0;
+
+                li {
+                    margin-bottom: 28px;
+
+                    .accordion-header {
+                        @include size (100%, 100%);
+
+                        flex-direction: row-reverse;
+                        cursor: pointer;
+
+                        .header-content {
+                            @include size (100%, 100%);
+
+                            /* stylelint-disable */
+                            h2,
+                            span {
+                                @include size (100%, 100%);
+                                @include font-style(16px, $default-color, 400, 24px);
+
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .custom-list-view {
+                        li {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .accordion-body {
+                        .accordion-body-content {
+                            margin-top: 16px;
+                            padding: 0;
+                            background-color: transparent;
+
+                            input {
+                                @include size (100%, auto);
+                            }
+
+                            .contact-toggle-label {
+                                @include font-style(14px, $default-color, 400, 20px);
+                            }
+                        }
+                    }
+
+                    &.open {
+                        .accordion-body {
+                            max-height: 700px;
+                            overflow: hidden;
+
+                            .accordion-body-content {
+                                margin-top: 16px;
+                                padding: 0;
+                                background-color: transparent;
+
+                                input {
+                                    @include size (100%, auto);
+                                }
+                            }
+                        }
+
+                        // TODO: done on condition basis
+                        &:has(.cursor-default),
+                        &:has(.ai-tools-popover) {
+                            .accordion-body {
+                                overflow: visible;
+                            }
+                        }
+                    }
+
+                    /* stylelint-enable */
+                }
+            }
+
+
+
+            .left-panel-content {
+                h3 {
+                    &.section-title {
+                        @include font-style(12px, $default-color, 400, 18px);
+
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+        }
+    }
+
+}

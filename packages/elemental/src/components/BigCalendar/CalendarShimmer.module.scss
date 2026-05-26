@@ -1,0 +1,60 @@
+@import "sass/variables";
+@import "sass/mixins/fontStyle.scss";
+@import 'sass/mixins/positionAbsolute.scss';
+
+.shimmerWrapper {
+    margin-bottom: 10px;
+
+    &.monthShimmer {
+        background-color: #f9f9f9;
+        padding: 8px 10px;
+        margin: 30px 8px 0 8px;
+        border-radius: 4px;
+    }
+
+    div {
+        &.glareTransition {
+            background: #e9e9e9;
+            background-image: linear-gradient(to right, #e9e9e9 0%, #edeef1 20%, #e9e9e9 40%, #e9e9e9 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: glareShimmer;
+            animation-name: glareShimmer;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            border-radius: 4px;
+        }
+
+        &.upperBox {
+            width: 45%;
+            height: 13px;
+            margin-bottom: 10px;
+        }
+
+        &.middleBox {
+            width: 65%;
+            height: 13px;
+            margin-bottom: 10px;
+        }
+
+        &.lowerBox {
+            width: 100%;
+            height: 52px;
+        }
+
+        @keyframes glareShimmer {
+            0% {
+                background-position: -150px 0;
+            }
+            100% {
+                background-position: 150px 0;
+            }
+        }
+    }
+}

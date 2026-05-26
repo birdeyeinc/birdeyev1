@@ -1,0 +1,85 @@
+/*SCSS*/
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/variables';
+
+.tab {
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+
+    @include border-radius (4px);
+
+    white-space: nowrap;
+    font-size: 15px;
+    border-radius: 0px;
+
+    &:first-child {
+        border-radius: 4px 0 0 4px;
+        border-right: 0;
+    }
+
+    &:last-child{
+        border-radius: 0px 4px 4px 0px;
+        border-left: 0;
+    }
+}
+
+.active-tab {
+    background-color: $brand-color;
+    color: $white;
+    border: 1px solid $brand-color;
+    pointer-events: none;
+}
+
+.inactive-tab {
+    border: 1px solid $gray-cc;
+}
+
+.new-tab-wrapper {
+    height: 50px;
+    display: inline-block;
+    background-color: $pale-blue;
+    padding: 5px;
+
+    @include border-radius (6px);
+
+    .tab {
+        height: 40px;
+        width: 170px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+
+        @include font-style (13px, false, 500, 1.4);
+
+        i {
+            font-size: 15px;
+            margin-right: 5px;
+        }
+
+        span {
+            vertical-align: middle;
+        }
+
+        &.active-tab {
+            background-color: $white;
+            color: $brand-color;
+            pointer-events: none;
+            border: 1px solid $light-grey-border;
+            box-shadow: 0 2px 4px rgba(33, 33, 33, 0.1);
+
+            @include border-radius (5px);
+
+            i:before {
+                color: $brand-color;
+            }
+        }
+
+        &.inactive-tab {
+            background-color: transparent;
+            color: $gray-64;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,118 @@
+@import 'sass/variables';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/flexCenterAll.scss';
+@import 'sass/mixins/textOverflow.scss';
+
+.no-data-box {
+    text-align: center;
+    flex-flow: column;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 50px 0px;
+    position: relative;
+
+    @include center-all();
+
+    min-height: 400px;
+
+    figure {
+        margin-bottom: 16px;
+    }
+
+    h1 {
+        @include font-style(18px, $default-color, 400, 26px);
+
+        margin-bottom: 8px;
+        letter-spacing: -2%;
+    }
+
+    .subtitle {
+        @include font-style(14px, $gray-55, 400, 20px);
+
+        margin-bottom: 24px;
+        letter-spacing: -2%;
+
+        a {
+            color: $brand-color;
+            display: inline-block;
+            font-weight: 400;
+        }
+    }
+
+    .overide-subtitle-style {
+        span {
+            @include text-overflow();
+
+            display: block;
+            margin: auto;
+        }
+    }
+
+    &.small-screen {
+        min-height: 320px;
+    }
+
+    &.large-screen {
+        min-height: 600px;
+    }
+
+    &.medium-screen {
+        min-height: 440px;
+    }
+
+    &.small-box {
+        max-width: 305px;
+    }
+
+    &.medium-box {
+        max-width: 540px;
+    }
+
+    &.large-box {
+        max-width: 650px;
+    }
+
+    &.no-minheight {
+        min-height: 0;
+        padding: 40px 0;
+    }
+
+    &.no-padding {
+        min-height: 0;
+        padding: 0;
+    }
+}
+
+.page-heading {
+    @include font-style (23px, $default-color, 500, 1.4);
+
+    font-family: $inter-font;
+}
+
+:global {
+    .no-data-wrap {
+        :local {
+            .subtitle {
+                padding: 0 24px;
+            }
+        }
+    }
+
+    // need to move the stle to /social/engage/SocialEngage.scss path on UI-web2.0
+    // .empty-box-wrapper {
+    //     &:local {
+    //         &.no-data-box {
+    //             h1 {
+    //                 @include font-style(13px, false, 500, 1.5);
+
+    //                 margin-bottom: 0;
+    //             }
+
+    //             a {
+    //                 @include font-style(13px, $brand-color, 500, 1.5);
+    //             }
+    //         }
+    //     }
+    // }
+    // 
+}

@@ -1,0 +1,24 @@
+.editor {
+  u {
+    text-decoration: underline !important;
+  }
+  :global(.ql-container) {
+    :global(.ql-editor){
+      font-style: normal !important;
+      color: #212121;
+      display: block;
+      font-size: 15px;
+      font-family: 'Inter';
+      line-height: 22px;
+      letter-spacing: .2px;
+    }
+    :global(.ql-blank::before){
+      font-style: normal !important;
+      display: block;
+      font-size: 15px;
+      font-family: 'Inter';
+      line-height: 22px;
+      letter-spacing: .2px;
+    }                  
+  }
+}

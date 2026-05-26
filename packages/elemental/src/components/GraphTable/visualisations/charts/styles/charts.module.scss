@@ -1,0 +1,1201 @@
+@import "sass/master";
+
+@mixin highchartCustomScroll() {
+    :global {
+
+        /* scroll style */
+        .highcharts-scrolling::-webkit-scrollbar {
+            width: 5px;
+            background-color: $white;
+        }
+
+
+        .highcharts-scrolling::-webkit-scrollbar:horizontal {
+            height: 5px;
+        }
+
+        .highcharts-scrolling::-webkit-scrollbar-track {
+            border: 1px $white solid;
+            border-radius: 2px;
+            -webkit-box-shadow: 0 0 6px $white inset;
+        }
+
+        .highcharts-scrolling::-webkit-scrollbar-thumb {
+            background-color: $gray60;
+            border: 1px solid $white;
+            border-radius: 20px;
+        }
+
+        .display-scroll-on-hover::-webkit-scrollbar-thumb {
+            display: none;
+        }
+
+        .display-scroll-on-hover:hover {
+            &.display-scroll-on-hover::-webkit-scrollbar-thumb {
+                display: block;
+            }
+        }
+
+        .highcharts-scrolling::-webkit-scrollbar-thumb:hover {
+            background-color: $gray60;
+            border: 1px solid $white;
+        }
+
+        .highcharts-scrolling::-webkit-scrollbar-thumb:active {
+            background-color: $gray60;
+            border: 1px solid $white;
+        }
+    }
+}
+
+.charts-wrapper {
+    @include highchartCustomScroll();
+}
+
+.labelMain {
+    margin-bottom: 10px;
+
+    @include text-overflow();
+
+    display: block;
+
+    @include font-style(12px, $default-color, 400, 1.2, left);
+
+    padding-bottom: 6px;
+}
+
+.tooltipSubLabelMain {
+    font-size: 11px;
+    color: $gray-99;
+    position: relative;
+    top: -12px;
+}
+
+.parentContainerTooltip {
+    box-shadow: 0 3px 14px 2px rgb(0 0 0 / 15%);
+    background: $white;
+    height: auto;
+    min-width: 167px;
+    // border: 1px solid $gray-ece;
+    padding: 12px;
+    max-width: 436px;
+
+    @include border-radius(4px);
+    @include font-style(12px, $gray-55, false, 1.2, left);
+
+    &.parentgeneraltooltip {
+        min-width: max-content;
+    }
+
+    &.parentSmallertooltip {
+        min-width: 250px;
+
+        .toolTipBody {
+            div:first-child {
+                width: 130px;
+            }
+        }
+    }
+
+    &:global {
+        &.medium-tooltip {
+            min-width: 240px;
+        }
+
+        &.small-tooltip {
+            min-width: 207px;
+
+            :local {
+                .toolTipBody {
+                    >div {
+                        &:first-child {
+                            width: auto;
+                            min-width: 130px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.with-dots {
+            :local {
+
+                .toolTipBody,
+                .toolTipResponseBody {
+                    >div {
+                        &:first-child {
+                            width: auto;
+                            min-width: 130px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+:global {
+    .survey-reports-wrapper {
+        :local {
+            .parentContainerTooltip {
+                &.parentgeneraltooltip {
+                    min-width: 350px;
+                }
+            }
+        }
+    }
+}
+
+.tooltipDot {
+    @include size(10px, 10px);
+    @include border-radius(50%);
+
+    float: left;
+    margin-right: 7px;
+    flex-shrink: 0;
+}
+
+.floatRight {
+    float: right;
+}
+
+.sentimentBlock {
+    @include font-style(13px, false, 500);
+    @include border-radius(4px);
+    @include size(auto, 23px);
+
+    display: inline-block;
+    text-align: center;
+    min-width: 32px;
+    padding: 4px 6px;
+    transition: all 0.3s ease-in-out;
+    margin-right: 0 !important;
+
+    &:global {
+        &.positive {
+            color: $positive-sentiment;
+            border: 1px solid $positive-sentiment;
+            margin-right: 0;
+        }
+
+        &.negative {
+            color: $error-red;
+            border: 1px solid $error-red;
+        }
+
+        &.neutral {
+            color: $mud-yellow-color;
+            border: 1px solid $mud-yellow-color;
+        }
+    }
+}
+
+.innerContent {
+    font-size: 12px;
+    overflow: hidden;
+    padding-bottom: 4px;
+    padding-top: 3px;
+    border-bottom: 1px solid $tag-bg;
+}
+
+.parentnspToolTip {
+    min-width: 207px;
+}
+
+.totalresponseData {
+    @include font-style(12px, $default-color, 500);
+
+    margin-top: 5px;
+
+    span {
+        &:first-child {
+            float: left;
+        }
+    }
+}
+
+.tootTipHeader,
+%tootTipHeader {
+    @include flexbox();
+
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+
+    >div {
+        @include font-style(12px, $gray-55, 400, 1.2);
+
+        &:first-child {
+            width: 130px;
+            white-space: normal;
+            word-break: break-word;
+
+            >div {
+                &:last-child {
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+
+.tootTipHeaderSmall,
+%tootTipHeaderSmall {
+    @include flexbox();
+
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    >div {
+        @include font-style(12px, $gray-55, 400, 1.2);
+
+        &:first-child {
+            width: 80px;
+        }
+    }
+}
+
+.toolTipBodySmall {
+    @extend %tootTipHeaderSmall;
+
+    margin-bottom: 6px;
+
+    >div {
+        text-align: right;
+
+        &:first-child {
+            text-align: left;
+
+            @include text-overflow();
+        }
+
+        &:nth-child(2) {
+            min-width: 30px;
+        }
+
+        &:nth-child(3) {
+            min-width: 69px;
+        }
+    }
+}
+
+.NpsTooltipParent {
+    min-width: 200px;
+
+    tr {
+        width: 100%;
+        display: table-row;
+
+        td {
+            color: $gray-55;
+            font-weight: 400 !important;
+            text-align: left;
+            padding-bottom: 6px;
+            padding-right: 18px;
+
+            .volumeBlock {
+                max-width: 200px;
+                min-width: 80px;
+            }
+
+            &:first-child {
+                text-align: left;
+                display: flex;
+                align-items: center;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+.comparisonTooltipParent {
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 1px;
+        min-width: 291px;
+
+        tr {
+            width: 100%;
+            display: table-row;
+
+            &.comparisonReviewPercentage {
+                width: 100% !important;
+                display: table-row !important;
+                padding-right: 0 !important;
+
+                td {
+                    color: $gray-55;
+                    font-weight: 400 !important;
+                }
+            }
+
+            td {
+                padding-bottom: 5px;
+                color: $gray-55;
+                // padding-right: 5px;
+                font-weight: 400;
+
+                div {
+                    &.volumeBlock {
+                        color: $gray-55;
+                        font-weight: 400;
+                        max-width: 200px;
+                    }
+                }
+
+                &:nth-child(2) {
+                    text-align: right;
+                    padding-right: 12px;
+                }
+
+                &:last-child {
+                    text-align: right;
+                    // padding-left: 12px;
+                    // border-left: 1px solid dashed $gray-99;
+                }
+            }
+
+            &:last-child {
+                td {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        .toolTipBody {
+            display: table-row;
+            margin-bottom: 5px;
+
+            .tooltipDot {
+                margin-top: 2px;
+            }
+        }
+    }
+
+    &.noLine {
+        td {
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
+}
+
+.toolTipBody,
+.toolTipResponseBody {
+    @include font-style(12px, $gray-55, 400, 1.2);
+
+    >div {
+        text-align: right;
+
+        &:first-child {
+            width: auto;
+            text-align: left;
+            margin-right: 10px;
+
+            @include text-overflow();
+        }
+
+        &:nth-child(2) {
+            // min-width: 30px;
+            opacity: 1;
+        }
+
+        &:nth-child(3) {
+            min-width: 60px;
+        }
+    }
+}
+
+.toolTipBody {
+    @extend %tootTipHeader;
+
+    margin-bottom: 6px;
+
+    &:last-child {
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    >div {
+        &:first-child {
+            text-align: left;
+
+            @include flexbox();
+
+            align-items: center;
+        }
+    }
+}
+
+.toolTipResponseBody {
+    justify-content: space-between;
+    display: flex;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.columnText {
+    @include text-overflow();
+}
+
+:global {
+    .highcharts-legend-item-hidden {
+        :local {
+            .legendDot {
+                background: transparent !important;
+            }
+        }
+    }
+
+    .highcharts-legend-item rect {
+        display: none;
+    }
+
+    .highcharts-legend-item path {
+        display: none;
+    }
+
+    .highcharts-crosshair {
+        opacity: 0.7;
+    }
+
+    .font-bold {
+        font-weight: 500;
+    }
+
+    .show-legend-items {
+        .heatmap {
+            .highcharts-legend-item rect {
+                display: block;
+            }
+
+            .highcharts-legend-item path {
+                display: block;
+                stroke: #efefef;
+                stroke-width: 1px;
+            }
+        }
+    }
+
+    .el-highchart-container {
+        .heatmap {
+            .highcharts-legend-item rect {
+                display: block;
+            }
+
+            .highcharts-legend-item path {
+                display: block;
+                stroke: #efefef;
+                stroke-width: 1px;
+            }
+        }
+    }
+}
+
+.bold {
+    font-weight: 500;
+}
+
+.legendDot {
+    @include size(16px, 16px);
+
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    border: 1px solid;
+    margin-top: -1px;
+    position: relative;
+
+    >span {
+        left: 5px;
+        top: 1px;
+
+        @include size(3px, 9px);
+
+        border: solid $white;
+        border-width: 0 1px 1px 0;
+        transform: rotate(45deg);
+        box-sizing: unset;
+
+        @include pseudo();
+    }
+}
+
+.hideCheckbox {
+    @include size(16px, 16px);
+
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    border: 1px solid;
+    margin-top: -1px;
+    position: relative;
+
+    @include border-radius(2px);
+}
+
+.legendCircle {
+    @include size(16px, 16px);
+
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    border: 1px solid;
+    margin-top: -1px;
+    position: relative;
+    border-radius: 50%;
+
+    span {
+        width: 8px;
+        height: 8px;
+        margin-left: 3px;
+        margin-top: 3px;
+        background: transparent;
+        border-radius: 50%;
+        display: none;
+    }
+
+    &.legendRadioChecked>span {
+        display: block;
+    }
+}
+
+.legend-label {
+    margin-right: 5px;
+}
+
+.legendName {
+    @include font-style(12px, $gray-66, 400);
+}
+
+.legendswrap {
+    display: inline-flex;
+    padding: 12px 25px 0 0;
+
+    @include font-style(12px, $gray-455, 400, false, center);
+
+    strong {
+        font-weight: 500;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    div {
+        display: inline-block;
+    }
+}
+
+.legendtitle {
+    @include font-style(15px, $default-color, 400, false);
+    @include flexbox();
+
+    margin-bottom: 6px;
+    align-items: center;
+
+    span {
+        margin-right: 5px;
+        font-size: 24px;
+    }
+
+    .legendCircle {
+        span {
+            margin-right: 3px;
+        }
+    }
+
+    .legendtext {
+        max-width: 150px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+.sub-title {
+    padding: 0 0 5px;
+    display: inline-block;
+    vertical-align: top;
+
+    @include font-style(12px, $gray-55, false, false, center);
+}
+
+.sort-by-container {
+    float: right;
+    width: 180px;
+    display: flex;
+
+    .sort-by {
+        @include flexbox();
+
+        width: 74px;
+        margin-top: 8px;
+        font-size: 11px;
+    }
+}
+
+.loaderWrapper {
+    background: $white;
+    height: 300px;
+
+    @include flexbox();
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+.xaxisLabel {
+    font-weight: 300;
+}
+
+.tooltipMargin {
+    margin: 0 0 0 -2px;
+}
+
+.no-border {
+    border: 0;
+}
+
+//used for mass-texting report new tootlip (phoenix version)
+.labelHead {
+    //@extend .labelMain;
+
+    @include font-style(12px, $default-color, 500, false, left);
+}
+
+:global {
+    .report-pdf-view {
+        :local {
+            .legendRadioChecked>span {
+                width: 13px;
+                height: 13px;
+            }
+
+            .legendCircle {
+                span {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+
+            .legendDot {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        /*-----donut chart pdf----*/
+        .donut-wrap {
+            .highcharts-container {
+                height: 400px !important;
+                width: 900px !important;
+            }
+        }
+
+        .small-width {
+            display: block;
+
+            >div {
+                &:first-child {
+                    float: left;
+                    width: calc(100% - 450px);
+                }
+
+                &:last-child {
+                    float: left;
+                    margin-left: 30px;
+                    width: 420px;
+                }
+            }
+        }
+
+        .donut-center-tooltip {
+            display: none;
+        }
+    }
+
+    .pdf-pt-40 {
+        padding-top: 40px;
+
+        .highcharts-container {
+            overflow: visible !important;
+        }
+    }
+
+    .circle-legend {
+        margin-bottom: 0;
+        cursor: default;
+        margin-top: 20px;
+
+        :local {
+            .legendswrap {
+                padding: 0;
+                line-height: 1;
+                text-align: left;
+            }
+
+            .hideCheckbox {
+                @include size(10px, 10px);
+                @include border-radius(50%);
+
+                margin-right: 15px;
+                margin-top: 4px;
+            }
+
+            .info {
+                @include font-style(13px, $gray-55, 400, 1.2);
+
+                display: block;
+            }
+
+            strong {
+                @include font-style(17px, $default-color, 500, 1.2);
+
+                display: block;
+                margin-left: 0;
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+
+    .variablepie {
+        .highcharts-container {
+            margin: auto;
+        }
+    }
+
+    .donut-wrap {
+        .highcharts-legend-item {
+            pointer-events: none;
+        }
+
+        .highcharts-label {
+            >span {
+                font-size: 12px !important;
+                font-family: Inter, Arial, sans-serif !important;
+            }
+        }
+
+        /*-----title tooltip in donut-----*/
+        .donut-center-tooltip {
+            // @include abs-position (350px, false, false, 300px);
+            position: fixed;
+            display: none;
+            background-color: $white;
+            z-index: 3;
+            padding: 20px 20px 15px;
+            border-radius: 4px;
+            box-shadow: rgb(0 0 0 / 15%) 0 3px 14px 2px;
+            width: 200px;
+
+            >strong {
+                &:first-child {
+                    @include font-style(13px, $default-color, 500);
+
+                    margin-bottom: 15px;
+                    display: block;
+                }
+            }
+
+            ul {
+                >li {
+                    @include center-between();
+                    @include font-style(13px, $gray-55, 400, 1.2);
+
+                    margin-bottom: 6px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.legendAddInfoNoIcon,
+.legendAddInfo {
+    margin-top: 14px;
+    padding-left: 55px;
+
+    @include font-style(30px, $default-color, 400, 1.15);
+    @include center-vertical();
+}
+
+.legendAddInfo {
+    &.legendAddInfoNoIcon {
+        padding-left: 29px;
+    }
+
+    >span {
+        @include font-style(15px, $error-red, 500, 1.2);
+
+        margin-left: 10px;
+        display: inline-flex;
+        align-items: center;
+
+        &:global {
+            &.positive {
+                color: $positive-sentiment;
+
+                i {
+                    transform: rotate(-180deg);
+                    position: relative;
+                    display: inline-block;
+                }
+            }
+        }
+
+        i {
+            font-size: 16px;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+:global {
+    .visitor-legends {
+        :local {
+            .legendtext {
+                max-width: 88px;
+            }
+        }
+    }
+
+    .reviews-legend-with-bg {
+        :local {
+            .legendDot {
+                border-radius: 2px;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .highcharts-legend-item {
+        .icon_phoenix-question-circle {
+            &.tooltip-nopadding {
+                position: relative;
+                margin-left: 8px;
+
+                &:before {
+                    @include font-style(16px, $gray-99, false, false);
+                }
+
+                small {
+                    background-color: $gray-455;
+                    cursor: default;
+                    text-transform: none;
+
+                    @include abs-position(0, false, false, 20px);
+                    @include font-style(12px, $white, false, 1.2, left);
+                    @include border-radius(4px);
+
+                    padding: 10px;
+                    word-break: break-word;
+                    white-space: pre-wrap;
+                    min-width: 320px;
+                    max-width: 350px;
+                    z-index: 11;
+                    visibility: hidden;
+                    opacity: 0;
+
+                    @include fade(hide, 100ms);
+                }
+
+                &:hover {
+                    small {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(3n) {
+            .icon_phoenix-question-circle {
+                small {
+                    @include abs-position(-30px, 20px, false, auto);
+                }
+            }
+        }
+
+        >span {
+            overflow: visible !important;
+        }
+    }
+}
+
+.volumeBlock {
+    overflow: hidden;
+    overflow-wrap: break-word;
+    white-space: initial;
+}
+
+.insightsTooltipContainer {
+    @include border-radius(4px);
+    @include size("auto", 85px);
+
+    background: $white;
+    padding: 8px 15px;
+    box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.2);
+    min-width: 177px;
+
+    div {
+        @include font-style(12px, $default-color, 400, 23px);
+
+        span {
+            @include font-style(12px, $gray-55, 400, 23px);
+
+            &.negative {
+                color: $error-red;
+            }
+
+            &.neutral {
+                color: $mud-yellow-color;
+            }
+
+            &.positive {
+                color: $positive-sentiment;
+            }
+
+            &.dot {
+                position: relative;
+                margin-right: 10px;
+
+                &:after {
+                    content: "";
+
+                    @include abs-position(50%, -6px, false, false);
+                    @include size(2.5px, 2.5px);
+                    @include border-radius(50%);
+
+                    transform: translateY(-50%);
+                    background: $gray-55;
+                }
+            }
+        }
+    }
+}
+
+.bubbleChartTooltipContainer {
+    @include border-radius(6px);
+    // @include size ("auto", 85px);
+
+    background: $white;
+    padding: 12px;
+    box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.2);
+    min-width: 180px;
+
+    :global {
+        div {
+            &.details {
+                display: flex;
+                justify-content: space-between;
+
+                span {
+                    @include font-style(12px, $gray-55, 400, 23px);
+                }
+            }
+
+            &.title {
+                span {
+                    @include font-style(12px, $default-color, 500, 16px);
+                }
+            }
+        }
+    }
+}
+
+.threeColumnsWithColorDots {
+    table {
+        tbody {
+            tr {
+                td {
+                    &:not(:first-child) {
+                        color: $default-color;
+                        font-weight: 500 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.comparisontooltip {
+    max-width: 436px;
+
+    table {
+        tbody {
+            tr {
+                td {
+                    padding-bottom: 8px;
+
+                    &.bold {
+                        font-weight: 500;
+                    }
+
+                    &:first-child {
+                        min-width: 80px; // for first columns width
+                        max-width: 140px;
+                        padding-right: 12px;
+                    }
+                }
+
+                &:first-child {
+                    position: relative;
+
+                    &:after {
+                        content: "";
+                        width: calc(100% + 24px);
+                        height: 1px;
+                        background-color: $gray-cc;
+                        bottom: 0;
+                        left: -12px;
+                        position: absolute;
+                    }
+
+                    td {
+                        padding-bottom: 10px;
+
+                        &:not(:first-child) {
+                            span {
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 4;
+                                overflow: hidden;
+                                white-space: normal;
+                                max-width: 128px;
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    td {
+                        padding-top: 8px;
+                    }
+                }
+
+                &:not(:first-child) {
+                    td {
+                        &:not(:first-child) {
+                            color: $default-color;
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.wordCloudTooltipMain {
+    border-radius: 6px;
+    padding: 12px;
+    background: $white;
+    box-shadow: rgba(33, 33, 33, 0.14) 0px 2px 6px 0px;
+    min-width: 180px;
+
+    .wordCloudTooltipTitle {
+        @include font-style(12px, $gray-55, 500, 16px);
+    }
+
+    .wordCloudTooltipWeight {
+        @include font-style(12px, $gray-55, 500, 16px);
+        @include center-between();
+
+        span {
+            color: $gray-light;
+        }
+
+        strong {
+            color: $default-color
+        }
+    }
+}
+
+.sankeyTooltipContainer {
+    box-shadow: 0 2px 6px 0 rgba(33, 33, 33, 0.14);
+    background: $white;
+    min-height: 42px;
+    padding: 12px;
+
+    @include border-radius (6px);
+}
+
+.sankeyTooltipLabelMain {
+    @include flexbox();
+    @include center-all();
+    @include font-style (12px, $gray-55, 400, 18px, left);
+
+    i {
+        font-size: 16px;
+        color: $black-icon;
+    }
+
+    span {
+        @include font-style (12px, $default-color, 500, 18px, left);
+    }
+}
+
+
+.legend-container {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px 20px;
+
+    :global {
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 4px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            overflow-x: auto;
+        }
+
+        .legend-box {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgb(85, 85, 85);
+            fill: rgb(85, 85, 85);
+            vertical-align: middle;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+
+            .legend-icon {
+                font-size: 24px;
+                margin-right: 4px;
+                margin-top: -4px;
+            }
+
+            .disabled-legend-icon {
+                color: $gray-cc !important;
+                fill: $gray-cc !important;
+            }
+
+            .disabled-legend-label {
+                color: $gray-cc !important;
+                fill: $gray-cc !important;
+                text-decoration: line-through !important;
+            }
+
+            span {
+                white-space: nowrap;
+                color: $gray-55;
+            }
+        }
+    }
+}

@@ -1,0 +1,119 @@
+import { Meta } from '@storybook/addon-docs';
+import './mdxdoc.scss';
+
+<Meta title="Contribution"/>
+<div className="mdx-doc-container specificity">
+
+# Contributing
+
+From opening a bug report to creating a pull request: every contribution is
+appreciated and welcome. If you're planning to implement a new feature or change
+the existing component please add it [here](https://docs.google.com/spreadsheets/d/1AhWopwl5EfZrbXMZSPHE41gZJOoCloj3LiRhFdu3qiQ/edit?gid=1181876301#gid=1181876301).
+
+## Quick Start
+
+### Prerequisites
+
+- [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager)
+- [yarn](https://yarnpkg.com/) (Package Manager)
+- Node.js (v20.10.0)
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bazaarify/elemental.git
+   ```
+
+2. Install dependencies:
+   ```bash
+   nvm use && yarn install
+   ```
+
+3. Start Storybook:
+   ```bash
+   yarn story
+   ```
+
+## Component Development Guidelines
+
+### Branching Strategy
+
+- Create a new branch from `master` for any component changes
+- Use the following naming conventions:
+  - `${YOUR_INITIALS}-${JIRA_ID}-title-or-description`
+
+### New Component Development
+
+1. **Folder Structure**
+   - Place components in the appropriate directory (`atoms` or `components`)
+   - Follow existing naming conventions and project structure
+   - Maintain consistent folder organization
+
+2. **Styling**
+   - Use module.scss approach for all styling
+   - Follow existing styling patterns and conventions
+
+3. **Documentation**
+   - Create comprehensive stories for the component
+   - Document all use cases and variants
+   - Include examples and usage guidelines
+
+4. **Testing**
+   - Test edge cases and variants
+
+### Existing Component Updates
+
+1. **Backward Compatibility**
+   - Ensure changes don't break existing functionality
+   - Maintain backward compatibility
+   - Document any breaking changes if necessary
+
+2. **Testing**
+   - Test all existing use cases
+   - Verify no regression in existing features
+
+## Local Development with Other Projects
+
+To use Elemental components in another project during development:
+
+1. Build Elemental:
+   ```bash
+   yarn run build:dev
+   ```
+   This creates a `build` directory in your Elemental project.
+
+2. Link in your project:
+   - In your project's `package.json`, add the local path to Elemental:
+     ```json
+     {
+       "dependencies": {
+         "@your-scope/elemental": "/path/to/elemental/build"
+       }
+     }
+     ```
+
+3. Install dependencies:
+   ```bash
+   yarn install
+   ```
+
+4. Import and use components:
+   ```javascript
+   import ComponentName from '@your-scope/elemental/core/atoms/atomName';
+   ```
+
+5. Start your project and test the integration.
+
+## For QA Testing
+
+- Please reach out to `Mitul` or `Mukul` to get the dev version of your elemental branch published. This will enable QA to start testing your changes on Devtron.
+
+- QA/dev version format:  `${recent-version}-${jiraId}--dev`
+
+## For publishing Prod version
+
+- Before promoting your changes to production, ensure that they are merged into the elemental-release branch. The production version will be published from this branch.
+- You can reach out to `Mitul` or `Mukul` for assistance with the release process. (We are in the process of setting up a Jenkins job to automate this, which will be available soon.)
+
+</div>

@@ -1,0 +1,53 @@
+@import 'sass/variables';
+@import 'sass/mixins/fontStyle.scss';
+
+.ds-input {
+    border: 1px solid $graye5e;
+    background-color: $white;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+        background-color: $newHoverColor;
+        border-color: $graye5e; 
+    }
+
+    &:focus {
+        border-color: $brand-color;
+    }
+
+    &:active {
+        border-color: $graye5e;
+    }
+
+    &.is-error {
+        border-color: $error-red;
+
+        & + .error-message {
+            @include font-style (12px, $red-circle, 400, 1.5);
+
+            margin-top: 4px;
+        }
+    }
+
+    &.is-success {
+        border-color: $green-circle;
+
+        & + .success-message {
+            @include font-style (12px, $green-dark-hover, 400, 1.5);
+
+            margin-top: 4px;
+        }
+    }
+
+    &:disabled {
+        background-color: $pale-blue;
+        border-color: $graye5e;
+        pointer-events: none;
+    }
+
+    &:read-only {
+        background-color: $newHoverColor;
+        border-color: $graye5e;
+        pointer-events: none;
+    }
+}

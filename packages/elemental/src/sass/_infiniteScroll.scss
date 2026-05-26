@@ -1,0 +1,18 @@
+.scrollContainer {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.infScroll {
+    text-align: center;
+    height: auto;
+    width: 100%;
+}
+
+.infScroll .loading {
+    padding: 15px;
+    text-align: center;
+    // background: url("images/freeze/ajax-loader.gif") 0 0 no-repeat;
+    margin: 20px auto 0;
+    width: 14px;
+}

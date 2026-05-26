@@ -1,0 +1,367 @@
+@import "./primitive/colors/all.scss";
+@import "./primitive/fontStyle/all.scss";
+@import "./primitive/boxShadowStyle";
+@import "./primitive/borderRadiusStyle";
+@import "./primitive/spacing/all.scss";
+@import "./primitive/sizeStyle.scss";
+
+/*-----colors in 2020 sheet start----*/
+$default-color: $gray900;
+$dark-blue-selected: $blue90;
+$brand-color: #2652ED;
+$gray-99: $gray80;
+$gray-cc: $gray60;
+$gray-55: $gray300;
+$pale-blue: $gray20;
+$gray-f9f: $gray10;
+$blue0099: $blue90;
+$light-grey-border: $gray40;
+$gray-455: $gray300;
+$gray-64: $gray100;
+$grayDark: $gray600;
+$gray-ea: $gray40;
+$grayLight: $gray10;
+$start-active: $yellow90;
+$positive-sentiment: $green100;
+$error-red: $red90;
+$white: $gray0;
+$primary-hover: darken($brand-color, 20%);
+$button-danger-hover: darken($error-red, 20%);
+$tag-hover: $gray60;
+$white-f4: $gray20;
+$dark-00: $blue900;
+$faded-fd: $red20;
+$warning-fe: $yellow20;
+$warning-e3: $red90;
+$rating-70: $gray100;
+$light-gray: $gray10;
+$dark-violet: $blue300;
+$dark-black: $purple900;
+$blue-dde: $blue40;
+$gray-light: $gray90;
+$black-252: $blue700;
+$dark-blue-bg: #2652ED;
+$bg-light-gray: $gray30;
+$bg-blue: $blue90;
+$linkedinBackground: $blueBg; // ( social color )
+$gray-lightbg: $gray70;
+$blue-gray: $gray90;
+$gray-4b4b: $gray400;
+$blue-e0ed: $blue30;
+$gray-8a89: $gray90;
+$blue-f2f7: $blue10;
+$black-0106: $purple900;
+$blue-0076: #2652ED;
+$blueAF7: $blue90;
+$orangefcd: $red50;
+$yellowfde: $yellow50;
+$greend4e: $green50;
+$blueD9EB: $blue40;
+$lightGreen: $green50;
+$light-purple: $purple10;;
+$dark-purple: $purple100;
+$light-grey: $gray80;
+$dim-yellow: $yellow30;
+$blue-bg: $blue20;
+$black-icon: $gray600;
+$grayaa: $gray80;
+$gray-2c3: $gray1000;
+$graye5e: $gray2000;
+
+/*-----colors in 2020 sheet end----*/
+
+$gray-66: $gray200;
+$graybb: $gray70;
+$tag-bg: $gray20;
+$redcolor: $red200;
+$graybrdColor: $gray50;
+$bluebrdColor: $blue90;
+$blue-f9: $blue60;
+$gray-ece: $gray30;
+$gray-cc-navy: #2652ED;
+$survey-grey-new: $gray300;
+$greenColor: $green20;
+$gray-dd: $gray50;
+$gray-ee: $gray30;
+$gray33: $gray500;
+$gray36: $gray500;
+$gray75: $gray100;
+$gray44: $gray400;
+$graye1: $gray50;
+$grey-bg: $gray10;
+$rail-nav-bg: #f0f1f5;
+$gray899: $gray90;
+$gray-cb: $gray60;
+$lightPale: $gray50;
+$validation-error: $red200;
+$blue-14: $blue200;
+$yellow-ff: $yellow20;
+$yellow-fb: $yellow90;
+
+// Variables
+$buildversion: 2017070801;
+$theme-dark: $gray900;
+$app-bar-color: $blue200;
+$gray-88: $gray90;
+$gray-d8: $gray60;
+$blue-0d4: $blue300;
+$brand-green: $green100;
+$brand-pink: $red90;
+$brand-gray-one: $gray30;
+$brand-gray-two: $gray30;
+$brand-gray-four: $gray10;
+$brand-gray-five: $gray30;
+$keyword-selected-bg: $blue50;
+$sky-blue-btn: $blue70;
+$brand-progress-bar-color: $yellow90;
+$branding-blue: $blue90;
+$green-a2: $green60;
+$green-c8: $green50;
+$light-blue: $blue10;
+$blue-095 : $blue200;
+$dark-blue: $blue300;
+$border-c6: $gray60;
+$border-light-blue: $blue90;
+$review-color: $gray100;
+
+/*Dashboard campaign color*/
+$red: $red90;
+$green: $green100;
+$yellow: $yellow90;
+$blue: #2652ED;
+$black: $gray900;
+$alert-pink: $red20;
+$green-68: $green100;
+$red-d4: $red70;
+$red-e5: $red90;
+$gray-f5: $gray20;
+$light-pink: $red10;
+$light-green: $green20;
+$yellow-light: $yellow90;
+$info-color: $gray90;
+$light-greyish-black: $gray700;
+$royal-blue: $blue300;
+$peech-brown: $gray30;
+
+/* website colors */
+$dark-grey: $gray400;
+$animated-skeleton-bg: $gray20;
+
+/*Social Channels*/
+$survey-blue: #2652ED;
+$fb-brand: $fbBg;
+$twitter-brand: $twitterBg;
+$linkedin-brand: $blueBg;
+$google-brand: $googleBrandBg;
+$google-gmb-brand: $googleBg;
+$youtube-brand: $youtubeBg;
+$instagram-brand: $instagramBg;
+$green-e8: $green30;
+$red-fb: $red20;
+$swipe-screen: #2652ED;
+$label-color: $gray900;
+
+/* Review Page*/
+$dark-red: $red200;
+$black-42: $gray400;
+$gray-e9: $gray40;
+$gray-97: $gray90;
+$gray-516: $gray100;
+$blue-ee: $blue20;
+$blue-gray: $gray90;
+$red-24: $gray200;
+$gmb-brand: $blue90;
+
+/*messenger*/
+$light-sky-blue: $blue90;
+$grey-dark: $gray400;
+$grey-light: $gray300;
+$off-gray: $gray0;
+$bg-selected: $blue500;
+$conv-left-border: $purple900;
+$green-dark-hover: $green300;
+
+/*Web-Chat*/
+$white-f3: $gray20;
+$orange-color: $defaultCarrot;
+
+/*setup competitor*/
+$gray-e5: $gray50;
+$listHover: $gray10;
+$gray-80: $gray100;
+
+/*setup profile*/
+$cover-thumbs: url("images/setup/profile/cover-thumbnail.png");
+
+/* DashBoard setGoal */
+$goal-green: $green200;
+$hover-blue: $blue300;
+
+/* Dashboard Recent Reviews */
+$gray-58: $gray300;
+$gray-9a: $gray80;
+$gray-60: $gray200;
+
+/*survey color*/
+$survey-error: $red80;
+$survey-black: $gray800;
+$survey-grey: $gray80;
+
+/* Insights Colors */
+$dark-red: #b71c1c;
+$dark-turquoise: #34d1bf;
+$bright-lilac: #db61db;
+$dark-lavender: #5a4c97;
+$errorRed: #f3382b;
+$upload-error-red: $red200;
+$dark-green: $green400;
+$txt-box-border-blue: $blue80;
+$progress-color: $green80;
+$loadingBarStart: $blue80;
+$loadingbarStripe1: $blue90;
+$loadingbarStripe2: $green200;
+
+$warning-msg: $gray400;
+$light-pale-blue: $gray50;
+
+// listing-view
+$initialize: $yellow90;
+$tomato-red: $red200;
+$sky-blue: $green80;
+$dark-pink: $red80;
+$disabled-color: $gray20;
+$redish-pink: $red40;
+$light-greenish: $green50;
+$yellow-pink: $red30;
+$pink-strip: $red20;
+$gray-cc-slaty: $gray50;
+$gray-4d: $gray400;
+$gray-b3: $gray70;
+$warning-msg-2c: $gray400;
+$color-red: $red90;
+
+// Filter colors
+$alice-blue: $blue20;
+$dark-sky-blue: $blue30;
+$boxShadow: $gray70;
+$light-shadow: $gray70; // same as $boxShadow
+$blue-text: #2652ED;
+
+//businesss text
+$business-txt: $yellow100;
+
+//tag-text
+$tag-text : $gray300;
+
+//phoenix nav colors
+$phoenix-nav: $blue20;
+$acc-switcher: $gray400;
+$sky-blue-dark: $blue90;   //$dark-blue-selected
+
+//migrated from birdeyecore
+$buildversion: 2017082608;
+$gray-6a: $gray200;
+$light-blue: $blue10;
+
+/* Form Tags */
+$form-error-red: $red200;
+
+/*----reports----*/
+$tooltip-last: $blue70;
+$gradient-box: $blue200;
+$red-circle: $red100;
+$pic-box: $gray60;
+$pic-text: $gray60;
+$crown-text: $yellow100;
+$audio-bar: $gray200;
+$green-circle: $green90;
+
+/*banner variables*/
+$warning-light: $yellow20;
+$yellow-dark: $yellow100;
+$light-red: $red10;
+$datepicker-view: $gray70;
+$datepicker-nav: $gray70;
+$datepicker-highlight: $green90;
+$datepicker-selected: $blue200;
+$datepicker-selected-hover: $blue300;
+$prussian-blue: $blue500;
+
+$no-teams: $gray80;
+$teams-anchor: #2652ED;
+
+/*filter hover*/
+$filter-hover: $blue30;
+
+/*-----graph background---*/
+$graph-xlight: $blue50;
+$graph-light: $blue60;
+$graph-medium: $blue70;
+$graph-xmedium: $blue80;
+$graph-dark: $blue80;
+
+//Upsell
+$top-tag: $red90;
+$green-edf: $green20;
+$gray-d3d: $blue50;
+
+/* Appointment Scheduler */
+$be-text-color: $gray900; // $default-color
+$brand-color-hover: $blue300;
+$whitepaper-color: $blue80;
+$menu-gray: $gray400;
+$menu-gray-light: $gray400;
+$btn-color: #2652ED;
+$navy-black: $gray300;
+$gray-afb: $gray10;
+$blue-209: $blue90;
+$green-dce: $gray50;
+$backBtn-blue: $blue300;
+$wheatish-grey: $gray40;
+$very-wheatish-grey: $gray30;
+$blue-00: $blue90;
+$error-info: $red20;
+$warning-info: $yellow20;
+
+// new inbox
+$mud-yellow-color: $yellow200;
+$light-gray-839: $gray90;
+$light-gray-pale: $gray80;
+
+// multi-avatar-colors
+$light-purple: #fcfbfe;
+$dark-purple: #6d36bf;
+$light-grey: #999;
+$anim_1: anim_A 1s linear infinite;
+$anim_2: anim_B 2s linear infinite;
+$blueGray: #647a8e;
+$grayEAEA : #eaeaea;
+$avatar-red: $red30;
+$avatar-red-text: $red80;
+$avatar-orange: $red30;
+$avatar-orange-text: $red80;
+$avatar-green: $green50;
+$avatar-green-text: $green200;
+$avatar-light-green: $green50;
+$avatar-light-green-text: $green100;
+$avatar-light-blue: $blue40;
+$avatar-light-blue-text: $blue200;
+$avatar-blue: $blue40;
+$avatar-blue-text: #2652ED;
+$avatar-light-pink: $red30;
+$avatar-light-pink-text: $red70;
+$popover-head-grey: $gray300;
+$light-bg-purple: $purple10;
+$image-gallery-bg-transparent: $dark96;
+$image-gallery-bg: $gray900;
+$aitheme-color: $purple100;
+$purple-e3: $purple50;
+$yellow-fff: $yellow40;
+$purple: $purple100;;
+$lightPurple: $purple10;
+$bluehighlight: $blue200;
+$darkGrey: $gray90;
+$pink-bg: $red20;
+
+// Font Family
+$inter-font: $inter-font;

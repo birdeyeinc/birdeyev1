@@ -1,0 +1,6 @@
+@mixin border-gray ($top: false, $right: false, $bottom: false, $left: false){
+    @if $top { border-top: 1px solid #eee}
+    @if $right { border-right: 1px solid #eee}
+    @if $bottom { border-bottom: 1px solid #eee }
+    @if $left { border-left: 1px solid #eee }
+}

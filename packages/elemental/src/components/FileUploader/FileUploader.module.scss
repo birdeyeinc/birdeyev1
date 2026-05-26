@@ -1,0 +1,100 @@
+@import 'sass/variables';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+
+.el-file-uploader--wrapper {
+
+    // Part of FileUpload custom Selection JSX
+    .upload-wrap {
+        @include size (auto, 280px);
+    }
+
+    .upload-wrap-small {
+        @include size (216px, 200px);
+    }
+
+    // Part of SelectFile Component
+    .fileUploadCore {
+        .uploadBtn {
+            padding: 10px 52px;
+            background-color: $brand-color;
+            color: $white;
+            margin-top: 20px;
+            border: 0;
+            cursor: pointer;
+
+            @include border-radius (2px);
+        }
+
+        .dragDropText {
+            display: none;
+        }
+
+        &:global {
+            &.disabled {
+                pointer-events: none;
+
+                .icon-paper-clip {
+                    &:before {
+                        color: $gray-cc;
+                    }
+                }
+            }
+        }
+    }
+
+    :global {
+        .full-width {
+            input {
+                @include size (100%, auto);
+            }
+        }
+
+        .secure-attachmentEmoji {
+            .messenger-emoji-picker {
+                &.file-added {
+                    .inboxAttachment-picker {
+                        @include abs-position (false, false, -124px, false);
+                    }
+
+                    &.non-editable-template {
+                        .inboxAttachment-picker {
+                            @include abs-position (false, false, -127px, false);
+                        }
+                    }
+                }
+
+                &.non-editable-template {
+                    .inboxAttachment-picker {
+                        @include abs-position (false, false, -37px, false);
+                    }
+                }
+
+                .inboxAttachment-picker {
+                    @include abs-position (false, false, auto, -2px);
+
+                    padding: 0;
+
+                    .phoenix-icon {
+                        &:hover {
+                            background: $pale-blue;
+                        }
+                    }
+
+                    :local {
+                        button[class*="noBorder"][class*="with-icon"] {
+                            padding: 0;
+
+                            @include size (auto, 30px);
+
+                            span {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

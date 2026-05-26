@@ -1,0 +1,215 @@
+@import 'sass/variables';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/textOverflow.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/mixins/borderRadius.scss';
+
+.multiselect-filterDropdown {
+  margin-bottom: 10px;
+  position: relative;
+
+  .container-box-1 {
+    @include size (100%, auto);
+    @include border-radius (4px);
+
+    position: relative;
+    cursor: pointer;
+    min-height: 38px;
+    border: 1px solid $graye5e;
+    background-color: $white;
+    padding: 10px 35px 10px 15px;
+
+    &.disable {
+      background-color: $pale-blue;
+      border: 1px solid $graye5e;
+      cursor: pointer;
+
+      label {
+        @include size (100%, auto);
+        @include text-overflow();
+
+        color: $gray-cc;
+        display: block;
+      }
+
+      .reset-btn {
+        display: none;
+      }
+    }
+  }
+
+  .phoenix-icon-multiselect {
+    @include font-style(16px, $gray-64, 400, false);
+    @include abs-position (50%, 25px, false, auto);
+
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .container-box-1.active_class {
+    background-color: $blue-bg;
+    border: 0;
+
+    label {
+      @include font-style(15px, $brand-color, 500, 1.2);
+      @include text-overflow();
+      @include size (100%, auto);
+
+      display: block;
+    }
+
+    i:before {
+      color: $gray-55;
+    }
+  }
+
+  .container-box-1:hover {
+    background: $pale-blue;
+  }
+
+  label {
+    @include font-style(15px, $gray-55, false, false);
+
+    cursor: pointer;
+  }
+
+  .dropdown {
+    @include size (auto, 193px);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    li {
+      position: relative;
+      line-height: 1.3;
+      cursor: pointer;
+
+      &:hover {
+        background: $pale-blue;
+      }
+
+      .dropdown-select-list {
+        padding: 9.5px 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      .text {
+        @include font-style(15px, $gray-55, false, 1.4);
+        @include text-overflow();
+        @include size (100%, 19px);
+
+        margin: 0 0 0 8px;
+        cursor: pointer;
+        display: block;
+        vertical-align: middle;
+        max-width: calc(100% - 22px);
+      }
+
+      .custom-multiselect-tooltip {
+        max-width: 250px;
+        padding: 10px 15px;
+        margin-left: -22px !important;
+      }
+
+      section:first-child {
+        @include size (auto, auto);
+      }
+    }
+  }
+
+  .label-top {
+    @include font-style(15px, $gray-55, false, 1.1);
+    @include text-overflow();
+
+    margin: 0;
+    cursor: pointer;
+    display: block;
+  }
+
+  .reset-btn {
+    @include font-style(16px, $gray-55, 400, 1);
+    @include abs-position (10px, 13px, false, false);
+  }
+
+  .multi-select-dropdown {
+    @include size (280px, auto);
+    @include abs-position (calc(100% + -40px), 0, false, false);
+    @include border-radius (6px);
+
+    background: $white;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+    z-index: 9;
+    margin-bottom: 5px;
+    text-align: left;
+    padding-bottom: 10px;
+
+    .filter-label-heading {
+      @include font-style(13px, $gray-99, 500, 1.2);
+      @include text-overflow();
+      @include size (100%, auto);
+
+      padding: 19px 20px 5px;
+      display: block;
+
+      label {
+        padding: 0;
+      }
+    }
+
+    .btn-wrapper {
+      margin-bottom: 10px;
+      padding-top: 20px;
+      border-top: 1px solid $bg-light-gray;
+    }
+  }
+
+  .left-open {
+    left: 0 !important;
+  }
+
+  .form-box {
+    .search-filter {
+      position: relative;
+      padding: 10px 20px;
+
+      input {
+        @include font-style(15px, $default-color, false, false);
+        @include size (100%, 38px);
+        @include border-radius (4px);
+
+        padding: 9px 44px 10px 40px;
+        border: 1px solid $graye5e;
+
+        @include placeholder {
+          color: $gray-64;
+        }
+
+        &:focus {
+          border-color: $brand-color;
+        }
+      }
+
+      .icons {
+        @include font-style(16px, $gray-64, 400, false);
+        @include abs-position (50%, false, false, 38px !important);
+
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.loader-shimmer-design {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.no-match-found {
+  margin-left: 20px;
+  padding: 10px 0;
+}

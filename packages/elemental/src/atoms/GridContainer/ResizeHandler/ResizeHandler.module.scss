@@ -1,0 +1,69 @@
+.resizable-handler {
+    display: none;
+    background-image: none;
+
+    &::after {
+        content: none;
+    }
+}
+
+.resize-handle-axis-n {
+    top: -7px;
+    right: 50%;
+    cursor: ns-resize;
+    z-index: 1;
+}
+
+.resize-handle-axis-e {
+    right: -14px;
+    top: 50%;
+    cursor: ew-resize;
+}
+
+.resize-handle-axis-s {
+    bottom: -14px;
+    right: 50%;
+    z-index: 1;
+    cursor: ns-resize;
+}
+
+.resize-handle-axis-w {
+    top: 50%;
+    left: -7px;
+    cursor: ew-resize;
+}
+
+.resize-handle-axis-ne {
+    top: -7px;
+    right: -14px;
+    cursor: ne-resize;
+}
+
+.resize-handle-axis-se {
+    bottom: -14px;
+    right: -14px;
+    cursor: se-resize;
+}
+
+.resize-icon-se-placeholder-container {
+    position: absolute;
+    right: 26px;
+    bottom: 26px;
+    z-index: 1;
+    display: none;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+.resize-handle-axis-sw {
+    bottom: -14px;
+    left: -7px;
+    cursor: sw-resize;
+}
+
+.resize-handle-axis-nw {
+    top: -7px;
+    left: -7px;
+    cursor: nw-resize;
+}

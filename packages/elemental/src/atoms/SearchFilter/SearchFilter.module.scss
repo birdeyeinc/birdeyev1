@@ -1,0 +1,156 @@
+@import 'sass/variables';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/mixins/positionVerticalHorizontalBoth.scss';
+
+.search-filter {
+    @include size (100%, auto);
+
+    display: inline-block;
+    position: relative;
+
+    input {
+        padding: 8px 44px 8px 40px;
+
+        @include font-style (14px, $default-color, false, false);
+        @include size (100%, 34px);
+        @include border-radius (8px);
+
+        border: solid 1px $graye5e;
+
+        &::placeholder {
+            color: $gray-64;
+        }
+
+        &:focus {
+            border-color: $brand-color;
+        }
+
+        &:focus ~ .tooltipText {
+            display: inline-block;
+        }
+
+        &.error-class {
+            border: solid 1px $error-red;
+
+            &:focus {
+                border-color: $error-red;
+            }
+        }
+    }
+
+    .tooltipText {
+        display: none;
+
+        @include font-style (12px, $white, false, 1.2);
+        @include abs-position (40px, false, false, false);
+
+        background-color: $gray-455;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+        padding: 13px 15px;
+        line-height: 1.2;
+
+        @include center (horizontal, true);
+
+        white-space: nowrap;
+        transition: 100ms;
+        z-index: 3;
+    }
+
+    .tooltipText:after {
+        border: solid transparent;
+        content: " ";
+
+        @include size (0, 0);
+        @include abs-position (false, false, 100%, 50%);
+
+        pointer-events: none;
+        border-color: rgba(69, 91, 118, 0);
+        border-bottom-color: $gray-455;
+        border-width: 5px;
+        margin-left: -5px;
+    }
+
+    .icons {
+        @include abs-position (50%, false, false, 12px);
+        @include font-style (16px, $gray600, 400);
+
+        transform: translateY(-50%);
+    }
+
+    .search-glass-icon{
+        font-size: 20px;
+    }
+
+    .close-icon{
+        @include font-style (16px, $gray600, 600);
+    }
+
+    // use class*="" only for icons in style files
+    span[class*="icon_phoenix-reset"]{
+        left: auto;
+        right: 10px;
+    }
+    // use class*="" only for icons in style files
+
+    &.search-mode {
+        input {
+            padding: 10px 15px;
+        }
+
+        // use class*="" only for icons in style files
+        span[class*="icon-search"],
+        span[class*="icon-reset"],
+        span[class*="icon_phoenix-search-glass"],
+        span[class*="icon_phoenix-new-search-icon"] {
+            display: none;
+        }
+        // use class*="" only for icons in style files
+    }
+
+    // use class*="" only for icons in style files
+    span[class*="icon_phoenix-search-glass"] {
+        @include font-style (14px, false, false, false);
+
+        &:before {
+            @include font-style (14px, false, false, false);
+        }
+    }
+    // use class*="" only for icons in style files
+
+    &.hide-icon {
+        input {
+            padding-left: 15px;
+        }
+    }
+
+    &.x-large-height {
+        input {
+            height: 52px;
+        }
+    }
+}
+
+.alert-img {
+    @include abs-position (calc(50% - 7.5px), 15px, false, false);
+}
+
+div[class*="invalid-error"] {
+    .search-filter {
+        input:not([type=checkbox]) {
+            padding: 9px 44px 10px 49px;
+            border: solid 1px $graye5e !important;
+        }
+    }
+}
+
+:global {
+    .element-ui-tooltip {
+        &.no-iconhover {
+            @include abs-position (0, false, false, 0);
+            @include size (100%, 100%);
+        }               
+    }
+}

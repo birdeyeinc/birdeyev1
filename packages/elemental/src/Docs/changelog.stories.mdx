@@ -1,0 +1,778 @@
+import { Meta } from '@storybook/addon-docs';
+import './mdxdoc.scss';
+
+<Meta title="Changelog"/>
+
+<div className="mdx-doc-container specificity">
+# Changelog
+All notable changes to this project will be documented in this file.
+
+## [1.2.3] - May 9 2026
+> Created `SplitDropdown` component
+> Added a change in `CustomToolbar` in `CustomRichTextEditor` to ensure background colour customiser is only visible if it has config 
+> Added a prop `borderColor` in `CustomRichTextEditor` to customise the border color of the text editor
+> Added `isInline`, `onApply`, `onClear`, `onDateChange`, `applyLabel` & `clearLabel` props in `atoms/TimePeriod` component
+
+## [1.2.2] - May 8 2026
+> Disabled Loader for preferences API call in TableGridColumnProvider
+
+## [1.2.1] - May 4 2026
+> Added Loader for preferences API call in TableGridColumnProvider
+
+## [1.2.0] - May 2 2026
+> Empty states and TableGrid changes.
+
+
+## [1.1.99] - May 1 2026
+> Changed vertical layout logic to DAG in `WorkflowCanvas`
+> Self hosted icomoon project to resolve SRI security issue.
+> Self hosted google fonts to resolve SRI security issue.
+> Added script to sync icomoon project with updated icons (during local dev).
+> Changes to rollup config for icomoon directory and its font file serving.
+> Added L4 tab support tweaks in `TabHeader`, `RailNav/L4MenuWrapper`, and `RailNav/SecondSideRailNav` for V3 filters.
+> Added `pinDeselectionToTop` prop in `MultiSelectPaginatedDropdown` to optionally pin deselected options at the top of the list.
+> Added custom-field rendering support in `MultiLevelDropdownSelector` (and `FilterOptionsList`), with accompanying styling updates.
+
+
+## [1.1.98] - April 28 2026
+> Added a `vertical` variant to `Steppers` for wizard side navigation.
+> Added a `animation` variant to `Loaderbox` for lottie animation
+
+## [1.1.97] - April 24 2026
+> Fallback handling of initial fit in WorkflowCanvas
+
+## [1.1.96] - April 24 2026
+> Added `initialViewportConfig` support in WorkflowCanvas
+
+## [1.1.95] - April 24 2026
+> Fontstyle changed for all the Modals as per DS Compliance
+> Input border color changed as per the DS Compliance
+
+## [1.1.94] - April 24 2026
+> Removed `text-transform: lowercase` from label of filters in `filterSelect.scss`
+> Updated `WorkflowCanvas` vertical layout cache key generation to correctly derive `analyticsLength` for A/B test analytics templates.
+
+## [1.1.93] - April 20 2026
+> Fixed `Tablegrid` column-customiser and resizing across remounting of `TableGrid`, now it will only loose data while remount of `TableGridProvider`.
+> Fixed intermittently faced issue of sort click by placing handleClick on `div` instead of `th`.
+
+## [1.1.92] - April 17 2026
+> Added `optionSubtextKey` in `MultiSelectPaginatedDropdown` destructuring to ensure the prop is available during option rendering.
+
+## [1.1.91] - April 17 2026
+> Added `ChipGroup` component
+> Added new variant `outlinedIconFilled` in `Chip` component
+> Added `subtextJsx` support in `MultiSelectPaginatedDropdown` component
+
+## [1.1.89] - April 14 2026
+> Added `HighchartsRenderer` atomic component<br/>
+> Fixed applychanges in copilot for backward compatibility.
+
+## [1.1.88] - April 10 2026
+> Fixed state mutation bugs in `TagsInput` component and added `onlyBreakOnEnterTabAndComma` prop with comma-separated paste support.
+
+### Added
+- Added `onlyBreakOnEnterTabAndComma` prop in `TagsInput` to support tag creation on Enter, Tab, and Comma key presses.
+- Added `handlePaste` handler to support pasting comma-separated values as individual tags when `onlyBreakOnEnterTabAndComma` and `supportTextTags` are enabled.
+
+### Fixed
+- Fixed direct state mutation in `TagsInput` (`tags.push`, `tags.pop`, `tags.splice`) replaced with immutable operations (`spread`, `slice`, `filter`) to prevent random tag deletion.
+- Fixed `removeTag` to use index-based removal instead of value-based (`indexOf`/`splice`), resolving incorrect tag deletion when duplicate tags exist.
+
+## [1.1.87] - April 09 2026
+> Fixed pointer issue and Infinite scrolls in `TableGrid` component.
+> Introduced custom report copilot & support for new table component.
+
+## [1.1.86] - April 08 2026
+> Added Bottom badge in the RailNav.
+
+## [1.1.85] - April 06 2026
+> Added New centralised `Tablegrid` component for all table visualisation.
+
+## [1.1.84] - April 06 2026
+> Add support for the Show More with count in RailNav.
+
+## [1.1.83] - March 27 2026
+> Added Changes for the DS Compliance related project in which we have fixes with respect to TabHeader and Chip/Tag component.
+> Added Free Media Library (pexels, Pixabay, Giphy) & AI Image generation UI components which is used to upload free media. 
+
+## [1.1.82] - March 27 2026
+> Add support for dynamic breakpoint in RailNavHamburger.
+
+## [1.1.81] - March 20 2026
+> Fixed the issue in TimePeriod component where w.r.t previous month selection in comparision, incorrect date range was selected
+
+## [1.1.80] - March 16 2026
+> Remove Fixed height & width for Sunburst to adjust its container height & width.
+> Fixed capitalization issue in time filter: changed "Set Range" to "Set range" in TimePeriod component.
+
+## [1.1.79] - March 11 2026
+> Added changes for the DS Complience related project in which we have updated TabHeader renamed prop isL4Menu to isAeroDesign with default value true and made changes according to new designs
+> Added changes for the DS Complience related project in which we have updated Tag to utilise Chip and made changes according to new designs
+> Synced the component with the TimePeriod implementation from the UI Web 2.0 repository to maintain consistency across applications.
+
+### Added
+- Introduced a dual calendar view for improved date range selection.
+- Enabled manual editing of Start Date and End Date input fields.
+- Added a Reset button in the footer to quickly revert the selected dates to today’s date.
+- Removed the Custom option from the static date range list.
+- Updated the copy of the "Apply" button CTA as per new updated copy.
+- Implemented several CSS enhancements to improve the overall look and polish of the component as per the design
+
+## [1.1.78] - March 5 2026
+> Added changes for the DS Complience related project in which we have added classes for PageHeader and made changes according to new designs
+
+## [1.1.76] - Feb 24 2026
+> Added subtext prop in ActionBox
+
+## [v1.1.75] - Feb 20 2026
+> Added hideTopLoader prop in Copilot
+
+## [v1.1.74] - Feb 20 2026
+> Changed minor width of the RTE editor
+> Readjust Flow Canvas node height for WF a/b test nodes
+
+## [v1.1.73] - Feb 16 2026
+> Added shimmer state to show total count of selected items in paginated listwithcheckbox
+
+## [v1.1.72] - Feb 13 2026
+> Added searchExactNavUrl in props of RailNav
+> Added WorkflowCanvas component for building and visualizing workflows
+> Added auto line-height handling and options for RTE.
+> Added `isCustom` prop in RichTextEditor(atoms/RichTextEditor) component and created a new component `CustomRichTextEditor`
+> Changed static "NPS" string to dynamic label in SentimentScore component
+
+### Added
+- Added `WorkflowCanvas` component for creating and editing workflow diagrams with nodes and connections.
+- Support for horizontal and vertical layouting.
+- Customizable node types with edge types and styling options.
+- Zoom and pan controls for canvas navigation.
+- Added `isCustom` prop in RichTextEditor(atoms/RichTextEditor) component to render a fully customizable text editor using RichTextEditor.
+- Created a new component `CustomRichTextEditor` which supports addition of custom functionalities in toolbar.
+
+## [v1.1.71] - Feb 9 2026
+> Added includeDefaultBlocks in props of EditorProvider
+
+## [v1.1.70] - Feb 6 2026
+> Added onAccordionClick in parentOption of RailNav
+
+## [v1.1.69] - Feb 5 2026
+> Bugfixes for Template Builder RTE editor.
+
+## [v1.1.68] - Feb 2 2026
+> Added new features to TemplateBuilder Rich Text Editor with Stability fixes.
+
+## [v1.1.67] - 27-Jan-2026
+> Added support for a footer box element in SecondSideRailNav
+
+## [v1.1.66] -  23-Jan-2026
+> Added support for `Treemap` chart in `GraphTable` & Added null check handling in `GraphToolbarContainer`.
+> Added view more handling for month,week view for calendar.
+> Added `charExceedErr` prop in `TextAreaCounter` to show a prop based character exceed error
+
+## [v1.1.65] -  20-Jan-2026
+> Table container style fix in case of row hover
+
+## [v1.1.64] -  16-Jan-2026
+> add beta pill support for child options in SecondSideRailNav
+
+## [v1.1.63] -  16-Jan-2026
+> Added `AdvancedMapView` component with Google Maps integration, clustering support, and custom marker capabilities.
+> Added new component FieldDrivenSearch and pagination support in ListWithCheckBox
+
+### Added
+- Added `AdvancedMapView` component for displaying locations on Google Maps with advanced features.
+- Integrated `@vis.gl/react-google-maps` library for map rendering.
+- Added clustering support with `clusterWorker.js` for efficient handling of multiple markers.
+- Added `MapMarker.tsx` component for custom marker rendering.
+- Added props for custom marker rendering (`renderCustomMarker`, `renderClusterMarker`).
+- Added tooltip support with customizable JSX (`getMapTooltipJsx`, `getClusterViewTooltipJsx`).
+- Added reset zoom button functionality with configurable position and styling.
+- Added `transformLocationData` prop for custom location data transformation.
+- Added shimmer/loading state support via `getShimmerJsx` prop.
+- Added map configuration props: `fullscreenControl`, `gestureHandling`, `fixedMinZoomLevel`, `initialZoom`.
+- Added `businessTitle` prop for customizable location block title (default: "Locations").
+- Added pagination support in ListWithCheckBox and refactor this component (either virtualization or pagination can be used at once)
+- Added infinite scroll props, field driven search props, internal loader and searchDebounceDelay in ListWithCheckBox
+- FieldDrivenSearch component allows searching based on defined set of fields which user can chose
+- Exposed pagination props for ListWithCheckBox from MultiLevelDropdownSelector
+
+### Fixed
+- Fixed left positioning issue in `SingleSelectPaginated` component dropdown alignment.
+- Fixed cursor behavior in `SingleSelectPaginated` component when `showOptionsReadOnly` is set to true, ensuring the cursor is properly disabled.
+- Fixed pie chart to support passing `extraData` parameter for additional chart configurations.
+
+## [v1.1.62] -  13-Jan-2026
+> fixed datepicker range selection issue for content hub mfe
+> calendar. (content hub mfe) design changes
+> added quote support in template builder
+
+### Added
+- fixed end date validation issue for mfe
+- drag drop changes for mfe in calendar, list view design changes for calendar
+- added quote block (custom block). in template builder
+
+## [v1.1.61] -  13-Jan-2026
+> Added support of rows in customJSX prop in Table body.
+
+### Added
+- Passed rows in customJSX prop in Table body.
+
+## [v1.1.60] -  09-Jan-2026
+> Added shimmer in BigCalendar
+> Added weekmaxrows handling along with showmore in calendar
+
+### Added
+- Added shimmer component and styling in BigCalendar component.
+- Added weekmaxrows handling along with showmore in calendar
+
+## [v1.1.59] -  09-Jan-2026
+> Added and Refactored `CircularProgress` component to TypeScript and enhanced `RatingStar` component with binary star mode.
+> Added a `InfinitescrollList` component to load infinite list like review etc
+> Added `CustomJSX` prop support in `Multiselect` component.
+> Added `isAddWidget` prop in `GraphToolbarContainer` component and hidden Summary and Header based on this prop.
+
+### Added
+- Added `CircularProgress` component.
+- Added `binaryStarMode` prop in `RatingStar` component to display a single star instead of five stars.
+- Added `RatingStarWithBinaryMode` story variants in `RatingStar` for Storybook documentation.
+- Added `InfinitescrollList` component to display reviews list  or any type of paginated list.
+
+## [v1.1.58] -  06-Jan-2026
+> convert `ImageViewWithModal` into typescript component
+
+## [v1.1.57] -  06-Jan-2026
+> Added support for breakpoint for RailNav.
+> Added new component - TemplateBuilder
+> Added `Counter` atom component.
+> Added `BigCalendar` under components
+> Added `CustomizeColumns` under components
+> Added Actionbox and Next button in stepper module.
+> Added `Emojipicker` under components
+
+### Added
+- Added a new prop `breakpoint` in `RailNav` component with default value set to `800`.
+- Added support for grapejs library under Templatebuilder for html
+- New `Counter` atom component to display a numeric counter with increment and decrement controls.
+- Added BigCalendar to render calendar used by content hub for now
+- Added CustomizeColumns component that helps in reordering the columns of a table
+- Added support for emojipicker - with basic functionalities - textarea,emoji,fileuploader
+
+## [v1.1.56] -  23-Dec-2025
+> Added a `Quadrant Graph` in the `GraphTable`.
+> Custom option JSX support in `SingleSelectedPaginated` Component.
+
+### Added
+- Added a new type of chart Support("Quadrant Graph") in the GraphTable(src/components/GraphTable/visualisations/charts/extensions/quadrant).
+- Added a `customOptionsJSX` prop  Jsx in `SingleSelectPaginated`. This allows custom styling and jsx for row item.
+
+## [v1.1.55] - 19-Dec-2025
+> Variable pie chart legend issue fix & enabled three dot for disabled row in `Table` Component.
+
+### Added
+- Introduced `enableThreeDotsForDisabledRows` in `Table` component `rowHoverAction` props to enable three dot for disabled rows.
+- Added changes to enable 'Ranking' Tab under Apple Listings in 'L4MenuComponent'
+
+### Fixed
+- Fixed custom legend issue where legend color got change for no data usecase.
+- Fixed scroll styling issue when the "Select all" option was enabled for `PillSelectionDropdown` component.
+
+## [v1.1.54] - 12-Dec-2025
+> Accordion Content Change in `Table` Component.
+
+### Added
+- Added condition based class for Accordion Content in `Table` component, as it was disabling LoadingShimmer previously.
+
+## [v1.1.53] - 12-Dec-2025
+> Added support for variable pie chart in GraphTable <br />
+> Alignment Fix in L2 New Pill.
+
+### Added
+- Support for variable pie chart in GraphTable.
+- Added support for custom legends in GraphTable, `isExternalLegend` props is required in reportConfig to enable custom legend , we have default customLegend implementation & also
+  added support for `customLegendJsx` to overwrite default implementation.
+- New Pill Alignement Fixed in L2,  it is overlaping Cheveron Down Icon.
+- Added `data-testid` and `id` attribute in `Table` and `GraphTable` for automation testing suite.
+
+## [v1.1.52] - 05-Dec-2025
+> Fixed disabled row error css issue in Table component on hover
+> Fixed scroll icons in TableContainer component
+> Added support for Inbox,Reviews and Reports in SecondaryRailNav.
+
+### Added
+- Fixed bug on clicking of dotted action box and performing the delete functionality dot is getting changed to "Action" label.
+- Sunburst chart visualization added in GraphTable component.
+- Added `disabled` prop in SelectorGroup component to disable selector items.
+
+## [v1.1.51] - 01-Dec-2025
+> Added color and improved heatmap rendering
+> Change the filter label from createdby to Users in `Multiselect` component
+> Fixed SingleSelectPaginated component issues
+> Fixed validation error css issue in TextArea component
+> Fixed disabled row error css issue in Table component
+
+### Added
+- Introduced `defaultTeal` color variable for consistent theming
+
+### Fixed
+- Updated table cell background logic for better hover and accordion state handling
+- Enhanced `ScrollableHeatmap` axis label rendering with support for custom label renderer and improved layout
+- In SingleSelectPaginated component, for disabled state, validation error was being rendered via the Form component
+- In SingleSelectPaginated component, if `showErrorOutside` was passed as true from Form component, validation error was not getting rendered outside
+- In SingleSelectPaginated component, changed the disabled state as per design feedback
+- Fixed the issue in TextArea component where validation error related CSS was not being rendered via the FormComponent
+- In Table component, as per design feedback, updated the row disabled state css
+
+## [v1.1.49] - 14-Nov-2025
+> Added props for showing model dropdown and design dropdown in `Copilot` component
+
+### Added
+- Added `showModelSelector` and `modelSelectorOptions` props for showing Model dropdown in Copilot footer
+- Added `showDesignSelector` and `designSelectorOptions` props for showing Design dropdown in Copilot footer
+- Added `onItemClick` callback to handle selection changes from model and design dropdowns
+
+## [v1.1.48] - 07-Nov-2025
+> Added Styles in `TableContainer` component
+> Fixed style bug for `RangeSlider` component
+> Added prop for handling welcome message in `ListWithCheckBox` component
+> Added support for images, cancel, submit cta in `SingleSelect` component
+> Enhanced `PillSelectionDropdown` with infinite scroll, API search, and performance optimizations
+
+### Added
+- Added `Styles' for FixedTable in TableContainer
+- Implemented infinite scroll functionality in `PillSelectionDropdown` component for better performance with large datasets
+- Added API search capability with `isAPISearch` prop to enable server-side filtering
+- Added `loadMore` function support for lazy loading of additional items
+- Enhanced item sorting functionality to prioritize selected items when dropdown opens
+- Implemented `CellMeasurer` for improved performance and dynamic item height calculation
+- Added better state management for dropdown visibility with `isOpen` state
+
+### Fixed
+- Fixed Style bug for `RangeSlider` component for Default text Alignment in `RangeSlider`.
+- Added prop and handling (fromWelcomeMessage) welcome messages page selection in `ListWithCheckBox` component.
+- Added prop & handling for images, cancel, submit cta (showImageInSelection, useCancelSubmitButtons) in `SingleSelect` component
+- Fixed item sorting logic in `PillSelectionDropdown` to maintain selected items at top consistently
+- Improved search functionality to include selected values in API search requests
+- Enhanced performance by optimizing rendering of large item lists
+- Fixed state synchronization issues when merging new API results with existing selected items
+
+## [v1.1.47] - 05-Nov-2025
+> Added changes in Accordion and Table to support use cases in workflow
+
+### Added
+- Added `onAccordionClosed' prop in DynamicAccordion to handle onclick of accordion
+- Added `customJSX' prop in Table to render any custom actions on hover of table row
+
+## [v1.1.46] - 03-Nov-2025
+> Fixed GraphToolbarContainer issues
+
+### Fixed
+- Cloned reportsdetails for modification
+- Added visibility flag for left right toolbar
+
+## [v1.1.45] - 03-Nov-2025
+### Added
+> Enhanced MultiSelectPaginatedDropdownComponent with validation and default selection features
+
+- Added `showError` and `renderValidationErrors` props to render validation errors from parent components
+- Added `isAllSelectedByDefault` prop to determine whether all options are selected by default
+
+> Added validation related changes in SingleSelectPaginated component
+
+- Added validation-related props to ensure proper integration with Form component
+- Updated Form component to include SingleSelectPaginated in existing validation logic
+
+> Enhanced GraphSummary component with unit formatting and custom styling
+
+- Added `formatInUnits` option to display delta values in units (K, M, B, T)
+- Added `isCustomLogicForPositiveOrNegativeClass` option for custom delta section styling
+
+> Added Sankey chart visualization support
+
+- New Sankey chart visualization option in GraphTable component
+
+### Fixed
+> Fixed pie chart visualization issues
+
+- Fixed pie chart title alignment when dataFormat is ARRAY_KEY_VALUE
+- Fixed missing tooltip display when hovering over pie chart titles
+
+> Fixed RangeSlider component issues
+
+- Fixed the issue where in case of zero, the line below the slider was not properly aligned
+
+## [v1.1.44] - 23-Oct-2025
+> `google-libphonenumber` update patch version
+> `TableContainer` and `Breadcrumbs` components added
+
+### Added
+- `TableContainer` component
+- `Breadcrumbs` component
+
+## [v1.1.43] - 23-Oct-2025
+> Created TipTapRichTextEditor component for Template Builder use.
+
+### Added
+- New component TipTapRichTextEditor which is based on headless design.
+
+## [v1.1.42] - 22-Oct-2025
+> Implemented Virtualisation in table component
+
+### Added
+- The configuration object controls virtualization enablement, rowHeight calculation logic, overScan count, switchThreshold
+- Updated component stories and PropTypes to reflect the changes
+
+## [v1.1.39] - 13-Oct-2025
+> This version refactors the virtualization implementation in the `ListWithCheckBox` component and its usage in `MultiLevelDropdownSelector` by replacing a simple boolean flag with a comprehensive configuration object.
+
+### Added
+- The configuration object controls virtualization enablement, rowHeight calculation logic, overScan count, list height and custom class addition
+- Replaced isVirtualisationEnabled boolean with virtualizationProps object containing detailed virtualization settings
+- Added automatic height adjustment capability to MultiLevelDropdownSelector that integrates with virtualization
+- Updated component stories and PropTypes to reflect the new API
+
+## [v1.1.38] - 07-Oct-2025
+> MapView component added
+
+### Added
+- `MapView` component
+
+## [v1.1.37] - 06-Oct-2025
+> Update `ListWithCheckBox` and `MultiLevelDropdownSelector` in components
+
+### Added
+- Added `Virtualisation` support in ListWithCheckBox
+- Fixed `preventCheckBoxPropagation` support to prevent dual callback triggers.
+
+## [v1.1.36] - 03-Oct-2025
+> Update `TabHeader` in atoms
+
+### Added
+- Added prop based changes for redirection and icon style in `TabHeader`
+
+## [v1.1.35] - 03-Oct-2025
+> Update `PillSelectionDropdown` in atoms component
+
+### Added
+- Update scroll styling in `PillSelectionDropdown`
+
+## [v1.1.34] - 26-Sept-2025
+> Added `RichTextEditor` in atoms component 
+> Added Changes to `SingleSelectPaginated` component
+> PillSelection component updated
+> FormInput updated
+
+### Added
+- Added Rich Text Editor in atoms component made using quill to provide WYSIYG editor.
+- Added Changes to `SingleSelectPaginated` component related to adding generic class.
+- Select all option for selecting all
+- Chips count restriced to 2 , for remaining +Count added
+- Support for Invalid options added in dropdown
+- Partial select checkbox for partial select
+- max decimal point added for number type filed
+
+## [v1.1.32] - 18-Sept-2025
+> Added SecondaryRailNav component && Fixes in GraphTable and GraphToolbarContainer && phase-6 components
+
+## [v1.1.30] - 09-Sept-2025
+> Added `MultiSegmentBar` component
+- Added `MultiSegmentBar` component to show multiple segments in a single bar with different colors
+
+> Added `WordCloud ` visualisation in GraphTable component
+
+> Fixes in `Table` component
+- Fixed an issue in `Table` component where the row hover action column was not aligned properly
+- Fixed an issue in `Table` component where the custom width for row hover action column was not working properly
+
+## [v1.1.30] - 09-Sept-2025
+> Added `MultiSegmentBar` component
+- Added `MultiSegmentBar` component to show multiple segments in a single bar with different colors
+
+> Added `WordCloud ` visualisation in GraphTable component
+
+> Fixes in `Table` component
+- Fixed an issue in `Table` component where the row hover action column was not aligned properly
+- Fixed an issue in `Table` component where the custom width for row hover action column was not working properly
+
+## [v1.1.29] - 03-Sept-2025
+> Added `FilterOptionsList` in MultiLevelDropDownSelector and `Copilot` component 
+
+### Added
+- Added custom single select for filter option in MultiLevelDropDownSelector.
+- Added props `dropownType`,`secondNavFilterOptions`,`secondNavFilterSelectetValue` and `secondNavFilterClickHandler` to handle use cases for custom single select for MultiLevelDropDownSelector.
+- Added a `showCount` prop to display the count in the accordion title.  
+- Added `Copilot` component which is been used in reportmate in reporting, contact segmentation and template builder.
+
+## [v1.1.27] - 19-Aug-2025
+> Modified `SingleSelectPaginated` component to support pagination properly
+
+## [v1.1.26] - 18-Aug-2025
+> Added `GraphTable` and `GraphTableToolbar` container for highchart
+
+### Added
+- Added `areaspline`, `bar`, `column`, `grouped column`, `spline`, `table`, `wordcloud`, `splinedotted`, `pie`, `heatmap`, `scrollable heatmap`, `packed bubble` visualisations
+
+## [v1.1.25] - 1-Aug-2025
+> Added `SingleSelectPaginated` component
+
+### Added
+- Added `accordionConfig` and `customRowWidth` prop in Table component for accordion related changes & option to pass custom row width related config respectively
+
+## [v1.1.24] - 18-July-2025
+> Added RailNav component for channel as of now, for web2.0 it will go into Phase-6.
+
+## [v1.1.23] - 11-July-2025
+> Added `disablePastDates` prop in `DatePicker` and placeholder support for `channelType` in `MultiSelect`
+
+### Added
+- Added placeholder support for the `channelType` filter in `Multiselect`. 
+- Implemented a safety check for the `disablePastDates` prop - to let disable and enable past dates on the basis of this prop, if this prop is not present, it will use `enableFutureDates` prop to enable/disable past dates .
+
+## [v1.1.22] - 7-July-2025
+> Added Media Collage component
+
+### Added
+- Added Media Collage component for channel as of now, for web2.0 it will go into Phase-6.
+
+## [v1.1.21] - 04-Jul-2025
+>  CSS style chagne for Tile Component  
+
+### Added
+- In this, made changes to the Tiles.js file and it's style file for single tile text content.
+
+## [v1.1.20] - 04-Jul-2025
+> Added an optional parameter in table to disable row hover action.  
+
+### Added
+- In 'Table' component, we have now introduced a new optional prop called as `disableRowHoverAction`. This helps us to conditionally disable the rowHover properties for certain rows.  
+
+## [v1.1.19] - 01-Jul-2025
+> Added `enableBusinessTimeZone` as props in `DatePicker`, to show date based on selected enterpeise time zone 
+
+### Added
+- In `DatePicker` enableBusinessTimeZone: Enable this flag to display the selected date in the enterprise (business) time zone instead of the browser's local time zone. 
+
+## [v1.1.18] - 27-Jun-2025
+> Added `maxSelectionConfig` and `minSelectionConfig` config object as props in `pillSelectionDropdown`, Added `showMore` prop in `TabHeader` component to show the tab elements overflowing inside "more" 
+
+### Added
+- In `pillSelectionDropdown` ,once selectionCount is excced `maxselectionCount` then non selected items will be disable and `maxSelectionCountTooltipText` show in tooltip
+- In `pillSelectionDropdown` ,once selectionCount is less than `minselectionCount` then selected items will be disable and `minSelectionCountTooltipText` show in tooltip
+- Added `showMore` prop in `TabHeader` component to show the tab elements overflowing inside "more" option 
+- Created a new component `OverflowList` to show items overflowing inside a specific div and on click of it show those specific overflow items
+
+## [v1.1.17] - 24-Jun-2025
+> Added a reverse selection for mutliselect
+
+### Added
+- Added a new prop `isDisabledOptionAllowed` and `isReverseSelectedAllowed` for allowing count of disableOption and getting the reversed selected location
+
+
+## [v1.1.16] - 23-Jun-2025
+> FileUploader added method checkFileUploadFromSocialModules for specfic images
+
+## [v1.1.15] - 23-Jun-2025
+> Migrate below components in elemental phase-5
+
+### Added
+- ToggleableMenu
+- Tags
+- TagInput
+- MediaCarouselGallery/ Carousel
+- MediaCarouselGallery/Gallery
+- Timepicker
+- Slick
+- ImageViewWithModal
+- DatePicker
+- NoData
+- SingleSelect
+- FileUploader
+-  for more details refer to [elemental phase-5](https://docs.google.com/spreadsheets/d/1AhWopwl5EfZrbXMZSPHE41gZJOoCloj3LiRhFdu3qiQ/edit?usp=sharing)
+
+## [v1.1.11] - 11-Jun-2025
+> Added a new variant for ActionBox component with children options for a nested option
+
+### Added
+- Added a new prop `selectedChild`, rendered options.subtypes for an option with children
+
+## [v1.1.10] - 30-May-2025
+> Added `el-test-searchfilter-input` as `data-testid` in searchFilter component
+
+## [v1.1.9] - 30-May-2025
+> Added CTAs and auto height adjust prop in MultiLevelDropDownSelector
+
+### Added
+- Added ability to use primary and secondary CTAs to apply selected filters (eg, `primaryCtaLabel` , `showPrimaryCta` , `primaryCtaClickCb` ). 
+- Introduced `isHeightAutoAdjust` prop to make height of this popover dynamic.
+- Added `restrictClosingPopover` which could be based on a state variable to avoid closing popover in certain conditions.
+
+## [v1.1.7] - 09-May-2025
+> Added blocking emoji support to Multiselect atom
+
+### Added
+- Added `isExternalSourceWithTemplates` prop for the capability of warning about presence of emojis when the user is interacting with Reviews from Yelp.
+
+## [v1.1.6] - 05-May-2025
+> Added Infinite loader in table container
+
+### Added
+- Added new prop for infinite table scroll.
+- Added handling to disable left and right scroll buttons when user reaches left or right end of the table on scroll.
+
+## [v1.1.5] - 02-May-2025
+> Added changes in `MultiSelectPaginatedDropdownComponent` and `MultiSelect` component
+
+### Added
+- Added `hideSelectAll` & `disableDeselectionLogic` props to hide the select all checkbox and disable deselection logic respectively
+- Added `showCustomIconIninlineMode` & `customClassForInlineModeIcon` props for inline mode
+
+## [v1.1.4] - 01-May-2025
+> New Components Added 
+
+### Added
+- Added `Tile` Component 
+- Added `Search` and `SearchableField` Components
+- Added `EmailReview` Component
+
+## [v1.1.3] - 25-Apr-2025
+> New features added in `TabHeader`
+
+### Added
+- Added custom error icon on TabHeader
+
+## [v1.1.2] - 8-Apr-2025
+> Multiselect validation issue fixed
+
+## [v1.1.1] - 7-Apr-2025
+> InfoComponent returns null if infoHTML is undefined
+
+## [v1.1.0] - 5-Apr-2025
+> New Components added in atoms and components
+
+### Added
+- `GridContainer` and `GridItem`
+- `LoaderBox`
+- `PopOver`
+- `ListWithCheckBox`
+- `Modal` and `ConfirmationModal`
+- `MultiSelect`
+- `InfoComponent`
+- `LoadingShimmer`
+- `MultiLevelDropdownSelector`
+- `SearchFilter`
+- `FormInput`
+- `TextArea`
+- `TabsToggle`
+- `SortableList`
+- `StairCaseGraph`
+- `RatingStar`
+- `ChartVisualisationDropdown`
+- `Form`
+- `SideDrawer`  
+
+<br/>
+<br/>
+
+## [v1.0.4] - 28-Mar-2025
+> PillSelectionDropdown added onChange, hide and disabled feature
+
+### Added
+- `PillSelectionDropdown`: Added onChange, the ability to hide the avatar, and the option to disable the select item in Select and PillSelection components. Also introduced isDisable and disableTooltipText support for PillSelect dropdown items.
+
+<br/>
+<br/>
+
+## [v1.0.3] - 14-Mar-2025
+> MultiSelectPaginatedDropdown selection issue fixed
+
+### Fixed
+- `MultiSelectPaginatedDropdown`: Used secondaryLabelKey as a fallback for the dropdown header label and final selection label.
+
+<br/>
+<br/>
+
+## [v1.0.2] - 07-Mar-2025
+> MultiSelectPaginatedDropdown selection issue fixed
+
+### Fixed
+- `MultiSelectPaginatedDropdown` selection issue fixed
+
+<br/>
+<br/>
+
+## [v1.0.1] - 14-Feb-2025
+> Component separation into atoms and component, customclassname generation, e.t.c
+
+### Fixed
+- `Toggle` rounded variant size issue fixed
+
+<br/>
+<br/>
+
+## [v1.0.0] - 12-Feb-2025
+> Component separation into atoms and component, customclassname generation, e.t.c
+
+### Added
+- Component separation into `atoms` and `components`
+- Aliases for import path and changed every import path accordingly
+- Custom class generation logic to support existing automation suite
+- Export JS variables for colors and fonts
+- Added stories for some components
+- Added `TimePeriod` Component 
+
+<br/>
+<br/>
+
+## [v0.0.31] - 03-Feb-2025
+> Fixed an issue in MultiLevelDropDownSelector component
+### Fixed
+- If isSyncWithGlobalFilters is true and isUncontrolledComponent is true, during intial render or switching from hierarchy to location, isReverseSelected was coming as false
+
+<br/>
+<br/>
+
+## [v0.0.30] - 21-Jan-2025
+> Added new components and Changes in PillSelection
+### Added
+- Added FormInput, SearchFilter, ListWithCheckBox, MultiLevelDropDownSelector components
+
+### Changed
+- Update PillSelection component, gave support for location filter
+
+<br/>
+<br/>
+
+## [v0.0.29] - 17-Dec-2024
+> Changes in PillSelection
+### Added
+- Added CustomLabel support in `PillSelection`
+
+### Fixed
+- SideEffect issues fixed in `PillSelection`
+
+<br/>
+<br/>
+
+## [v0.0.28] - 11-Dec-2024
+> some components, mixins and variables are added.
+
+### Added
+- `DynamicAccordian` and `RangeSlider` components are now available.
+- `flex-row`, `flex-column` mixins are added
+- some color variables are added
+
+<br/>
+<br/>
+
+## [v0.0.27] - 07-Nov-2024
+> module.scss approach, new components and some old component migration.
+
+### Added
+- `Avatar`, `Chip` and `Select` components are now available.
+
+### Changed
+- Change approach for scss, we are using module scss now.
+- Migrate components into module css - `ActionBox`, `Button`, `Toggle`, `TabHeader`, `Tooltip`, `PillSelection`.
+- UI revamping of `PillSelection` component.
+
+</div>

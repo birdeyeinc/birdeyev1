@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es2016",  
+    "jsx": "react",                         
+    "module": "esnext",
+    "moduleResolution": "node",                     
+    "esModuleInterop": true,                           
+    "forceConsistentCasingInFileNames": true,     
+    "strict": true,  
+    "sourceMap": true,                       
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "assets/*": ["assets/*"],
+      "atoms/*": ["atoms/*"],
+      "components/*": ["components/*"],
+      "sass/*": ["sass/*"],
+      "utils/*": ["utils/*"],
+      "hooks/*": ["hooks/*"],
+      "constants/*": ["constants/*"],
+    },
+    "allowJs": true                           
+  },
+  "include": [
+    "src",
+    "utils",
+    "src/index.d.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/*.test.tsx"
+  ],
+}

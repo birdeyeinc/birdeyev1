@@ -1,0 +1,219 @@
+@import 'sass/variables';
+@import 'sass/mixins/flexBox.scss';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/mixins/sizeStyle.scss';
+
+.country-phone-wrap {
+    @include flexbox();
+    @include border-radius($elevation-popover-radius);
+
+    border: 1px solid $graye5e;
+    padding-left: 15px;
+    align-items: center;
+    background: $white;
+    position: relative;
+
+    &.show-icon {
+        i {
+            position: static;
+        }
+
+        :global {
+            .valid {
+                i {
+                    &.icon_phoenix-check {
+                        position: absolute;
+                        right: 15px;
+                        top: 10px !important;
+                        left: auto !important;
+
+                        @include font-style (16px, false);
+
+                        &:before {
+                            color: $positive-sentiment;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    i {
+        @include font-style (13px, $gray-99);
+
+        position: absolute;
+        top: 4px !important;
+
+        /*-------overriding the form input component----*/
+        left: 0 !important;
+
+        &:global {
+            &.icon_phoenix-check {
+                right: 15px;
+                top: 10px !important;
+                left: auto !important;
+
+                @include font-style (16px, false);
+
+                &:before {
+                    color: $positive-sentiment;
+                }
+            }
+        }
+    }
+
+    &:global {
+        &.invalid-error {
+            border: 1px solid $error-red;
+
+            &.focus {
+                border: 1px solid $error-red;
+
+                i {
+                    &:before {
+                        color: $error-red;
+                    }
+                }
+            }
+
+            i {
+                &:before {
+                    color: $error-red;
+                }
+
+                &.icon_phoenix-check {
+                    display: none;
+                }
+            }
+
+            >.invalid-error {
+                &:first-child {
+                    .error-tooltips {
+                        z-index: 2;
+                    }
+                }
+            }
+        }
+
+        &.valid {
+            .icon_phoenix-phone-fill {
+                &:before {
+                    color: $gray-55 !important;
+                }
+            }
+        }
+
+        &.focus {
+            border: 1px solid $brand-color;
+
+            i {
+                &:before {
+                    color: $brand-color;
+                }
+            }
+        }
+    }
+
+    &.disable {
+        //background: $gray-f9f;
+        background: $pale-blue;
+        pointer-events: none;
+        border: 1px solid $graye5e;
+
+        :global {
+            .icon_phoenix-phone-fill {
+                &:before {
+                    color: $gray-cc !important;
+                }
+            }
+        }
+    }
+
+    :global {
+        .el-ss-default-filter {
+            border: 0 !important;
+            min-height: 24px;
+            padding: 4px 12px 4px 31px;
+            background-color: $white;
+
+            &.el-ss-dropdown-open {
+                @include size (215px, auto);
+
+                min-height: 53px;
+                padding: 16px 20px;
+                left: 15px;
+                top: 15px;
+            }
+        }
+
+        .el-ss-filter-dropdown {
+            top: calc(100% + 25px);
+        }
+
+        .el-ss-dropdown-box {
+            min-height: 24px;
+            min-width: 73px;
+
+            .el-ss-with-icons {
+                .el-ss-reset-btn {
+                    @include abs-position(2px, false, false, false);
+                }
+            }
+        }
+
+        .el-ss-reset-btn {
+            @include abs-position(2px, 1px);
+            @include size(10px, 10px);
+
+            > span {
+                @include font-style (0px, false);
+
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid $gray-55;
+            }
+        }
+
+        /*------country wrap with selectbox disabled ----*/
+        .el-ss-disabled-wrap {
+            padding: 0;
+            min-height: 24px;
+            min-width: 73px;
+            background-color: transparent !important;
+
+            /*------overriding css for country wrap---*/
+
+            .el-ss-disabled-select-box {
+                padding: 0 12px 0 6px !important;
+                margin-left: 25px;
+            }
+
+            .el-ss-selected-values {
+                background-color: $gray-f9f;
+            }
+
+            .el-ss-reset-btn {
+                margin: -1px 2px 0 0;
+
+                > span {
+                    border-top: 5px solid $gray-cc;
+                }
+            }
+        }
+
+        .el-ss-disabled-wrap {
+            margin-bottom: 0;
+        }
+
+        .el-forminput {
+            input[type=text] {
+                border: 0 !important;
+                padding-right: 33px;
+
+                @include size(null, 36px);
+            }
+        }
+    }
+}

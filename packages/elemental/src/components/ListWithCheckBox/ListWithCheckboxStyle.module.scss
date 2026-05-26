@@ -1,0 +1,254 @@
+@import "sass/mixins/fontStyle.scss";
+@import "sass/variables";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/flexCenterVertical.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/flexCenterBetween.scss";
+@import "sass/mixins/flexCenterAll.scss";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/flexBox.scss";
+
+.list-checkbox-wrapper {
+    &[class*="hideInput"] {
+      input[type="radio"] {
+        @include abs-position(0, false, false, 0);
+
+        margin: 0;
+        opacity: 0;
+        z-index: 1;
+      }
+    }
+
+    .list-head-wrapper {
+      margin-top: 20px;
+      max-height: 170px;
+      overflow-y: auto;
+
+      div[class*="no-data-box"] {
+        min-height: 0;
+    }
+
+      .list-view-wrapper {
+        .select-all-header {
+          @include center-vertical();
+
+          margin-bottom: 15px;
+          padding: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background: $pale-blue;
+
+            @include border-radius(4px);
+          }
+
+          &.justify-content {
+            @include center-between();
+          }
+
+          .select-all-content-wrapper {
+            @include flexbox();
+            @include center-between();
+
+            flex: 1;
+            align-items: center;
+          }
+
+          .select-all-text {
+            @include font-style(14px, false, false, 1.2);
+
+            strong {
+              @include font-style(14px, false, 500, 1.2);
+            }
+
+            &.leftMargin {
+              margin-left: 15px;
+            }
+          }
+
+          .selected-count-text {
+            @include font-style(14px, false, false, 1.2);
+
+            margin-left: 8px;
+            color: $gray-66;
+          }
+
+          .selected-count-shimmer{
+            display: inline-block;
+            width: 100px;
+            height: 14px;
+            border-radius: 2px;
+            margin-left: 8px;
+            animation: shimmer 3s infinite linear;
+            opacity: 0.7;
+            background: linear-gradient(to right, #E9E9E9 20%, #CCCCCC 60%, #E9E9E9 80%);
+            background-size: 1000px 100%;
+          }
+        }
+
+        section {
+          margin-right: 0;
+        }
+
+        .scroll-list-wrapper {
+          overflow-y: auto;
+
+          .list-content-wrapper {
+            @include center-vertical();
+
+            margin-bottom: 15px;
+            padding: 5px;
+            cursor: pointer;
+
+            &:not(.justify-content) {
+              gap: 15px;
+            }
+
+            &:hover {
+              @include border-radius(4px);
+
+              background-color: $pale-blue;
+
+              i[class*="icon_phoenix-delete"] {
+                @include center-all();
+              }
+            }
+
+            .checkbox-content-group {
+              @include flexbox();
+              @include center-vertical();
+              gap: 15px
+            }
+
+            i[class*="icon_phoenix-delete"] {
+              @include size(24px, 24px);
+              @include border-radius(50%);
+
+              margin-right: 11px;
+              display: none;
+
+              &:before {
+                font-size: 18px;
+              }
+
+              &:hover {
+                background-color: $gray-cc;
+              }
+            }
+
+            &.justify-content {
+              @include center-between();
+            }
+
+            > button {
+              padding: 0;
+
+              &:hover {
+                background-color: transparent;
+              }
+            }
+
+            .list-content {
+              @include flexbox();
+
+              align-items: flex-start;
+
+              &.without-sublabel {
+                align-items: center;
+              }
+
+              .list-image-wrapper {
+                @include size(32px, 32px);
+                @include border-radius(50%);
+
+                margin-right: 10px;
+                border: 1px solid $gray-ee;
+                overflow: hidden;
+
+                img {
+                  @include size(100%, 100%);
+
+                  object-fit: cover;
+                }
+              }
+
+              .list-text-wrapper {
+                .header-text {
+                  @include font-style(13px, false, 500, "15px");
+
+                  &.leftMargin {
+                    margin-left: 8px;
+                  }
+
+                  &.invalid {
+                    color: $gray-99;
+                  }
+                }
+
+                .header-subtext {
+                  @include font-style(11px, $gray-99, 400, "15px");
+                }
+
+                .warning-text {
+                  @include font-style(11px, $default-color, 400, "15px");
+                  @include center-vertical();
+
+                  margin-top: 5px;
+
+                  > i {
+                    margin-right: 5px;
+                  }
+                }
+              }
+            }
+          }
+
+          .myRipple {
+            span {
+              @include font-style(15px, $brand-color, 500, "normal");
+            }
+          }
+        }
+      }
+    }
+
+    &[class*="smb-page-list"] {
+      .list-head-wrapper {
+        margin-top: 0;
+
+        .list-image-wrapper {
+          overflow: visible !important;
+
+          img {
+            object-fit: cover;
+
+            @include size(32px, 32px);
+            @include border-radius(50%);
+          }
+
+          .child-image {
+            @include size(16px, 16px);
+            @include abs-position(false, -1px, -1px, false);
+
+            z-index: 4;
+
+            &.twitter-image-wrapper {
+              img {
+                border: 1px solid $white;
+              }
+            }
+          }
+        }
+      }
+    }
+}
+
+// Shimmer animation for loading state
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}

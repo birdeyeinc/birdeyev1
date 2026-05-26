@@ -1,0 +1,41 @@
+@import "sass/master";
+
+.errorWrapDefault {
+    position: relative;
+}
+
+.errorWrapperClass {
+    float: left;
+    width: 100%;
+}
+
+.errorMsgBox {
+    overflow: hidden;
+    padding: 5px 5px 10px 0;
+    float: left;
+
+    @include font-style(12px, $redcolor, 400, 20px);
+
+    margin-top: 8px;
+    margin-left: 0;
+    -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    border: 0;
+    outline: 0;
+
+    @include size (auto, auto);
+}
+
+.errorIcon {
+    @include size (150px, 40px);
+
+    margin-top: -2px;
+    background: url("images/sprites/error-icon.png") 0 0 no-repeat;
+}
+
+.errorCloseBtn {
+    background: url("images/sprites/close-icon.png") no-repeat scroll 50% 50% transparent;
+    cursor: pointer;
+
+    @include size (20px, 20px);
+    @include abs-position(0,0);
+}

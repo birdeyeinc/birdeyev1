@@ -1,0 +1,17 @@
+export const STEPPER_STATUS_CONSTANTS = {
+    COMPLETED: "completed",
+    ACTIVE: "active"
+};
+
+export const SPREADSHEET_PROPERTY_CONSTANTS = {
+    STATIC: "STATIC",
+    CUSTOM: "CUSTOM"
+};
+
+export const FILE_UPLOAD_STATUS = {
+    FAILED: "FAILED",
+    UPLOADING: "UPLOADING",
+    PROCESSING: "PROCESSING",
+    SUCCESS: "SUCCESS",
+    UPLOADED: "UPLOADED"
+};

@@ -1,0 +1,42 @@
+name: PR Buddy Validator
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, labeled]
+    branches-ignore:
+      - master
+
+jobs:
+  validator:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: birdeyeinc/prbuddy_beinc@v2.0.0
+        with:
+          max-file-changes: ${{ vars.MAX_ALLOWED_FILE }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
+          rc_webhook_url: ${{ vars.RC_HOOK_URL }}
+          enable-ai-review: true
+          ai-reviewer-label: ai-review-pending
+          days_threshold: 2
+          ai-review-engine: gemini
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          ai-review-prompt: >
+            You are an expert web developer, proficient in JavaScript/TypeScript, React, Redux, SCSS, and web development.
+            The provided project is a React component ui library.
+            Conduct a detailed pull request (PR) review on the provided code based on below guidelines.Please ensure that your feedback aligns with these guidelines.
+            **Focus Areas:**
+                  * **Security:** Identify vulnerabilities on the frontend and server side.
+                  * **Practices:** Make sure the best practices are followed using JS, TS, SCSS, React.
+                  * **Typesafety:** Make sure the code in typescript files is fully typesafe.
+                  * Provide a concise and actionable feedback with line numbers. Highlight only required changes. Avoid lengthy explanations unless necessary.
+                  * Identify Potential Regression issues
+                  * Identify major performance issues
+                  * Identify css selector which cause performance issues like :has.
+                  * Identify unhandled errors and null pointer exceptions.
+                  **Example:**
+                    * "Line 10: Avoid the use of any type. Use specific types instead."
+                    * "Line 20: Use constants and refactor common functions to utils."
+                    * "Line 30-35: Iteration on arrays can be more efficient"

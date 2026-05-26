@@ -1,0 +1,23 @@
+
+@import 'sass/variables';
+@import 'sass/mixins/positionAbsolute.scss';
+@import 'sass/mixins/sizeStyle.scss';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/flexCenterBetween.scss';
+@import 'sass/mixins/flexBox.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/flexCenterVertical.scss';
+
+.non-editable-input {
+    border: 1px solid $brand-color;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+    margin: 0;
+    outline: none;
+
+    @include font-style (15px, $default-color, 400, 1.4);
+
+    background-color: $white;
+    width: 100%;
+    padding: 0 15px 35px;
+}

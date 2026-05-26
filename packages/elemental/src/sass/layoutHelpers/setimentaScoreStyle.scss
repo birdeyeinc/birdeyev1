@@ -1,0 +1,22 @@
+.sentiment-score {
+    width: 18px;
+    height: 18px !important;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 6px;
+
+    &.sm {
+        width: 14px;
+        height: 14px !important;
+    }
+
+    &.lg {
+        width: 20px;
+        height: 20px !important;
+    }
+
+    &.xl {
+        width: 27px;
+        height: 27px !important;
+    }
+}

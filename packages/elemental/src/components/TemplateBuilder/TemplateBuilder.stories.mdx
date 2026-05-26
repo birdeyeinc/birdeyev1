@@ -1,0 +1,542 @@
+import { Meta, Canvas, Source } from '@storybook/addon-docs';
+import { TemplateBuilderExample } from './components/example/example-editor';
+
+<Meta title="Component/TemplateBuilder/Documentation" />
+
+# TemplateBuilder
+
+A WYSIWYG template builder built on GrapesJS for creating email templates and HTML content with drag-and-drop visual editing.
+
+## Live Example
+
+<Canvas>
+  <TemplateBuilderExample />
+</Canvas>
+
+---
+
+## Installation
+
+```jsx
+import {
+  TemplateBuilderProvider,
+  EditorCanvas,
+  LeftPanel,
+  RightPanel,
+  OptionsToolbar,
+  RichTextToolbar,
+} from '@birdeye/elemental/core/components/TemplateBuilder';
+```
+
+## Basic Usage
+
+<Source
+  code={`import React from 'react';
+import { WithEditor } from '@grapesjs/react';
+import grapesjs from 'grapesjs';
+import {
+  TemplateBuilderProvider,
+  LeftPanel,
+  RightPanel,
+  OptionsToolbar,
+  RichTextToolbar,
+  EditorCanvas
+} from '@birdeye/elemental/core/components/TemplateBuilder';
+
+export default function TemplateBuilder() {
+  return (
+    <TemplateBuilderProvider grapesjs={grapesjs}>
+      <div className="editor-main-container">
+        <LeftPanel />
+        <div className="template-design-section">
+          <WithEditor>
+            <OptionsToolbar>
+              <OptionsToolbar.Default />
+            </OptionsToolbar>
+          </WithEditor>
+          <WithEditor>
+            <RichTextToolbar />
+          </WithEditor>
+          <div className="editor-container">
+            <EditorCanvas />
+            <WithEditor>
+              <RightPanel />
+            </WithEditor>
+          </div>
+        </div>
+      </div>
+    </TemplateBuilderProvider>
+  );
+}`}
+  language="jsx"
+/>
+
+---
+
+## Core Components
+
+### TemplateBuilderProvider
+
+Root provider that wraps the entire editor, initializing GrapesJS and providing context.
+
+**Props:**
+- `grapesjs` (required) - GrapesJS library instance
+- `extraPlugins` (optional) - Array of additional GrapesJS plugins
+- `children` - Child components
+
+**Built-in Plugins:**
+- `basicBlocks` - Pre-configured content blocks
+- `richTextPlugin` - Rich text editing
+- `loadDevices` - Device preview modes
+
+<Source
+  code={`<TemplateBuilderProvider grapesjs={grapesjs}>
+  {/* Editor components */}
+</TemplateBuilderProvider>`}
+  language="jsx"
+/>
+
+### EditorCanvas
+
+Main canvas where templates are rendered and edited. Automatically adjusts based on component selection state.
+
+**Props:**
+- `isLoading` (optional) - Show loading state
+- `isError` (optional) - Show error state
+- `isEmpty` (optional) - Show empty state
+- `loadingJSX` (optional) - Custom loading component
+- `errorJSX` (optional) - Custom error component
+- `emptyJSX` (optional) - Custom empty state component
+
+<Source
+  code={`<EditorCanvas 
+  isLoading={false}
+  loadingJSX={<CustomLoader />}
+/>`}
+  language="jsx"
+/>
+
+### LeftPanel
+
+Displays block manager with draggable content blocks organized in accordion.
+
+**Composition Pattern:**
+- `LeftPanel` - Main component (auto-composition if no children)
+- `LeftPanel.Wrapper` - Container wrapper
+- `LeftPanel.Content` - Blocks with accordion
+- `LeftPanel.Default` - Pre-composed default layout
+
+**Props:**
+- `items` (optional) - Additional accordion items to prepend
+- `children` (optional) - Custom content (replaces default)
+
+<Source
+  code={`// Auto-composition (default)
+<LeftPanel />
+
+// With custom accordion items
+<LeftPanel items={customItems} />
+
+// Full customization
+<LeftPanel>
+  <LeftPanel.Wrapper>
+    <LeftPanel.Content items={customItems} />
+  </LeftPanel.Wrapper>
+</LeftPanel>`}
+  language="jsx"
+/>
+
+### RightPanel
+
+Shows style and trait managers for the selected component.
+
+**Composition Pattern:**
+- `RightPanel` - Main component (auto-composition if no children)
+- `RightPanel.Wrapper` - Container with header and close button
+- `RightPanel.Content` - StyleManager and TraitManager
+- `RightPanel.Default` - Pre-composed default layout
+
+**Wrapper Props:**
+- `label` (optional) - Custom header label (defaults to selected component name)
+- `showCloseIcon` (optional) - Show/hide close button (default: true)
+- `onClose` (optional) - Custom close handler
+- `className` (optional) - Additional CSS classes
+
+<Source
+  code={`// Auto-composition (default)
+<RightPanel />
+
+// Custom composition
+<RightPanel>
+  <RightPanel.Wrapper label="Properties">
+    <RightPanel.Content />
+  </RightPanel.Wrapper>
+</RightPanel>
+
+// Custom close behavior
+<RightPanel>
+  <RightPanel.Wrapper 
+    onClose={() => console.log('Closed')}
+    showCloseIcon={true}
+  >
+    <CustomPropertyEditor />
+  </RightPanel.Wrapper>
+</RightPanel>`}
+  language="jsx"
+/>
+
+### OptionsToolbar
+
+Toolbar with undo/redo actions and device preview toggle.
+
+**Composition Pattern:**
+- `OptionsToolbar` - Main container
+- `OptionsToolbar.Left` - Left section
+- `OptionsToolbar.Center` - Center section (device toggle)
+- `OptionsToolbar.Right` - Right section (undo/redo)
+- `OptionsToolbar.Default` - All sections combined
+- `OptionsToolbar.DefaultLeft` - Default left section
+- `OptionsToolbar.DefaultCenter` - Default center section (devices)
+- `OptionsToolbar.DefaultRight` - Default right section
+
+**Section Props:**
+- `children` - Custom content
+- `className` (optional) - Additional CSS classes
+
+**DefaultRight Props:**
+- `extraOptions` (optional) - Additional toolbar buttons
+
+<Source
+  code={`// Pre-composed default
+<OptionsToolbar>
+  <OptionsToolbar.Default />
+</OptionsToolbar>
+
+// Custom sections
+<OptionsToolbar>
+  <OptionsToolbar.Left>
+    <LogoComponent />
+  </OptionsToolbar.Left>
+  <OptionsToolbar.DefaultCenter />
+  <OptionsToolbar.DefaultRight extraOptions={<CustomButton />} />
+</OptionsToolbar>
+
+// Fully custom
+<OptionsToolbar>
+  <OptionsToolbar.Left>
+    <CustomLeft />
+  </OptionsToolbar.Left>
+  <OptionsToolbar.Center>
+    <CustomDeviceSelector />
+  </OptionsToolbar.Center>
+  <OptionsToolbar.Right>
+    <CustomActions />
+  </OptionsToolbar.Right>
+</OptionsToolbar>`}
+  language="jsx"
+/>
+
+### RichTextToolbar
+
+Context-aware toolbar for rich text editing. Automatically appears when editing text.
+
+**Props:**
+- `extraOptions` (optional) - Additional toolbar options
+
+<Source
+  code={`<RichTextToolbar extraOptions={<CustomFormatButton />} />`}
+  language="jsx"
+/>
+
+---
+
+## Building Blocks
+
+### BlockManager
+
+Renders draggable content blocks.
+
+**Props:**
+- `blocks` (required) - Array of block objects from GrapesJS
+- `dragStart` (required) - Drag start handler from BlocksProvider
+- `dragStop` (required) - Drag stop handler from BlocksProvider
+
+<Source
+  code={`import { BlocksProvider } from '@grapesjs/react';
+import { BlockManager } from '@birdeye/elemental/core/components/TemplateBuilder';
+
+<BlocksProvider>
+  {({ blocks, dragStart, dragStop }) => (
+    <BlockManager 
+      blocks={blocks}
+      dragStart={dragStart}
+      dragStop={dragStop}
+    />
+  )}
+</BlocksProvider>`}
+  language="jsx"
+/>
+
+### BlockItem
+
+Individual draggable block item.
+
+**Props:**
+- `item` (required) - Block object
+- `dragStart` (required) - Drag start handler
+- `dragStop` (required) - Drag stop handler
+
+<Source
+  code={`<BlockItem 
+  item={block}
+  dragStart={dragStart}
+  dragStop={dragStop}
+/>`}
+  language="jsx"
+/>
+
+### StyleManager
+
+Manages component styling with property fields.
+
+**Props:**
+- `sectors` (required) - Style sectors from StylesProvider
+- `customFieldComponents` (optional) - Custom field components by type
+
+<Source
+  code={`import { StylesProvider } from '@grapesjs/react';
+import { StyleManager } from '@birdeye/elemental/core/components/TemplateBuilder';
+
+<StylesProvider>
+  {({ sectors }) => (
+    <StyleManager 
+      sectors={sectors}
+      customFieldComponents={{
+        'color': CustomColorPicker
+      }}
+    />
+  )}
+</StylesProvider>`}
+  language="jsx"
+/>
+
+### StylePropertyField
+
+Renders individual style property input.
+
+**Props:**
+- `prop` (required) - Style property from GrapesJS
+
+### TraitManager
+
+Manages component attributes/properties.
+
+**Props:**
+- `traits` (required) - Traits from TraitsProvider
+- `customTraitFields` (optional) - Custom trait field components by type
+
+<Source
+  code={`import { TraitsProvider } from '@grapesjs/react';
+import { TraitManager } from '@birdeye/elemental/core/components/TemplateBuilder';
+
+<TraitsProvider>
+  {({ traits }) => (
+    <TraitManager 
+      traits={traits}
+      customTraitFields={{
+        'text': CustomTextField
+      }}
+    />
+  )}
+</TraitsProvider>`}
+  language="jsx"
+/>
+
+### TraitPropertyField
+
+Renders individual trait input.
+
+**Props:**
+- `trait` (required) - Trait from GrapesJS
+
+---
+
+## Hooks
+
+### useComponentSelection
+
+Track and manage component selection state.
+
+**Returns:**
+- `isComponentSelected` (boolean) - Whether any component is selected
+- `selectedComponent` (string | null) - Name of selected component
+- `setIsComponentSelected` (function) - Manual selection state setter
+
+<Source
+  code={`import { useComponentSelection } from '@birdeye/elemental/core/components/TemplateBuilder';
+
+function MyComponent() {
+  const { isComponentSelected, selectedComponent } = useComponentSelection();
+  
+  return (
+    <div>
+      {isComponentSelected && <p>Editing: {selectedComponent}</p>}
+    </div>
+  );
+}`}
+  language="jsx"
+/>
+
+### useSelectedComponent
+
+Get the currently selected GrapesJS component object.
+
+**Returns:**
+- Selected component instance or undefined
+
+<Source
+  code={`import { useSelectedComponent } from '@birdeye/elemental/core/components/TemplateBuilder';
+
+function ComponentInfo() {
+  const component = useSelectedComponent();
+  
+  return component ? (
+    <div>
+      <p>Type: {component.get('type')}</p>
+      <p>ID: {component.getId()}</p>
+    </div>
+  ) : null;
+}`}
+  language="jsx"
+/>
+
+---
+
+## Advanced Usage
+
+### Custom Plugins
+
+<Source
+  code={`const myPlugin = (editor) => {
+  editor.on('component:add', (component) => {
+    console.log('Component added:', component);
+  });
+};
+
+<TemplateBuilderProvider 
+  grapesjs={grapesjs}
+  extraPlugins={[myPlugin]}
+>
+  {/* ... */}
+</TemplateBuilderProvider>`}
+  language="jsx"
+/>
+
+### Save/Load Templates
+
+<Source
+  code={`import { useEditor } from '@grapesjs/react';
+
+function SaveLoad() {
+  const editor = useEditor();
+  
+  const save = () => {
+    const data = {
+      html: editor.getHtml(),
+      css: editor.getCss(),
+      json: editor.getProjectData()
+    };
+    // Save to backend
+  };
+  
+  const load = (data) => {
+    editor.loadProjectData(data.json);
+  };
+  
+  return (
+    <>
+      <button onClick={save}>Save</button>
+      <button onClick={() => load(savedData)}>Load</button>
+    </>
+  );
+}`}
+  language="jsx"
+/>
+
+### Custom Style Fields
+
+<Source
+  code={`const CustomColorPicker = ({ prop }) => {
+  return (
+    <div>
+      <label>{prop.getLabel()}</label>
+      <input 
+        type="color"
+        value={prop.getValue()}
+        onChange={(e) => prop.setValue(e.target.value)}
+      />
+    </div>
+  );
+};
+
+<StyleManager 
+  sectors={sectors}
+  customFieldComponents={{
+    'color': CustomColorPicker
+  }}
+/>`}
+  language="jsx"
+/>
+
+---
+
+## Configuration
+
+### DEFAULT_EDITOR_CONFIG
+
+Default GrapesJS configuration applied by TemplateBuilderProvider:
+
+<Source
+  code={`{
+  protectedCss: '...', // Prevents overriding essential styles
+  height: "100%",
+  width: "100%",
+  richTextEditor: {
+    custom: true, // Uses custom RTE implementation
+  },
+  assetManager: {
+    embedAsBase64: false
+  },
+  selectorManager: {
+    componentFirst: true // Prioritizes component ID for styles
+  },
+  panels: { 
+    defaults: [] // Hides default GrapesJS toolbar
+  }
+}`}
+  language="jsx"
+/>
+
+### Device Commands
+
+<Source
+  code={`import { DEVICE_COMMAND } from '@birdeye/elemental/core/components/TemplateBuilder';
+
+// Available devices
+DEVICE_COMMAND.DESKTOP  // "Desktop"
+DEVICE_COMMAND.MOBILE   // "mobile-415"
+
+// Usage
+editor.setDevice(DEVICE_COMMAND.MOBILE);`}
+  language="jsx"
+/>
+
+---
+
+## Notes
+
+- Wrap components needing editor access with `<WithEditor>`
+- The right panel automatically shows/hides based on component selection
+- Canvas adjusts width when right panel is visible
+- All toolbar actions use GrapesJS command system
+- Components use CSS modules for scoped styling

@@ -1,0 +1,360 @@
+// Chart Component Styles
+.chartWrapper {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 2px;
+  width: 100%;
+}
+
+// .chartContainer{
+//   margin-top: 16px;
+// }
+
+// .toolkitWrapper{
+//   // margin-top: 8px;
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.chartNavigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.navButton {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  
+  &:enabled {
+    background: #007bff;
+    color: #fff;
+    
+    &:hover {
+      background: #0056b3;
+    }
+  }
+  
+  &:disabled {
+    background: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+  }
+}
+
+.tableGridContainer{
+  border-radius: 8px;
+  border: 2px dashed rgba(0, 0, 0, 0);
+  background: #fff;
+  padding: 16px;
+  box-shadow: rgba(33, 33, 33, 0.06) 0px 2px 12px 1px;
+  overflow: hidden;
+  max-height: inherit;
+
+  .tableTitle{
+    font-size: 18px;
+    color: rgb(85, 85, 85);
+    font-weight: 400;
+    line-height: 19.96px;
+    padding: 0px;
+    margin-bottom: 8px;
+    width: fit-content;
+    border: none;
+    background: #fff;
+  }
+}
+
+
+.navInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.chartTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.chartCounter {
+  font-size: 11px;
+  color: #666;
+}
+
+.chartContainer {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+}
+
+.expandButton {
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+  background: #434343a7;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  
+  &:hover {
+    background: #343434;
+  }
+}
+
+.expandButtonToolkit {
+  border: 1px solid #E5E9F0;
+  background: #fff;
+  color: #000;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  
+  // &:hover {
+  //   background: #343434;
+  // }
+}
+
+// Modal specific styles
+.modalNavigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.modalNavButton {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  
+  &:enabled {
+    background: #007bff;
+    color: #fff;
+    
+    &:hover {
+      background: #0056b3;
+    }
+  }
+  
+  &:disabled {
+    background: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+  }
+}
+
+.modalNavInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.modalChartTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.modalChartCounter {
+  font-size: 12px;
+  color: #666;
+}
+
+.modalContent {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chartError {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+// Modal specific Highcharts legend styles
+.modalContent {
+  :global(.highcharts-legend-item) {
+    path, rect {
+      display: block !important;
+    }
+  }
+}
+
+// Table Component Styles
+.tableContainer {
+  position: relative;
+  width: 100%;
+  background: #fff;
+}
+
+.tableWrapper {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.tableScrollContainer {
+  max-height: calc(556px - 81px); // Adjust based on available space
+  overflow: auto;
+  
+  // Custom scrollbar styling
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+    
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  
+  th, td {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 12px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+    font-weight: 500;
+    color: #495057;
+    font-size: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+  }
+  
+  td {
+    color: #212529;
+    transition: background-color 0.15s ease-in-out;
+  }
+  
+  tbody tr {
+    transition: background-color 0.15s ease-in-out;
+    
+    &:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    &:hover {
+      background-color: #e3f2fd;
+      
+      td {
+        background-color: transparent;
+      }
+    }
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.tableTitle {
+  padding: 16px 20px 12px 20px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2c3e50;
+  border-bottom: 2px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.tableSubtitle {
+  padding: 8px 20px 16px 20px;
+  margin: 0;
+  font-size: 12px;
+  color: #6c757d;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+
+.tableGridContainer{
+  border-radius: 8px;
+  border: 2px dashed rgba(0, 0, 0, 0);
+  background: #fff;
+  padding: 16px;
+  box-shadow: rgba(33, 33, 33, 0.06) 0px 2px 12px 1px;
+  overflow: hidden;
+  max-height: inherit;
+  height: 100%;
+
+  .tableTitle{
+    font-size: 18px;
+    color: rgb(85, 85, 85);
+    font-weight: 400;
+    line-height: 19.96px;
+    padding: 0px;
+    margin-bottom: 8px;
+    width: fit-content;
+    border: none;
+    background: #fff;
+  }
+}

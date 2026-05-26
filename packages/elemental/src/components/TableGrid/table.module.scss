@@ -1,0 +1,370 @@
+@import 'sass/variables';
+@import 'sass/mixins/textOverflow.scss';
+@import 'sass/mixins/fontStyle.scss';
+
+.table-wrapper {
+    max-width: 100%;
+    --el-tbl-row-h: 56px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    box-sizing: border-box;
+}
+
+
+.header-fixed {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: $white;
+    z-index: 4;
+}
+
+.header-cell {
+    display: flex;
+    align-items: center;
+    min-height: var(--el-tbl-row-h);
+    @include font-style(12px, $gray-55, 400, 20px);
+
+    span {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    i {
+        font-size: 15px;
+        vertical-align: middle;
+        margin-left: 4px;
+        // margin-top: -2px;
+
+        &:before {
+            color: $gray600;
+
+        }
+    }
+
+    :global {
+        i.icon_phoenix-up-arrow {
+            margin-top: 2px;
+        }
+    }
+}
+
+.sorted-text {
+    .header-cell {
+            font-weight: 500;
+    }
+}
+
+.table-data {
+    vertical-align: middle;
+    padding-inline: 8px;
+    @include font-style(14px, $default-color, 400, 20px);
+    box-sizing: border-box;
+    border-bottom: 1px solid $gray40;
+}
+
+.invisible-cell{
+    border-bottom: 1px solid $gray40;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.row-action-cell {
+    position: sticky;
+    right: 0;
+    // Stacking contract: thead(4) > row-action-cell(3) > fixed-column(2).
+    // When a usePortal ActionBox popover opens, the row's <td> is toggled
+    // to .row-action-cell-lifted (below) so the in-tree fixed-positioned
+    // popover paints above the sticky thead.
+    z-index: 3;
+    padding: 0 !important;
+    border: none;
+    background: transparent;
+    vertical-align: middle;
+    width: 0;
+    min-width: 0;
+    max-width: 0;
+    overflow: visible;
+
+    i {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+// Transient stacking elevation. Toggled imperatively by TableGridRow when a
+// portal-mode ActionBox is open, restored on close.
+.row-action-cell-lifted {
+    z-index: 1001;
+}
+
+.row-action-wrapper {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    padding: 0px 10px 0px;
+}
+
+.action-container {
+    display: flex;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.action-boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    // .action-wrap {
+    //     padding: 10px;
+    // }
+}
+
+.action-boxes-item {
+    padding: 0px !important;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $white;
+    border-color: $gray2000;
+
+    i {
+        font-size: 18px;
+
+        &::before {
+            color: $gray600;
+        }
+    }
+}
+
+.expandable-table-data {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 10px;
+}
+
+.expand-icon {
+    padding-top: 3px;
+    cursor: pointer;
+
+    &.rotate-icon {
+        padding-bottom: 2px;
+        padding-top: 0;
+        transform: rotate(180deg);
+    }
+}
+
+.table-row {
+    height: var(--el-tbl-row-h);
+
+    &:hover {
+        background-color: $newHoverColor;
+
+        .row-action-cell {
+            .row-action-wrapper {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .row-action-wrapper {
+                i {
+                    display: inline-block;
+                    opacity: 1;
+                    visibility: visible;
+
+                    &.icon-cheveron_open {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .fixed-column {
+            background-color: $newHoverColor;
+        }
+
+    }
+
+}
+
+.cell-data {
+    display: flex;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.fixed-width {
+    width: 300px;
+}
+
+
+.table-column-resizer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 10px;
+    height: 24px;
+    cursor: col-resize;
+    user-select: none;
+
+    // Visible resize line
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0%;
+        right: 0px;
+        width: 1px;
+        height: 100%;
+        background-color: $gray40;
+        transition: background-color 0.15s ease, width 0.15s ease;
+    }
+
+    // Hover state - blue line
+    &:hover::after {
+        background-color: $brand-color;
+        width: 2px;
+        right: 0px;
+    }
+
+    // Active/resizing state - blue line persists
+    &.resizing::after {
+        background-color: $brand-color;
+        width: 2px;
+        right: 0;
+    }
+}
+
+// Ensure th has relative positioning for resize handle
+.resizable {
+    position: relative;
+
+    // Ensure content doesn't overlap resize handle
+    .label-text {
+        padding-right: 8px;
+    }
+}
+
+.fixed-column {
+    position: sticky;
+    position: -webkit-sticky;
+    left: 0;
+    z-index: 2;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+// Prevent text selection during resize
+.is-scrolled {
+    user-select: none;
+
+    * {
+        user-select: none;
+    }
+
+    .fixed-column {
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 1px;
+            height: 100%;
+            background-color: $gray40;
+        }
+    }
+}
+
+// Table layout for resizable columns
+.table.resizable-columns {
+    table-layout: fixed;
+}
+
+.overflow-y {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.overflow-x {
+    overflow-x: auto;
+}
+
+.table-custom-scroll {
+    scrollbar-width: auto;
+    scrollbar-color: $gray-d8 transparent; 
+}
+
+.table-thead {
+    tr {
+        &:hover {
+            background-color: $white;
+
+            .fixed-column {
+                background-color: $white;
+            }
+        }
+    }
+}
+
+
+.table-content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+} 
+
+
+.child-row {
+    background-color: $gray10;
+    .fixed-column {
+        background-color: $gray10;
+    }
+}
+.see-more-row {
+    background-color: transparent;
+    &:hover {
+        background-color: transparent;
+    }
+    .fixed-column {
+        background-color: transparent;
+    }
+}
+.see-more-cell {
+    vertical-align: middle;
+}
+.see-more-button {
+    background: transparent;
+    border: none;
+    color: $brand-color;
+    cursor: pointer;
+    padding: 0;
+    @include font-style(14px, $brand-color, 400, 20px);
+    text-decoration: none;
+}

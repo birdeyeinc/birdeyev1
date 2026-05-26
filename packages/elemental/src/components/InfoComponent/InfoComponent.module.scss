@@ -1,0 +1,621 @@
+@import "sass/mixins/flexBox";
+@import "sass/mixins/fontStyle";
+@import "sass/mixins/positionAbsolute";
+@import "sass/mixins/borderRadius";
+@import 'sass/mixins/sizeStyle';
+@import 'sass/variables';
+
+.banner-info {
+    min-height: 38px;
+    background-color: $pale-blue;
+
+    @include flexbox();
+    @include border-radius (4px);
+    @include font-style (15px, $gray-55, 400, 1.25);
+
+    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+    margin-bottom: 10px;
+
+    .rightContent {
+        @include flexbox();
+        @include size(100%, auto);
+
+        align-items: center;
+        justify-content: space-between;
+
+        .rightContent-link {
+            @include font-style (14px, false, 500, false);
+
+            flex-shrink: 0;
+            padding-left: 16px;
+        }
+    }
+
+    .banner-text {
+        a {
+            display: inline-block;
+            color: $brand-color;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        // need to add this style on src/app/pages/setup/social/mapping/index.scss path
+
+        // :global {
+        //     .appleBanner {
+        //         >span {
+        //             font-weight: 500;
+        //         }
+        //     }
+        // }
+
+        // need to add this style on src/app/pages/setup/social/mapping/index.scss path
+    }
+
+    i {
+        margin-right: 10px;
+
+        @include font-style (16px, false, false, false);
+
+        &:global {
+            &.icon_phoenix-reset {
+                @include abs-position (11px, 10px);
+
+                margin-right: 0;
+                cursor: pointer;
+            }
+        }
+    }
+
+
+
+
+    &.banner-success,
+    &.banner-error,
+    &.banner-warning,
+    &.banner-blue,
+    &.banner-light-error {
+        color: $white;
+
+        .banner-text {
+            a {
+                text-decoration: underline;
+                color: $white;
+            }
+        }
+    }
+
+    &.banner-appointmentScheduled {
+        background-color: $green-edf;
+
+        i {
+            &[class*="icon_phoenix-important-fill"] {
+                &:before {
+                    color: #4caf50;
+                }
+            }
+        }
+    }
+
+    &.banner-gsrRating {
+        background-color: $bg-selected;
+        padding: 0;
+        margin-bottom: 29px;
+
+        @include size(auto, 80px);
+
+        img {
+            padding: 27px 22px 27px 29px;
+        }
+
+        .banner-text {
+            p {
+                @include font-style (15px, $white, 500, false);
+
+                font-family: $inter-font;
+            }
+        }
+    }
+
+    &.banner-success {
+        background-color: $positive-sentiment;
+    }
+
+    &.banner-error {
+        background-color: $error-red;
+
+        &.faded-error {
+            background-color: $faded-fd;
+
+            i:before {
+                color: $error-red;
+            }
+
+            .banner-text {
+                color: $default-color;
+
+                a {
+                    text-decoration: none;
+                    color: $brand-color;
+                }
+            }
+        }
+    }
+
+    &.banner-warning {
+        background-color: $start-active;
+
+        &.faded-warning {
+            background-color: $warning-fe;
+
+            i:before {
+                color: $start-active;
+            }
+
+            &.faded-icon {
+                &[class*="icon_phoenix-reset"] {
+                    &:before {
+                        @include font-style(14px, $gray-55, 500);
+                    }
+                }
+            }
+
+            .banner-text {
+                color: $default-color;
+
+                a {
+                    text-decoration: none;
+                    color: $brand-color;
+                }
+            }
+        }
+    }
+
+    &.banner-light-warning {
+        background-color: $warning-fe;
+        align-items: flex-start;
+
+        i:before {
+            color: $start-active;
+        }
+
+        &.faded-warning {
+            background-color: $warning-fe;
+
+            i:before {
+                color: $start-active;
+            }
+
+            .banner-text {
+                color: $default-color;
+
+                a {
+                    text-decoration: none;
+                    color: $brand-color;
+                }
+            }
+        }
+    }
+
+    &.banner-light-registered {
+        background: $faded-fd;
+
+        i:before {
+            color: $error-red;
+        }
+    }
+
+    &.banner-light-purple {
+        background: $light-purple;
+
+        i[class*="icon_phoenix-ai-icon"] {
+            @include font-style (20px, false, false, false);
+        }
+
+        small {
+            font-weight: 500;
+            color: $brand-color;
+        }
+    }
+
+    &.banner-blue-bg {
+        background-color: $blue-bg;
+
+        @include font-style (14px, $default-color, false, false);
+
+        i {
+            &:before {
+                color: $default-color;
+            }
+        }
+    }
+
+    &.banner-light-pending {
+        background: $yellow-ff;
+
+        i:before {
+            color: $yellow-fb;
+        }
+    }
+
+    &.banner-blue {
+        background-color: $dark-blue-selected;
+    }
+
+    &.banner-light-blue {
+        background-color: $phoenix-nav;
+        color: $default-color;
+
+        a {
+            text-decoration: none;
+            color: $brand-color;
+        }
+
+        i {
+            &:before {
+                color: $dark-blue-selected;
+            }
+        }
+    }
+
+    &.banner-light-blue-bg {
+        background-color: $blue-bg;
+        color: $default-color;
+
+        i {
+            &:before {
+                color: $btn-color;
+            }
+        }
+
+        i:last-child {
+            &:before {
+                color: $black-icon;
+            }
+        }
+    }
+
+    &.banner-light-pink {
+        background-color: $faded-fd;
+        color: $default-color;
+
+        a {
+            text-decoration: none;
+            color: $brand-color;
+        }
+
+        i {
+            &:before {
+                color: $error-red;
+            }
+        }
+    }
+
+    &.banner-warning-pink {
+        background-color: $faded-fd;
+        color: $default-color;
+
+        a {
+            text-decoration: none;
+            color: $brand-color;
+        }
+
+        i {
+            &:before {
+                color: $yellow-dark;
+            }
+        }
+    }
+
+    &.banner-light-orange {
+        background: $warning-fe;
+        color: $default-color;
+
+        i {
+            &:before {
+                color: $start-active;
+            }
+        }
+    }
+
+    &.with-cross {
+        padding-right: 30px;
+    }
+
+    &.no-bg {
+        background-color: transparent;
+        padding: 0;
+
+        @include font-style (12px, $gray-55, 400, 1.2);
+
+        min-height: initial;
+        margin: 10px 0 0;
+
+        i {
+            margin-right: 5px;
+
+            &:before {
+                color: $gray-99;
+            }
+        }
+    }
+
+    .download-icon {
+        border: 2px solid transparent;
+        border-top: 2px solid $white;
+        border-right: 2px solid $white;
+        border-bottom: 2px solid $white;
+
+        @include border-radius (50%);
+        @include size(14px, 14px);
+
+        :local {
+            -webkit-animation: spin 2s linear infinite;
+            /* Safari */
+            animation: spin 2s linear infinite;
+        }
+    }
+
+    &.ellipsis {
+        .option-tooltip-parent {
+            @include size(calc(100% - 25px), auto);
+        }
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+// need to add this style on src/app/pages/account/phoenixUsers/components/userAddEditStyle.js path
+
+// :global {
+//     .warning-dropdown-text {
+//         :local {
+//             .banner-info {
+//                 &.banner-light-warning {
+//                     position: relative;
+//                     padding-left: 40px;
+//                 }
+//             }
+//         }
+
+//         .mt-15 {
+//             margin-top: 0;
+//         }
+
+//         .icon_phoenix-caution-banner {
+//             @include abs-position (11px, false, false, 14px);
+//         }
+//     }
+// }
+
+// need to add this style on src/app/pages/account/phoenixUsers/components/userAddEditStyle.js path
+
+//** BIRDEYE-85494-1: styling of google-info-box **/
+.banner-info {
+
+
+    i[class*="icon_phoenix-reload"] {
+        margin: 0;
+    }
+
+    i[class*="icon_phoenix-reload"] {
+        &:before {
+            color: $brand-color;
+        }
+    }
+
+    &:global {
+
+        &.light-blue-banner {
+            background-color: $blue-ee;
+        }
+
+        &.import-banner {
+            align-items: flex-start;
+            margin-top: -17px;
+            color: $default-color;
+
+            .icon_phoenix-important-fill {
+                margin-top: 2px;
+
+                &:before {
+                    color: $dark-blue-selected;
+                }
+            }
+        }
+    }
+}
+
+@keyframes dlc-show {
+    0% {
+        top: -50px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+.banner-info {
+    &[class*="dlc-info"] {
+        z-index: 1000;
+        justify-content: center;
+        padding: 16px;
+        position: fixed;
+        left: 0;
+        margin-bottom: 0;
+        animation-name: dlc-show;
+        animation-duration: 0.8s;
+        max-height: 51px;
+
+        @include border-radius (0);
+        @include size(100%, auto);
+
+        .banner-text {
+            color: $default-color;
+
+            a {
+                color: $brand-color;
+                text-decoration: none;
+            }
+
+            .dot {
+                display: inline-block;
+
+                @include size(3px, 3px);
+                @include border-radius (50%);
+
+                background: $gray75;
+                margin: 0 7px;
+                vertical-align: 3px;
+            }
+        }
+
+        .icon_phoenix-reset {
+            display: none;
+        }
+
+        &.dlc-cross-icon-show {
+            :global {
+                .icon_phoenix-reset {
+                    display: inline-block;
+                    top: 16px;
+
+                    &:before {
+                        color: $gray-55;
+                    }
+                }
+            }
+        }
+
+        &.text-left {
+            justify-content: flex-start;
+        }
+    }
+
+    &.banner-success {
+        &.dlc-info {
+            background: $green-edf;
+
+            .icon_phoenix-success-banner:before {
+                color: $positive-sentiment;
+            }
+
+            .icon_phoenix-reset {
+                display: block;
+                top: 16px;
+
+                &:before {
+                    color: $gray-55;
+                }
+            }
+        }
+    }
+
+    &.banner-error {
+        &.dlc-info {
+            background: $faded-fd;
+
+            .icon_phoenix-error-banner:before {
+                color: $error-red;
+            }
+        }
+    }
+
+    &.banner-warning {
+        &.dlc-info {
+            background: $faded-fd;
+
+            .icon_phoenix-important-fill:before {
+                color: $error-red;
+            }
+        }
+    }
+}
+
+// need to add this style on src/app/pages/setup/social/common/index.scss file path
+
+// .apple-media-infoBanner {
+//     margin-bottom: 20px;
+
+//     &.banner-info {
+//         :global {
+//             .icon-reset:before {
+//                 color: $black-icon;
+//                 font-weight: 900;
+//             }
+//         }
+
+//         p {
+//             color: $default-color;
+//         }
+//     }
+// }
+
+// need to add this style on src/app/pages/setup/social/common/index.scss file path
+
+// need to add this style on ChooseAlbum.scss file
+
+// .apple-error-banner {
+//     &.banner-info {
+//         :global {
+//             .icon-reset {
+//                 &:before {
+//                     color: $black-icon;
+//                     font-weight: 900;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// need to add this style on ChooseAlbum.scss file
+
+.apple-versioning-info-banner {
+    &[class*="banner-info"] {
+        padding-right: 20px;
+
+        p {
+            @include font-style (13px, $default-color, 400, 17px);
+        }
+
+        .icon_phoenix-reset {
+            &:before {
+                @include font-style (15px, $gray600, 600, false);
+            }
+        }
+
+        &.apple-info-banner {
+            p {
+                margin-right: 10px;
+            }
+
+            .icon_phoenix-reset {
+                position: relative;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+}

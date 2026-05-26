@@ -1,0 +1,26 @@
+@import "sass/master";
+@import "sass/variables";
+@import "sass/mixins/sizeStyle.scss";
+@import "sass/mixins/fontStyle.scss";
+@import "sass/mixins/borderRadius.scss";
+@import "sass/mixins/placeholder.scss";
+@import "sass/mixins/positionAbsolute.scss";
+@import "sass/mixins/flexCenterAll.scss";
+@import "sass/mixins/flexBox.scss";
+
+.template-editor-section {
+    @include size (calc(100% - 300px), 100%);
+
+    position: relative;
+
+    &.template-wrap {
+        width: 85%;
+        padding: 0 80px 20px;
+        margin: 0 auto;
+    }
+
+    &.no-editor {
+        height: 100%;
+        overflow: auto;
+    }
+}

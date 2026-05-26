@@ -1,0 +1,303 @@
+@import 'sass/master';
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+
+    &.left {
+        .tooltiptext:before {
+            left: 100%;
+            top: 50%;
+            margin-top: -6px;
+        }
+    }
+
+    &.top {
+        .tooltiptext:before {
+            top: 100%;
+            left: 50%;
+            margin-left: -6px;
+        }
+    }
+
+    &.bottom {
+        .tooltiptext:before {
+            bottom: 100%;
+            left: 50%;
+            margin-left: -6px;
+        }
+    }
+
+    &.right {
+        .tooltiptext:before {
+            left: 0;
+            top: 50%;
+            margin-top: -6px;
+            margin-left: -12px;
+        }
+    }
+
+    &.bottom-right {
+        .tooltiptext:before {
+            top: -5px;
+            right: 15px;
+            left: auto;
+        }
+    }
+
+    &.bottom-left {
+        .tooltiptext:before {
+            bottom: 0;
+            right: auto;
+            left: 100%;
+        }
+    }
+
+    &.bottom-left-pre {
+        .tooltiptext:before {
+            bottom: 0;
+            right: auto;
+            left: 100%;
+        }
+    }
+
+    .disabled {
+        display: none;
+    }
+
+    &:hover{
+        .tooltiptext {
+            @include fade(show, 100ms);
+        }
+    }
+}
+
+.tooltiptext {
+    background-color: $gray-455;
+    cursor: default;
+    text-transform: none;
+
+    @include border-radius (4px);
+    @include font-style (13px, $white, 400, 1.2, left);
+
+    padding: 10px;
+    position: fixed;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 350px;
+    z-index: 12;
+
+    @include fade(hide, 100ms);
+
+    &.medium {
+        max-width: 500px;
+    }
+
+    &.large {
+        max-width: 650px;
+    }
+
+    &.small {
+        max-width: 350px;
+    }
+
+    &.x-small {
+        max-width: 230px;
+    }
+
+    &.center {
+        text-align: center;
+        padding: 10px;
+        width: 180px;
+    }
+
+    >span {
+        white-space: pre-wrap;
+    }
+
+    a {
+        color: $white;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    &:before {
+        display: none !important;
+    }
+
+}
+
+.tooltiptext {
+    &:before {
+        position: absolute;
+        content: " ";
+        border: 6px solid transparent;
+
+        @include size (0, 0);
+
+        display: block;
+    }
+}
+
+.tooltip__white {
+    .tooltiptext {
+        box-shadow: rgba(0, 0, 0, 0.15) 0 4px 5px;
+        background-color: $white;
+        color: rgb(33, 33, 33);
+    }
+
+    a {
+        color: $brand-color;
+    }
+
+    .tooltiptext {
+        background: $white;
+        padding: 20px;
+        transition: 0.25s all ease;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+        font-weight: normal;
+
+        a {
+            text-decoration: none;
+            color: $brand-color;
+        }
+
+        @include font-style (12px, $default-color, false, 16px, left);
+
+        &.left {
+            margin-left: 0;
+        }
+
+        &.top {
+            margin-top: 0;
+        }
+
+        &:after {
+            display: none;
+        }
+
+        &.medium {
+            max-width: 318px;
+            white-space: normal;
+        }
+
+        &.medium-358 {
+            max-width: 358px;
+            white-space: normal;
+        }
+
+        &.medium-320 {
+            max-width: 320px;
+            white-space: normal;
+        }
+
+        &.large-497 {
+            max-width: 497px;
+            white-space: normal;
+        }
+
+        &.large {
+            max-width: 535px;
+            white-space: normal;
+        }
+    }
+    a { color: $blue-0d4; }
+}
+
+.tooltip__red {
+    .tooltiptext {
+        background-color: $faded-fd;
+        color: $error-red;
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+}
+
+/*-------extra css need to be removed after js cleanup----*/
+.tooltip {
+    &.tooltip__white {
+        &.showtriangle {
+            .tooltiptext {
+                &:before {
+                    position: absolute;
+                    content: " ";
+                    border: 5px solid transparent;
+                    pointer-events: none;
+                    height: 0;
+                    width: 0;
+                    display: block;
+                }
+
+                &:before {
+                    border: 6px solid transparent;
+                }
+            }
+
+            &.left {
+                .tooltiptext:before {
+                    left: 100%;
+                    top: 50%;
+                    border-left-color: rgba(0, 0, 0, 0.15);
+                    margin-top: -6px;
+                }
+            }
+
+            &.top {
+                .tooltiptext:before {
+                    top: 100%;
+                    left: 50%;
+                    border-top-color: rgba(0, 0, 0, 0.15);
+                    margin-left: -6px;
+                }
+            }
+
+            &.bottom {
+                .tooltiptext:before {
+                    bottom: 100%;
+                    left: 50%;
+                    border-bottom-color: rgba(0, 0, 0, 0.15);
+                    margin-left: -6px;
+                }
+            }
+
+            &.right {
+                .tooltiptext:before {
+                    left: 0;
+                    top: 50%;
+                    border-right-color: rgba(0, 0, 0, 0.15);
+                    margin-top: -6px;
+                    margin-left: -12px;
+                }
+            }
+
+            &.top-right {
+                .tooltiptext:before {
+                    bottom: 100%;
+                    left: 50%;
+                    border-bottom-color: rgba(0, 0, 0, 0.15);
+                    margin-left: -6px;
+                }
+            }
+        }
+    }
+}
+
+/*-------extra css end----*/
+
+.tooltip.hiddenClass {
+    .tooltiptext {
+        visibility: hidden;
+    }
+}
+
+.tooltip.explicitTrigger {
+    .tooltiptext {
+        @include fade(show, 100ms);
+    }
+}
+
+.tooltip.hand-cursor {
+    .tooltiptext {
+        cursor: pointer;
+    }
+}

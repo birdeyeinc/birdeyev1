@@ -1,0 +1,280 @@
+@import 'sass/master';
+
+@media print {
+    .print-container-wrapper {
+        padding-right: 65px;
+    }
+}
+
+.graph-wrap {
+    @media print {
+        .val {
+            height: 60px;
+        }
+    }
+}
+
+.row-container {
+    background-color: $gray-f9f;
+    position: relative;
+    height: 38px;
+
+    @include border-radius (4px);
+
+    width: calc(100% - 47px);
+
+    &:hover {
+        .tooltip-list {
+            display: block;
+        }
+    }
+
+    &.positive-status {
+        .filled-data {
+            background-color: $graph-dark;
+        }
+    }
+}
+
+.filled-data {
+    @include border-radius (4px);
+    @include abs-position (0, false, false, 0);
+
+    height: 100%;
+    max-width: 100%;
+}
+
+.graph-data {
+    min-width: 154px;
+    max-width: 100%;
+
+    @include center-between();
+
+    position: relative;
+    padding: 10px;
+
+    .count {
+        display: inline-flex;
+        flex-flow: column;
+    }
+
+    .count-txt {
+        @include font-style (15px, $default-color, false, 1.2);
+
+        display: inline-flex;
+        align-items: center;
+
+        &.total-count {
+            @include font-style (13px, $gray-55, 400, 1.2);
+        }
+
+        i {
+            cursor: pointer;
+
+            &:before {
+                // @include font-style (16px, $gray-99);
+                font-size: 16px;
+            }
+
+            margin-left: 5px;
+        }
+    }
+}
+
+.right-side {
+    .graph-data {
+        .tooltip-list {
+            left: auto;
+            right: 100%;
+        }
+    }
+}
+
+.tooltip-list {
+    display: none;
+    background-color: $white;
+
+    @include abs-position (10px, false, false, 50%);
+
+    padding: 20px;
+    transform: translateX(-50%);
+    max-height: 400px;
+    overflow-y: auto;
+    width: 320px;
+
+    @include border-radius (4px);
+
+    box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+
+    &.small {
+        width: 240px;
+    }
+
+    &.medium {
+        width: 360px;
+
+        .table-row {
+            .left-col {
+                width: 160px;
+            }
+
+            .right-col {
+                width: calc(100% - 160px);
+            }
+        }
+    }
+
+    .tooltip-label {
+        @include font-style (13px, $default-color, 500);
+
+        margin-bottom: 15px;
+    }
+
+    .table-row {
+        position: relative;
+
+        @include center-between();
+
+        margin-top: 5px;
+
+        &.zero-row {
+            margin: 0 0 10px;
+        }
+
+        &.total-response,
+        &.zero-row {
+            .left-col,
+            .right-col {
+                font-weight: 500;
+            }
+        }
+
+        .logo {
+            margin-right: 9px;
+            display: inline-block;
+            vertical-align: middle;
+
+            & + div {
+                width: calc(100% - 30px);
+            }
+        }
+
+        :global {
+            .icon-bright {
+                margin: -10px -1px -10px -10px;
+                padding: 0;
+                left: 0;
+
+                @include transform (scale(0.5));
+
+                width: 40px;
+            }
+
+            .senti-dot {
+                border-radius: 50%;
+
+                @include size (5px, 5px);
+
+                position: relative;
+            }
+
+            .Promoters {
+                background: $positive-sentiment;
+            }
+
+            .Passives {
+                background: $yellow-light;
+            }
+
+            .Detractors {
+                background: $error-red;
+            }
+        }
+
+        .left-col,
+        .right-col {
+            @include font-style (13px, $gray-55, 400, 1.1);
+        }
+
+        .left-col {
+            width: 125px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .right-col {
+            display: inline-flex;
+            justify-content: flex-end;
+            width: calc(100% - 125px);
+
+            >span {
+                min-width: 35px;
+                margin-left: 12px;
+                display: inline-block;
+                text-align: right;
+
+                &.tooltip-percent {
+                    width: 70px;
+                }
+            }
+        }
+    }
+
+    .responses-wrapper {
+        .row {
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+}
+
+.graph-row {
+    @include center-between();
+
+    margin-bottom: 10px;
+
+    .percent {
+        @include font-style (15px, $default-color, 500, 1.2);
+
+        display: inline-block;
+    }
+
+    &:first-child {
+        .filled-data {
+            background-color: $graph-xlight;
+        }
+    }
+
+    &:nth-child(2) {
+        .filled-data {
+            background-color: $graph-light;
+        }
+    }
+
+    &:nth-child(3) {
+        .filled-data {
+            background-color: $graph-medium;
+        }
+    }
+
+    &:nth-child(4) {
+        .filled-data {
+            background-color: $graph-xmedium;
+        }
+    }
+
+    &:last-child {
+        .filled-data {
+            background-color: $graph-dark;
+        }
+
+        .graph-data {
+            .count-txt {
+                color: $default-color;
+                font-weight: 500;
+            }
+        }
+    }
+}

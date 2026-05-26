@@ -1,0 +1,15 @@
+@import "../mixins/fontStyle.scss";
+@import "../variables";
+
+.dollar-icon {
+    @include font-style (16px, false, false, "25px");
+
+    margin-right: 8px;
+    vertical-align: top;
+
+    &.i {
+        @include font-style (false, $gray-99, 400, 1.1);
+
+        margin: 0;
+    }
+}

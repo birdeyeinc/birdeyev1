@@ -1,0 +1,115 @@
+@import 'sass/variables';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/positionVerticalHorizontalBoth.scss';
+
+.autocomplete {
+    .autocomplete__selected,
+    .autocomplete__menu--hidden .autocomplete__items {
+        display: none;
+    }
+
+    .autocomplete__items {
+        display: block;
+    }
+
+    .autocomplete__menu {
+        position: relative;
+    }
+
+    .autocomplete__input {
+        font-size: 12px;
+        padding: 7px 30px 7px 10px;
+        border: solid 1px $graye5e;
+        border-radius: 2px;
+        min-height: 35px;
+        width: 100%;
+
+        &:focus {
+            border: 1px solid $brand-color;
+        }
+
+        &.invalid {
+            border: 1px solid $error-red;
+        }
+    }
+
+    ul.autocomplete__items:not(:empty) {
+        position: absolute;
+        background: $white;
+        z-index: 1;
+        left: 0;
+        overflow-y: auto;
+        width: 100%;
+        padding: 10px 0;
+
+        @include border-radius (4px);
+
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+        border: solid 1px $gray-ece;
+        top: calc(100% + 10px);
+        max-height: 330px;
+
+        &.overflow-visible {
+            overflow-y: visible;
+        }
+
+        li {
+            padding: 10px 20px;
+
+            @include font-style (15px, $gray-55, false, 1.2);
+
+            margin: 0;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $pale-blue;
+            }
+
+            &.autocomplete__item.autocomplete__item--disabled {
+                cursor: default;
+
+                @include font-style (15px, $gray-99);
+
+                &:hover {
+                    background-color: $white;
+                }
+
+                .search-list-tooltip-container {
+                    display: block;
+                    margin-left: 0;
+
+                    span {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .invalid {
+        border: 1px solid $dark-red;
+    }
+
+    :global {
+        .error-txt {
+            @include font-style (12px, $dark-red, normal);
+    
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.invite-wrap {
+    display: block;
+    position: relative;
+
+    .icons {
+        @include center (vertical, true);
+
+        right: 10px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 16px;
+    }
+}

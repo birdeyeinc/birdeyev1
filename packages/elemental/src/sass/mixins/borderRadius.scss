@@ -1,0 +1,22 @@
+// Mixin for uniform border radius
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+// Mixin for uniform border radius
+
+// can use further for border radius for different corners
+@mixin border-radius-corners(
+    $borderTopLeftRadius: 0,
+    $borderTopRightRadius: 0,
+    $borderBottomRightRadius: 0,
+    $borderBottomLeftRadius: 0
+) {
+    border-top-left-radius: $borderTopLeftRadius;
+    border-top-right-radius: $borderTopRightRadius;
+    border-bottom-right-radius: $borderBottomRightRadius;
+    border-bottom-left-radius: $borderBottomLeftRadius;
+}
+// can use further for border radius for different corners

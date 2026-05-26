@@ -1,0 +1,84 @@
+@import 'sass/variables';
+@import 'sass/mixins/borderRadius.scss';
+@import 'sass/mixins/fontStyle.scss';
+@import 'sass/mixins/positionAbsolute.scss';
+
+.tag {
+    background-color: $light-grey-border;
+    padding: 8px 10px;
+
+    @include border-radius (4px);
+    @include font-style (15px, $gray-55, 400, 1.1);
+
+    box-sizing: border-box;
+    display: inline-block;
+    word-break: break-word;
+    cursor: default;
+    white-space: pre;
+
+    &.clickable {
+        cursor: pointer;
+    }
+
+    &:hover {
+        background-color: $tag-hover;
+    }
+
+    &.has-remove {
+        a {
+            margin: 0 0 0 2px;
+            float: right;
+            cursor: pointer;
+
+            &:before {
+                @include abs-position (1px, false, false, 3px);
+                @include font-style (16px, $gray-55, 500);
+
+                position: relative;
+            }
+        }
+    }
+
+    &.active {
+        @include font-style(false, $brand-color, 500, false);
+
+        background: $phoenix-nav;
+    }
+
+    &.small {
+        @include font-style(13px, false, false, 1.2);
+
+        padding: 4.5px 10px;
+
+        &.has-remove {
+            a {
+                &:before {
+                    @include font-style (14px, $gray-55);
+                }
+            }
+        }
+    }
+
+    &.pdf-small {
+        @include font-style(8.9px, false, false, false);
+    }
+
+    &.warning-email-tag {
+        background: $warning-fe;
+
+        i {
+            margin-right: 8px;
+            vertical-align: bottom;
+
+            &:before {
+                @include font-style (14px, $start-active);
+            }
+        }
+    }
+}
+.chip-tag {
+    .remove-icon {
+        color: $gray-55;
+    }
+}
+

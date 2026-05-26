@@ -1,0 +1,171 @@
+/* FreeMediaLibraryModal — Pure presentational styles */
+
+.free-media-library-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        box-shadow: 0px -1px 0px #e0e0e0;
+        box-sizing: border-box;
+        z-index: 5;
+        padding: 15px 30px;
+        animation: fadeIn 0.3s ease;
+
+        &.asset-library-footer {
+            background-color: #f9f9f9;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        a {
+            font-size: 14px;
+            color: #2652ED;
+            font-weight: 400;
+            line-height: 20px;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 8px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            > span:before {
+                font-size: 18px;
+                color: #2652ED;
+            }
+        }
+    }
+
+    .footer-sub {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    .header-wrapper {
+        padding: 30px 30px 0 30px;
+
+        &.show-filter {
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .selected-items {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            margin-bottom: 25px;
+        }
+    }
+
+    .free-media-body-wrapper {
+        // padding: 0 30px;
+        flex: 1;
+        min-height: 0;
+        padding: 0 30px;
+
+        &.model-free-media-library {
+            padding-right: 8px;
+
+            .right-container {
+                &.scrollable-media-lib-box {
+                    padding-right: 0px;
+                    overflow-y: auto;
+                }
+            }
+        }
+
+        .free-media-library {
+            display: flex;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            // border: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+
+            .right-container {
+                background-color: #fff;
+
+                &.scrollable-media-lib-box {
+                    height: calc(100vh - 260px);
+                    padding-top: 0;
+                    padding-left: 0;
+                }
+
+                &.withleftbar {
+                    width: calc(100% - 94px);
+                    padding: 20px 30px 0 30px;
+                    margin-left: 94px;
+                }
+                &.withoutleftbar {
+                    width: 100%;
+                }
+
+                &.has-selection {
+                    outline: 1px solid transparent; /* visual hook for selected state */
+                }
+            }
+        }
+    }
+}
+
+/* Inline MediaLibraryContainer inside the modal */
+.inline-media-library {
+    width: 100%;
+    height: 100%;
+
+    /* Remove the sticky header behavior when inside modal */
+    :global(.fixed-single-header) {
+        position: relative;
+        top: auto;
+    }
+}
+
+/* Filter sidebar rendered inside the modal (via renderFilterSidebar) */
+.filter-sidebar {
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+    height: calc(100vh - 260px);
+    overflow-y: auto;
+    border-left: 1px solid #e0e0e0;
+    background-color: #fff;
+    padding: 15px 0;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+
+    /* Ensure filter children don't overflow the sidebar */
+    > div {
+        width: 100%;
+    }
+}
+
+/* Shrink the content area when filter sidebar is visible */
+.with-filter-sidebar {
+    flex: 1;
+    min-width: 0; /* allow flex item to shrink below content size */
+
+    &.withleftbar {
+        width: auto !important; /* override the fixed calc width when sidebar is present */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
