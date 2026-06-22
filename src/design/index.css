@@ -1,7 +1,0 @@
-/* Birdeye design token barrel — import order matters. */
-/* Primitives must load before semantic tokens. */
-
-@import './tokens/primitives/colors.css';
-@import './tokens/primitives/typography.css';
-@import './tokens/semantic/tailwind-theme.css';
-@import './tokens/semantic/theme.css';

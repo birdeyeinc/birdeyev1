@@ -1,4 +1,0 @@
-/**
- * Inter (400, 500) is loaded from index.html — keep font loading in HTML,
- * not CSS @import, to ensure fonts are available before paint.
- */
