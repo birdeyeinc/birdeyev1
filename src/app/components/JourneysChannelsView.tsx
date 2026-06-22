@@ -6,7 +6,7 @@ import { MainCanvasViewHeader } from "@/app/components/layout/MainCanvasViewHead
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/app/components/ui/table";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 type PhoneNumberRow = {
   id: string;

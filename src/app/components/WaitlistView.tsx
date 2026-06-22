@@ -2,14 +2,14 @@ import React, { useMemo, useState, useRef, useEffect } from "react";
 import { createColumnHelper } from "@tanstack/react-table";
 import { ArrowLeft, AtSign, Bot, CalendarDays, CalendarPlus, CheckCircle2, ChevronDown, Clock, Eye, History, Image as ImageIcon, MessageSquare, MoreVertical, Paperclip, Pencil, Phone, Send, SlidersHorizontal, User } from "lucide-react";
 import { Button, buttonVariants } from "@/app/components/ui/button";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import { Badge } from "@/app/components/ui/badge";
 import { AppDataTable } from "@/app/components/ui/AppDataTable";
 import { AppDataTableColumnSettingsTrigger } from "@/app/components/ui/AppDataTableColumnSettingsTrigger";
 import { MainCanvasViewHeader } from "@/app/components/layout/MainCanvasViewHeader";
 import { FilterPane, FilterPaneTriggerButton } from "@/app/components/FilterPane";
-import type { FilterItem } from "@/app/components/FilterPanel.v1";
-import { filterValue, cloneFilterItems } from "@/app/data/filterUtils";
+import type { FilterItem } from "@/app/components/FilterPanel";
+import { filterValue, cloneFilterItems } from "@/mocks/filterUtils";
 import { toast } from "sonner";
 import { Sheet, SheetContent } from "@/app/components/ui/sheet";
 import {

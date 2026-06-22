@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/components/ui/dropdown-menu";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import {
   INBOX_CONVERSATION_CLASSIFICATION_OPTIONS,
   inboxClassificationLabel,

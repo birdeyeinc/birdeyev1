@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { BirdeyeLogoMark } from "@/app/components/brand/BirdeyeLogoMark";
 import { Button } from "@/app/components/ui/button";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import {
   type MobileAppStoreLinks,
   type MobileWebGatePreviewMode,

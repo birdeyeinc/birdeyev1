@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/app/components/ui/dialog";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import type { AppView } from "@/app/App";
 import {
   shortcutScopeFromView,

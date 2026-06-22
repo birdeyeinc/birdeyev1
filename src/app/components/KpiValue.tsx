@@ -1,5 +1,5 @@
 import { TrendingDown, TrendingUp } from "lucide-react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 export interface KpiValueProps {
   /** Metric value — e.g. "52%", "23.2K", "2,070". */

@@ -11,8 +11,8 @@ import {
   ChevronDown,
   MoreVertical,
 } from "lucide-react";
-import { POST_DATA } from "../data/postData";
-import { APPROVAL_DATA } from "../data/approvalData";
+import { POST_DATA } from "@/mocks/postData";
+import { APPROVAL_DATA } from "@/mocks/approvalData";
 import { PlatformIcons } from "./PlatformIcons";
 import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";

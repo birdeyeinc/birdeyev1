@@ -10,8 +10,8 @@ import {
   Search,
   XCircle,
 } from "lucide-react";
-import { POST_DATA } from "../data/postData";
-import { APPROVAL_DATA, type ApprovalLocation, type WorkflowApprover } from "../data/approvalData";
+import { POST_DATA } from "@/mocks/postData";
+import { APPROVAL_DATA, type ApprovalLocation, type WorkflowApprover } from "@/mocks/approvalData";
 
 const RV = { fontVariationSettings: "'wdth' 100" } as const;
 

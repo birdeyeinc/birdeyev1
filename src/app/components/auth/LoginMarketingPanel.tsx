@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import { Button } from "@/app/components/ui/button";
 
 // ─── AI platform SVG paths ─────────────────────────────────────────────────

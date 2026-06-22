@@ -14,7 +14,7 @@ import {
   MAIN_VIEW_SUBHEADING_CLASS,
 } from "@/app/components/layout/mainViewTitleClasses";
 import { Button } from "@/app/components/ui/button";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
 } from "@/app/components/ui/dropdown-menu";

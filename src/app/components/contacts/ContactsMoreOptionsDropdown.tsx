@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/components/ui/dropdown-menu";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 export type ContactsMoreOptionsDropdownProps = {
   /** Opens the bulk import workspace (App shell). */

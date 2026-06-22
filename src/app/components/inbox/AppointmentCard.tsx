@@ -1,5 +1,5 @@
 import { CircleCheck, History, MoreHorizontal } from "lucide-react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 export type AppointmentCardVariant = "booked" | "rescheduled";
 

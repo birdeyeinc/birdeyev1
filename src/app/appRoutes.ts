@@ -1,17 +1,33 @@
 /**
  * Application route registry — single source of truth for all URL paths.
  *
- * URL scheme:
- *   /[module]                        → L1 view (root or default L2)
- *   /[module]/[section]/[item]       → L2 nav item within a module
+ * URL scheme (vertical-namespaced):
+ *   /:vertical/[module]                    → L1 view (root or default L2)
+ *   /:vertical/[module]/[section]/[item]   → L2 nav item within a module
+ *
+ * Route paths in this table are stored WITHOUT the vertical prefix.
+ * The helpers (pathnameToRoute, routeToPath, viewToDefaultPath) accept/return
+ * full browser URLs and strip/prepend the vertical slug automatically.
  *
  * Conventions:
  *   - Slugs are lowercase-hyphenated
  *   - Sections are omitted when flat (referrals, payments)
- *   - For modules that render a single canvas regardless of L2
- *     (reviews, listings, competitors…) only the L1 path is defined here;
- *     the view component manages internal state.
  */
+
+/** Strip the vertical prefix from a full browser pathname. */
+function stripVertical(pathname: string): string {
+  return pathname.replace(/^\/(healthcare|automotive|dental)/, "") || "/";
+}
+
+/** Prepend the current vertical slug to a bare path. */
+function prependVertical(path: string): string {
+  try {
+    const slug = localStorage.getItem("birdeye_active_vertical") ?? "healthcare";
+    return `/${slug}${path}`;
+  } catch {
+    return `/healthcare${path}`;
+  }
+}
 
 import type { AppView } from "./App";
 
@@ -212,7 +228,8 @@ for (const r of APP_ROUTES) {
 }
 
 export function viewToDefaultPath(view: AppView): string {
-  return VIEW_DEFAULT_PATHS[view] ?? "/reviews";
+  const bare = VIEW_DEFAULT_PATHS[view] ?? "/reviews";
+  return prependVertical(bare);
 }
 
 // ─── Lookup helpers ───────────────────────────────────────────────────────────
@@ -222,12 +239,13 @@ export function viewToDefaultPath(view: AppView): string {
  * Exact match wins; otherwise longest-prefix match.
  */
 export function pathnameToRoute(pathname: string): AppRouteEntry | undefined {
+  const bare = stripVertical(pathname);
   // Exact match first
-  const exact = APP_ROUTES.find((r) => r.path === pathname);
+  const exact = APP_ROUTES.find((r) => r.path === bare);
   if (exact) return exact;
   // Longest prefix match (more specific segments win)
   return APP_ROUTES
-    .filter((r) => pathname.startsWith(r.path + "/"))
+    .filter((r) => bare.startsWith(r.path + "/"))
     .sort((a, b) => b.path.length - a.path.length)[0];
 }
 
@@ -239,11 +257,11 @@ export function pathnameToL2Key(pathname: string): string | undefined {
   return pathnameToRoute(pathname)?.l2Key;
 }
 
-/** Resolve a view + optional L2 key to a URL path. */
+/** Resolve a view + optional L2 key to a full vertical-prefixed URL path. */
 export function routeToPath(view: AppView, l2Key?: string): string {
   if (l2Key) {
     const match = APP_ROUTES.find((r) => r.view === view && r.l2Key === l2Key);
-    if (match) return match.path;
+    if (match) return prependVertical(match.path);
   }
   return viewToDefaultPath(view);
 }

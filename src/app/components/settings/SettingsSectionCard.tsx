@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Info, X } from "lucide-react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import {
   MAIN_VIEW_PRIMARY_HEADING_CLASS,
   MAIN_VIEW_SUBHEADING_CLASS,

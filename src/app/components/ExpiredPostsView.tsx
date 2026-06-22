@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { POST_DATA } from "../data/postData";
+import { POST_DATA } from "@/mocks/postData";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "./PlatformIcons";
 import { Clock, RotateCcw, AlertTriangle, Info } from "lucide-react";
 import { Badge } from "@/app/components/ui/badge";

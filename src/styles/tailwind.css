@@ -1,9 +1,5 @@
-@import 'tailwindcss' source(none);
-@source '../**/*.{js,ts,jsx,tsx}';
-/**
- * App-shell utilities referenced by `APP_SHELL_*_CLASS` in `appShellClasses.ts`.
- * Keep them in the Vite bundle via @source inline (Tailwind v4).
- */
+@import 'tailwindcss';
+/* Force-include dynamic app-shell utility classes that Tailwind can't detect from string literals */
 @source inline("bg-app-shell-gutter bg-app-shell-rail bg-app-shell-l1-nav-highlight bg-app-shell-l1-nav-pressed bg-app-shell-l2-surface bg-app-shell-main border-app-shell-border bg-app-shell-l2-row-hover bg-app-shell-l2-row-active bg-app-shell-l2-content-muted");
 
 @import 'tw-animate-css';

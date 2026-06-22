@@ -17,5 +17,14 @@
     "ui": "@/app/components/ui",
     "lib": "@/lib",
     "hooks": "@/app/hooks"
+  },
+  "resolvedPaths": {
+    "tailwindConfig": "",
+    "tailwindCss": "src/styles/tailwind.css",
+    "utils": "src/lib/utils.ts",
+    "components": "src/app/components",
+    "ui": "src/app/components/ui",
+    "lib": "src/lib",
+    "hooks": "src/app/hooks"
   }
 }

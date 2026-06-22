@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { HOVER } from "@/app/components/L2NavLayout";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 type ManusToolbarIconHitProps = React.ComponentProps<"button">;
 

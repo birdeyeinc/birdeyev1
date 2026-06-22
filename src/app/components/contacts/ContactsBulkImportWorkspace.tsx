@@ -59,7 +59,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/app/components/ui/table";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import type {
   BulkImportHistoryRow,
   BulkImportMatchRow,

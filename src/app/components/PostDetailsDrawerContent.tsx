@@ -11,8 +11,8 @@ import {
   Sparkles,
   XCircle,
 } from "lucide-react";
-import { APPROVAL_DATA, type ApprovalLocation } from "../data/approvalData";
-import { POST_DATA, StatusType, type PostPage } from "../data/postData";
+import { APPROVAL_DATA, type ApprovalLocation } from "@/mocks/approvalData";
+import { POST_DATA, StatusType, type PostPage } from "@/mocks/postData";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "./PlatformIcons";
 import { ActivityFeed } from "./ActivityFeed";
 import { MAIN_VIEW_PRIMARY_HEADING_CLASS } from "./layout/mainViewTitleClasses";

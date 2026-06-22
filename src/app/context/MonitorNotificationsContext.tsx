@@ -6,7 +6,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { monitorActivities, type MonitorActivity } from "@/app/data/agentsMonitorMock";
+import { monitorActivities, type MonitorActivity } from "@/mocks/agentsMonitorMock";
 
 export interface MonitorNotificationItem {
   id: string;

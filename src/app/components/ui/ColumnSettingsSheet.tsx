@@ -31,7 +31,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/app/components/ui/sheet";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 export { reorderColumnIds } from "./columnSettingsReorder";
 

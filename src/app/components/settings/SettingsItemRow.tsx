@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import {
   STATUS_DOT_CLASS,
   STATUS_LABEL_CLASS,

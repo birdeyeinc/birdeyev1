@@ -29,7 +29,7 @@
   text-align: left !important;
 }
 
-/* Force left-align on all children (elemental overrides center) */
+/* Force left-align on all children */
 .rhs-drawer *,
 .rhs-drawer label,
 .rhs-drawer p,
@@ -252,7 +252,7 @@
   border-top: 1px solid #e5e9f0;
 }
 
-/* Elemental Button renders as <a> tag — force full width */
+/* Button renders as <a> tag — force full width */
 .rhs-drawer__footer .el-btn,
 .rhs-drawer__footer a,
 .rhs-drawer__footer button {

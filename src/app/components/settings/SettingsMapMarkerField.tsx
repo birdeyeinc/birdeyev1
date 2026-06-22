@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Expand, MapPin } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import { SETTINGS_FORM_FIELD_MAX_CLASS } from "./settingsFormLayout";
 
 export interface SettingsMapMarkerFieldProps {

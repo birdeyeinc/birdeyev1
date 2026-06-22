@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogFooter,
-} from "@/app/components/ui/dialog.v1";
+} from "@/app/components/ui/dialog";
 import { Button } from "@/app/components/ui/button";
 import {
   Select,
@@ -14,8 +14,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/app/components/ui/select.v1";
-import { cn } from "@/app/components/ui/utils";
+} from "@/app/components/ui/select";
+import { cn } from "@/lib/utils";
 import { MOCK_TEMPLATES, type IntakeFormTemplate } from "./intakeFormsMockData";
 
 // ─── Types ────────────────────────────────────────────────────────────────────

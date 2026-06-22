@@ -9,7 +9,7 @@ import {
   XCircle,
   RefreshCw,
 } from 'lucide-react';
-import { POST_ACTIVITIES, type Activity } from '../data/postData';
+import { POST_ACTIVITIES, type Activity } from '@/mocks/postData';
 
 const RV = { fontVariationSettings: "'wdth' 100" } as const;
 

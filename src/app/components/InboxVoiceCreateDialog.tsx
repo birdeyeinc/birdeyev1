@@ -14,17 +14,17 @@ import {
   SheetHeader,
   SheetTitle,
   SheetFooter,
-} from "@/app/components/ui/sheet.v1";
+} from "@/app/components/ui/sheet";
 import { Button } from "@/app/components/ui/button";
-import { TextTabsRow } from "@/app/components/ui/text-tabs.v1";
+import { TextTabsRow } from "@/app/components/ui/text-tabs";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/app/components/ui/select.v1";
-import { cn } from "@/app/components/ui/utils";
+} from "@/app/components/ui/select";
+import { cn } from "@/lib/utils";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

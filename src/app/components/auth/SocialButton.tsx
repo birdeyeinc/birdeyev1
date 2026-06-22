@@ -1,5 +1,5 @@
 import { KeyRound } from "lucide-react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import { FacebookIcon, GoogleIcon, MicrosoftIcon } from "./LoginProviderIcons";
 
 type Provider = "google" | "facebook" | "microsoft" | "sso";

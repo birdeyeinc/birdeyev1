@@ -1,5 +1,5 @@
 import { Sheet, SheetContent } from "@/app/components/ui/sheet";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import {
   FLOATING_SHEET_FRAME_CONTENT_CLASS,
   FloatingSheetFrame,

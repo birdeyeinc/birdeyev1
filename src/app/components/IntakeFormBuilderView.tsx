@@ -13,12 +13,12 @@ import { toast } from "sonner";
 import { MainCanvasViewHeader } from "@/app/components/layout/MainCanvasViewHeader";
 import { Button } from "@/app/components/ui/button";
 import { SegmentedToggle } from "@/app/components/ui/segmented-toggle";
-import { Input } from "@/app/components/ui/input.v1";
-import { Textarea } from "@/app/components/ui/textarea.v1";
-import { Switch } from "@/app/components/ui/switch.v1";
+import { Input } from "@/app/components/ui/input";
+import { Textarea } from "@/app/components/ui/textarea";
+import { Switch } from "@/app/components/ui/switch";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
-} from "@/app/components/ui/select.v1";
+} from "@/app/components/ui/select";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
 } from "@/app/components/ui/dropdown-menu";
@@ -26,7 +26,7 @@ import {
   AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
   AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 } from "@/app/components/ui/alert-dialog";
-import { Skeleton } from "@/app/components/ui/skeleton.v1";
+import { Skeleton } from "@/app/components/ui/skeleton";
 import {
   type IntakeForm, type IntakeFormField, type IntakeFormStep,
   type IntakeFieldType, type IntakeFormStatus,

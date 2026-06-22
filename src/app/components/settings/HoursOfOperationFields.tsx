@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/components/ui/select";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import { HOURS_TIME_OPTIONS, slugFieldDomPart, type HoursOfOperationSection } from "./settingsBusinessProfileData";
 import { SETTINGS_FORM_FIELD_MAX_CLASS } from "./settingsFormLayout";
 

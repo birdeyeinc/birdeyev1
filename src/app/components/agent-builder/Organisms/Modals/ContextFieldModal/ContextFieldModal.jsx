@@ -40,8 +40,7 @@ const DEFAULT_BRAND_ITEMS = [
 ];
 
 // ── Custom underline tabs ─────────────────────────────────────────────────────
-// TabsToggle from elemental renders as pill/toggle buttons — doesn't match Figma's
-// underline-style tabs, so we build this custom.
+// Custom underline-style tabs — pill/toggle pattern doesn't match Figma spec.
 
 function TabBar({ tabs, activeTab, onTabSelect }) {
   return (

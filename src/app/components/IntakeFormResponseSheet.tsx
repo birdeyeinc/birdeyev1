@@ -1,10 +1,10 @@
 import {
   Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter,
-} from "@/app/components/ui/sheet.v1";
+} from "@/app/components/ui/sheet";
 import { Button } from "@/app/components/ui/button";
-import { Badge } from "@/app/components/ui/badge.v1";
+import { Badge } from "@/app/components/ui/badge";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import { type IntakeFormSubmission, formatDateTime, formatDuration } from "./intakeFormsMockData";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {

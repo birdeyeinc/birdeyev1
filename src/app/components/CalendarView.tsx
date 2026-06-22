@@ -1,4 +1,4 @@
-import { POST_DATA } from '../data/postData';
+import { POST_DATA } from '@/mocks/postData';
 import { useState, useEffect, useMemo } from 'react';
 import {
   ChevronLeft, ChevronRight, Filter, MoreVertical, Sparkles,
@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
 import { SocialPostPlatformIcon } from './social/socialPostShared';
-import { cn } from './ui/utils';
+import { cn } from '@/lib/utils';
 import { ReportActionsButton, buildReportContext } from './report-actions/ReportActionsButton';
 
 interface CalendarViewProps {

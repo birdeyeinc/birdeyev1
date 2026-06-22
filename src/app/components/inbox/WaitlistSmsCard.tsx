@@ -1,5 +1,5 @@
 import { Clock, CalendarDays, CircleCheck, History } from "lucide-react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import type { WaitlistSmsData } from "@/app/components/waitlistConversationMockData";
 
 const VARIANT_CONFIG = {

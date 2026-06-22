@@ -35,8 +35,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/app/components/ui/breadcrumb";
-import { cn } from "@/app/components/ui/utils";
-import { CHILD_ACTIVE, CHILD_INACTIVE } from "@/app/components/L2NavLayout.v1";
+import { cn } from "@/lib/utils";
+import { CHILD_ACTIVE, CHILD_INACTIVE } from "@/app/components/L2NavLayout";
 import type { SettingsBusinessRow } from "./settingsBusinessTableData";
 import { HoursOfOperationFields } from "./HoursOfOperationFields";
 import { SettingsMapMarkerField } from "./SettingsMapMarkerField";

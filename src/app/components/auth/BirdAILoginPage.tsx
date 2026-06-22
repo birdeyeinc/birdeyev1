@@ -5,7 +5,7 @@ import svgPaths from "@/imports/svg-y1gexucine";
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import { checkEmailSSO } from "./loginSso";
 import { LoginMarketingPanel } from "./LoginMarketingPanel";
 import { SocialButton } from "./SocialButton";

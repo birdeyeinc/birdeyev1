@@ -6,7 +6,7 @@ import { APP_DATA_TABLE_PRIMARY_ROW_LABEL_CLASS } from "@/app/components/ui/appD
 import { AppDataTableColumnSettingsTrigger } from "@/app/components/ui/AppDataTableColumnSettingsTrigger";
 import { Button } from "@/app/components/ui/button";
 import { FilterPane, FilterPaneTriggerButton } from "@/app/components/FilterPane";
-import type { FilterItem } from "@/app/components/FilterPanel.v1";
+import type { FilterItem } from "@/app/components/FilterPanel";
 import { MainCanvasViewHeader } from "@/app/components/layout/MainCanvasViewHeader";
 import {
   Breadcrumb,
@@ -18,7 +18,7 @@ import {
 } from "@/app/components/ui/breadcrumb";
 import { TextTabsRow } from "@/app/components/ui/text-tabs";
 import { Badge } from "@/app/components/ui/badge";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import type { SettingsBusinessRow } from "./settingsBusinessTableData";
 import { SETTINGS_BUSINESS_ROWS } from "./settingsBusinessTableData";
 

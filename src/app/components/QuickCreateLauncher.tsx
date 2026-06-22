@@ -22,7 +22,7 @@ import {
   PopoverTrigger,
 } from "@/app/components/ui/popover";
 import { L1_STRIP_ICON_SIZE, L1_STRIP_ICON_STROKE_PX } from "@/app/components/l1StripIconTokens";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 /** IA band for Quick Create — four groups (Engage / Programs / Automation / Analytics). */
 export type QuickCreateGroupId =

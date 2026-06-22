@@ -4,7 +4,7 @@
  */
 
 :root {
-  /* Brand (Elemental BK-BIRD-00000-learning $brand-color) */
+  /* Brand */
   --token-brand: var(--brand-color);
   --token-primary-light: var(--brand-color);
   --token-primary-dark: var(--brand-color);
@@ -19,7 +19,7 @@
   --token-l2-border: var(--gray-2000);
   --token-l2-width: 220px;
 
-  /* Typography — aligned with Elemental fs scale (BK-BIRD-00000-learning) */
+  /* Typography */
   --token-font-size-xs: 12px;
   --token-font-size-sm: 14px;
   --token-font-size-md: 14px;
@@ -32,7 +32,7 @@
   --token-radius-control: 8px;
   --token-radius-modal: 12px;
 
-  /* Text — Elemental grey scale */
+  /* Text */
   --token-text-primary: var(--gray-900);
   --token-text-secondary: var(--gray-300);
   --token-text-muted: var(--gray-80);

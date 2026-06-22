@@ -2,7 +2,7 @@
 
 import { Columns3 } from "lucide-react";
 import { Button, type ButtonProps } from "@/app/components/ui/button";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 export type AppDataTableColumnSettingsTriggerProps = Omit<ButtonProps, "children"> & {
   /** Passed to `aria-label` and `title` (e.g. `Tag columns`). */

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { X, Star, Check, ChevronLeft } from "lucide-react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import { Button } from "@/app/components/ui/button";
-import { Input } from "@/app/components/ui/input.v1";
-import { Textarea } from "@/app/components/ui/textarea.v1";
+import { Input } from "@/app/components/ui/input";
+import { Textarea } from "@/app/components/ui/textarea";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
-} from "@/app/components/ui/select.v1";
+} from "@/app/components/ui/select";
 import { type IntakeForm, type IntakeFormField } from "./intakeFormsMockData";
 
 // ─── Types ────────────────────────────────────────────────────────────────────

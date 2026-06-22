@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 import type { BootInsightSlide, BootInsightTag } from "./bootInsightTypes";
 
 function tagLabel(tag: BootInsightTag | undefined): string | null {

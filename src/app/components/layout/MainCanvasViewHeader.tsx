@@ -7,7 +7,7 @@ import {
   MAIN_VIEW_PRIMARY_HEADING_CLASS,
   MAIN_VIEW_SUBHEADING_CLASS,
 } from "@/app/components/layout/mainViewTitleClasses";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 export interface MainCanvasViewHeaderProps {
   title: React.ReactNode;

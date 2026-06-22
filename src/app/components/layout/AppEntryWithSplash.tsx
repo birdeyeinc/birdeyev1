@@ -1,7 +1,7 @@
 import { useLayoutEffect, useState, useRef, useCallback, useEffect, type ReactNode } from "react";
 import { motion } from "motion/react";
 import { BirdeyeLogoMark } from "@/app/components/brand/BirdeyeLogoMark";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 const CENTER_LOGO_PX = 56;
 /** Time the centered (pulsing) logo is shown before the overlay fades. */

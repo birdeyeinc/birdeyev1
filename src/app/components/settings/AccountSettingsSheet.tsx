@@ -13,7 +13,7 @@ import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
 import { Separator } from "@/app/components/ui/separator";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 export type AccountSettingsSheetProps = {
   open: boolean;

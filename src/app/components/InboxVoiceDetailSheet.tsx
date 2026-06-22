@@ -4,14 +4,14 @@ import { motion } from "motion/react";
 import {
   Sheet,
   SheetContent,
-} from "@/app/components/ui/sheet.v1";
+} from "@/app/components/ui/sheet";
 import { FloatingSheetFrame, FLOATING_SHEET_FRAME_CONTENT_CLASS } from "@/app/components/layout/FloatingSheetFrame";
 import { Button } from "@/app/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/app/components/ui/tooltip";
-import { Badge } from "@/app/components/ui/badge.v1";
-import { Slider } from "@/app/components/ui/slider.v1";
-import { Switch } from "@/app/components/ui/switch.v1";
-import { cn } from "@/app/components/ui/utils";
+import { Badge } from "@/app/components/ui/badge";
+import { Slider } from "@/app/components/ui/slider";
+import { Switch } from "@/app/components/ui/switch";
+import { cn } from "@/lib/utils";
 import {
   type VoiceRow,
   type VoiceSettings,

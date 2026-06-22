@@ -4,7 +4,7 @@ import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { ChevronDown } from "lucide-react";
 
-import { cn } from "./utils";
+import { cn } from "@/lib/utils";
 import {
   FLOATING_PANEL_LIST_PADDING_CLASSNAME,
   FLOATING_PANEL_SURFACE_CLASSNAME,

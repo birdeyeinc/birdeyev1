@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import svgPaths from "@/imports/svg-y1gexucine";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 /** viewBox 19.5 / 18.75 */
 const VIEW_W = 19.5;

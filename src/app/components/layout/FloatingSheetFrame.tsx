@@ -8,7 +8,7 @@ import {
   SheetTitle,
 } from "@/app/components/ui/sheet";
 import { Button } from "@/app/components/ui/button";
-import { cn } from "@/app/components/ui/utils";
+import { cn } from "@/lib/utils";
 
 /** Mild edge shadow when body content tucks under header/footer (scroll-linked). */
 const headerEdgeShadowClass =
