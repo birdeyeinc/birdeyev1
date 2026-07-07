@@ -1816,21 +1816,9 @@ export function ContactsView({ app }: ContactsViewProps) {
         header: "Contact name",
         meta: { settingsLabel: "Contact name" },
         size: 220,
-        cell: ({ row }) => {
-          const contact = row.original;
-          return (
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-foreground font-medium">
-                {contact.name}
-              </span>
-              {contact.isLead ? (
-                <Badge variant="secondary" className="font-normal">
-                  Lead
-                </Badge>
-              ) : null}
-            </div>
-          );
-        },
+        cell: ({ row }) => (
+          <span className="font-medium text-foreground">{row.original.name}</span>
+        ),
       }),
       contactColumnHelper.accessor("score", {
         id: "score",

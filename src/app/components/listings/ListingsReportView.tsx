@@ -29,6 +29,7 @@ import { Label } from "@/app/components/ui/label";
 import { Input } from "@/app/components/ui/input";
 import { ChartSummaryTable, type ChartSummaryRow } from "@/app/components/ChartSummaryTable";
 import { KpiValue } from "@/app/components/KpiValue";
+import { SyncStatusTableView } from "@/app/components/listings/SyncStatusTableView";
 
 // ─── Chart data (last 12 months: Jun → May) ─────────────────────────────────
 
@@ -414,6 +415,8 @@ export function ListingsReportView() {
             ))}
           </div>
         </div>
+
+        <SyncStatusTableView />
 
         {/* Chart widgets */}
         {listingsChartWidgets.map(widget => (

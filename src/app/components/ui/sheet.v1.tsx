@@ -90,7 +90,7 @@ function SheetContent({
           side === "right" &&
             inset === "floating" &&
             cn(
-              "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right top-4 right-4 bottom-4 left-auto h-[calc(100vh-2rem)] overflow-y-auto rounded-xl",
+              "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right top-4 right-4 bottom-4 left-auto h-[calc(100vh-2rem)] overflow-y-auto rounded-2xl",
               floatW,
             ),
           side === "left" &&
@@ -99,7 +99,7 @@ function SheetContent({
           side === "left" &&
             inset === "floating" &&
             cn(
-              "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left top-4 bottom-4 left-4 right-auto h-[calc(100vh-2rem)] overflow-y-auto rounded-xl",
+              "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left top-4 bottom-4 left-4 right-auto h-[calc(100vh-2rem)] overflow-y-auto rounded-2xl",
               floatW,
             ),
           side === "top" &&
