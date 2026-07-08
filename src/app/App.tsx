@@ -21,6 +21,7 @@ import {
   viewToDefaultPath,
 } from "./appRoutes";
 import { Toaster, toast } from "sonner";
+import { DevInspector } from "./components/devtools/DevInspector";
 import { MonitorNotificationsProvider } from "./context/MonitorNotificationsContext";
 import { TopBar } from "./components/TopBar";
 import { Dashboard } from "./components/Dashboard";
@@ -565,6 +566,7 @@ export default function App() {
     return (
       <>
         <Toaster position="top-center" richColors />
+        <DevInspector />
         <MobileWebAppGate />
       </>
     );
@@ -575,6 +577,7 @@ export default function App() {
     return (
       <>
         <Toaster position="top-center" richColors />
+        <DevInspector />
         <BirdAILoginPage onAuthenticated={signIn} />
       </>
     );
@@ -628,6 +631,7 @@ export default function App() {
         currentView={currentView}
       />
       <Toaster position="top-center" richColors />
+      <DevInspector />
 
       {/* L1 icon strip – full height on the far left */}
       <IconStrip
