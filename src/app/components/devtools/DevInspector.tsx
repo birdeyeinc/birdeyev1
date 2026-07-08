@@ -62,6 +62,174 @@ function rectFromElement(el: Element): HighlightRect {
   };
 }
 
+const MEASURE_COLOR = "#3b82f6";
+const MEASURE_HATCH = `repeating-linear-gradient(-45deg, ${MEASURE_COLOR}40 0, ${MEASURE_COLOR}40 1.5px, transparent 1.5px, transparent 6px)`;
+
+type MeasureBand = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  distance: number;
+};
+
+/**
+ * Figma-style spacing bands between the selected box (S) and a hovered box (T).
+ * Each band is a hatched rectangle filling the gap, labelled with the distance.
+ * - Containment → 4 inset bands (S inside T, or T inside S).
+ * - Disjoint on an axis → the gap band on that axis.
+ */
+function computeMeasureBands(
+  s: HighlightRect,
+  t: HighlightRect,
+): MeasureBand[] {
+  const sL = s.left;
+  const sR = s.left + s.width;
+  const sT = s.top;
+  const sB = s.top + s.height;
+  const tL = t.left;
+  const tR = t.left + t.width;
+  const tT = t.top;
+  const tB = t.top + t.height;
+
+  const sInsideT = sL >= tL && sR <= tR && sT >= tT && sB <= tB;
+  const tInsideS = tL >= sL && tR <= sR && tT >= sT && tB <= sB;
+
+  if (sInsideT || tInsideS) {
+    const inner = sInsideT ? s : t;
+    const outer = sInsideT ? t : s;
+    const iL = inner.left;
+    const iR = inner.left + inner.width;
+    const iT = inner.top;
+    const iB = inner.top + inner.height;
+    const oL = outer.left;
+    const oR = outer.left + outer.width;
+    const oT = outer.top;
+    const oB = outer.top + outer.height;
+    return [
+      { left: oL, top: iT, width: iL - oL, height: inner.height, distance: iL - oL },
+      { left: iR, top: iT, width: oR - iR, height: inner.height, distance: oR - iR },
+      { left: iL, top: oT, width: inner.width, height: iT - oT, distance: iT - oT },
+      { left: iL, top: iB, width: inner.width, height: oB - iB, distance: oB - iB },
+    ].filter((b) => b.distance >= 0.5);
+  }
+
+  const bands: MeasureBand[] = [];
+
+  const yA = Math.max(sT, tT);
+  const yB = Math.min(sB, tB);
+  const hasVOverlap = yB > yA;
+  const bandTop = hasVOverlap ? yA : sT;
+  const bandH = hasVOverlap ? yB - yA : s.height;
+  if (sR <= tL) {
+    bands.push({ left: sR, top: bandTop, width: tL - sR, height: bandH, distance: tL - sR });
+  } else if (tR <= sL) {
+    bands.push({ left: tR, top: bandTop, width: sL - tR, height: bandH, distance: sL - tR });
+  }
+
+  const xA = Math.max(sL, tL);
+  const xB = Math.min(sR, tR);
+  const hasHOverlap = xB > xA;
+  const bandLeft = hasHOverlap ? xA : sL;
+  const bandW = hasHOverlap ? xB - xA : s.width;
+  if (sB <= tT) {
+    bands.push({ left: bandLeft, top: sB, width: bandW, height: tT - sB, distance: tT - sB });
+  } else if (tB <= sT) {
+    bands.push({ left: bandLeft, top: tB, width: bandW, height: sT - tB, distance: sT - tB });
+  }
+
+  return bands.filter((b) => b.distance >= 0.5);
+}
+
+/**
+ * Figma-style "space around": for a hovered element, the gap to the nearest
+ * sibling on each side (top/right/bottom/left) that overlaps on the
+ * perpendicular axis. Returns up to 4 hatched bands.
+ */
+function findNeighborBands(el: Element): MeasureBand[] {
+  const parent = el.parentElement;
+  if (!parent) return [];
+  const R = el.getBoundingClientRect();
+  if (R.width === 0 || R.height === 0) return [];
+  const eps = 0.5;
+
+  let right: MeasureBand | null = null;
+  let left: MeasureBand | null = null;
+  let top: MeasureBand | null = null;
+  let bottom: MeasureBand | null = null;
+
+  for (const sib of Array.from(parent.children)) {
+    if (sib === el) continue;
+    if (sib.closest(`[${INSPECTOR_ATTR}]`)) continue;
+    const c = sib.getBoundingClientRect();
+    if (c.width === 0 || c.height === 0) continue;
+
+    const vTop = Math.max(R.top, c.top);
+    const vBot = Math.min(R.bottom, c.bottom);
+    const vOverlap = vBot - vTop;
+    if (vOverlap > 0) {
+      if (c.left >= R.right - eps) {
+        const gap = c.left - R.right;
+        if (gap >= eps && (!right || gap < right.distance)) {
+          right = { left: R.right, top: vTop, width: gap, height: vOverlap, distance: gap };
+        }
+      } else if (c.right <= R.left + eps) {
+        const gap = R.left - c.right;
+        if (gap >= eps && (!left || gap < left.distance)) {
+          left = { left: c.right, top: vTop, width: gap, height: vOverlap, distance: gap };
+        }
+      }
+    }
+
+    const hLeft = Math.max(R.left, c.left);
+    const hRight = Math.min(R.right, c.right);
+    const hOverlap = hRight - hLeft;
+    if (hOverlap > 0) {
+      if (c.top >= R.bottom - eps) {
+        const gap = c.top - R.bottom;
+        if (gap >= eps && (!bottom || gap < bottom.distance)) {
+          bottom = { left: hLeft, top: R.bottom, width: hOverlap, height: gap, distance: gap };
+        }
+      } else if (c.bottom <= R.top + eps) {
+        const gap = R.top - c.bottom;
+        if (gap >= eps && (!top || gap < top.distance)) {
+          top = { left: hLeft, top: c.bottom, width: hOverlap, height: gap, distance: gap };
+        }
+      }
+    }
+  }
+
+  return [right, left, top, bottom].filter(Boolean) as MeasureBand[];
+}
+
+function MeasureOverlay({ bands }: { bands: MeasureBand[] }) {
+  return (
+    <>
+      {bands.map((b, i) => (
+        <div
+          key={i}
+          className="pointer-events-none fixed flex items-center justify-center overflow-visible"
+          style={{
+            top: b.top,
+            left: b.left,
+            width: b.width,
+            height: b.height,
+            backgroundImage: MEASURE_HATCH,
+            outline: `1px dashed ${MEASURE_COLOR}80`,
+          }}
+        >
+          <span
+            className="rounded-sm px-1.5 py-0.5 text-[11px] font-semibold leading-none text-white shadow-sm"
+            style={{ backgroundColor: MEASURE_COLOR }}
+          >
+            {Math.round(b.distance)}
+          </span>
+        </div>
+      ))}
+    </>
+  );
+}
+
 function CopyButton({
   text,
   label,
@@ -145,16 +313,23 @@ export function DevInspector() {
   const [selectedRect, setSelectedRect] = React.useState<HighlightRect | null>(
     null,
   );
+  const [measureRect, setMeasureRect] = React.useState<HighlightRect | null>(
+    null,
+  );
+  const [neighborBands, setNeighborBands] = React.useState<MeasureBand[]>([]);
 
   const clearSelection = React.useCallback(() => {
     setSelectedEl(null);
     setSelectedSpec(null);
     setSelectedRect(null);
+    setMeasureRect(null);
   }, []);
 
   const disarm = React.useCallback(() => {
     setArmed(false);
     setHoverRect(null);
+    setMeasureRect(null);
+    setNeighborBands([]);
     clearSelection();
   }, [clearSelection, setArmed]);
 
@@ -169,10 +344,12 @@ export function DevInspector() {
     const onMove = (event: MouseEvent) => {
       if (isInsideInspector(event.target)) {
         setHoverRect(null);
+        setNeighborBands([]);
         return;
       }
       const el = pickInspectableElement(event.clientX, event.clientY);
       setHoverRect(el ? rectFromElement(el) : null);
+      setNeighborBands(el ? findNeighborBands(el) : []);
     };
 
     // Alt/Option (or Meta) + click captures. Plain clicks pass through so
@@ -197,6 +374,7 @@ export function DevInspector() {
       setSelectedSpec(buildInspectorSpec(el));
       setSelectedRect(rectFromElement(el));
       setHoverRect(null);
+      setNeighborBands([]);
     };
 
     document.addEventListener("mousemove", onMove);
@@ -208,6 +386,31 @@ export function DevInspector() {
       document.removeEventListener("click", onClick, true);
     };
   }, [armed, selectedSpec]);
+
+  // With a selection active, hovering another element measures the spacing
+  // between the two boxes (Figma-style distance guides).
+  React.useEffect(() => {
+    if (!armed || !selectedSpec || !selectedEl) return;
+
+    const onMove = (event: MouseEvent) => {
+      if (isInsideInspector(event.target)) {
+        setMeasureRect(null);
+        return;
+      }
+      const el = pickInspectableElement(event.clientX, event.clientY);
+      if (!el || el === selectedEl) {
+        setMeasureRect(null);
+        return;
+      }
+      setMeasureRect(rectFromElement(el));
+    };
+
+    document.addEventListener("mousemove", onMove);
+    return () => {
+      document.removeEventListener("mousemove", onMove);
+      setMeasureRect(null);
+    };
+  }, [armed, selectedEl, selectedSpec]);
 
   React.useEffect(() => {
     if (!armed) return;
@@ -238,6 +441,10 @@ export function DevInspector() {
 
   const activeRect = selectedRect ?? hoverRect;
   const allCss = selectedSpec ? specToCss(selectedSpec) : "";
+  const measureBands =
+    selectedRect && measureRect
+      ? computeMeasureBands(selectedRect, measureRect)
+      : [];
 
   return (
     <div {...{ [INSPECTOR_ATTR]: "" }} className="pointer-events-none fixed inset-0 z-[9999]">
@@ -257,10 +464,40 @@ export function DevInspector() {
         </div>
       ) : null}
 
+      {armed && measureRect ? (
+        <div
+          className="pointer-events-none fixed border border-dashed"
+          style={{
+            top: measureRect.top,
+            left: measureRect.left,
+            width: measureRect.width,
+            height: measureRect.height,
+            borderColor: MEASURE_COLOR,
+          }}
+        >
+          <span
+            className="absolute left-0 top-full mt-1 whitespace-nowrap rounded-sm px-2 py-0.5 text-[10px] font-medium text-white"
+            style={{ backgroundColor: MEASURE_COLOR }}
+          >
+            {Math.round(measureRect.width)} × {Math.round(measureRect.height)}
+          </span>
+        </div>
+      ) : null}
+
+      {armed ? (
+        <MeasureOverlay bands={selectedRect ? measureBands : neighborBands} />
+      ) : null}
+
       <div className="pointer-events-auto fixed bottom-4 right-4 flex flex-col items-end gap-2">
         {armed && !selectedSpec ? (
           <div className="rounded-md bg-foreground/90 px-2 py-1 text-[11px] font-medium text-background shadow-lg">
             {isMac ? "⌥ Option" : "Alt"} + click to inspect · click to interact
+          </div>
+        ) : null}
+
+        {armed && selectedSpec ? (
+          <div className="rounded-md bg-foreground/90 px-2 py-1 text-[11px] font-medium text-background shadow-lg">
+            Hover any element to measure spacing
           </div>
         ) : null}
 
