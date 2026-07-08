@@ -488,67 +488,98 @@ export function DevInspector() {
         <MeasureOverlay bands={selectedRect ? measureBands : neighborBands} />
       ) : null}
 
-      <div className="pointer-events-auto fixed bottom-4 right-4 flex flex-col items-end gap-2">
-        {armed && !selectedSpec ? (
-          <div className="rounded-md bg-foreground/90 px-2 py-1 text-[11px] font-medium text-background shadow-lg">
-            {isMac ? "⌥ Option" : "Alt"} + click to inspect · click to interact
-          </div>
-        ) : null}
-
-        {armed && selectedSpec ? (
-          <div className="rounded-md bg-foreground/90 px-2 py-1 text-[11px] font-medium text-background shadow-lg">
-            Hover any element to measure spacing
-          </div>
-        ) : null}
-
-        {armed && selectedSpec ? (
+      <div className="pointer-events-auto fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
+        {armed ? (
           <div
             className={cn(
               FLOATING_PANEL_SURFACE_CLASSNAME,
-              "flex max-h-[min(70vh,560px)] w-[min(420px,calc(100vw-2rem))] flex-col gap-4 overflow-hidden p-4",
+              "flex w-[min(380px,calc(100vw-3rem))] max-h-[min(560px,calc(100vh-120px))] flex-col overflow-hidden",
             )}
           >
-            <div className="flex items-start justify-between gap-2">
-              <div className="min-w-0">
-                <p className="truncate text-sm font-medium text-foreground">
-                  {selectedSpec.label}
-                </p>
-                <p className="truncate font-mono text-[11px] text-muted-foreground">
-                  {selectedSpec.selectorHint}
-                </p>
+            <div className="flex items-center justify-between gap-2 border-b border-border/80 px-4 py-3">
+              <div className="flex min-w-0 items-center gap-2">
+                <Crosshair
+                  className="size-[18px] shrink-0"
+                  strokeWidth={L1_STRIP_ICON_STROKE_PX}
+                  absoluteStrokeWidth
+                />
+                <span className="text-sm font-semibold text-foreground">
+                  Inspector
+                </span>
+                <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">
+                  Active
+                </span>
               </div>
-              <div className="flex shrink-0 items-center gap-1">
-                <CopyButton text={allCss} label="Copy all CSS" />
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon"
-                  className="size-8"
-                  onClick={clearSelection}
-                  aria-label="Close inspector panel"
-                >
-                  <X
-                    className="size-4"
-                    strokeWidth={L1_STRIP_ICON_STROKE_PX}
-                    absoluteStrokeWidth
-                  />
-                </Button>
-              </div>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="size-8"
+                onClick={disarm}
+                aria-label="Close inspector"
+              >
+                <X
+                  className="size-4"
+                  strokeWidth={L1_STRIP_ICON_STROKE_PX}
+                  absoluteStrokeWidth
+                />
+              </Button>
             </div>
 
-            <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-1">
-              {selectedSpec.sections.map((section) => (
-                <SectionBlock key={section.title} section={section} />
-              ))}
+            <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-hidden p-4">
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                {selectedSpec
+                  ? "Hover any element to measure spacing"
+                  : `${isMac ? "⌥ Option" : "Alt"} + click to inspect · click to interact`}
+              </p>
+
+              {selectedSpec ? (
+                <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-hidden">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-medium text-foreground">
+                        {selectedSpec.label}
+                      </p>
+                      <p className="truncate font-mono text-[11px] text-muted-foreground">
+                        {selectedSpec.selectorHint}
+                      </p>
+                    </div>
+                    <div className="flex shrink-0 items-center gap-1">
+                      <CopyButton text={allCss} label="Copy all CSS" />
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="size-8"
+                        onClick={clearSelection}
+                        aria-label="Close inspector panel"
+                      >
+                        <X
+                          className="size-4"
+                          strokeWidth={L1_STRIP_ICON_STROKE_PX}
+                          absoluteStrokeWidth
+                        />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-1">
+                    {selectedSpec.sections.map((section) => (
+                      <SectionBlock key={section.title} section={section} />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         ) : null}
 
         <Button
           type="button"
-          variant={armed ? "default" : "outline"}
+          variant="default"
+          size="icon"
           className={cn(
-            "h-10 gap-2 shadow-lg",
+            "size-14 rounded-full shadow-[0_4px_16px_rgba(59,130,246,0.35),0_8px_24px_rgba(15,23,42,0.12)] transition-transform hover:scale-[1.04]",
             armed && "ring-2 ring-primary/30",
           )}
           onClick={() => {
@@ -559,13 +590,13 @@ export function DevInspector() {
             }
           }}
           aria-pressed={armed}
+          aria-label={armed ? "Close inspector" : "Open inspector"}
         >
           <Crosshair
-            className="size-4"
+            className="size-6"
             strokeWidth={L1_STRIP_ICON_STROKE_PX}
             absoluteStrokeWidth
           />
-          {armed ? "Inspecting" : "Inspect"}
         </Button>
       </div>
     </div>
